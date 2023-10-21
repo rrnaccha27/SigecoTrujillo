@@ -1,0 +1,100 @@
+﻿@model SIGEES.Web.Models.Bean.BeanItemTipoAcceso
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<input type="hidden" id="hdCodigo" />
+<input type="hidden" id="hdNombre" />
+<input type="hidden" id="hdPreciosEliminar" value="" />
+<input type="hidden" id="hdCodigoPrecio" />
+<input type="hidden" id="hdComisionEliminar" />
+
+<div style="width: 99%; background-color: #D3EBDE; vertical-align: middle; padding-top: 2%; padding-bottom: 2%; padding-left: 1%" >
+    
+    <center>
+        <h2>Mantenimiento Artículo</h2>
+    </center>
+
+    <br />
+    <div style="width: 100%">
+        <div>
+            <label class="colGridModal">Descripción</label>
+            <input class="easyui-textbox" id="txt_nombre_articulo" style="width:25%;">
+        </div>
+    </div>
+    <br />
+    <div style="width: 100%">
+        @if (Model.estadoLectura != null && Model.estadoLectura.CompareTo("A") == 0)
+        {
+            <a href="javascript:fnBuscarArticulo()" id="btnBuscar" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " iconcls="icon-search">Buscar</a>
+            <a href="javascript:fnVisualizarArticulo()" id="btnVisualizar" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " iconCls="icon-detail">Detalle</a>
+        }
+        @if ( (Model.estadoEscritura != null && Model.estadoEscritura.CompareTo("A") == 0) && (Model.estadoEscrituraArticulo != null && Model.estadoEscrituraArticulo.CompareTo("A") == 0) )
+        {
+            <a href="javascript:fnNuevoArticulo();" id="btnNuevo" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " iconCls="icon-add">Crear</a>
+        }
+        @if ( (Model.estadoModificacion != null && Model.estadoModificacion.CompareTo("A") == 0) && (Model.estadoEscrituraArticulo != null && Model.estadoEscrituraArticulo.CompareTo("A") == 0) )
+        {
+            <a href="javascript:void(0)" id="btnModificar" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " data-options="disabled:true,iconCls:'icon-edit'">Modificar</a>
+        }
+        @if ( (Model.estadoEliminacion != null && Model.estadoEliminacion.CompareTo("A") == 0) && (Model.estadoEscrituraArticulo != null && Model.estadoEscrituraArticulo.CompareTo("A") == 0) )
+        {
+            <a href="javascript:void(0);" id="btnEliminar" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px;" data-options="disabled:true,iconCls:'icon-cancel'">Desactivar</a>
+            
+            @*if (Model.estadoPermisoTotal != null && Model.estadoPermisoTotal.CompareTo("A") == 0)
+            { 
+                <a href="javascript:void(0);" id="btnActivar" class="easyui-linkbutton" style="background-color: #252E3D; color: white; padding: 2px 15px 2px 15px;" data-options="disabled:true,plain:true,iconCls:'icon-ok'">Activar</a>
+            }*@
+        }
+    </div>
+</div>
+<br />
+<div style="width: 99%; padding-left: 1%">
+    @if (Model.estadoLectura != null && Model.estadoLectura.CompareTo("A") == 0)
+    {
+        <table id="dgv_lista_articulo" style="width: 100%;"></table>
+    }
+</div>
+
+
+<div id="div_registrar_articulo" class="easyui-dialog" data-options="resizable:true,modal:true,closed:true,maximizable:true"
+     style="width: 90%; height: 90%;line-height: 20px;"></div>
+
+<div id="div_visualizar_articulo" class="easyui-dialog" data-options="resizable:true,modal:true,closed:true,maximizable:true"
+     style="width: 90%; height: 90%;line-height: 20px;"></div>
+
+<div id="mm" class="easyui-menu">
+    <div onclick="fnCopiar('codigo_sku');">Copiar SKU</div>
+    <div onclick="fnCopiar('nombre');">Copiar Nombre</div>
+</div>
+
+<script type="text/javascript" src="~/Areas/Comision/Scripts/Views/Articulo/articulo.index.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        var actionUrls =
+        {
+            _GetAllJson: '@Url.Action("GetAllJson", "Articulo", new { area = "Comision" })',
+            _Registrar: '@Url.Action("_Registrar", "Articulo", new { area ="Comision" })',
+            _Eliminar: '@Url.Action("_Eliminar", "Articulo", new { area = "Comision" })',
+            _Visualizar: '@Url.Action("_Visualizar", "Articulo", new { area ="Comision" })',
+            _Activar: '@Url.Action("_Activar", "Articulo", new { area ="Comision" })'
+        };
+        project.articulo_index.Initialize(actionUrls);
+
+        $("#btnEliminar").on("click", function () {
+            if (!$("#btnEliminar").linkbutton("options").disabled) {
+                Eliminar();
+            }
+        });
+
+        $("#btnModificar").on("click", function () {
+            if (!$("#btnModificar").linkbutton("options").disabled) {
+                fnModificarArticulo(0);
+            }
+        });
+    });
+</script>

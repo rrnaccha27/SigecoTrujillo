@@ -1,0 +1,66 @@
+﻿@model SIGEES.Web.Models.Bean.BeanItemTipoAcceso
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div style="width: 99%;background-color: #D3EBDE; vertical-align: middle; padding-top: 1%; padding-bottom: 2%; padding-left: 1%">
+    <center>
+        <h2>CheckList de Bono Trimestral</h2>
+    </center>
+    <div style="width:100%" id="toolbar_planilla_opcion">
+        @if (Model.estadoLectura != null && Model.estadoLectura.CompareTo("A") == 0)
+        {
+            <a href="javascript:fnConsultarIndex()" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " data-options="iconCls:'icon-search'">Buscar</a>
+        }
+        @if (Model.estadoChecklistEscritura != null && Model.estadoChecklistEscritura.CompareTo("A") == 0)
+        {
+            <a href="javascript:ListarPlanilla()" id="btnNuevo" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " data-options="iconCls:'icon-gear'">Generar</a>
+        }
+        @if (Model.estadoLectura != null && Model.estadoLectura.CompareTo("A") == 0)
+        {
+            <a href="javascript:Revisar()" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " data-options="iconCls:'icon-detail'">Revisar</a>
+        }
+        @if (Model.estadoGenerarTXT_RRHH != null && Model.estadoGenerarTXT_RRHH.CompareTo("A") == 0)
+        {
+            <a href="javascript:void(0);" id="btnGenerarTxtRRHH" class="easyui-linkbutton easyui-tooltip" style="padding: 2px 15px 2px 15px; " data-options="disabled:true, iconCls:'icon-gear'" title="Para RRHH">Generar TXT</a>
+        }
+        @if (Model.estadoGenerarTXT_Cont != null && Model.estadoGenerarTXT_Cont.CompareTo("A") == 0)
+        {
+            <a href="javascript:void(0);" id="btnGenerarTxtCont" class="easyui-linkbutton easyui-tooltip" style="padding: 2px 15px 2px 15px; " data-options="disabled:true, iconCls:'icon-gear'" title="Para Contabilidad">Generar TXT</a>
+        }
+    </div>
+</div>
+<br />
+
+<div style="width: 99%; padding-left: 1%">
+    <table id="dg_principal" style="width: 100%"></table>
+</div>
+
+<div id="dlgListadoPlanilla" class="easyui-dialog" data-options="modal:true,closed:true,maximizable:true,buttons:'#divRegistroBotones'"
+     style="width: 80%; height: 80%; padding: 5px 5px; line-height: 10px;"></div>
+<div id="dlgRevisar" class="easyui-dialog" data-options="resizable:true,modal:true,closed:true,maximizable:true"
+     style="width: 70%; height: 100%;line-height: 15px;"></div>
+<div id="dlgTxtContabilidad" class="easyui-dialog" data-options="resizable:true,modal:true,closed:true"
+     style="width: 390px; height: 160px;line-height: 15px;"></div>
+
+@section scripts
+{
+<script type="text/javascript" src="~/Areas/Comision/Scripts/Views/ChecklistBonoTrimestral/checklistbonotrimestral.index.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        var actionUrls =
+        {
+            _Buscar: '@Url.Action("_Buscar", "ChecklistBonoTrimestral", new { area = "Comision" })',
+            _Planilla: '@Url.Action("_Planilla", "ChecklistBonoTrimestral", new { area = "Comision" })',
+            _Listado: '@Url.Action("_Listado", "ChecklistBonoTrimestral", new { area = "Comision" })',
+            _TXTContabilidad: '@Url.Action("_TXTContabilidad", "ChecklistBonoTrimestral", new { area = "Comision" })',
+            GenerarTxt: '@Url.Action("GenerarTxtRRHH", "ChecklistBonoTrimestral", new { area = "Comision" })',
+        };
+
+        project.index.Initialize(actionUrls);
+    });
+</script>
+}

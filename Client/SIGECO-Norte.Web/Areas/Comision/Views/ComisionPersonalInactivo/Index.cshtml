@@ -1,0 +1,84 @@
+﻿@model SIGEES.Web.Models.Bean.BeanItemTipoAcceso
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<input type="hidden" id="hdCodigoEmpresa" />
+<input type="hidden" id="hdNroContrato" />
+
+<div style="width: 99%; background-color: #D3EBDE; vertical-align: middle; padding-top: 2%; padding-bottom: 2%; padding-left: 1%">
+    <center>
+        <h2>Comisión de Personal Inactivo</h2>
+    </center>
+    <br />
+    <div style="width: 100%">
+        <label class="colGridModal">Fecha Inactivación:</label>&nbsp;&nbsp;<label class="colGridModal">Inicio</label>&nbsp;
+        <input class="easyui-datebox" id="fechaInicio" name="fechaInicio" style="width:140px;" data-options="required:true" />&nbsp;&nbsp;&nbsp;
+        <label class="colGridModal">Fin</label>&nbsp;
+        <input class="easyui-datebox" id="fechaFin" name="fechaFin" style="width:140px;" data-options="required:true" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label class="colGridModal">Canal de Venta:</label>&nbsp;
+        <input class="easyui-combobox" id="codigo_canal" name="codigo_canal" style="width: 20%" data-options="required:true,editable:false,multiple:true" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label class="colGridModal">Estado:</label>&nbsp;
+        <input class="easyui-combobox" id="cmb_liquidado" name="cmb_liquidado" style="width: 10%" data-options="required:true,editable:false" />
+    </div>
+    <br />
+    <div style="width: 100%">
+        @if (Model.estadoLectura.CompareTo("A") == 0)
+        {
+            <a href="javascript:GetAllJson()" id="btnBuscar" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " data-options="iconCls:'icon-search'">Buscar</a>
+            <a href="javascript:Detalle()" id="btnDetalle" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " data-options="iconCls:'icon-edit'">Detalle</a>
+        }            
+        @if (Model.estadoComisionInactivaNivel1.CompareTo("A") == 0)
+        {
+            <a href="javascript:GuardarResultado(1, 1)" id="btnAprobarN1" class="easyui-linkbutton easyui-tooltip" style="padding: 2px 15px 2px 15px; " data-options="iconCls:'icon-ok'" title="Por Comercial">Aprobar</a>
+            <a href="javascript:GuardarResultado(1, 2)" id="btnRechazarN1" class="easyui-linkbutton easyui-tooltip" style="padding: 2px 15px 2px 15px; " data-options="iconCls:'icon-cancel'" title="Por Comercial">Rechazar</a>
+        }
+        @if (Model.estadoComisionInactivaNivel2.CompareTo("A") == 0)
+        {
+            <a href="javascript:GuardarResultado(2, 1)" id="btnAprobarN2" class="easyui-linkbutton easyui-tooltip" style="padding: 2px 15px 2px 15px; " data-options="iconCls:'icon-ok'" title="Por Administración">Aprobar</a>
+            <a href="javascript:GuardarResultado(2, 2)" id="btnRechazarN2" class="easyui-linkbutton easyui-tooltip" style="padding: 2px 15px 2px 15px; " data-options="iconCls:'icon-cancel'" title="Por Administración">Rechazar</a>
+        }
+        @if (Model.estadoLectura.CompareTo("A") == 0)
+        {
+            <a href="javascript:ExportarExcel()" id="btnReporte" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " data-options="iconCls:'icon-excel'">Exportar</a>
+        }
+    </div>
+</div>
+<br />
+<div style="width: 99%; padding-left: 1%">
+    @if (Model.estadoLectura.CompareTo("A") == 0)
+    {
+        <table id="DataGrid" style="width: 100%"></table>
+    }
+</div>
+
+<div id="div_exportar" class="easyui-dialog" data-options="modal:true,closed:true,buttons:'#divRegistroBotones'"
+     style="width: 50%; height: 400px; padding: 5px 5px; line-height: 10px;">
+</div>
+
+<div id="dlgDetalle" class="easyui-dialog" data-options="modal:true,closed:true,buttons:'#divRegistroBotonesDetalle'"
+     style="width: 65%; height: 473px; padding:4px; line-height: 10px;">
+</div>
+
+<script type="text/javascript" src="~/Areas/Comision/Scripts/Views/ComisionPersonalInactivo/comisionpersonalinactivo.index.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var actionUrls =
+        {
+            GetFechasJson: '@Url.Action("GetFechasJson", "ComisionPersonalInactivo", new { area = "Comision" })',
+            GetAllJson: '@Url.Action("GetAllJson", "ComisionPersonalInactivo", new { area = "Comision" })',
+            GetCanalJson: '@Url.Action("GetCanalJson", "ComisionPersonalInactivo", new { area = "Comision" })',
+            SetExportData: '@Url.Action("SetExportData", "ComisionPersonalInactivo", new { area = "Comision" })',
+            ExportarExcel: '@Url.Action("ExportarExcel", "ComisionPersonalInactivo", new { area = "Comision" })',
+            GetLiquidadoJson: '@Url.Action("GetLiquidadoJson", "ComisionPersonalInactivo", new { area = "Comision" })',
+            Aprobar: '@Url.Action("Aprobar", "ComisionPersonalInactivo", new { area = "Comision" })',
+            _Detalle: '@Url.Action("_Detalle", "ComisionPersonalInactivo", new { area = "Comision" })',
+        };
+        project.index.Initialize(actionUrls);
+
+    });
+</script>
+

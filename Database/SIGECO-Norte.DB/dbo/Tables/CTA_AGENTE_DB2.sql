@@ -1,0 +1,21 @@
+﻿CREATE TABLE [dbo].[CTA_AGENTE_DB2] (
+    [COD_COMISION]      INT             NOT NULL,
+    [COD_BIEN]          VARCHAR (6)     NULL,
+    [COD_CONCEPTO]      VARCHAR (3)     NULL,
+    [NUM_CONTRATO]      VARCHAR (10)    NULL,
+    [TIPO_VENTA]        VARCHAR (1)     NULL,
+    [ID_FORMA_DE_PAGO]  VARCHAR (1)     NULL,
+    [TIPO_COMISION]     VARCHAR (4)     NULL,
+    [TIPO_AGENTE_G]     VARCHAR (4)     NULL,
+    [C_AGENTE]          VARCHAR (10)    NULL,
+    [COD_GRUPO_VENTA_G] VARCHAR (4)     NULL,
+    [IMP_COMISION]      DECIMAL (14, 2) NULL,
+    [IMP_SUPERVISOR]    DECIMAL (14, 2) NULL,
+    [CUOTAS_A_PAGAR]    SMALLINT        NULL,
+    [TIPO_MONEDA]       CHAR (1)        NULL,
+    [COD_EMPRESA_G]     CHAR (4)        NULL,
+    [COD_ADENDO]        VARCHAR (10)    NULL,
+    [FLAG_COMI_ESP]     CHAR (1)        NULL,
+    [C_ADICIONAL]       VARCHAR (11)    NULL,
+    CONSTRAINT [CTA_AGENTE_K] PRIMARY KEY NONCLUSTERED ([COD_COMISION] ASC)
+);

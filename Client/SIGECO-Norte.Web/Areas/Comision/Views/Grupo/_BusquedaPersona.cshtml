@@ -1,0 +1,29 @@
+﻿<div id="dlgBusquedaPersona" class="easyui-dialog" data-options="modal:true,closed:true,buttons:'#dlgBusquedaPersonaBotones'"
+     style="width: 50%; height: 90%; padding: 10px 20px; line-height: 20px;">
+
+    <div class="easyui-layout" data-options="fit:true">
+        <form id="frmBusquedaPersona" method="post">
+            <div data-options="region:'center'" style="padding:10px;">
+                <br />
+                <hr style="color: #B5B5B5; width:96%" />
+                <div class="panelGridModal">
+                    <div class="rowGridModalDouble">
+                        <input class="easyui-textbox" id="nombre" name="nombre" data-options="buttonText:'Buscar Vendedor',buttonAlign:'right',buttonIcon:'icon-search'" style="width:100%;">
+                    </div>
+                    <div class="rowGridModalDouble">
+                        <label class="colGridModal">Lista Vendedor</label>
+                        <table id="dgPersonas" style="width: 100%"></table>
+                    </div>
+                    <div class="rowBoth" />
+                </div>
+                <br />
+                <hr style="color: #B5B5B5; width:96%" />
+
+            </div>
+            @*<div id="dlgBusquedaPersonaBotones">
+                <a href="#" class="easyui-linkbutton" iconcls="icon-ok" id="btnSeleccionar">Seleccionar</a>
+                <a href="#" class="easyui-linkbutton" iconcls="icon-cancel" id="btnCancelar">Cancelar</a>
+            </div>*@
+        </form>
+    </div>
+</div>

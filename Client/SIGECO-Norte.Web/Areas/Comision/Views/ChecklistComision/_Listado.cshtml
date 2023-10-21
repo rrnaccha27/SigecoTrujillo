@@ -1,0 +1,26 @@
+﻿@model SIGEES.Entidades.Planilla_bono_dto
+
+<div class="easyui-layout" data-options="fit:true">
+    <div data-options="region:'center', border:false" style="padding:5px;">
+        <table id="dgPlanilla" style="width: 100%; height:100%"></table>
+    </div>
+
+    <div data-options="region:'south', border:false" style="padding:5px;">
+        <div id="divRegistroBotones" style="width: 100%; height: 100%; display: inline-block; text-align:right;">
+            <a href="javascript:AceptarSeleccion()" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " iconcls="icon-ok" id="btnSeleccionar">Aceptar</a>
+            <a href="javascript:CerrarSeleccion()" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " iconcls="icon-cancel" id="btnCancelar">Cerrar</a>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="~/Areas/Comision/Scripts/Views/ChecklistComision/checklistcomision.listado.js"></script>
+<script type="text/javascript">
+    var actionListadoUrls =
+    {
+        GetPlanillaJson: '@Url.Action("GetPlanillaJson", "ChecklistComision", new { area = "Comision" })',
+        AperturarChecklist: '@Url.Action("Aperturar", "ChecklistComision", new { area = "Comision" })',
+    };
+
+    $(document).ready(function () {
+        project.checklist_listado_planilla.Initialize(actionListadoUrls);
+    });
+</script>

@@ -1,0 +1,21 @@
+﻿CREATE TABLE [dbo].[DET_TAB_GENERALES_DB2] (
+    [COD_ITEM]        VARCHAR (4)  NOT NULL,
+    [COD_TABLA]       VARCHAR (2)  NULL,
+    [DESCRIPCION]     VARCHAR (40) NULL,
+    [DESC_CORTA]      VARCHAR (15) NULL,
+    [FLAG_VIGENTE]    CHAR (1)     NULL,
+    [FEC_MODI]        DATE         NULL,
+    [COD_USUARIO]     VARCHAR (10) NULL,
+    [FLAG1]           CHAR (1)     NULL,
+    [FLAG2]           CHAR (1)     NULL,
+    [C_EMPRESA_PLANI] INT          NULL,
+    [FLAG_EGRESO]     CHAR (1)     NULL,
+    [C_CUENTA_DEBE]   VARCHAR (12) NULL,
+    [C_CUENTA_HABER]  VARCHAR (12) NULL,
+    [COD_TIPO]        VARCHAR (2)  NULL,
+    [C_PERSONA]       VARCHAR (6)  NULL,
+    [FLAG_NATURAL]    CHAR (1)     NULL,
+    [ORDEN_GRUPO]     INT          NULL,
+    [SIGLA]           CHAR (40)    NULL,
+    [FLAG_CUOTA_INI]  CHAR (1)     NULL
+);

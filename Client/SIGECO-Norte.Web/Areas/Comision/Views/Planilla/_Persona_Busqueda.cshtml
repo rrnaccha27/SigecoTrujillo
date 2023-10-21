@@ -1,0 +1,52 @@
+﻿<div class="easyui-layout" data-options="fit:true">
+    <div data-options="region:'center',border:false" style="padding:10px;">
+            <table id="dgv_planilla_persona" style="width: 100%; height:100%;"></table>
+    </div>
+    <div data-options="region:'south'" style="padding:5px;">
+        <div style="height:100%">
+            <label class="colGridModal" style="color:#f56363;">(*) Para seleccionar un vendedor haga doble click sobre el registro.</label>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $('#dgv_planilla_persona').datagrid({
+            fitColumns: true,
+            idField: 'codigo_personal',
+            url: '@Url.Action("GetPersonalPlanillaAllJson", "Personal", new { area = "Comision" })',
+            pagination: true,
+            singleSelect: true,
+            queryParams: {
+                codigo_planilla: ActionDescuentoUrl._codigo_planilla                
+            },
+            rownumbers: true,
+            pageList: [20, 50, 100, 200, 400, 500],
+            pageSize: 20,
+            columns:
+            [[
+                { field: 'codigo_personal', hidden: true },
+                { field: 'nro_documento', title: 'Nro. Documento', width: 25, align: 'left' },
+                { field: 'nombre', title: 'Nombre', width: 50, align: 'left' },
+                { field: 'apellido_paterno', title: 'Apellido Paterno', width: 50, align: 'left' },
+                { field: 'apellido_materno', title: 'Apellido Materno', width: 50, align: 'left' }
+            ]],
+            onDblClickRow: function (index, row)
+            {
+                $("#txt_apellidos_nombres_personal").textbox('setText', row['nombre'] + ' ' +row['apellido_paterno'] + ' ' + row['apellido_materno']);                
+                ActionDescuentoUrl._codigo_personal = row.codigo_personal;
+                fnCalcularComision(row.codigo_personal);
+                $('#div_listado_personal').dialog('close');               
+            }
+        });
+        $('#dgv_planilla_persona').datagrid('enableFilter');
+
+        $(window).resize(function () {
+            $('#dgv_planilla_persona').datagrid('resize');
+        });
+
+    });
+
+</script>

@@ -1,0 +1,129 @@
+﻿@model SIGEES.Entidades.log_contrato_sap_detalle_dto
+
+<form id="frmDetalle" method="post" >
+
+    <div style="padding:10px;">
+        <div class="easyui-panel" title="Datos Principales" style="width: 99%;">
+            <div class="panelGridModal">
+                <table style="width:100%">
+                    <tr>
+                        <td class="tdEtiqueta">
+                            <label class="colGridModal">Nro. Contrato</label>
+                        </td>
+                        <td class="tdValor">
+                            <input class="easyui-textbox" id="nro_contrato" name="nro_contrato" value="@Model.nro_contrato" style="width:85%" disabled />
+                        </td>
+                        <td class="tdEtiqueta">
+                            <label class="colGridModal">Empresa</label>
+                        </td>
+                        <td class="tdValor">
+                            <input class="easyui-textbox" id="nombre_empresa" name="nombre_empresa" value="@Model.nombre_empresa" style="width:85%" disabled />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tdEtiqueta">
+                            <label class="colGridModal">Vendedor</label>
+                        </td>
+                        <td colspan="3">
+                            <input class="easyui-textbox" id="personal" name="personal" value="@Model.personal" style="width:95%" disabled />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tdEtiqueta">
+                            <label class="colGridModal">Tipo Venta</label>
+                        </td>
+                        <td class="tdValor">
+                            <input class="easyui-textbox" id="tipo_venta" name="tipo_venta" value="@Model.tipo_venta" style="width:85%" disabled />
+                        </td>
+                        <td class="tdEtiqueta">
+                            <label class="colGridModal">Tipo Pago</label>
+                        </td>
+                        <td class="tdValor">
+                            <input class="easyui-textbox" id="tipo_pago" name="tipo_pago" value="@Model.tipo_pago" style="width:85%" disabled />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tdEtiqueta">
+                            <label class="colGridModal">Nro. Articulos</label>
+                        </td>
+                        <td class="tdValor">
+                            <input class="easyui-textbox" id="nro_contrato" name="nro_contrato" value="@Model.nro_articulos" style="width:85%" disabled />
+                        </td>
+                        <td class="tdEtiqueta">
+                            <label class="colGridModal">Nro. Cuotas</label>
+                        </td>
+                        <td class="tdValor">
+                            <input class="easyui-textbox" id="nombre_empresa" name="nombre_empresa" value="@Model.nro_cuotas" style="width:85%" disabled />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tdEtiqueta">
+                            <label class="colGridModal">Fecha Contrato</label>
+                        </td>
+                        <td class="tdValor">
+                            <input class="easyui-textbox" id="fecha_contrato" name="fecha_contrato" value="@Model.fecha_contrato" style="width:85%" disabled />
+                        </td>
+                        <td class="tdEtiqueta">
+                            <label class="colGridModal">Fecha Migración</label>
+                        </td>
+                        <td class="tdValor">
+                            <input class="easyui-textbox" id="fecha_migracion" name="fecha_migracion" value="@Model.fecha_migracion" style="width:85%" disabled />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="easyui-panel" title="Datos de Proceso" style="width: 99%;">
+            <div class="panelGridModal">
+                <table style="width:100%">
+                    <tr>
+                        <td class="tdEtiqueta">
+                            <label class="colGridModal">Estado</label>
+                        </td>
+                        <td class="tdValor">
+                            <input class="easyui-textbox" id="estado" name="estado" value="@Model.estado" style="width:85%" disabled />
+                        </td>
+                        <td class="tdEtiqueta">
+                            <label class="colGridModal">Fecha Proceso</label>
+                        </td>
+                        <td class="tdValor">
+                            <input class="easyui-textbox" id="fecha_proceso" name="fecha_proceso" value="@Model.fecha_proceso" style="width:85%" disabled />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tdEtiqueta">
+                            <label class="colGridModal">Observacion</label>
+                        </td>
+                        <td colspan="3">
+                            <input class="easyui-textbox" id="observacion" name="observacion" value="@Model.observacion" style="width:95%" disabled />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div data-options="region:'south', border:false" style="padding:10px;">
+        <div id="divRegistroBotones" style="width: 100%; height: 100%; display: inline-block; text-align:right;">
+            <a href="javascript:CerrarDetalle()" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " iconcls="icon-cancel" id="btnCancelar">Cerrar</a>
+        </div>
+    </div>
+</form>
+
+<style>
+    .tdEtiqueta {
+        width: 20%;
+        padding: 5px;
+    }
+
+    .tdValor {
+        width: 30%;
+    }
+
+</style>
+
+<script>
+    function CerrarDetalle() {
+        $('#dlgDetalle').dialog('close');
+    }
+</script>

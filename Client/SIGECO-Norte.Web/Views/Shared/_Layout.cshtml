@@ -1,0 +1,249 @@
+﻿@using SIGEES.Web.Models.Bean;
+@using SIGEES.BusinessLogic;
+
+@{
+    int v_codigo_menu = 0;
+    int cantidad_pendientes = 0;
+    ViewBag.Title = SIGEES.Web.Helpers.AppSettings.AppName();
+    var usuario = Session["usuario"] as BeanSesionUsuario;
+    if (usuario != null)
+    {
+        v_codigo_menu = usuario.codigoMenu;
+        cantidad_pendientes = new reclamoBL().ObtenerPendientes(usuario.codigoUsuario);
+
+    }
+
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" href="~/Content/themes/base/jquery.ui.all.css" />
+    <link rel="stylesheet" href="~/Content/themes/ui-lightness/jquery-ui-1.10.4.css" />
+    @Styles.Render("~/Content/easyui")
+    @RenderSection("styles", false)
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/easyui")
+    @Scripts.Render("~/bundles/Aditional")
+
+    @Html.Hidden("GetMenuByPerfilJSON", Url.Action("GetMenuByPerfilJSON", "Principal", new { area = string.Empty }))
+    @Html.Hidden("ActualizarSesion_CodigoMenu", Url.Action("ActualizarSesion_CodigoMenu", "Principal", new { area = string.Empty }))
+
+    <link rel="stylesheet" href="~/Content/sigees/styleInterface.css" />
+    <script type="text/javascript" src="~/Scripts/Aditional/datagrid-filter.js"></script>
+    <script type="text/javascript" src="~/Scripts/Aditional/datagrid-detailview.js"></script>
+    <link rel="stylesheet" href="~/Content/easyui/themes/default/easyui-extends.css" />
+    <script>
+
+
+
+
+    $(document).ajaxError(function (evt,x, status, error) {
+        //console.log('ajaxError--------------------------------------');
+        //console.log(x);
+        //console.log(status);
+        //console.log(error);
+        //console.log('ajaxError--------------------------------------');
+        $.fn.window.defaults.closable = false;
+
+        if (x.status == 405) {//403
+            $.messager.alert('Disculpa', "Su sesión ha excedido el tiempo límite. Por favor, ingrese de nuevo", 'warning',function(){
+                window.location.href ='@Url.Action("Login", "Account", new { area = string.Empty })'
+            });
+
+            //alert("Sorry, your session has expired. Please login again to continue");
+            //window.location.href = "/Account/Login";
+        }
+        else {
+            $.messager.alert('Error', "Ha ocurrido un error inesperado", 'error');
+        }
+    });
+
+    $(document).ajaxStop(function (evt, XHR, settings){
+        $(".ajax-loading-tooltip").removeClass("show");
+        $(".overlay-loading").removeClass("show");
+
+        $(".ajax-cargando").removeClass("show");
+        $(".overlay-cargando").removeClass("show");
+        //console.log('ajaxStop--------------------------------------');
+        //console.log(XHR);
+        //console.log(settings);
+        //console.log('ajaxStop--------------------------------------');
+
+    });
+    $( document ).ajaxComplete(function(evt, XHR, settings) {
+
+        $(".ajax-cargando").removeClass("show");
+        $(".overlay-cargando").removeClass("show");
+        //console.log('ajaxComplete--------------------------------------');
+        //console.log(XHR);
+        //console.log(settings);
+        //console.log('ajaxComplete--------------------------------------');
+    });
+
+
+
+
+
+    $(document).ajaxStart(function (evt, XHR, settings) {
+        $(".ajax-cargando").addClass("show");
+        $(".overlay-cargando").addClass("show");
+    });
+
+    $(window).error(function (e, url, line){
+
+        $(".ajax-loading-tooltip").removeClass("show");
+        $(".overlay-loading").removeClass("show");
+
+        $(".ajax-cargando").removeClass("show");
+        $(".overlay-cargando").removeClass("show");
+    });
+
+
+
+    jQuery(document).ready(function () {
+
+
+        $.ajax({
+            type: 'post',
+            url: $("#GetMenuByPerfilJSON").val(),
+            async: false,
+            cache: false,
+            dataType: 'json',
+            beforeSend: function (msg) {
+                $(".ajax-loading-tooltip").addClass("show");
+                $(".overlay-loading").addClass("show");
+            },
+            success: function (data) {
+                $('#MenuPrincipal').tree({
+                    state:'closed',
+                    data: data,
+                    lines:true,
+                    onClick: function (node) {
+
+                        if (node.ruta.length > 0) {
+                            ActualizarSesion(node.id);
+
+                            var splitRuta = node.ruta.split("/");
+                            var controlador = splitRuta[0];
+                            var metodo = splitRuta[1];
+
+                            var url = '@Url.Action("Metodo", "Controlador", new { area = string.Empty })';
+
+                            var urlRedireccionar = '';
+                            urlRedireccionar = url.replace('Controlador', controlador);
+                            urlRedireccionar = urlRedireccionar.replace('Metodo', metodo);
+
+                            window.location.href = urlRedireccionar;
+
+                        }
+
+                    }
+                });
+                var node = $('#MenuPrincipal').tree('find', @v_codigo_menu);
+                $('#MenuPrincipal').tree('expandTo', node.target).tree('select', node.target);
+            },
+            error: function () {
+                project.AlertErrorMessage('Error _layout', 'Error');
+            }
+        });
+
+    });
+
+    function ActualizarSesion(codigoMenu) {
+
+        $.ajax({
+            url: $("#ActualizarSesion_CodigoMenu").val(),
+            data: { codigoMenu: codigoMenu },
+            async: false,
+            cache: false,
+            type: "POST",
+            dataType: "json",
+            success: function (data) {
+                if (data.Msg != "Success") {
+                    project.AlertErrorMessage('Alerta', data.Msg);
+                }
+            }
+        });
+    }
+
+    </script>
+
+</head>
+<body class="easyui-layout" style="background-color:white">
+    <script src="~/Scripts/Views/project.js"></script>
+    @{
+        var controller = HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString();
+        var action = HttpContext.Current.Request.RequestContext.RouteData.Values["action"].ToString();
+    }
+
+    <div class="overlay-loading show" style="overflow:hidden;"></div>
+    <div class="ajax-loading-tooltip show">
+    </div>
+
+
+    <div class="overlay-cargando show" style="overflow:hidden;"></div>
+    <div class="ajax-cargando show">
+        <table border="0">
+            <tr>
+                <td>
+                    <img src="~/Content/images/ajax-loader.gif" alt="Cargando" />
+                </td>
+                <td>
+                    <label style="border-color:SteelBlue;color:SteelBlue;">Espere un momento por favor...</label><br />
+
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="opciones">
+        <div><a href="@Url.Action("LogOut", "Account", new { area = string.Empty })" class="Salir">Cerrar Sesión</a></div>
+    </div>
+
+    <div data-options="region:'north',border:false" style="height: 45px; width:100%; background-color: #045B2F; border-style: none">
+        <div class="easyui-layout" data-options="fit:true">
+            <div data-options="region:'center',border:false" style="background-color: #045B2F;width:50%;padding:3px">
+                <img width="200" height="36" src="~/Content/images/logo_jardines_principal.png" style="border:none;" />
+            </div>
+            <div data-options="region:'east', border:false" style="background-color: #045B2F;width:50%;color: white;text-align:right; vertical-align:bottom ">
+                <div style="padding: 10px 10px 0px 0px; float: right;">
+                    <a href="#" class="easyui-menubutton" data-options="menu:'#opciones',iconCls:'icon-user'" style="width:150px; color: black; background-color: white">@usuario.codigoUsuario</a>
+                </div>
+
+                @if (cantidad_pendientes != 0)
+                {
+                <div style="padding:10px;float:right;" id="div_cantidad_pendientes">
+                    <a href="@Url.Action("Index", "Reclamos", new { area = "Comision" })" id="enlace_cantidad_pendientes" class="Salir" title="@cantidad_pendientes.ToString()">
+                        <img src="~/Content/images/bell.png" alt="" border="0" /><p id="texto_cantidad_pendientes" style="color:greenyellow;position: absolute;top:-4px;text-align:right"><b>&nbsp;&nbsp;&nbsp;@cantidad_pendientes.ToString()</b></p>
+                    </a>
+                </div>
+                }
+            </div>
+        </div>
+    </div>
+
+
+    <div data-options="region:'west',split:true,title:'SIGECO PANOSA v1.0.0'"
+         style="width: 310px; padding: 10px; background: -webkit-linear-gradient(top,#242E3C 0,#242E3C 100%); background: -moz-linear-gradient(top,#242E3C 0,#242E3C 100%); background: -o-linear-gradient(top,#242E3C 0,#242E3C 100%); background: linear-gradient(to bottom,#242E3C 0,#242E3C 100%); border-style: none">
+        <ul id="MenuPrincipal" class="easyui-tree"></ul>
+    </div>
+
+
+    <div id="cuerpo" data-options="region:'center'" style="border-style: none">
+        @Html.Hidden("urlBase", @Url.Content("~/"))
+        @this.RenderBody()
+    </div>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+
+
+

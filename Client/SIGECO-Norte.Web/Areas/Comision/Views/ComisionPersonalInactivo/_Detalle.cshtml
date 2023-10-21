@@ -1,0 +1,255 @@
+﻿@model SIGEES.Entidades.detalle_cronograma_aprobacion_dto
+@{
+}
+
+
+
+    <div class="easyui-layout" data-options="fit:true">
+        <div data-options="region:'center', border:false">
+            <div id="tabPersonal" class="easyui-tabs" style="width:100%;height:100%">
+                <div title="Datos Principales" style="padding:10px;">
+                    <div class="easyui-panel" title="Datos Comisión" style="width: 100%;">
+                        <div class="panelGridModal">
+                            <table style="width:100%">
+                                <tr>
+                                    <td class="tdEtiqueta">
+                                        <label class="colGridModal">Canal-Grupo</label>
+                                    </td>
+                                    <td class="tdValor">
+                                        <input class="easyui-textbox" id="nombre_canal_grupo" name="nombre_canal_grupo" value="@(Model.nombre_canal+ "-" + Model.nombre_grupo)" maxlength="11" style="width:85%" disabled />
+                                    </td>
+                                    <td class="tdEtiqueta">
+                                        <label class="colGridModal">Vendedor</label>
+                                    </td>
+                                    <td class="tdValor">
+                                        <input class="easyui-textbox" id="nombre_personal" name="nombre_personal" value="@Model.nombre_personal" maxlength="11" style="width:85%" disabled />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tdEtiqueta">
+                                        <label class="colGridModal">Empresa</label>
+                                    </td>
+                                    <td class="tdValor">
+                                        <input class="easyui-textbox" id="nombre_empresa" name="nombre_empresa" value="@Model.nombre_empresa" maxlength="11" style="width:85%" disabled />
+                                    </td>
+                                    <td class="tdEtiqueta">
+                                        <label class="colGridModal">Nro. Contrato</label>
+                                    </td>
+                                    <td class="tdValor">
+                                        <input class="easyui-textbox" id="nro_contrato" name="nro_contrato" value="@Model.nro_contrato" maxlength="15" style="width:85%" disabled />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tdEtiqueta">
+                                        <label class="colGridModal">Tipo Venta</label>
+                                    </td>
+                                    <td class="tdValor">
+                                        <input class="easyui-textbox" id="nombre_tipo_venta" name="nombre_tipo_venta" value="@Model.nombre_tipo_venta" maxlength="11" style="width:85%" disabled />
+                                    </td>
+                                    <td class="tdEtiqueta">
+                                        <label class="colGridModal">Tipo Pago</label>
+                                    </td>
+                                    <td class="tdValor">
+                                        <input class="easyui-textbox" id="nombre_tipo_pago" name="nombre_tipo_pago" value="@Model.nombre_tipo_pago" maxlength="15" style="width:85%" disabled />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tdEtiqueta">
+                                        <label class="colGridModal">Artículo</label>
+                                    </td>
+                                    <td style="width:80%" colspan="3">
+                                        <input class="easyui-textbox" id="nombre_articulo" name="nombre_articulo" value="@Model.nombre_articulo" style="width:95%" disabled />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tdEtiqueta">
+                                        <label class="colGridModal">Nro Cuota</label>
+                                    </td>
+                                    <td class="tdValor">
+                                        <input class="easyui-textbox" id="nro_cuota" name="nro_cuota" value="@Model.nro_cuota" style="width:85%" disabled />
+                                    </td>
+                                    <td class="tdEtiqueta">
+                                        <label class="colGridModal">Sin IGV</label>
+                                    </td>
+                                    <td class="tdValor">
+                                        <input class="easyui-numberbox" id="monto_sin_igv" name="monto_sin_igv" maxlength="10" style="width:85%; text-align:right" data-options="required:true, min:0,max:9999999, precision:2" value="@Model.monto_sin_igv" disabled />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tdEtiqueta"></td>
+                                    <td class="tdValor"></td>
+                                    <td class="tdEtiqueta">
+                                        <label class="colGridModal">IGV</label>
+                                    </td>
+                                    <td class="tdValor">
+                                        <input class="easyui-numberbox" id="monto_igv" name="monto_igv" maxlength="10" value="@Model.monto_igv" data-options="required:true, min:0,max:9999999, precision:2" style="width:85%; text-align:right" disabled />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tdEtiqueta"></td>
+                                    <td class="tdValor"></td>
+                                    <td class="tdEtiqueta">
+                                        <label class="colGridModal">Con IGV</label>
+                                    </td>
+                                    <td class="tdValor">
+                                        <input class="easyui-numberbox" id="monto_con_igv" name="monto_con_igv" value="@Model.monto_con_igv" data-options="required:true, min:0,max:9999999, precision:2" style="width:85%; text-align:right" disabled />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="easyui-panel" title="Datos Inactivación" style="width: 100%;">
+                        <div class="panelGridModal">
+                            <table style="width:100%">
+                                <tr>
+                                    <td class="tdEtiqueta">
+                                        <label class="colGridModal">Fecha</label>
+                                    </td>
+                                    <td class="tdValor">
+                                        <input class="easyui-textbox" id="fecha_registra" name="fecha_registra" value="@Model.fecha_registra" maxlength="50" style="width:85%" disabled />
+                                    </td>
+                                    <td class="tdEtiqueta">
+                                        <label class="colGridModal">Usuario</label>
+                                    </td>
+                                    <td class="tdValor">
+                                        <input class="easyui-textbox" id="usuario_registra" name="usuario_registra" value="@Model.usuario_registra" maxlength="50" style="width:85%" disabled />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tdEtiqueta">
+                                        <label class="colGridModal">Observación</label>
+                                    </td>
+                                    <td style="width:80%" colspan="3">
+                                        <input class="easyui-textbox" id="observacion_n1" name="observacion_n1" value="@Model.observacion" style="width:95%" disabled />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div title="Datos Auditoria" style="padding:10px;">
+                    <div class="easyui-panel" title="" style="width: 100%;">
+                        <div class="panelGridModal">
+                            <table style="width:100%">
+                                <tr>
+                                    <td class="tdEtiqueta">
+                                        <label class="colGridModal">Estado</label>
+                                    </td>
+                                    <td class="tdValor">
+                                        <input class="easyui-textbox" id="estado_liquidado" name="estado_liquidado" value="@Model.estado_liquidado" maxlength="50" style="width:85%" disabled />
+                                    </td>
+                                    <td class="tdEtiqueta"></td>
+                                    <td class="tdValor"></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="easyui-panel" title="Comercial" style="width: 100%;">
+                        <div class="panelGridModal">
+                            <table style="width:100%">
+                                <tr>
+                                    <td class="tdEtiqueta">
+                                        <label class="colGridModal">Resultado</label>
+                                    </td>
+                                    <td class="tdValor">
+                                        <input class="easyui-textbox" id="estado" name="estado" value="@Model.resultado_n1" maxlength="50" style="width:85%" disabled />
+                                    </td>
+                                    <td class="tdEtiqueta"></td>
+                                    <td class="tdValor"></td>
+                                </tr>
+                                <tr>
+                                    <td class="tdEtiqueta">
+                                        <label class="colGridModal">Fecha</label>
+                                    </td>
+                                    <td class="tdValor">
+                                        <input class="easyui-textbox" id="fecha_aprobacion_n1" name="fecha_aprobacion_n1" value="@Model.fecha_aprobacion_n1" maxlength="50" style="width:85%" disabled />
+                                    </td>
+                                    <td class="tdEtiqueta">
+                                        <label class="colGridModal">Usuario</label>
+                                    </td>
+                                    <td class="tdValor">
+                                        <input class="easyui-textbox" id="usuario_aprobacion_n1" name="usuario_aprobacion_n1" value="@Model.usuario_aprobacion_n1" maxlength="50" style="width:85%" disabled />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tdEtiqueta">
+                                        <label class="colGridModal">Observación</label>
+                                    </td>
+                                    <td style="width:80%" colspan="3">
+                                        <input class="easyui-textbox" id="observacion_n1" name="observacion_n1" value="@Model.observacion_n1" style="width:95%" disabled />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="easyui-panel" title="Administración" style="width: 100%;">
+                        <div class="panelGridModal">
+                            <table style="width:100%">
+                                <tr>
+                                    <td class="tdEtiqueta">
+                                        <label class="colGridModal">Resultado</label>
+                                    </td>
+                                    <td class="tdValor">
+                                        <input class="easyui-textbox" id="resultado_n2" name="resultado_n2" value="@Model.resultado_n2" maxlength="50" style="width:85%" disabled />
+                                    </td>
+                                    <td class="tdEtiqueta"></td>
+                                    <td class="tdValor"></td>
+                                </tr>
+                                <tr>
+                                    <td class="tdEtiqueta">
+                                        <label class="colGridModal">Fecha</label>
+                                    </td>
+                                    <td class="tdValor">
+                                        <input class="easyui-textbox" id="fecha_aprobacion_n2" name="fecha_aprobacion_n2" value="@Model.fecha_aprobacion_n2" maxlength="50" style="width:85%" disabled />
+                                    </td>
+                                    <td class="tdEtiqueta">
+                                        <label class="colGridModal">Usuario</label>
+                                    </td>
+                                    <td class="tdValor">
+                                        <input class="easyui-textbox" id="usuario_aprobacion_n2" name="usuario_aprobacion_n2" value="@Model.usuario_aprobacion_n2" maxlength="50" style="width:85%" disabled />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tdEtiqueta">
+                                        <label class="colGridModal">Observación</label>
+                                    </td>
+                                    <td style="width:80%" colspan="3">
+                                        <input class="easyui-textbox" id="observacion_n2" name="observacion_n2" value="@Model.observacion_n2" style="width:95%" disabled />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>                
+                </div>
+            </div>
+        </div>
+        <div data-options="region:'south', border:false" style="padding:5px;">
+            <div id="divRegistroBotonesDetalle" style="width: 100%; height: 100%; display: inline-block; text-align:right;">
+                <a href="javascript:CerrarDetalle()" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " iconcls="icon-cancel" id="btnCerrardetalle">Cerrar</a>
+            </div>
+        </div>
+    </div>
+
+
+<style>
+    .tdEtiqueta {
+        width: 20%;
+        padding: 5px;
+    }
+
+    .tdValor {
+        width: 30%;
+    }
+</style>
+
+<script>
+
+    $(document).ready(function () {
+
+    });
+
+    function CerrarDetalle()
+    {
+        $('#dlgDetalle').dialog('close');
+    }
+</script>

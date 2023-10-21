@@ -1,0 +1,224 @@
+﻿@model SIGEES.Entidades.regla_pago_comision_dto
+@{
+
+    //int v_tiene_contrato_vinculante = Model.tiene_contrato_vinculante ? 1 : 0;
+    //string v_anho = DateTime.Now.Year.ToString();
+    int v_habilitar = 0;
+    if (Model.codigo_regla_comision == 0)
+    {
+        v_habilitar = 1;
+    }
+    else if (Model.codigo_regla_comision > 0 && Model.estado_registro)
+    {
+        v_habilitar = 1;
+    }
+        ;
+
+}
+
+
+
+<div class="easyui-layout" data-options="fit:true">
+    <form id="frmRegistrar" method="post">
+        <div data-options="region:'center'" style="padding:10px;">
+            <br />
+
+            <div class="panelGridModal">
+
+                <div class="easyui-panel" title="Datos Generales" style="width: 99%; ">
+
+                    <div class="rowGridModal">
+                        <table style="width:100%">
+                            <tr>
+                                <td style="width: 40%">
+                                    <label class="colGridModal">Nombre</label>
+                                </td>
+                                <td style="width: 60%">
+                                    <input class="easyui-textbox" id="txt_nombre" name="nombre" value="@Model.nombre_regla_comision" maxlength="50" style="width:99%" data-options="required:true" />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="rowGridModal">
+                        <table style="width:100%">
+                            <tr>
+                                <td style="width: 40%">
+                                    <label class="colGridModal">Tipo Planilla</label>
+                                </td>
+                                <td style="width: 60%">
+                                    @{
+                                        int? v_codigo_tipo_planilla = Model.codigo_tipo_planilla <= 0 ? (int?)null : Model.codigo_tipo_planilla;
+
+                                    }
+                                    <input id="cmbTipoPlanilla" class="easyui-combobox" name="cmbTipoPlanilla" value="@v_codigo_tipo_planilla" style="width:99%;" data-options="valueField: 'id' ,textField: 'text' ,required:false, editable: false ">
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="rowGridModal">
+                        <table style="width:100%">
+                            <tr>
+                                <td style="width: 40%">
+                                    <label class="colGridModal">Canal de Venta</label>
+                                </td>
+                                <td style="width: 60%">
+                                    @{
+                                        int? codigo_canal_grupo = Model.codigo_canal_grupo <= 0 ? (int?)null : Model.codigo_canal_grupo;
+
+                                    }
+                                    <input id="cmbCanalVenta" class="easyui-combobox" name="cmbCanalVenta" value="@codigo_canal_grupo" style="width:99%;" data-options="valueField: 'id' ,textField: 'text' ,required:false, editable: false ">
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="rowGridModal">
+                        <table style="width:100%">
+                            <tr>
+                                <td style="width: 40%">
+                                    <label class="colGridModal">Tipo Venta</label>
+                                </td>
+                                <td style="width: 60%">
+                                    @{
+                                        int? codigo_tipo_venta = Model.codigo_tipo_venta <= 0 ? (int?)null : Model.codigo_tipo_venta;
+
+                                    }
+                                    <input id="cmbTipoVenta" class="easyui-combobox" name="cmbTipoVenta" value="@codigo_tipo_venta" style="width:99%;" data-options="valueField: 'id' ,textField: 'text' ,required:false, editable: false ">
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="rowGridModal">
+                        <table style="width:100%">
+                            <tr>
+                                <td style="width: 40%">
+                                    <label class="colGridModal">Tipo Artículo</label>
+                                </td>
+                                <td style="width: 60%">
+                                    @{
+                                        int? codigo_tipo_articulo = Model.codigo_tipo_articulo <= 0 ? (int?)null : Model.codigo_tipo_articulo;
+
+                                    }
+                                    <input id="cmbTipoArticulo" class="easyui-combobox" name="cmbTipoArticulo" value="@codigo_tipo_articulo" style="width:99%;" data-options="valueField: 'id' ,textField: 'text' ,required:false, editable: false ">
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="rowGridModal">
+                        <table style="width:100%">
+                            <tr>
+                                <td style="width: 40%">
+                                    <label class="colGridModal">Artículo</label>
+                                </td>
+                                <td style="width: 60%">
+                                    <input id="cmbArticulo" class="easyui-combobox" name="cmbArticulo" style="width:99%;" data-options="valueField: 'id' ,textField: 'text' ,required:false, editable: false ">
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                </div>
+
+                <div class="easyui-panel" title="Datos topes" style="width: 99%; ">
+                    <div class="rowGridModal" style="width:90%;">
+                        <table style="width:100%">
+                            <tr>
+                                <td style="width: 80%">
+                                    <label class="colGridModal">Mínimo contrato</label>
+                                    <input class="easyui-numberbox" id="txt_tope_minimo_contrato" value="@Model.tope_minimo_contrato" name="txt_tope_minimo_contrato" data-options="min:0,precision:2,groupSeparator:','" />
+                                </td>
+                                <td style="width: 80%">
+                                    <label class="colGridModal">Unidad</label>
+                                    <input class="easyui-numberbox" id="txt_tope_unidad" name="txt_tope_unidad" value="@Model.tope_unidad" data-options="min:0,precision:2,groupSeparator:','" />
+                                </td>
+                                <td style="width: 80%">
+                                    <label class="colGridModal">Meta General</label>
+                                    <input class="easyui-numberbox" id="txt_meta_general" name="txt_meta_general" value="@Model.meta_general" data-options="min:0,precision:2,groupSeparator:','" />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                </div>
+
+                @{
+                    if (Model.codigo_regla_comision > 0)
+                    {
+
+                        <div style="height:20px;"></div>
+
+                        <div class="easyui-panel" title="Meta Comisión" style="width: 99%; ">
+
+                            <div style="width: 99%; padding-left: 1%">
+                                <table id="dgv_meta_comision" style="width: 100%"></table>
+                            </div>
+                        </div>
+                        <div style="height:20px;"></div>
+                        <div class="easyui-panel" title="Detalle Comisión" style="width: 99%; ">
+
+                            <div style="width: 99%; padding-left: 1%">
+                                <table id="dgv_detalle_comision" style="width: 100%"></table>
+                            </div>
+                        </div>
+                    }
+
+                }
+            </div>
+            <br />
+        </div>
+        <div data-options="region:'south',border:false" style="text-align:right;padding:5px 0 0;">
+            <a href="#" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " data-options="iconCls:'icon-ok'" id="btnGuardar">Guardar</a>
+            <a href="#" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " data-options="iconCls:'icon-cancel'" id="btnCancelar">Cancelar</a>
+        </div>
+    </form>
+</div>
+
+<div id="toolbar_meta_comision">
+    <a href="javascript:void(0);" id="href_grabar_meta" iconcls="icon-edit" data-options="disabled:true" class="easyui-linkbutton " style="padding: 0px 10px 0px 10px; ">Grabar</a>
+    <a href="javascript:void(0);" id="href_nueva_meta" iconcls="icon-add"  class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; ">Nuevo</a>
+    <a href="javascript:void(0);" id="href_cancelar_meta" iconcls="icon-cancel" data-options="disabled:true" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; ">Cancelar</a>
+    <a href="javascript:void(0);" id="href_eliminar_meta" iconcls="icon-remove" data-options="disabled:true" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; ">Deshabilitar</a>
+</div>
+
+<div id="toolbar_detalle_comision">    
+    <a href="javascript:void(0);" id="href_nueva_detalle"  iconcls="icon-add" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; ">Nuevo</a>
+    <a href="javascript:void(0);" id="href_ver_detalle"iconcls="icon-search" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; ">Ver</a>
+    <a href="javascript:void(0);" id="href_eliminar_detalle"iconcls="icon-remove" data-options="disabled:true" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; ">Deshabilitar</a>
+</div>
+
+
+<script type="text/javascript" src="~/Areas/Comision/Scripts/Views/ReglaPagoComision/project.ReglaPagoComision.Registro.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        var actionUrls =
+        {
+            Listar: '@Url.Action("Listar", "ReglaPagoComision")',
+
+            Modificar: '@Url.Action("Modificar", "ReglaPagoComision")',
+            Eliminar: '@Url.Action("Eliminar", "ReglaPagoComision")',
+            Registrar: '@Url.Action("Registrar", "ReglaPagoComision")',
+
+
+            GetCanalGrupoJSON: '@Url.Action("GetCanalGrupoJSON", "ReglaPagoComision")',
+            GetTipoVentaJSON: '@Url.Action("GetTipoVentaJSON", "ReglaPagoComision")',
+            GetTipoPlanillaJSON: '@Url.Action("GetTipoPlanillaJSON", "ReglaPagoComision")',
+            GetTipoArticuloJSON: '@Url.Action("GetTipoArticuloJSON", "ReglaPagoComision")',
+
+            GetTipoArticuloJson: '@Url.Action("GetTipoArticuloJson", "ReglaPagoComision", new { area = "Comision" })',
+            GetArticuloByTipoJson: '@Url.Action("GetArticuloByTipoJson", "ReglaPagoComision", new { area = "Comision" })',
+
+            CodigoReglaComision:@Model.codigo_regla_comision,
+            //seccion popup
+            GetDetalleReglaComision: '@Url.Action("GetDetalleReglaComisionByIdRegla", "ReglaPagoComision")',
+            RegistrarMetaReglaComision: '@Url.Action("RegistrarMetaReglaComision", "ReglaPagoComision")',
+            EliminarMetaReglaComision: '@Url.Action("EliminarMetaReglaComision", "ReglaPagoComision")',
+            GetMetaReglaComision: '@Url.Action("GetMetaReglaComisionByIdRegla", "ReglaPagoComision")',
+        };
+
+        project.ReglaPagoComision.Registro.Initialize(actionUrls);
+
+    });
+
+</script>

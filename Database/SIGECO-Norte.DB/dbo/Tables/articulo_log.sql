@@ -1,0 +1,21 @@
+﻿CREATE TABLE [dbo].[articulo_log] (
+    [fecha_log]                 DATETIME      NOT NULL,
+    [codigo_articulo]           INT           NULL,
+    [codigo_unidad_negocio]     INT           NULL,
+    [codigo_categoria]          INT           NULL,
+    [codigo_sku]                VARCHAR (20)  NULL,
+    [nombre]                    VARCHAR (250) NULL,
+    [abreviatura]               VARCHAR (10)  NULL,
+    [genera_comision]           BIT           NULL,
+    [genera_bono]               BIT           NULL,
+    [genera_bolsa_bono]         BIT           NULL,
+    [anio_contrato_vinculante]  INT           NULL,
+    [tiene_contrato_vinculante] BIT           NULL,
+    [estado_registro]           BIT           NULL,
+    [fecha_registra]            DATETIME      NULL,
+    [usuario_registra]          VARCHAR (50)  NULL,
+    [fecha_modifica]            DATETIME      NULL,
+    [usuario_modifica]          VARCHAR (50)  NULL,
+    [codigo_tipo_articulo]      INT           NULL,
+    [cantidad_unica]            BIT           DEFAULT ((0)) NULL
+);

@@ -1,0 +1,77 @@
+﻿@model SIGEES.Entidades.descuento_dto
+@{
+    int codigo_descuento = Model.codigo_descuento;
+    string fecha_actual = DateTime.Now.ToShortDateString();
+
+}
+<div class="easyui-layout" data-options="fit:true">
+    <form id="frmDescuento" method="post">
+        <div data-options="region:'north', border:false" style="padding: 15px 20px 0px 20px; width: 100%; height:60px;">
+            <div style="height:100%">
+                <div class="easyui-layout" data-options="fit:true">
+
+                    <div data-options="region:'west', border:false" style="width: 100px; ">
+                        <label class="colGridModal">Vendedor</label>
+                    </div>
+                    <div data-options="region:'center', border:false" >
+                        <input class="easyui-textbox" id="txt_apellidos_nombres_personal" style="width:100%;" data-options="disabled:true" />
+                    </div>
+                    <div data-options="region:'east', border:false" style="width: 40px; ">
+                        <a href="javascript:fnBuscarPersonal();" class="easyui-linkbutton" iconcls="icon-search"></a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div data-options="region:'center', border:false" style="padding: 0px 20px 20px 20px;width: 100%; ">
+            <div style="height:100%">
+                <table id="dgv_planilla_saldo" style="width: 100%;height:100%;"></table>
+            </div>
+        </div>
+
+        <div data-options="region:'south'" style="text-align:right;padding:5px;">
+            <div style="height:100%">
+                <a href="javascript:fnRegistrarDescuento(@Model.codigo_descuento);" class="easyui-linkbutton" iconcls="icon-save" id="btnCancelar">Guardar</a>
+                <a href="javascript:cerrar_descuento();" class="easyui-linkbutton" iconcls="icon-cancel" id="btnCancelar">Cerrar</a>
+            </div>
+        </div>
+    </form>
+
+</div>
+
+<div id="tlb_descuento" style="height: auto; background-color: #ffffff;">
+    <a href="javascript:void(0)" id="btn_descuento_aceptar" class="easyui-linkbutton" data-options="iconCls:'icon-save',plain:true,disabled:false" onclick="fnAceptarDescuento()">Aceptar</a>
+    <a href="javascript:void(0)" id="btn_descuento_cancelar" class="easyui-linkbutton" data-options="iconCls:'icon-undo',plain:true,disabled:false" onclick="fncancelarDescuento()">Cancelar</a>
+</div>
+
+<div id="div_listado_personal" class="easyui-dialog" data-options="resizable:true,modal:true,closed:true"
+     style="width: 60%; height: 60%;line-height: 20px;"></div>
+
+
+
+<script type="text/javascript" src="~/Areas/Comision/Scripts/Views/Planilla/planilla.descuento.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var actionUrls =
+        {
+            _codigo_personal: '@Model.codigo_personal',
+            _codigo_planilla: '@Model.codigo_planilla',
+            _codigo_descuento: '@Model.codigo_descuento',
+            _Personal: '@Url.Action("_Persona_Busqueda", "Planilla", new { area = "Comision" })',
+            _Registrar_Descuento: '@Url.Action("Descuento_Registrar", "Planilla", new { area = "Comision" })',
+            _Calcular_Comision_Persona: '@Url.Action("Calcular_Comision_Persona", "Planilla", new { area = "Comision" })'
+
+
+        };
+        project.descuento.Initialize(actionUrls);
+    });
+
+</script>
+
+
+
+
+
+
+
+

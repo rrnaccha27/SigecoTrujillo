@@ -1,0 +1,74 @@
+﻿@model SIGEES.Entidades.plan_integral_dto
+
+@{
+    var soloLectura = (Model.codigo_plan_integral > 0 ? ",disabled:true" : "");
+    var noEditable = (Model.codigo_plan_integral > 0 && Model.estado_registro == false ? ",disabled:true" : "");
+}
+
+<div class="easyui-layout" data-options="fit:true">
+    <form id="frmRegistro" method="post">
+        <div data-options="region:'center'" style="padding:10px;">
+            <div class="panelGridModal">
+                <div class="rowGridModalDouble" style="width: 100%; padding: 0px;">
+                    <div class="rowBoth"></div>
+                    <div class="rowGridModalDouble" style="width:10%;">
+                        <label class="colGridModal">Nombre</label>
+                    </div>
+                    <div class="rowGridModalDouble" style="width:30%;">
+                        <input class="easyui-validatebox textbox" value="@Model.nombre" maxlength="100" id="nombre" name="nombre" style="width:100%;" data-options="required:true,novalidate:true,editable:true @soloLectura" />
+                    </div>
+                    <div class="rowBoth"></div>
+                    <div class="rowGridModalDouble" style="width:10%;">
+                        <label class="colGridModal">Vigencia</label>
+                    </div>
+                    <div class="rowGridModalDouble" style="width:30%;">
+                        <input class="easyui-datebox" id="fechaInicio" name="fechaInicio" value="@Model.vigencia_inicio" style="width:100%;" data-options="required:true @soloLectura" />
+                    </div>
+                    <div class="rowGridModalDouble" style="width:10%;">
+                        <label class="colGridModal">Hasta</label>
+                    </div>
+                    <div class="rowGridModalDouble" style="width:30%;">
+                        <input class="easyui-datebox" id="fechaFin" name="fechaFin" value="@Model.vigencia_fin" style="width:100%;" data-options="required:true @soloLectura" />
+                    </div>
+                </div>
+                <div class="rowBoth"></div>
+                <div id="tlb_detalle_regla" style="height: auto; background-color: #ffffff;">
+                    <a href="javascript:void(0)" id="btn_detalle_crear" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; "  data-options="iconCls:'icon-add' @noEditable" onclick="CrearDetalle()">Crear</a>
+                    <a href="javascript:void(0)" id="btn_detalle_quitar" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; "  data-options="iconCls:'icon-remove' @noEditable" onclick="EliminarDetalle()">Quitar</a>
+                    <a href="javascript:void(0)" id="btn_detalle_aceptar" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; "  data-options="iconCls:'icon-save',disabled:true" onclick="AceptarDetalle()">Aceptar</a>
+                    <a href="javascript:void(0)" id="btn_detalle_cancelar" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; "  data-options="iconCls:'icon-undo',disabled:true" onclick="CancelarDetalle()">Cancelar</a>
+                </div>
+                <div class="easyui-panel" style="width: 99%;">
+                    <table id="dgv_lista_detalle" style="width: 100%"></table>
+                </div>
+            </div>
+        </div>
+
+        <div data-options="region:'south',border:false" style="text-align:right;padding:5px 0 0;">
+            <a href="javascript:GuardarPlan()" class="easyui-linkbutton" id="btnGuardar" style="padding: 0px 10px 0px 10px; " data-options="iconCls:'icon-ok' @noEditable" >Guardar</a>
+            <a href="javascript:CancelarPlan();" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " iconcls="icon-cancel" id="btnCancelar">Cancelar</a>
+        </div>
+    </form>
+</div>
+
+
+<script type="text/javascript" src="~/Areas/Comision/Scripts/Views/PlanIntegral/project.PlanIntegral.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var actionUrls =
+        {
+            Guardar: '@Url.Action("Guardar", "PlanIntegral", new { area = "comision" })',
+            GetCamposantoJson: '@Url.Action("GetCamposantoJson", "PlanIntegral", new { area = "comision" })',
+            GetTipoArticuloJson: '@Url.Action("GetTipoArticuloJson", "PlanIntegral", new { area = "comision" })',
+            GetDetalleJson: '@Url.Action("GetDetalleJson", "PlanIntegral", new { area = "comision" })',
+            Codigo_Plan_Integral:@(Model.codigo_plan_integral),
+            Estado_Registro:@(Model.codigo_plan_integral > 0 && Model.estado_registro == false ? "false" : "true")
+        };
+        project.PlanIntegral.Initialize(actionUrls);
+    });
+</script>
+
+
+
+
+

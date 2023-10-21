@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SAPSIGECO_MANT" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://afrodita/WCFSIGECOSAP/SAPSIGECO_MANT.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://afrodita/WCFSIGECOSAP/SAPSIGECO_MANT.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://afrodita/WCFSIGECOSAP/SAPSIGECO_MANT.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WCFSAPSIGECO_MANT" />
+      <xsd:import schemaLocation="http://afrodita/WCFSIGECOSAP/SAPSIGECO_MANT.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/WCFSAPSIGECO_MANT.Datos" />
+      <xsd:import schemaLocation="http://afrodita/WCFSIGECOSAP/SAPSIGECO_MANT.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ISAPSIGECO_MANT_ProbarConexion_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProbarConexion" />
+  </wsdl:message>
+  <wsdl:message name="ISAPSIGECO_MANT_ProbarConexion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProbarConexionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISAPSIGECO_MANT_RegistroArticulo_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegistroArticulo" />
+  </wsdl:message>
+  <wsdl:message name="ISAPSIGECO_MANT_RegistroArticulo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegistroArticuloResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISAPSIGECO_MANT_RegistroPrecio_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegistroPrecio" />
+  </wsdl:message>
+  <wsdl:message name="ISAPSIGECO_MANT_RegistroPrecio_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegistroPrecioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISAPSIGECO_MANT_RegistroPrecioMasivo_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegistroPrecioMasivo" />
+  </wsdl:message>
+  <wsdl:message name="ISAPSIGECO_MANT_RegistroPrecioMasivo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegistroPrecioMasivoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISAPSIGECO_MANT_ObtieneCanal_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtieneCanal" />
+  </wsdl:message>
+  <wsdl:message name="ISAPSIGECO_MANT_ObtieneCanal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtieneCanalResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISAPSIGECO_MANT_ObtieneGrupo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtieneGrupo" />
+  </wsdl:message>
+  <wsdl:message name="ISAPSIGECO_MANT_ObtieneGrupo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtieneGrupoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISAPSIGECO_MANT_RegistroCanal_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegistroCanal" />
+  </wsdl:message>
+  <wsdl:message name="ISAPSIGECO_MANT_RegistroCanal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegistroCanalResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISAPSIGECO_MANT_RegistroGrupo_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegistroGrupo" />
+  </wsdl:message>
+  <wsdl:message name="ISAPSIGECO_MANT_RegistroGrupo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegistroGrupoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISAPSIGECO_MANT_ObtieneVendedor_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtieneVendedor" />
+  </wsdl:message>
+  <wsdl:message name="ISAPSIGECO_MANT_ObtieneVendedor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtieneVendedorResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISAPSIGECO_MANT_RegistroVendedor_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegistroVendedor" />
+  </wsdl:message>
+  <wsdl:message name="ISAPSIGECO_MANT_RegistroVendedor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegistroVendedorResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISAPSIGECO_MANT_ObtieneSupervisor_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtieneSupervisor" />
+  </wsdl:message>
+  <wsdl:message name="ISAPSIGECO_MANT_ObtieneSupervisor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtieneSupervisorResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISAPSIGECO_MANT_RegistroSupervisor_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegistroSupervisor" />
+  </wsdl:message>
+  <wsdl:message name="ISAPSIGECO_MANT_RegistroSupervisor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegistroSupervisorResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISAPSIGECO_MANT_RegistroVendSup_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegistroVendSup" />
+  </wsdl:message>
+  <wsdl:message name="ISAPSIGECO_MANT_RegistroVendSup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegistroVendSupResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ISAPSIGECO_MANT">
+    <wsdl:operation name="ProbarConexion">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISAPSIGECO_MANT/ProbarConexion" message="tns:ISAPSIGECO_MANT_ProbarConexion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISAPSIGECO_MANT/ProbarConexionResponse" message="tns:ISAPSIGECO_MANT_ProbarConexion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistroArticulo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISAPSIGECO_MANT/RegistroArticulo" message="tns:ISAPSIGECO_MANT_RegistroArticulo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISAPSIGECO_MANT/RegistroArticuloResponse" message="tns:ISAPSIGECO_MANT_RegistroArticulo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistroPrecio">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISAPSIGECO_MANT/RegistroPrecio" message="tns:ISAPSIGECO_MANT_RegistroPrecio_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISAPSIGECO_MANT/RegistroPrecioResponse" message="tns:ISAPSIGECO_MANT_RegistroPrecio_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistroPrecioMasivo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISAPSIGECO_MANT/RegistroPrecioMasivo" message="tns:ISAPSIGECO_MANT_RegistroPrecioMasivo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISAPSIGECO_MANT/RegistroPrecioMasivoResponse" message="tns:ISAPSIGECO_MANT_RegistroPrecioMasivo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtieneCanal">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISAPSIGECO_MANT/ObtieneCanal" message="tns:ISAPSIGECO_MANT_ObtieneCanal_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISAPSIGECO_MANT/ObtieneCanalResponse" message="tns:ISAPSIGECO_MANT_ObtieneCanal_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtieneGrupo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISAPSIGECO_MANT/ObtieneGrupo" message="tns:ISAPSIGECO_MANT_ObtieneGrupo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISAPSIGECO_MANT/ObtieneGrupoResponse" message="tns:ISAPSIGECO_MANT_ObtieneGrupo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistroCanal">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISAPSIGECO_MANT/RegistroCanal" message="tns:ISAPSIGECO_MANT_RegistroCanal_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISAPSIGECO_MANT/RegistroCanalResponse" message="tns:ISAPSIGECO_MANT_RegistroCanal_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistroGrupo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISAPSIGECO_MANT/RegistroGrupo" message="tns:ISAPSIGECO_MANT_RegistroGrupo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISAPSIGECO_MANT/RegistroGrupoResponse" message="tns:ISAPSIGECO_MANT_RegistroGrupo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtieneVendedor">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISAPSIGECO_MANT/ObtieneVendedor" message="tns:ISAPSIGECO_MANT_ObtieneVendedor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISAPSIGECO_MANT/ObtieneVendedorResponse" message="tns:ISAPSIGECO_MANT_ObtieneVendedor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistroVendedor">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISAPSIGECO_MANT/RegistroVendedor" message="tns:ISAPSIGECO_MANT_RegistroVendedor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISAPSIGECO_MANT/RegistroVendedorResponse" message="tns:ISAPSIGECO_MANT_RegistroVendedor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtieneSupervisor">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISAPSIGECO_MANT/ObtieneSupervisor" message="tns:ISAPSIGECO_MANT_ObtieneSupervisor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISAPSIGECO_MANT/ObtieneSupervisorResponse" message="tns:ISAPSIGECO_MANT_ObtieneSupervisor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistroSupervisor">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISAPSIGECO_MANT/RegistroSupervisor" message="tns:ISAPSIGECO_MANT_RegistroSupervisor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISAPSIGECO_MANT/RegistroSupervisorResponse" message="tns:ISAPSIGECO_MANT_RegistroSupervisor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistroVendSup">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISAPSIGECO_MANT/RegistroVendSup" message="tns:ISAPSIGECO_MANT_RegistroVendSup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISAPSIGECO_MANT/RegistroVendSupResponse" message="tns:ISAPSIGECO_MANT_RegistroVendSup_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ISAPSIGECO_MANT" type="tns:ISAPSIGECO_MANT">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ProbarConexion">
+      <soap:operation soapAction="http://tempuri.org/ISAPSIGECO_MANT/ProbarConexion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistroArticulo">
+      <soap:operation soapAction="http://tempuri.org/ISAPSIGECO_MANT/RegistroArticulo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistroPrecio">
+      <soap:operation soapAction="http://tempuri.org/ISAPSIGECO_MANT/RegistroPrecio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistroPrecioMasivo">
+      <soap:operation soapAction="http://tempuri.org/ISAPSIGECO_MANT/RegistroPrecioMasivo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtieneCanal">
+      <soap:operation soapAction="http://tempuri.org/ISAPSIGECO_MANT/ObtieneCanal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtieneGrupo">
+      <soap:operation soapAction="http://tempuri.org/ISAPSIGECO_MANT/ObtieneGrupo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistroCanal">
+      <soap:operation soapAction="http://tempuri.org/ISAPSIGECO_MANT/RegistroCanal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistroGrupo">
+      <soap:operation soapAction="http://tempuri.org/ISAPSIGECO_MANT/RegistroGrupo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtieneVendedor">
+      <soap:operation soapAction="http://tempuri.org/ISAPSIGECO_MANT/ObtieneVendedor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistroVendedor">
+      <soap:operation soapAction="http://tempuri.org/ISAPSIGECO_MANT/RegistroVendedor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtieneSupervisor">
+      <soap:operation soapAction="http://tempuri.org/ISAPSIGECO_MANT/ObtieneSupervisor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistroSupervisor">
+      <soap:operation soapAction="http://tempuri.org/ISAPSIGECO_MANT/RegistroSupervisor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistroVendSup">
+      <soap:operation soapAction="http://tempuri.org/ISAPSIGECO_MANT/RegistroVendSup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SAPSIGECO_MANT">
+    <wsdl:port name="BasicHttpBinding_ISAPSIGECO_MANT" binding="tns:BasicHttpBinding_ISAPSIGECO_MANT">
+      <soap:address location="http://afrodita/WCFSIGECOSAP/SAPSIGECO_MANT.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

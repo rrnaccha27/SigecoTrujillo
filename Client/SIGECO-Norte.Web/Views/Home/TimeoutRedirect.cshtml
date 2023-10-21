@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = SIGEES.Web.Helpers.AppSettings.AppName();
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="~/Content/sigees/styleLogin.css" rel="stylesheet" />
+</head>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jqueryui")
+@Scripts.Render("~/bundles/easyui")
+@Styles.Render("~/Content/easyui")
+<body>
+    <div id="logo" style="position: absolute; top: 50%; left: 50%; width: 600px; margin-left: -300px; height: 200px; margin-top: -190px; z-index: 10;">
+        <center>
+            <img id="logo" src="~/Content/images/logo_verde.png" />
+        </center>
+    </div>
+
+    <div id="ingreso" style="position: absolute; top: 50%; left: 50%; width: 600px; margin-left: -300px; height: 110px; margin-top: -56px; z-index: 10;">
+        <div class="Absolute-Center">
+            <div class="table">
+                <div class="tr">
+                    Tu sesión ha expirado. Redireccionará de 3 segundos a la página de seguridad.
+                </div>
+                <div class="tr">
+                    <div id="p" class="easyui-progressbar" style="width:100%;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+
+        var value = $('#p').progressbar('getValue');
+        if (value < 100) {
+            value += Math.floor(Math.random() * 10);
+            $('#p').progressbar('setValue', value);
+            setTimeout(arguments.callee, 200);
+        }
+        else {
+            window.location.href = '@Url.Action("Login", "Account")';
+        }
+
+    });
+
+</script>

@@ -1,0 +1,22 @@
+﻿CREATE TABLE [dbo].[detalle_planilla_bono] (
+    [codigo_detalle]   INT             IDENTITY (1, 1) NOT NULL,
+    [codigo_planilla]  INT             NULL,
+    [codigo_personal]  INT             NULL,
+    [codigo_empresa]   INT             NULL,
+    [codigo_canal]     INT             NULL,
+    [codigo_grupo]     INT             NULL,
+    [codigo_moneda]    INT             NULL,
+    [monto_bruto]      DECIMAL (10, 2) NULL,
+    [monto_igv]        DECIMAL (10, 2) NULL,
+    [monto_neto]       DECIMAL (10, 2) NULL,
+    [monto_contratado] DECIMAL (10, 2) NULL,
+    [monto_ingresado]  DECIMAL (10, 2) NULL,
+	[codigo_supervisor] INT            NULL,
+	[nombre_supervisor] VARCHAR(250)   NULL,
+	[email_supervisor]  VARCHAR(250)   NULL,
+    CONSTRAINT [PK_detalle_planilla_bono] PRIMARY KEY CLUSTERED ([codigo_detalle] ASC),
+    CONSTRAINT [detalle_planilla_bono_codigo_empresa_empresa_sigeco_codigo_empresa] FOREIGN KEY ([codigo_empresa]) REFERENCES [dbo].[empresa_sigeco] ([codigo_empresa]),
+    CONSTRAINT [detalle_planilla_bono_codigo_moneda_moneda_codigo_moneda] FOREIGN KEY ([codigo_moneda]) REFERENCES [dbo].[moneda] ([codigo_moneda]),
+    CONSTRAINT [detalle_planilla_bono_codigo_planilla_personal_codigo_personal] FOREIGN KEY ([codigo_personal]) REFERENCES [dbo].[personal] ([codigo_personal]),
+    CONSTRAINT [detalle_planilla_bono_codigo_planilla_planilla_bono_codigo_planilla] FOREIGN KEY ([codigo_planilla]) REFERENCES [dbo].[planilla_bono] ([codigo_planilla])
+);

@@ -1,0 +1,26 @@
+﻿<div id="dlgVisualizar" class="easyui-dialog"
+     style="width: 50%; height: 90%; padding: 10px 20px; line-height: 20px;"
+     closed="true" buttons="#dlg-buttons">
+    <div class="easyui-layout" data-options="fit:true">
+        <form id="frmVisualizar" method="post">
+            <div data-options="region:'center'" style="padding:10px;">
+                <input type="hidden" id="NodeID" name="NodeID" />
+                <input type="hidden" id="IsRootNode" name="IsRootNode" />
+                <div style="margin-bottom:20px">
+                    <select id="ParentNode" name="ParentNode" label="Nodo Principal" class="easyui-combotree" data-options="editable: false" style="width:100%" readonly></select>
+                    <br />
+                </div>
+                <div style="margin-bottom:20px">
+                    <input class="easyui-textbox" id="NodeName" name="NodeName" style="width:100%" data-options="label:'Nombre:',readonly: true" />
+                    <br />
+                </div>
+                <div style="margin-bottom:20px">
+                    <label>Esta habilitado：</label>
+                    <input type="checkbox" id="NodeEnable" name="NodeEnable" disabled />
+                    <br />
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>

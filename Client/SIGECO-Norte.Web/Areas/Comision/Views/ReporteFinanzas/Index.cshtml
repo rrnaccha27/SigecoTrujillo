@@ -1,0 +1,122 @@
+﻿@model SIGEES.Web.Models.Bean.BeanItemTipoAcceso
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<input type="hidden" id="hdCodigoEmpresa" />
+<input type="hidden" id="hdNroContrato" />
+
+<div style="width: 99%; background-color: #D3EBDE; vertical-align: middle; padding-top: 1%; padding-bottom: 1%; padding-left: 1%">
+    <center>
+        <h2>Reporte de planilla de Supervisores</h2>
+    </center>
+    <br />
+    <div style="width: 100%">
+
+        @*<div class="rowGridModalDouble" style="width:10%;">
+            <label class="colGridModal">Tipo</label>
+        </div>
+        <div class="rowGridModalDouble" style="width:10%;">
+            <input class="easyui-switchbutton" id="tipo" name="tipo" checked="checked" style="width: 100%" data-options="onText:'Comisión',disabled:true, offText:'Bono', required:true" />
+        </div>*@
+
+        <div class="rowGridModalDouble" style="width:10%;">
+            <label class="colGridModal">Canal de Venta:</label>
+        </div>
+        <div class="rowGridModalDouble" style="width:10%;">
+            <input class="easyui-combobox" id="codigo_canal" name="codigo_canal" style="width: 100%" data-options="required:true,editable:false,multiple:false" />
+        </div>
+
+        <div class="rowGridModalDouble" style="width:10%;">
+            <label class="colGridModal">Tipo Planilla:</label>
+        </div>
+        <div class="rowGridModalDouble" style="width:10%;">
+            <input class="easyui-combobox" id="codigo_tipo_planilla" name="codigo_tipo_planilla" style="width: 100%" data-options="required:true,editable:false,disabled:true" />
+        </div>
+        <div class="rowBoth"></div>
+        <div class="rowGridModalDouble" style="width:10%;">
+            <label class="colGridModal">Año</label>
+        </div>
+        <div class="rowGridModalDouble" style="width:10%;">
+            <input class="easyui-combobox" id="codigo_anio" name="codigo_anio" style="width: 100%" data-options="required:true,editable:false" />
+            @*<input class="easyui-datebox" type="text" style="width: 100%;" data-options="required:true,editable: false,novalidate:true,validType:'fechaMenorAHoyYMenorA[\'#dtp_fecha_fin\',\'Fecha Fin\',\'dd/MM/yyyy\']'" id="dtp_fecha_inicio" />*@
+
+        </div>
+        <div class="rowGridModalDouble" style="width:10%;">
+            <label class="colGridModal">Mes</label>
+        </div>
+        <div class="rowGridModalDouble" style="width:10%;">
+            <input class="easyui-combobox" id="codigo_mes" name="codigo_mes" style="width: 100%" data-options="required:true,editable:false" />
+            @*<input class="easyui-datebox" type="text" style="width: 100%;" data-options="required:true,editable: false,novalidate:true,validType:'MenorIgualAHoy[\'dd/MM/yyyy\',\'#dtp_fecha_fin\']'" id="dtp_fecha_fin" />*@
+
+        </div>
+
+        @*<div class="rowBoth"></div>
+        <div class="rowGridModalDouble" style="width:10%;">
+            <label class="colGridModal">Fecha Inicio</label>
+        </div>
+        <div class="rowGridModalDouble" style="width:10%;">
+            <input class="easyui-datebox" type="text" style="width: 100%;" data-options="required:true,editable: false,novalidate:true,validType:'fechaMenorAHoyYMenorA[\'#dtp_fecha_fin\',\'Fecha Fin\',\'dd/MM/yyyy\']'" id="dtp_fecha_inicio" />
+
+        </div>
+        <div class="rowGridModalDouble" style="width:10%;">
+            <label class="colGridModal">Fecha Fin</label>
+        </div>
+        <div class="rowGridModalDouble" style="width:10%;">
+
+            <input class="easyui-datebox" type="text" style="width: 100%;" data-options="required:true,editable: false,novalidate:true,validType:'MenorIgualAHoy[\'dd/MM/yyyy\',\'#dtp_fecha_fin\']'" id="dtp_fecha_fin" />
+
+        </div>*@
+
+    </div>
+
+    <br />
+    <div style="width: 100%">
+        @if (Model.estadoLectura.CompareTo("A") == 0)
+        {
+            <a href="javascript:GetAllJson()" id="btnBuscar" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " data-options="iconCls:'icon-search'">Buscar</a>
+            <a href="javascript:void(0)" id="btnResumen" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " data-options="disabled:false, iconCls:'icon-excel'">Resumen</a>
+            <a href="javascript:void(0)" id="btnDetalle" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " data-options="disabled:false, iconCls:'icon-excel'">Detalle Contratos</a>
+        }
+    </div>
+</div>
+<div class="rowbooth"></div>
+<div style="width: 99%; padding: 5px; height:65%">
+    @if (Model.estadoLectura.CompareTo("A") == 0)
+    {
+        <table id="DataGrid" style="width: 99%;height:100%"></table>
+    }
+</div>
+
+@section scripts
+{
+
+    <script type="text/javascript" src="~/Areas/Comision/Scripts/Views/ReporteFinanzas/reportefinanzas.index.js"></script>
+
+    <script type="text/javascript">
+
+    $(document).ready(function () {
+        var actionUrls =
+        {
+            GetAllJson: '@Url.Action("GetAllJson", "ReporteFinanzas", new { area = "Comision" })',
+            GetCanalJson: '@Url.Action("GetCanalJson", "ReporteFinanzas", new { area = "Comision" })',
+            GetTipoPlanillaJson: '@Url.Action("GetTipoPlanillaJson", "ReporteFinanzas", new { area = "Comision" })',
+            GetAnioJson: '@Url.Action("GetAnioJson", "ReporteFinanzas", new { area = "Comision" })',
+            SetDataGrilla: '@Url.Action("SetDataGrilla", "ReporteFinanzas", new { area = "Comision" })',
+            ExportarExcel: '@Url.Action("ExportarExcel", "ReporteFinanzas", new { area = "Comision" })',
+            SetDataExcel: '@Url.Action("SetDataExcel", "ReporteFinanzas", new { area = "Comision" })',
+            GenerarExcel: '@Url.Action("GenerarExcel", "ReporteFinanzas", new { area = "Comision" })',
+            ReporteDetalleComSup: '@Url.Action("ReporteDetalleComisionSupervisores", "ReporteFinanzas", new { area = "Comision" })',
+            ReporteContratoComision: '@Url.Action("ReporteContratoComisionSupervisores", "ReporteFinanzas", new { area = "Comision" })',
+            GetMesJson: '@Url.Action("GetMesJson", "ReporteFinanzas", new { area = "Comision" })',
+            GetAnioJson: '@Url.Action("GetAnioReporteJson", "ReporteFinanzas", new { area = "Comision" })'
+        };
+
+
+        project.index.Initialize(actionUrls);
+    });
+
+    </script>
+}

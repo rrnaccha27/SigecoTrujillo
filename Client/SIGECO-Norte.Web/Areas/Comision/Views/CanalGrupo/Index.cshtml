@@ -1,0 +1,96 @@
+﻿@model SIGEES.Web.Models.Bean.BeanItemTipoAcceso
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<input type="hidden" id="hdCodigo" />
+<input type="hidden" id="hdNombre" />
+
+<div style="width: 99%; background-color: #D3EBDE; vertical-align: middle; padding-top: 2%; padding-bottom: 2%; padding-left: 1%">
+
+    <center>
+        <h2>Mantenimiento Canales</h2>
+    </center>
+
+    <br />
+    <div style="width: 100%">
+        @if (Model.estadoEscritura.CompareTo("A") == 0)
+        {
+            <a href="javascript:void(0)" id="btnNuevo" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " data-options="iconCls:'icon-add'">Crear</a>
+        }
+        @if (Model.estadoModificacion.CompareTo("A") == 0)
+        {
+            <a href="javascript:void(0)" id="btnModificar" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " data-options="iconCls:'icon-edit'">Modificar</a>
+        }
+        @if (Model.estadoEliminacion.CompareTo("A") == 0)
+        {
+            <a href="javascript:void(0)" id="btnEliminar" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " data-options="iconCls:'icon-cancel'">Desactivar</a>
+        }
+        @if (Model.estadoLectura.CompareTo("A") == 0)
+        {
+            <a href="javascript:fnReporte()" id="btnImprimir" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " data-options="iconCls:'icon-print'">Imprimir Reporte</a>
+        }
+    </div>
+</div>
+<br />
+<div style="width: 99%; padding-left: 1%">
+    @if (Model.estadoLectura.CompareTo("A") == 0)
+    {
+        <table id="DataGrid" style="width: 100%"></table>
+    }
+</div>
+
+<div id="div_reporte_canal_grupo" class="easyui-dialog" data-options="resizable:true,modal:true,closed:true"
+     style="width: 100%; height: 80%;line-height: 20px;"></div>
+
+@Html.Partial("_Registrar")
+@Html.Partial("_BusquedaPersona")
+@Html.Partial("_Transferencia")
+@Html.Partial("_TransferenciaSupervisor")
+
+@section scripts
+{
+    <script type="text/javascript" src="~/Areas/Comision/Scripts/Views/CanalGrupo/project.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+
+        var actionUrls =
+        {
+            GetAllJson: '@Url.Action("GetAllJson", "CanalGrupo", new { area = string.Empty })',
+            GetSingleJson: '@Url.Action("GetSingleJson", "CanalGrupo", new { area = string.Empty })',
+            Registrar: '@Url.Action("Registrar", "CanalGrupo", new { area = string.Empty })',
+            Modificar: '@Url.Action("Modificar", "CanalGrupo", new { area = string.Empty })',
+            Eliminar: '@Url.Action("Eliminar", "CanalGrupo", new { area = string.Empty })',
+            GetEmpresaJson: '@Url.Action("GetEmpresaJson", "CanalGrupo", new { area = string.Empty })',
+            GetPersonalByNombreJson: '@Url.Action("GetPersonalByNombreJson", "CanalGrupo", new { area = string.Empty })',
+            GetPersonalDisponibleJson: '@Url.Action("GetPersonalDisponibleJson", "CanalGrupo", new { area = string.Empty })',
+            GetPersonalYaAsignadoJson: '@Url.Action("GetPersonalYaAsignadoJson", "CanalGrupo", new { area = string.Empty })',
+            AsignarSupervisor: '@Url.Action("AsignarSupervisor", "CanalGrupo", new { area = string.Empty })',
+            DesasignarSupervisor: '@Url.Action("DesasignarSupervisor", "CanalGrupo", new { area = string.Empty })',
+            GetCanalGrupoJson: '@Url.Action("GetCanalGrupoJson", "CanalGrupo", new { area = string.Empty })',
+            Transferir: '@Url.Action("Transferir", "CanalGrupo", new { area = string.Empty })',
+            GetOtrasSupervisioneJson: '@Url.Action("GetOtrasSupervisioneJson", "CanalGrupo", new { area = string.Empty })',
+        };
+
+        project.CanalGrupo.Initialize(actionUrls);
+    });
+        function Redireccionar() {
+            var id = $("#hdCodigo").val();
+            var url = '@Url.Action("Index", "Grupo", new { id = "codigo_canal" })';
+            window.location.href = url.replace('codigo_canal', id);
+        }
+
+        function fnReporte() {
+            
+            $(this).AbrirVentanaEmergente({
+                //parametro: null,
+                div: 'div_reporte_canal_grupo',
+                title: "Reporte de Canales",
+                url: '@Url.Action("_Reporte", "CanalGrupo", new { area = "comision" })'
+            });
+        }
+
+</script>    
+}

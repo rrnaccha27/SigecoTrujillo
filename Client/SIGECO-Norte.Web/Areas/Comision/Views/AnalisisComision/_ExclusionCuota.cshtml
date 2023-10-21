@@ -1,0 +1,42 @@
+﻿@model SIGEES.Web.Areas.Comision.Models.ExclusionViewModel
+
+<div class="easyui-layout" data-options="fit:true">
+    <div data-options="region:'center'" style="padding: 5px; width: 100%; ">
+        <div  style="width: 100%; ">
+            <form id="frm_exclusion" method="post">
+                <div class="rowGridModal" style="width:23%;">
+                    <label class="colGridModal">Motivo</label>
+                </div>
+                <div class="rowGridModal" >
+                    <input class="easyui-textbox" name="txt_motivo_exclusion" id="txt_motivo_exclusion" style="width: 270px; height: 100px;" data-options="required: true,novalidate:true,multiline:true" />
+                </div>
+                <div class="rowBoth"></div>
+                <div class="rowGridModal" style="width:23%;">
+                    <label class="colGridModal">Permanente</label>
+                </div>
+                <div class="rowGridModal" >
+                    <input class="easyui-switchbutton"  id="ckb_permanente" data-options="onText:'Si', offText:'No'" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <div data-options="region:'south',border:false" style="text-align:right;padding:5px;">
+        <a href="javascript:AceptarExcluir();" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " iconcls="icon-ok" id="btnAceptar">Aceptar</a>
+        <a href="javascript:CerrarExcluir();" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " iconcls="icon-cancel" id="btnCerrar">Cerrar</a>
+    </div>
+</div>
+
+<script type="text/javascript" src="~/Areas/Comision/Scripts/Views/AnalisisComision/analisis.exclusioncuota.js"></script>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        var actionUrls =
+        {
+                Excluir: '@Url.Action("Excluir", "AnalisisComision", new { area = "Comision" })',
+        };
+        project.exclusioncuota.Initialize(actionUrls);
+    });
+
+</script>

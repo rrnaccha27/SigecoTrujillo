@@ -1,0 +1,60 @@
+﻿@model SIGEES.Web.Models.Bean.BeanItemTipoAcceso
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<input type="hidden" id="hdCodigoPersonal" value="" />
+<div style="width: 99%; background-color: #D3EBDE; vertical-align: middle; padding-top: 2%; padding-bottom: 2%; padding-left: 1%">
+    <center>
+        <h2>Descuentos Comisión</h2>
+    </center>
+
+    <br />
+    <div style="width: 100%">
+        @if (Model.estadoLectura.CompareTo("A") == 0)
+        {
+            <a href="javascript:GetAllJson()" id="btnBuscar" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " data-options="iconCls:'icon-search'">Buscar</a>
+            <a href="javascript:Detalle()" id="btnDetalle" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " data-options="iconCls:'icon-detail'">Detalle</a>
+        }
+        @if (Model.estadoEscritura.CompareTo("A") == 0)
+        {
+            <a href="javascript:Crear()" id="btnNuevo" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " data-options="iconCls:'icon-add'">Crear</a>
+        }
+        @if (Model.estadoEliminacion.CompareTo("A") == 0)
+        {
+            <a href="javascript:void(0)" id="btnDesactivar" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " data-options="disabled:true,iconCls:'icon-cancel'">Desactivar</a>
+        }
+    </div>
+</div>
+<br />
+<div style="width: 99%; padding-left: 1%">
+    @if (Model.estadoLectura.CompareTo("A") == 0)
+    {
+        <table id="DataGrid" style="width: 100%"></table>
+    }
+</div>
+
+<div id="dlgRegistro" class="easyui-dialog" data-options="modal:true,closed:true"
+     style="width: 600px; height: 250px; padding:1px; line-height: 10px;">
+</div>
+
+<div id="dlgDetalle" class="easyui-dialog" data-options="modal:true,closed:true"
+     style="width: 80%; height: 80%; padding:5px; line-height: 10px;">
+</div>
+
+<script type="text/javascript" src="~/Areas/Comision/Scripts/Views/DescuentoComision/DescuentoComision.Index.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var indexUrls =
+        {
+            GetAllJson: '@Url.Action("GetAllJson", "DescuentoComision", new { area = "Comision" })',
+            Desactivar: '@Url.Action("Desactivar", "DescuentoComision", new { area = "Comision" })',
+            _Registro: '@Url.Action("_Registro", "DescuentoComision", new { area = "Comision" })',
+            _Detalle: '@Url.Action("_Detalle", "DescuentoComision", new { area = "Comision" })',
+        };
+
+        project.DescuentoComisionIndex.Initialize(indexUrls);
+    });
+</script>

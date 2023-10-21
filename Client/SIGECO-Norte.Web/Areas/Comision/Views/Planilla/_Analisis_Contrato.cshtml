@@ -1,0 +1,142 @@
+﻿@model SIGEES.Entidades.analisis_contrato_dto
+@{
+    var nombrecanalgrupo = Model.nombre_canal_venta + " - " + Model.nombre_grupo;
+}
+<div class="easyui-layout" data-options="fit:true">
+    <form id="frmContrato" method="post">
+        <div data-options="region:'center'" style="padding:5px;">
+            <div class="panelGridModal">
+                <div class="easyui-panel" title="Datos Generales" style="width:99%;" id="pnlDatosGenerales" data-options="collapsible:true">
+                    <div class="rowGridModalDouble" style="width: 10%; ">
+                        <label class="colGridModal">Empresa</label>
+                    </div>
+                    <div class="rowGridModalDouble" style="width: 30%;  ">
+                        <input class="easyui-combobox" id="cmb_empresa_sigeco" value="@Model.codigo_empresa" style="width:100%;" data-options="required:true,novalidate:true,editable:false" />
+                    </div>
+                    <div class="rowGridModalDouble" style="width: 10%;  ">
+                        <label class="colGridModal">Nro. Contrato</label>
+                    </div>
+                    <div class="rowGridModalDouble" style="width: 30%;  ">
+                        <input class="easyui-textbox" id="txt_nro_contrato" name="txt_nro_contrato" value="@Model.nro_contrato" style="width:100%;" data-options="disabled:true" />
+                    </div>
+                    <div class="rowBoth"></div>
+                    <div class="rowGridModalDouble" style="width: 10%; ">
+                        <label class="colGridModal">Titular</label>
+                    </div>
+                    <div class="rowGridModalDouble" style="width: 30%;">
+                        <input class="easyui-textbox" id="txt_apellidos_nombres_cliente" value="@Model.apellidos_nombres_cliente" style="width:100%;" data-options="disabled:true" />
+                    </div>
+                    <div class="rowGridModalDouble" style="width: 10%; ">
+                        <label class="colGridModal">Doc. Completa</label>
+                    </div>
+                    <div class="rowGridModalDouble" style="width: 30%;">
+                        <input class="easyui-textbox" value="@Model.doc_completa" style="width:100%;" data-options="disabled:true" />
+                    </div>
+                    <div class="rowBoth"></div>
+                    <div class="rowGridModalDouble" style="width: 10%; ">
+                        <label class="colGridModal">Estado</label>
+                    </div>
+                    <div class="rowGridModalDouble" style="width: 30%;">
+                        <input class="easyui-textbox" value="@Model.nombre_estado_proceso_migrado" style="width:100%;" data-options="disabled:true" />
+                    </div>
+                    <div class="rowGridModalDouble" style="width: 10%; ">
+                        <label class="colGridModal">Observacion</label>
+                    </div>
+                    <div class="rowGridModalDouble" style="width: 30%;">
+                        @{
+                            
+                            var observ = Model.observacion_contrato_migrado;
+                        }
+                        <input class="easyui-textbox" value="@observ" style="width:100%;" data-options="disabled:true" />
+                    </div>
+                </div>
+                <div class="easyui-panel" title="Datos Venta" style="width:99%;" id="pnlDatosVenta" data-options="collapsible:true">
+                    <div class="rowGridModalDouble" style="width:10%;">
+                        <label class="colGridModal">Canal de Venta</label>
+                    </div>
+                    <div class="rowGridModalDouble" style="width:75%;">
+                        <input class="easyui-textbox" id="txt_nombre_canal_venta" value="@nombrecanalgrupo" style="width:100%;" data-options="disabled:true" />
+                    </div>
+                    <div class="rowBoth"></div>
+                    <div class="rowGridModalDouble" style="width:10%;">
+                        <label class="colGridModal">Vendedor</label>
+                    </div>
+                    <div class="rowGridModalDouble" style="width:30%;">
+                        <input class="easyui-textbox" id="txt_apellidos_nombres_vendedor" value="@Model.apellidos_nombres_vendedor" style="width:100%;" data-options="disabled:true" />
+                    </div>
+                    @*<div class="rowBoth"></div>*@
+                    <div class="rowGridModalDouble" style="width:10%;">
+                        <label class="colGridModal">Supervisor</label>
+                    </div>
+                    <div class="rowGridModalDouble" style="width:30%;">
+                        <input class="easyui-textbox" id="txt_apellidos_nombres_supervisor" value="@Model.apellidos_nombres_supervisor" style="width:100%;" data-options="disabled:true" />
+                    </div>
+                    <div class="rowBoth"></div>
+                    <div class="rowGridModalDouble" style="width:10%;">
+                        <label class="colGridModal">Tipo Venta</label>
+                    </div>
+                    <div class="rowGridModalDouble" style="width:30%;">
+                        <input class="easyui-textbox" id="txt_nombre_tipo_venta" value="@Model.nombre_tipo_venta" style="width:100%;" data-options="disabled:true" />
+                    </div>
+                    <div class="rowGridModalDouble" style="width:10%;">
+                        <label class="colGridModal">Tipo Pago</label>
+                    </div>
+                    <div class="rowGridModalDouble" style="width:30%;">
+                        <input class="easyui-textbox" id="txt_nombre_tipo_pago" value="@Model.nombre_tipo_pago" style="width:100%;" data-options="disabled:true" />
+                    </div>
+                </div>
+
+                <div class="easyui-panel" style="width: 99%; ">                    
+                        <table id="dgv_analisis_contrato_articulo" style="width: 100%; height: 250px;"></table>                   
+
+                </div>
+                <br />
+                <div class="easyui-panel" style="width: 99%; ">                    
+                        <table id="dgv_contrato_detalle_pago" style="width: 100%;height:250px;"></table>
+                </div>
+            </div>
+        </div>
+        <div data-options="region:'south',border:false" style="text-align:right;padding:5px 0 0;">
+            <a href="javascript:cerrar_contrato();" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " iconcls="icon-cancel" id="btnCancelar">Cerrar</a>
+        </div>
+    </form>
+</div>
+
+<div id="toolbar_cuota_cronograma">
+    <a href="javascript:fnRefinanciarCuotComision();" iconcls="icon-calculator" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; ">Dividir Comisión</a>
+    <a href="javascript:fnAnularCuotaComision();" iconcls="icon-remove" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; ">Anular</a>
+</div>
+
+
+<div id="div_cuota_comision" class="easyui-dialog" data-options="resizable:true,modal:true,closed:true"
+     style="width: 45%; height: 55%;line-height: 10px;"></div>
+
+
+<script type="text/javascript" src="~/Areas/Comision/Scripts/Views/Planilla/planilla.contrato.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var actionUrls =
+        {
+            _GetArticulosByContratoEmpresaJson: '@Url.Action("GetArticulosByContratoEmpresaJson", "Planilla", new { area = "Comision"})',
+            _GetContratoJson: '@Url.Action("GetContratoJson", "AnalisisComision", new { area = "Comision" })',
+            _GetDetalleCronogramaPagoByArticuloJson: '@Url.Action("GetDetalleCronogramaPagoByArticuloJson", "Planilla", new { area = "Comision" })',
+            _GetEmpresaByContratoJson: '@Url.Action("GetEmpresaByContratoJson", "Planilla", new { area = "Comision" })',
+            _Cuota_Cronograma: '@Url.Action("_Cuota_Cronograma", "Planilla", new { area = "Comision" })',
+            _Anular_Cuota: '@Url.Action("_Anular_Cuota", "Planilla", new { area = "Comision" })',
+            _numero_contrato: '@Model.nro_contrato',
+            _codigo_empresa: '@Model.codigo_empresa'
+
+
+        };
+        project.contrato.Initialize(actionUrls);
+    });
+
+</script>
+
+
+
+
+
+
+
+

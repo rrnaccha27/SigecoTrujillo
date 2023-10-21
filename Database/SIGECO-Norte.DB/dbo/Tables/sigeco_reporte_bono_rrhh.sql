@@ -1,0 +1,21 @@
+﻿CREATE TABLE [dbo].[sigeco_reporte_bono_rrhh] (
+    [codigo_planilla]                  INT             NULL,
+    [numero_planilla]                  VARCHAR (10)    NULL,
+    [fecha_proceso]                    VARCHAR (10)    NULL,
+    [codigo_empresa]                   INT             NULL,
+    [simbolo_moneda_cuenta_desembolso] VARCHAR (25)    NULL,
+    [nombre_empresa]                   VARCHAR (25)    NULL,
+    [numero_cuenta_desembolso]         VARCHAR (250)   NULL,
+    [tipo_cuenta_desembolso]           VARCHAR (25)    NULL,
+    [numero_cuenta_abono]              VARCHAR (250)   NULL,
+    [tipo_cuenta_abono]                VARCHAR (25)    NULL,
+    [simbolo_moneda_cuenta_abono]      VARCHAR (25)    NULL,
+    [nombre_tipo_documento]            VARCHAR (25)    NULL,
+    [nro_documento]                    VARCHAR (25)    NULL,
+    [nombre_personal]                  VARCHAR (250)   NULL,
+    [codigo_personal]                  INT             NULL,
+    [importe_abono_personal]           DECIMAL (12, 2) NULL,
+    [importe_desembolso_empresa]       DECIMAL (12, 2) NULL,
+    [calcular_detraccion]              BIT             NULL,
+    [checksum]                         VARCHAR (250)   NULL
+);

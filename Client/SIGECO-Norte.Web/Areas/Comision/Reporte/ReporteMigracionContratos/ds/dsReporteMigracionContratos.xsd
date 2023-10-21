@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsReporteMigracionContratos" targetNamespace="http://tempuri.org/dsReporteMigracionContratos.xsd" xmlns:mstns="http://tempuri.org/dsReporteMigracionContratos.xsd" xmlns="http://tempuri.org/dsReporteMigracionContratos.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsReporteMigracionContratos" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsReporteMigracionContratos" msprop:Generator_UserDSName="dsReporteMigracionContratos">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dtReporteMigracionContratos" msprop:Generator_TableClassName="dtReporteMigracionContratosDataTable" msprop:Generator_TableVarName="tabledtReporteMigracionContratos" msprop:Generator_TablePropName="dtReporteMigracionContratos" msprop:Generator_RowDeletingName="dtReporteMigracionContratosRowDeleting" msprop:Generator_RowChangingName="dtReporteMigracionContratosRowChanging" msprop:Generator_RowEvHandlerName="dtReporteMigracionContratosRowChangeEventHandler" msprop:Generator_RowDeletedName="dtReporteMigracionContratosRowDeleted" msprop:Generator_UserTableName="dtReporteMigracionContratos" msprop:Generator_RowChangedName="dtReporteMigracionContratosRowChanged" msprop:Generator_RowEvArgName="dtReporteMigracionContratosRowChangeEvent" msprop:Generator_RowClassName="dtReporteMigracionContratosRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="nombre_empresa" msprop:Generator_ColumnVarNameInTable="columnnombre_empresa" msprop:Generator_ColumnPropNameInRow="nombre_empresa" msprop:Generator_ColumnPropNameInTable="nombre_empresaColumn" msprop:Generator_UserColumnName="nombre_empresa" type="xs:string" minOccurs="0" />
+              <xs:element name="nro_contrato" msprop:Generator_ColumnVarNameInTable="columnnro_contrato" msprop:Generator_ColumnPropNameInRow="nro_contrato" msprop:Generator_ColumnPropNameInTable="nro_contratoColumn" msprop:Generator_UserColumnName="nro_contrato" type="xs:string" minOccurs="0" />
+              <xs:element name="fecha_contrato" msprop:Generator_ColumnVarNameInTable="columnfecha_contrato" msprop:Generator_ColumnPropNameInRow="fecha_contrato" msprop:Generator_ColumnPropNameInTable="fecha_contratoColumn" msprop:Generator_UserColumnName="fecha_contrato" type="xs:string" minOccurs="0" />
+              <xs:element name="docentry" msprop:Generator_ColumnVarNameInTable="columndocentry" msprop:Generator_ColumnPropNameInRow="docentry" msprop:Generator_ColumnPropNameInTable="docentryColumn" msprop:Generator_UserColumnName="docentry" type="xs:int" minOccurs="0" />
+              <xs:element name="estado" msprop:Generator_ColumnVarNameInTable="columnestado" msprop:Generator_ColumnPropNameInRow="estado" msprop:Generator_ColumnPropNameInTable="estadoColumn" msprop:Generator_UserColumnName="estado" type="xs:string" minOccurs="0" />
+              <xs:element name="fecha_migracion" msprop:Generator_ColumnVarNameInTable="columnfecha_migracion" msprop:Generator_ColumnPropNameInRow="fecha_migracion" msprop:Generator_ColumnPropNameInTable="fecha_migracionColumn" msprop:Generator_UserColumnName="fecha_migracion" type="xs:string" minOccurs="0" />
+              <xs:element name="nombre_canal" msprop:Generator_ColumnVarNameInTable="columnnombre_canal" msprop:Generator_ColumnPropNameInRow="nombre_canal" msprop:Generator_ColumnPropNameInTable="nombre_canalColumn" msprop:Generator_UserColumnName="nombre_canal" type="xs:string" minOccurs="0" />
+              <xs:element name="nombre_grupo" msprop:Generator_ColumnVarNameInTable="columnnombre_grupo" msprop:Generator_ColumnPropNameInRow="nombre_grupo" msprop:Generator_ColumnPropNameInTable="nombre_grupoColumn" msprop:Generator_UserColumnName="nombre_grupo" type="xs:string" minOccurs="0" />
+              <xs:element name="nombre_personal" msprop:Generator_ColumnVarNameInTable="columnnombre_personal" msprop:Generator_ColumnPropNameInRow="nombre_personal" msprop:Generator_ColumnPropNameInTable="nombre_personalColumn" msprop:Generator_UserColumnName="nombre_personal" type="xs:string" minOccurs="0" />
+              <xs:element name="intentos" msprop:Generator_ColumnVarNameInTable="columnintentos" msprop:Generator_ColumnPropNameInRow="intentos" msprop:Generator_ColumnPropNameInTable="intentosColumn" msprop:Generator_UserColumnName="intentos" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

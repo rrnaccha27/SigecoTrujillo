@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f7ec52fe4d624f3aaba23fa7626d293d" Name="Diagram1" ZoomLevel="94">
+        <EntityTypeShape EntityType="SIGEESEntities.agencia" Width="1.5" PointX="5.25" PointY="37.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.cabecera_lapida" Width="1.5" PointX="15.75" PointY="49.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.campo_santo" Width="1.5" PointX="5.25" PointY="49.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.caracteristica_lote" Width="1.5" PointX="9" PointY="61.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.clave_usuario" Width="1.5" PointX="7.5" PointY="40.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.cliente" Width="1.5" PointX="5.25" PointY="46" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.conversion_espacio" Width="1.5" PointX="18.75" PointY="48" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.corporacion" Width="1.5" PointX="0.75" PointY="47.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.detalle_atributo" Width="1.5" PointX="15" PointY="41.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.detalle_conversion_espacio" Width="1.5" PointX="24" PointY="50.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.detalle_entidad" Width="1.5" PointX="12.75" PointY="41.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.detalle_estado_espacio" Width="1.5" PointX="15.75" PointY="45.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.detalle_exhumacion" Width="1.5" PointX="24" PointY="58.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.detalle_grupo_lapida" Width="1.5" PointX="18" PointY="44.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.detalle_producto" Width="1.5" PointX="15.75" PointY="55.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.edificio" Width="1.5" PointX="15" PointY="59.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.empresa" Width="1.5" PointX="3" PointY="52.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.espacio" Width="1.5" PointX="13.5" PointY="45.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.estado_civil" Width="1.5" PointX="0.75" PointY="43.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.estado_conversion" Width="1.5" PointX="16.5" PointY="33.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.estado_espacio" Width="1.5" PointX="13.5" PointY="37.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.estado_exhumacion" Width="1.5" PointX="21.75" PointY="62.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.estado_fallecido" Width="1.5" PointX="19.5" PointY="40.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.estado_lapida" Width="1.5" PointX="13.5" PointY="65.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.estado_movimiento_tabla" Width="1.5" PointX="3.625" PointY="32.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.evento_usuario" Width="1.5" PointX="10.5" PointY="40.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.exhumacion_fallecido" Width="1.5" PointX="18.75" PointY="56.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.fallecido" Width="1.5" PointX="7.5" PointY="52.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.grupo_lapida" Width="1.5" PointX="15.75" PointY="37.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.item_tipo_acceso" Width="1.5" PointX="14.25" PointY="34" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.lapida" Width="1.5" PointX="21" PointY="56.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.mensaje_sistema" Width="1.5" PointX="27.5" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.menu" Width="1.5" PointX="8.25" PointY="32" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.motivo_traslado" Width="1.5" PointX="15.625" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.nivel_servicio" Width="1.5" PointX="17.625" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.parametro_sistema" Width="1.5" PointX="19.875" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.perfil_usuario" Width="1.5" PointX="3" PointY="40.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.permiso_empresa" Width="1.5" PointX="5.25" PointY="54.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.permiso_menu" Width="1.5" PointX="13.5" PointY="30.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.persona" Width="1.5" PointX="3" PointY="45.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.piso_pabellon" Width="1.5" PointX="11.25" PointY="37.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.plataforma" Width="1.5" PointX="10.5" PointY="52.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.producto" Width="1.5" PointX="6" PointY="61.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.registro_fallecido" Width="1.5" PointX="21.75" PointY="51" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.registro_incinerado" Width="1.5" PointX="24" PointY="54.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.reserva" Width="1.5" PointX="8.25" PointY="45.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.sector" Width="1.5" PointX="12.75" PointY="58.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.sesion_usuario" Width="1.5" PointX="7.5" PointY="36.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.sexo" Width="1.5" PointX="0.75" PointY="51.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.tipo_acceso_item" Width="1.5" PointX="12" PointY="27" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.tipo_bien" Width="1.5" PointX="9" PointY="67.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.tipo_bien_servicio" Width="2.5" PointX="30.25" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.tipo_conversion_espacio" Width="1.5" PointX="16.5" PointY="65.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.tipo_documento" Width="1.5" PointX="0.75" PointY="55.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.tipo_espacio" Width="1.5" PointX="8.25" PointY="72.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.tipo_evento" Width="1.5" PointX="8.25" PointY="28" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.tipo_fallecido" Width="1.5" PointX="5.25" PointY="66.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.tipo_nivel" Width="1.5" PointX="11.25" PointY="32.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.tipo_piso" Width="1.5" PointX="13.375" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.tipo_plataforma" Width="1.5" PointX="8.25" PointY="76.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.tipo_producto" Width="1.5" PointX="3.75" PointY="61.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.tipo_traslado" Width="1.5" PointX="5.25" PointY="69.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.tipo_venta" Width="1.5" PointX="21.75" PointY="66" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.TreeNode" Width="1.5" PointX="22.125" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.usuario" Width="1.5" PointX="5.25" PointY="41.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.venta" Width="1.5" PointX="11.25" PointY="44.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.vista_pabellon" Width="1.5" PointX="11.25" PointY="65.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGEESEntities.encofrado" Width="1.5" PointX="21.75" PointY="45.5" IsExpanded="true" />
+        <AssociationConnector Association="SIGEESEntities.agencia_fallecido_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.cabecera_lapida_espacio_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.FK__cabecera___codig__3E1D39E1" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.FK__detalle_g__codig__4E53A1AA" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.FK__lapida__codigo_c__6AEFE058" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.campo_santo_espacio_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.campo_santo_plataforma_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.corporacion_campo_santo_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.empresa_campo_santo_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.FK__fallecido__codig__65370702" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.FK__venta__codigo_ca__0D44F85C" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.usuario_New_table_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.persona_cliente_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.conversion_espacio_espacio_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.conversion_espacio_estado_conversion_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.conversion_espacio_tipo_conversion_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.det_conversion_espacio_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.corporacion_empresa_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.corporacion_espacio_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.corporacion_persona_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.corporacion_plataforma_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.detalle_entidad_detalle_atributo_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.det_conversion_espacio_estado_conversion_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.evento_usuario_detalle_entidad_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.det_estado_espacio_espacio_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.det_estado_espacio_estado_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.detalle_exhumacion_estado_exhumacion_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.detalle_exhumacion_exhumacion_fallecido_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.FK__detalle_g__codig__4D5F7D71" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.espacio_detalle_producto_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.producto_detalle_producto_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.FK__edificio__id_sec__51300E55" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.FK__espacio__id_edif__5BAD9CC8" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.empresa_espacio_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.empresa_permiso_empresa_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.empresa_plataforma_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.espacio__tipo_bien_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.espacio_piso_pabellon_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.espacio_registro_fallecido_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.espacio_sector_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.espacio_vista_pabellon_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.exhumacion_fallecido_espacio_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.FK__encofrado__codig__531856C7" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.lapida_espacio_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.plataforma_espacio_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.tipo_espacio_espacio_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.tipo_nivel_espacio_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.estado_civil_persona_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.registro_fallecido_estado_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.cod_estado_mov_tabla_reserva_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.cod_estado_mov_tabla_venta_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.menu_evento_usuario_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.tipo_evento_evento_usuario_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.usuario_evento_usuario_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.exhumacion_fallecido_fallecido_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.fallecido_registro_fallecido_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.fallecido_registro_incinerado_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.lapida_fallecido_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.persona_fallecido_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.tipo_fallecido_fallecido_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.tipo_traslado_fallecido_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.perfil_usuario_item_tipo_acceso_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.tipo_acceso_item_item_tipo_acceso_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.lapida_tipo_nivel_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.menu_permiso_menu_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.perfil_usuario_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.perfil_usuario_permiso_menu_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.usuario_permiso_empresa_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.persona_reserva_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.persona_usuario_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.persona_venta_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.sexo_persona_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.tipo_documento_persona_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.FK__plataform__codig__793DFFAF" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.FK__plataform__codig__7A3223E8" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.FK__sector__codigo_p__03BB8E22" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.producto_reserva_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.producto_venta_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.tipo_producto_producto_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.registro_fallecido_registro_incinerado_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.usuario_sesion_usuario_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.FK__encofrado__codig__540C7B00" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.FK__venta__codigo_ca__0B5CAFEA" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.FK__venta__codigo_ca__0C50D423" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.tipo_nivel_tipo_conversion_espacio_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="SIGEESEntities.TreeNode_TreeNode_fk" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

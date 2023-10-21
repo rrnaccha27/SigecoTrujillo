@@ -1,0 +1,23 @@
+﻿CREATE TABLE [dbo].[persona] (
+    [codigo_persona]        INT          IDENTITY (1, 1) NOT NULL,
+    [codigo_corporacion]    INT          NOT NULL,
+    [codigo_tipo_documento] INT          NOT NULL,
+    [codigo_estado_civil]   INT          NOT NULL,
+    [nombre_persona]        VARCHAR (60) NOT NULL,
+    [apellido_paterno]      VARCHAR (30) NOT NULL,
+    [apellido_materno]      VARCHAR (30) NOT NULL,
+    [fecha_nacimiento]      DATETIME     NOT NULL,
+    [codigo_sexo]           CHAR (1)     NOT NULL,
+    [numero_documento]      VARCHAR (25) NOT NULL,
+    [es_vendedor]           BIT          DEFAULT ((0)) NOT NULL,
+    [estado_registro]       BIT          NOT NULL,
+    [fecha_registra]        DATETIME     NOT NULL,
+    [fecha_modifica]        DATETIME     NULL,
+    [usuario_registra]      VARCHAR (50) NOT NULL,
+    [usuario_modifica]      VARCHAR (50) NULL,
+    CONSTRAINT [persona_pk] PRIMARY KEY CLUSTERED ([codigo_persona] ASC),
+    CONSTRAINT [corporacion_persona_fk] FOREIGN KEY ([codigo_corporacion]) REFERENCES [dbo].[corporacion] ([codigo_corporacion]) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT [estado_civil_persona_fk] FOREIGN KEY ([codigo_estado_civil]) REFERENCES [dbo].[estado_civil] ([codigo_estado_civil]),
+    CONSTRAINT [sexo_persona_fk] FOREIGN KEY ([codigo_sexo]) REFERENCES [dbo].[sexo] ([codigo_sexo]) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT [tipo_documento_persona_fk] FOREIGN KEY ([codigo_tipo_documento]) REFERENCES [dbo].[tipo_documento] ([codigo_tipo_documento]) ON DELETE CASCADE ON UPDATE CASCADE
+);

@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FD75F8EF-0014-45AA-87D9-B81B18E6E582}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SIGEES.DataAcces</RootNamespace>
+    <AssemblyName>SIGECO-Norte.DataAcces</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Library\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Library\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Library\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Library\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Library\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Library\Microsoft.Practices.Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception.Configuration, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Library\Microsoft.Practices.Unity.Interception.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Comision\ChecklistBonoDA.cs" />
+    <Compile Include="Comision\ChecklistComisionDA.cs" />
+    <Compile Include="Comision\ComisionManualDA.cs" />
+    <Compile Include="Comision\ComisionPrecioSupervisorDA.cs" />
+    <Compile Include="Comision\DescuentoComisionDA.cs" />
+    <Compile Include="Comision\DetalleCronogramaPagoDA.cs" />
+    <Compile Include="Comision\ContratoDA.cs" />
+    <Compile Include="Comision\Helper\Format.cs" />
+    <Compile Include="Comision\LogContratoSAPDA.cs" />
+    <Compile Include="Comision\LogProcesoBonoDA.cs" />
+    <Compile Include="Comision\LogWCFSAPDA.cs" />
+    <Compile Include="Comision\PeriodoTrimestralDA.cs" />
+    <Compile Include="Comision\PlanIntegralDA.cs" />
+    <Compile Include="Comision\PlanIntegralDetalleDA.cs" />
+    <Compile Include="Comision\ReglaBonoTrimestralDA.cs" />
+    <Compile Include="Comision\ReglaCalculoBonoDA.cs" />
+    <Compile Include="Comision\DetalleReglaComisionDA.cs" />
+    <Compile Include="Comision\MetaReglaComisionDA.cs" />
+    <Compile Include="Comision\ReglaComisionDA.cs" />
+    <Compile Include="Comision\ReglaPagoComisionExcepcionDA.cs" />
+    <Compile Include="Comision\ReglaCalculoComisionSupervisorDA.cs" />
+    <Compile Include="Comision\ReglaPagoComisionDA.cs" />
+    <Compile Include="Comision\ArticuloDA.cs" />
+    <Compile Include="Comision\CanalGrupoDA.cs" />
+    <Compile Include="Comision\ConexionDA.cs" />
+    <Compile Include="Comision\DetallePlanillaDA.cs" />
+    <Compile Include="Comision\PersonalCanalGrupoDA.cs" />
+    <Compile Include="Comision\PersonalDA.cs" />
+    <Compile Include="Comision\PlanillaDA.cs" />
+    <Compile Include="Comision\Precio_ArticuloDA.cs" />
+    <Compile Include="Comision\reclamoDA.cs" />
+    <Compile Include="Comision\ReglaRecuperoDA.cs" />
+    <Compile Include="Comision\ReglaTipoPlanillaDA.cs" />
+    <Compile Include="Comision\ReporteGeneralDA.cs" />
+    <Compile Include="Comision\TemplateCorreoDA.cs" />
+    <Compile Include="Comision\TipoBonoTrimestralDA.cs" />
+    <Compile Include="Comision\TipoComisionSupervisorDA.cs" />
+    <Compile Include="Comision\TipoReporteDA.cs" />
+    <Compile Include="Comision\Type\DetalleCronogramaTypeCollection.cs" />
+    <Compile Include="Comision\Type\EmpresaIdTypeCollection.cs" />
+    <Compile Include="Comision\Type\ExclusionIdTypeCollection.cs" />
+    <Compile Include="BaseDA.cs" />
+    <Compile Include="Comision\Type\PersonalNoValidadoTypeCollection.cs" />
+    <Compile Include="GenericDA.cs" />
+    <Compile Include="Helper\Conexion.cs" />
+    <Compile Include="Helper\DataUtil.cs" />
+    <Compile Include="Helper\Procedimiento.cs" />
+    <Compile Include="Helper\SqlHelp.cs" />
+    <Compile Include="PersonaDA.cs" />
+    <Compile Include="Comision\Regla_Calculo_ComisonDA.cs" />
+    <Compile Include="SingletonDA.cs" />
+    <Compile Include="TransactionScope.cs" />
+    <Compile Include="TransactionScope_2.cs" />
+    <Compile Include="Type\CheckListComisionTypeCollection.cs" />
+    <Compile Include="Type\EspacioTypeCollection.cs" />
+    <Compile Include="UsuarioDA.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\Constantes.cs" />
+    <Compile Include="Utils\Fechas.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Transversal\SIGECO-Norte.Entidades\SIGECO-Norte.Entidades.csproj">
+      <Project>{9a3faeb1-4556-4319-8032-f4f38f3c9bd2}</Project>
+      <Name>SIGECO-Norte.Entidades</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

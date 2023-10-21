@@ -1,0 +1,111 @@
+﻿@{
+    ViewBag.Title = SIGEES.Web.Helpers.AppSettings.AppName();
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="~/Content/sigees/styleLogin.css" rel="stylesheet" />
+</head>
+	@Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/easyui")
+    @Styles.Render("~/Content/easyui")
+<body>
+    <script src="~/Scripts/Views/project.js"></script>
+    @Html.Hidden("UrlLogin", Url.Action("Login", "Account"))
+
+
+
+    <div id="logo" style="position: absolute; top: 50%; left: 50%; width: 600px; margin-left: -300px; height: 200px; margin-top: -190px; z-index: 10;">
+        <center>
+            <img id="logo" src="~/Content/images/logo_verde.png" />
+        </center>
+     </div>
+
+
+    <div id="ingreso" style="position: absolute; top: 50%; left: 50%; width: 600px; margin-left: -300px; height: 110px; margin-top: -56px; z-index: 10;">
+        <div class="Absolute-Center">
+            <div class="table">
+                <div class="tr">
+                    <div class="td">
+                        &nbsp<label class="colGridModal">Nombre usuario</label>
+                        <input class="easyui-textbox" id="txtvUsuario" value="root" name="txtvUsuario" style="width:100%">
+                    </div>
+                    <div class="td">
+                        &nbsp<label class="colGridModal">Contraseña</label>
+                        @*<input class="easyui-passwordbox" id="txtvPassword" value="" name="txtvPassword" style="width:100%">*@
+                        <input type="password" id="txtvPassword" style="width:100%" value="123" class="easyui-textbox">
+                    </div>
+                    <div class="td">
+                        <br />
+                        <a href="javascript:void(0)" id="btnIngresar" class="easyui-linkbutton"
+                            style="width: 100%; background: #252E3D; color: #94C545; padding: 2px 15px 2px 15px;border-radius: 15px; border-style: none; font-weight: bold ">INGRESAR</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="cargar" style="position: absolute; top: 50%; left: 50%; width: 410px; margin-left: -205px; height: 76px; margin-top: -38px; z-index: 100; display:none;">
+        <div id="capacentral" class="table" style="padding-right: 10px; padding-left: 10px; z-index: 101; background: #ffffff; padding-bottom: 10px; font: bold 13pt verdana; width: 97%; text-align: center; border-color: steelblue; box-shadow: initial; border: 1px solid #003366; -moz-border-radius: 10px;">
+            <br />
+            <label style="border-color:SteelBlue;color:SteelBlue;">Espere un momento por favor...</label><br />
+            <img id="Image2" src="~/content/images/ajax-loader.gif" />
+        </div>
+    </div>
+</body>
+</html>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $('#cargar').hide();
+
+        var t = $('#txtvPassword');
+        t.textbox('textbox').bind('keydown', function (e) {
+            if (e.keyCode == 13)
+            {	
+                $('#cargar').show();
+                $('#ingreso').hide();
+                ValidarUsuario();
+            }
+        });
+        $('#txtvUsuario').textbox('textbox').focus();
+    });
+
+    $('#btnIngresar').click(function () {
+        $('#cargar').show();
+        $('#ingreso').hide();
+        ValidarUsuario();
+    });
+
+    function ValidarUsuario() {
+
+        var usuario = $("#txtvUsuario").val();
+        var clave = $("#txtvPassword").val();
+
+        $.ajax({
+                
+            url: $("#UrlLogin").val(),
+            type: "POST",
+            dataType: "json",
+            data: { usuario: usuario, clave: clave },
+            success: function (data) {
+
+                if (data.Msg != "Success") {
+                    $('#cargar').hide();
+                    $('#ingreso').show();
+                    project.AlertErrorMessage('Alerta', data.Msg);
+                } else {                    
+                    
+                    window.location.href = data.url_pagina;
+
+                }
+            }
+        });
+    }
+
+</script>

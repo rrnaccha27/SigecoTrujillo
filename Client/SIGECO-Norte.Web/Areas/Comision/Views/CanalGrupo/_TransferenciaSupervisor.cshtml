@@ -1,0 +1,107 @@
+﻿<div id="dlgTransferirSupervisor" class="easyui-dialog" data-options="modal:true,closed:true, buttons:'#divTransferirSupervisorBotones'"
+     style="width: 45%; height: 400px; padding: 10px; line-height: 20px;">
+
+    <form id="frmTransferirSupervisor" method="post">
+        <label class="colGridModal">Debe elegir que accion tomar con el anterior supervisor.</label>
+        <div class="easyui-panel" title="Canal/Grupo como Personal" style="width: 99%; ">
+            <div class="panelGridModal">
+                <table style="width:100%">
+                    <tr>
+                        <td class="tdEtiqueta">
+                            <label class="colGridModal">Canal</label>
+                        </td>
+                        <td class="tdValor">
+                            <input class="easyui-combobox" id="codigo_canal" name="codigo_canal" style="width: 95%" data-options="required:true, editable: false" />
+                        </td>
+                        <td class="tdEtiqueta2">
+                            <label class="colGridModal">Percibe Comisión</label>
+                        </td>
+                        <td class="tdValor2">
+                            <input class="easyui-switchbutton" id="percibe_comision" name="percibe_comision" data-options="onText:'Si', offText:'No', required:true" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tdEtiqueta">
+                            <label class="colGridModal">Grupo</label>
+                        </td>
+                        <td class="tdValor">
+                            <input class="easyui-combobox" id="codigo_grupo" name="codigo_grupo" style="width: 95%" data-options="editable: false" />
+                        </td>
+                        <td class="tdEtiqueta2">
+                            <label class="colGridModal">Percibe Bono</label>
+                        </td>
+                        <td class="tdValor2">
+                            <input class="easyui-switchbutton" id="percibe_bono" name="percibe_bono" data-options="onText:'Si', offText:'No', required:true" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div style="height:10px;"></div>
+        <div class="easyui-panel" title="Anulación de datos" style="width: 99%; ">
+            <div class="panelGridModal">
+                <table style="width:100%">
+                    <tr>
+                        <td class="tdEtiqueta">
+                            <label class="colGridModal">Anular</label>
+                        </td>
+                        <td class="tdValor">
+                            <input class="easyui-switchbutton" id="anular" name="anular" data-options="onText:'Si', offText:'No', required:true" />
+                        </td>
+                        <td class="tdEtiqueta2">
+                            &nbsp;
+                        </td>
+                        <td class="tdValor2">
+                            &nbsp;
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div style="height:10px;"></div>
+        <div class="easyui-panel" title="Mantener otras supervisiones asignadas" style="width: 99%; ">
+            <div class="panelGridModal">
+                <table style="width:100%">
+                    <tr>
+                        <td class="tdEtiqueta">
+                            <label class="colGridModal">Mantener</label>
+                        </td>
+                        <td class="tdValor">
+                            <input class="easyui-switchbutton" id="mantener" name="mantener" data-options="onText:'Si', offText:'No', required:true" />
+                        </td>
+                        <td class="tdEtiqueta2">
+                            &nbsp;
+                        </td>
+                        <td class="tdValor2">
+                            &nbsp;
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div id="divTransferirSupervisorBotones" style="width: 100%; height: 100%; display: inline-block">
+            <a href="#" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " iconcls="icon-ok" id="btnAceptar">Aceptar</a>
+            <a href="#" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " iconcls="icon-cancel" id="btnCancelar">Cancelar</a>
+        </div>
+    </form>
+</div>
+
+<style>
+    .tdEtiqueta {
+        width: 15%;
+        padding: 5px;
+    }
+
+    .tdValor {
+        width: 45%;
+    }
+    .tdEtiqueta2 {
+        width: 25%;
+        padding: 5px;
+    }
+
+    .tdValor2 {
+        width: 15%;
+    }
+</style>
+

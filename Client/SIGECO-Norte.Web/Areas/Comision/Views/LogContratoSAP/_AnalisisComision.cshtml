@@ -1,0 +1,214 @@
+﻿@model SIGEES.Entidades.analisis_contrato_dto
+@{
+    var nombrecanalgrupo = Model.nombre_canal_venta + " - " + Model.nombre_grupo;
+}
+<div class="easyui-layout" data-options="fit:true">
+    <form id="frmContrato" method="post">
+        <div data-options="region:'center'" style="padding:5px;">
+            <div class="panelGridModal">
+                <div class="easyui-panel" title="Datos Generales" style="width:99%;" id="pnlDatosGenerales" data-options="collapsible:true">
+                    <div class="rowGridModalDouble" style="width: 10%; ">
+                        <label class="colGridModal">Empresa</label>
+                    </div>
+                    <div class="rowGridModalDouble" style="width: 30%;  ">
+                        <input class="easyui-combobox" id="cmb_empresa_sigeco" value="@Model.codigo_empresa" style="width:100%;" data-options="required:true,novalidate:true,editable:false" />
+                    </div>
+                    <div class="rowGridModalDouble" style="width: 10%;  ">
+                        <label class="colGridModal">Nro. Contrato</label>
+                    </div>
+                    <div class="rowGridModalDouble" style="width: 30%;  ">
+                        <input class="easyui-textbox" id="txt_nro_contrato" name="txt_nro_contrato" value="@Model.nro_contrato" style="width:100%;" data-options="disabled:true" />
+                    </div>
+                    <div class="rowBoth"></div>
+                    <div class="rowGridModalDouble" style="width: 10%; ">
+                        <label class="colGridModal">Titular</label>
+                    </div>
+                    <div class="rowGridModalDouble" style="width: 30%;">
+                        <input class="easyui-textbox" id="txt_apellidos_nombres_cliente" value="@Model.apellidos_nombres_cliente" style="width:100%;" data-options="disabled:true" />
+                    </div>
+                    <div class="rowGridModalDouble" style="width: 10%; ">
+                        <label class="colGridModal">Doc. Completa</label>
+                    </div>
+                    <div class="rowGridModalDouble" style="width: 30%;">
+                        <input class="easyui-textbox" value="@Model.doc_completa" style="width:100%;" data-options="disabled:true" />
+                    </div>
+                    <div class="rowBoth"></div>
+                    <div class="rowGridModalDouble" style="width: 10%; ">
+                        <label class="colGridModal">Estado</label>
+                    </div>
+                    <div class="rowGridModalDouble" style="width: 30%;">
+                        <input class="easyui-textbox" value="@Model.nombre_estado_proceso_migrado" style="width:100%;" data-options="disabled:true" />
+                    </div>
+                    <div class="rowGridModalDouble" style="width: 10%; ">
+                        <label class="colGridModal">Observacion</label>
+                    </div>
+                    <div class="rowGridModalDouble" style="width: 30%;">
+                        @{
+
+                            var observ = Model.observacion_contrato_migrado;
+                        }
+                        <input class="easyui-textbox" value="@observ" style="width:100%;" data-options="disabled:true" />
+                    </div>
+                </div>
+                <div class="easyui-panel" title="Datos Venta" style="width:99%;" id="pnlDatosVenta" data-options="collapsible:true">
+                    <div class="rowGridModalDouble" style="width:10%;">
+                        <label class="colGridModal">Canal de Venta</label>
+                    </div>
+                    <div class="rowGridModalDouble" style="width:75%;">
+                        <input class="easyui-textbox" id="txt_nombre_canal_venta" value="@nombrecanalgrupo" style="width:100%;" data-options="disabled:true" />
+                    </div>
+                    <div class="rowBoth"></div>
+                    <div class="rowGridModalDouble" style="width:10%;">
+                        <label class="colGridModal">Vendedor</label>
+                    </div>
+                    <div class="rowGridModalDouble" style="width:30%;">
+                        <input class="easyui-textbox" id="txt_apellidos_nombres_vendedor" value="@Model.apellidos_nombres_vendedor" style="width:100%;" data-options="disabled:true" />
+                    </div>
+                    @*<div class="rowBoth"></div>*@
+                    <div class="rowGridModalDouble" style="width:10%;">
+                        <label class="colGridModal">Supervisor</label>
+                    </div>
+                    <div class="rowGridModalDouble" style="width:30%;">
+                        <input class="easyui-textbox" id="txt_apellidos_nombres_supervisor" value="@Model.apellidos_nombres_supervisor" style="width:100%;" data-options="disabled:true" />
+                    </div>
+                    <div class="rowBoth"></div>
+                    <div class="rowGridModalDouble" style="width:10%;">
+                        <label class="colGridModal">Tipo Venta</label>
+                    </div>
+                    <div class="rowGridModalDouble" style="width:30%;">
+                        <input class="easyui-textbox" id="txt_nombre_tipo_venta" value="@Model.nombre_tipo_venta" style="width:100%;" data-options="disabled:true" />
+                    </div>
+                    <div class="rowGridModalDouble" style="width:10%;">
+                        <label class="colGridModal">Tipo Pago</label>
+                    </div>
+                    <div class="rowGridModalDouble" style="width:30%;">
+                        <input class="easyui-textbox" id="txt_nombre_tipo_pago" value="@Model.nombre_tipo_pago" style="width:100%;" data-options="disabled:true" />
+                    </div>
+                </div>
+
+                <div class="easyui-tabs" style="height:500px;width:99%">
+                    <div title="Comisiones" style="padding:2px">
+                        <div class="easyui-panel" style="width: 100%; ">
+                            <div id="div_contrato_articulo" style="width: 100%;height:100%;">
+                                <table id="dgv_analisis_contrato_articulo" style="width: 100%;height:200px;"></table>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="easyui-panel" style="width: 100%; ">
+                            <div id="div_contrato_detalle_pago" style="width: 100%;height:100%;">
+                                <table id="dgv_contrato_detalle_pago" style="width: 100%;height:250px;"></table>
+                            </div>
+                        </div>
+                    </div>
+                    <div title="Cronograma de Cuotas" style="padding:2px">
+                        <table id="dgv_analisis_cronograma" style="width: 100%; height:100%"></table>
+                    </div>
+                    <div title="Datos Adicionales" style="padding:2px">
+                        <div class="easyui-panel" title="Datos Referencia" style="width:100%;">
+                            <div class="rowDivEtiqueta">
+                                <label class="colGridModal">Empresa</label>
+                            </div>
+                            <div class="rowDivValor">
+                                <input class="easyui-textbox" id="nombre_empresa_ref" name="nombre_empresa_ref" value="@Model.nombre_empresa_ref" style="width:100%;" disabled />
+                            </div>
+
+                            <div class="rowDivEtiqueta">
+                                <label class="colGridModal">Nro. Contrato</label>
+                            </div>
+                            <div class="rowDivValor">
+                                <input class="easyui-textbox" id="nro_contrato_ref" name="nro_contrato_ref" value="@Model.nro_contrato_ref" style="width:50%;" disabled />
+                            </div>
+                        </div>
+                        <div class="easyui-panel" title="Datos Transferencia" style="width:100%; padding:5px">
+                            <div class="rowDivEtiqueta">
+                                <label class="colGridModal">Empresa</label>
+                            </div>
+                            <div class="rowDivValor">
+                                <input class="easyui-textbox" id="nombre_empresa_transferencia" name="nombre_empresa_transferencia" value="@Model.nombre_empresa_transferencia" style="width:100%;" disabled />
+                            </div>
+                            <div class="rowDivEtiqueta">
+                                <label class="colGridModal">Nro Contrato</label>
+                            </div>
+                            <div class="rowDivValor">
+                                <input class="easyui-textbox" id="nro_contrato_transferencia" name="nro_contrato_transferencia" value="@Model.nro_contrato_transferencia" style="width:50%;" disabled />
+                            </div>
+                            <div class="rowBoth"></div>
+                            <div class="rowDivEtiqueta">
+                                <label class="colGridModal">Tiene</label>
+                            </div>
+                            <div class="rowDivValor">
+                                <input class="easyui-textbox" id="tiene_transferencia" name="tiene_transferencia" style="width:50%;" value="@Model.tiene_transferencia" disabled />
+                            </div>
+                            <div class="rowDivEtiqueta">
+                                <label class="colGridModal">Monto</label>
+                            </div>
+                            <div class="rowDivValor">
+                                <input class="easyui-numberbox" id="monto_transferencia" name="monto_transferencia" style="width:50%;text-align:right;" value="@Model.monto_transferencia" data-options="min:0,max:999999, precision:2" disabled />
+                            </div>
+                        </div>
+                        <div class="easyui-panel" title="Datos Proceso" style="width:100%; padding:5px">
+                            <div class="rowDivEtiqueta">
+                                <label class="colGridModal">Fecha Contrato</label>
+                            </div>
+                            <div class="rowDivValor">
+                                <input class="easyui-textbox" id="fecha_contrato" name="fecha_contrato" value="@Model.fecha_contrato" style="width:50%;" disabled />
+                            </div>
+                            <div class="rowDivEtiqueta">
+                                <label class="colGridModal">Fecha Migración</label>
+                            </div>
+                            <div class="rowDivValor">
+                                <input class="easyui-textbox" id="fecha_migracion" name="fecha_migracion" value="@Model.fecha_migracion" style="width:50%;" disabled />
+                            </div>
+                            <div class="rowBoth"></div>
+                            <div class="rowDivEtiqueta">
+                                <label class="colGridModal">Fecha Proceso</label>
+                            </div>
+                            <div class="rowDivValor">
+                                <input class="easyui-textbox" id="fecha_proceso" name="fecha_proceso" value="@Model.fecha_proceso" style="width:50%;" disabled />
+                            </div>
+                            <div class="rowDivEtiqueta">
+                                <label class="colGridModal">Usuario Proceso</label>
+                            </div>
+                            <div class="rowDivValor">
+                                <input class="easyui-textbox" id="usuario_proceso" name="usuario_proceso" value="@Model.usuario_proceso" style="width:100%;" disabled />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div data-options="region:'south',border:false" style="text-align:right;padding:5px 0 0;">
+            <a href="javascript:CerrarAnalisis();" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " iconcls="icon-cancel" id="btnCancelar">Cerrar</a>
+        </div>
+    </form>
+</div>
+
+<div id="mm" class="easyui-menu">
+    <div onclick="fnCopiar('codigo_sku');">Copiar SKU</div>
+    <div onclick="fnCopiar('nombre_articulo');">Copiar Nombre</div>
+</div>
+
+<script src="~/Areas/Comision/Scripts/Views/LogContratoSAP/logcontratosap.contrato.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var actionUrls =
+        {
+            _GetArticulosByContratoEmpresaJson: '@Url.Action("GetArticulosByContratoEmpresaJson", "Planilla", new { area = "Comision" })',
+            _GetContratoJson: '@Url.Action("GetContratoJson", "AnalisisComision", new { area = "Comision" })',
+            _GetDetalleCronogramaPagoByArticuloJson: '@Url.Action("GetDetalleCronogramaPagoByArticuloJson", "Planilla", new { area = "Comision" })',
+            _GetEmpresaByContratoJson: '@Url.Action("GetEmpresaByContratoJson", "Planilla", new { area = "Comision" })',
+            _GetCronogramaCuotasByContratoEmpresaJson: '@Url.Action("GetCronogramaCuotasByContratoEmpresaJson", "Planilla", new { area = "Comision" })',
+            _numero_contrato: '@Model.nro_contrato',
+            _codigo_empresa: '@Model.codigo_empresa',
+
+
+        };
+        project.contrato.Initialize(actionUrls);
+    });
+
+    function CerrarAnalisis() {
+        $('#dglAnalisis').dialog('close');
+    }
+
+</script>

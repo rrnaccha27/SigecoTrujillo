@@ -1,0 +1,2527 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <MvcProjectUpgradeChecked>true</MvcProjectUpgradeChecked>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BCBAB7BD-C9AC-410C-931A-8F55D81056E1}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SIGEES.Web</RootNamespace>
+    <AssemblyName>SIGECO-Norte.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\..\Library\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="ClosedXML, Version=0.94.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ClosedXML.0.94.2\lib\net40\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.7.2.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\DocumentFormat.OpenXml.2.7.2\lib\net40\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="DynamicExpresso.Core">
+      <HintPath>..\..\Library\DynamicExpresso.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\Library\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\Library\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelNumberFormat, Version=1.0.3.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ExcelNumberFormat.1.0.3\lib\net20\ExcelNumberFormat.dll</HintPath>
+    </Reference>
+    <Reference Include="FastMember, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FastMember.1.3.0\lib\net45\FastMember.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\..\Library\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Office.Interop.Outlook, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\Library\Microsoft.Office.Interop.Outlook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\Library\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Library\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Library\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\assembly\GAC_MSIL\Microsoft.ReportViewer.Common\11.0.0.0__89845dcd8080cc91\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Library\Microsoft.ReportViewer.WebForms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.5.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Compression.FileSystem">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Client.4.0.30506.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Core.4.0.30506.0\lib\net40\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.Mvc.4.0.30506.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\..\Library\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.Razor.2.0.30506.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Unity.Mvc4, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Library\Unity.Mvc4.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <HintPath>..\..\Library\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\Bootstrapper.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\CustomJsonValueProviderFactory.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Comision\ComisionAreaRegistration.cs" />
+    <Compile Include="Areas\Comision\Controllers\AnalisisComisionController.cs" />
+    <Compile Include="Areas\Comision\Controllers\ArticuloController.cs" />
+    <Compile Include="Areas\Comision\Controllers\CanalGrupoController.cs" />
+    <Compile Include="Areas\Comision\Controllers\ChecklistBonoController.cs" />
+    <Compile Include="Areas\Comision\Controllers\ChecklistBonoTrimestralController.cs" />
+    <Compile Include="Areas\Comision\Controllers\ChecklistComisionController.cs" />
+    <Compile Include="Areas\Comision\Controllers\ComisionPersonalInactivoController.cs" />
+    <Compile Include="Areas\Comision\Controllers\ConsultaComisionPagoController.cs" />
+    <Compile Include="Areas\Comision\Controllers\ConsultaPlanillaBonoController.cs" />
+    <Compile Include="Areas\Comision\Controllers\DescuentoComisionController.cs" />
+    <Compile Include="Areas\Comision\Controllers\ExportadorController.cs" />
+    <Compile Include="Areas\Comision\Controllers\GestionComisionManualController.cs" />
+    <Compile Include="Areas\Comision\Controllers\CommonController.cs" />
+    <Compile Include="Areas\Comision\Controllers\GestionExclusionController.cs" />
+    <Compile Include="Areas\Comision\Controllers\GrupoController.cs" />
+    <Compile Include="Areas\Comision\Controllers\EmpresaSigecoController.cs" />
+    <Compile Include="Areas\Comision\Controllers\LogContratoSAPController.cs" />
+    <Compile Include="Areas\Comision\Controllers\LogProcesoBonoController.cs" />
+    <Compile Include="Areas\Comision\Controllers\PersonalNoValidadoController.cs" />
+    <Compile Include="Areas\Comision\Controllers\PlanillaBonoJNController.cs" />
+    <Compile Include="Areas\Comision\Controllers\PlanillaBonoTrimestralController.cs" />
+    <Compile Include="Areas\Comision\Controllers\ReglaBonoTrimestralController.cs" />
+    <Compile Include="Areas\Comision\Controllers\ReporteComercialController.cs" />
+    <Compile Include="Areas\Comision\Controllers\ReporteCuotasInicialesController.cs" />
+    <Compile Include="Areas\Comision\Controllers\ReporteFinanzasController.cs" />
+    <Compile Include="Areas\Comision\Controllers\ReporteMigracionContratosController.cs" />
+    <Compile Include="Areas\Comision\Controllers\TipoCuentaController.cs" />
+    <Compile Include="Areas\Comision\Controllers\PlanillaBonoController.cs" />
+    <Compile Include="Areas\Comision\Controllers\PlanillaComercialController.cs" />
+    <Compile Include="Areas\Comision\Controllers\PlanIntegralController.cs" />
+    <Compile Include="Areas\Comision\Controllers\ReglaCalculoBonoController.cs" />
+    <Compile Include="Areas\Comision\Controllers\ReglaCalculoComisionSupervisorController.cs" />
+    <Compile Include="Areas\Comision\Controllers\ReglaPagoComisionExcepcionController.cs" />
+    <Compile Include="Areas\Comision\Controllers\ReglaRecuperoController.cs" />
+    <Compile Include="Areas\Comision\Controllers\ReglaTipoPlanillaController.cs" />
+    <Compile Include="Areas\Comision\Controllers\ReporteGeneralController.cs" />
+    <Compile Include="Areas\Comision\Controllers\TipoDocumentoController.cs" />
+    <Compile Include="Areas\Comision\Controllers\TipoPagoController.cs" />
+    <Compile Include="Areas\Comision\Controllers\BancoController.cs" />
+    <Compile Include="Areas\Comision\Controllers\TipoComisionController.cs" />
+    <Compile Include="Areas\Comision\Controllers\TipoPlanillaController.cs" />
+    <Compile Include="Areas\Comision\Controllers\TipoVentaController.cs" />
+    <Compile Include="Areas\Comision\Controllers\PersonalController.cs" />
+    <Compile Include="Areas\Comision\Controllers\PlanillaController.cs" />
+    <Compile Include="Areas\Comision\Controllers\ReclamosController.cs" />
+    <Compile Include="Areas\Comision\Controllers\ReglaPagoComisionController.cs" />
+    <Compile Include="Areas\Comision\Controllers\MonedaController.cs" />
+    <Compile Include="Areas\Comision\Entity\articulo.cs">
+      <DependentUpon>SIGECO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Entity\banco.cs">
+      <DependentUpon>SIGECO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Entity\campo_santo_sigeco.cs">
+      <DependentUpon>SIGECO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Entity\canal_grupo.cs">
+      <DependentUpon>SIGECO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Entity\categoria.cs">
+      <DependentUpon>SIGECO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Entity\configuracion_canal_grupo.cs">
+      <DependentUpon>SIGECO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Entity\cronograma_pago_comision.cs">
+      <DependentUpon>SIGECO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Entity\empresa_configuracion.cs">
+      <DependentUpon>SIGECO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Entity\empresa_sigeco.cs">
+      <DependentUpon>SIGECO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Entity\estado_cuota.cs">
+      <DependentUpon>SIGECO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Entity\estado_planilla.cs">
+      <DependentUpon>SIGECO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Entity\estado_reclamo.cs">
+      <DependentUpon>SIGECO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Entity\estado_resultado.cs">
+      <DependentUpon>SIGECO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Entity\moneda.cs">
+      <DependentUpon>SIGECO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Entity\personal.cs">
+      <DependentUpon>SIGECO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Entity\personal_canal_grupo.cs">
+      <DependentUpon>SIGECO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Entity\precio_articulo.cs">
+      <DependentUpon>SIGECO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Entity\regla_calculo_comision.cs">
+      <DependentUpon>SIGECO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Entity\SIGECO.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SIGECO.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Entity\SIGECO.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SIGECO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Entity\SIGECO.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SIGECO.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Entity\tipo_articulo.cs">
+      <DependentUpon>SIGECO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Entity\tipo_comision.cs">
+      <DependentUpon>SIGECO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Entity\tipo_cuenta.cs">
+      <DependentUpon>SIGECO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Entity\tipo_documento.cs">
+      <DependentUpon>SIGECO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Entity\tipo_pago.cs">
+      <DependentUpon>SIGECO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Entity\tipo_planilla.cs">
+      <DependentUpon>SIGECO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Entity\tipo_venta.cs">
+      <DependentUpon>SIGECO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Entity\unidad_negocio.cs">
+      <DependentUpon>SIGECO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Models\AdicionCuotaViewModel.cs" />
+    <Compile Include="Areas\Comision\Models\ChecklistBonoViewModel.cs" />
+    <Compile Include="Areas\Comision\Models\ChecklistComisionViewModel.cs" />
+    <Compile Include="Areas\Comision\Models\ExclusionViewModel.cs" />
+    <Compile Include="Areas\Comision\Models\ParametroViewModel.cs" />
+    <Compile Include="Areas\Comision\Models\ReporteViewModel.cs" />
+    <Compile Include="Areas\Comision\Models\PlanillaViewModel.cs" />
+    <Compile Include="Areas\Comision\Models\TxtContabilidadViewModel.cs" />
+    <Compile Include="Areas\Comision\Reporte\ComisionManual\ds\dsComisionManual.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsComisionManual.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\ComisionManual\frm\frm_reporte_comision_manual.aspx.cs">
+      <DependentUpon>frm_reporte_comision_manual.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\ComisionManual\frm\frm_reporte_comision_manual.aspx.designer.cs">
+      <DependentUpon>frm_reporte_comision_manual.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\ComisionPersonalInactivo\ds\dsComisionPersonalInactivo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsComisionPersonalInactivo.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\Comision\ds\dsComision.cs">
+      <DependentUpon>dsComision.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\Comision\ds\dsComision.Designer.cs">
+      <DependentUpon>dsComision.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\CanalGrupo\ds\dsCanalGrupo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsCanalGrupo.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\Articulo\ds\dsArticulo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsArticulo.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\Articulo\frm\frm_reporte_articulo.aspx.cs">
+      <DependentUpon>frm_reporte_articulo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\Articulo\frm\frm_reporte_articulo.aspx.designer.cs">
+      <DependentUpon>frm_reporte_articulo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\CanalGrupo\frm\frm_reporte_canal_grupo_interface.aspx.cs">
+      <DependentUpon>frm_reporte_canal_grupo_interface.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\CanalGrupo\frm\frm_reporte_canal_grupo_interface.aspx.designer.cs">
+      <DependentUpon>frm_reporte_canal_grupo_interface.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\Comision\frm\frm_reporte_consulta_comision.aspx.cs">
+      <DependentUpon>frm_reporte_consulta_comision.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\Comision\frm\frm_reporte_consulta_comision.aspx.designer.cs">
+      <DependentUpon>frm_reporte_consulta_comision.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\Personal\ds\dsPesonal.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsPesonal.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\Personal\frm\frm_reporte_personal_interface.aspx.cs">
+      <DependentUpon>frm_reporte_personal_interface.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\Personal\frm\frm_reporte_personal_interface.aspx.designer.cs">
+      <DependentUpon>frm_reporte_personal_interface.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\PlanillaBonoJN\ds\dsPlanillaBonoJNResumen.cs">
+      <DependentUpon>dsPlanillaBonoJNResumen.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\PlanillaBonoJN\ds\dsPlanillaBonoJNResumen.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsPlanillaBonoJNResumen.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\PlanillaBonoJN\frm\frmLiquidacionJN.aspx.cs">
+      <DependentUpon>frmLiquidacionJN.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\PlanillaBonoJN\frm\frmLiquidacionJN.aspx.designer.cs">
+      <DependentUpon>frmLiquidacionJN.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\PlanillaBonoJN\frm\frmPlanillaBonoJN.aspx.cs">
+      <DependentUpon>frmPlanillaBonoJN.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\PlanillaBonoJN\frm\frmPlanillaBonoJN.aspx.designer.cs">
+      <DependentUpon>frmPlanillaBonoJN.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\PlanillaBonoTrimestral\ds\DSLiquidacionBonoTrimestral.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSLiquidacionBonoTrimestral.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\PlanillaBonoTrimestral\frm\frmLiquidacionBonoTrimestral.aspx.cs">
+      <DependentUpon>frmLiquidacionBonoTrimestral.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\PlanillaBonoTrimestral\frm\frmLiquidacionBonoTrimestral.aspx.designer.cs">
+      <DependentUpon>frmLiquidacionBonoTrimestral.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\PlanillaBonoTrimestral\frm\frmPlanillaBonoTrimestral.aspx.cs">
+      <DependentUpon>frmPlanillaBonoTrimestral.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\PlanillaBonoTrimestral\frm\frmPlanillaBonoTrimestral.aspx.designer.cs">
+      <DependentUpon>frmPlanillaBonoTrimestral.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\PlanillaBonoTrimestral\frm\frmResumenLiquidacionBonoTrimestral.aspx.cs">
+      <DependentUpon>frmResumenLiquidacionBonoTrimestral.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\PlanillaBonoTrimestral\frm\frmResumenLiquidacionBonoTrimestral.aspx.designer.cs">
+      <DependentUpon>frmResumenLiquidacionBonoTrimestral.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\PlanillaBono\ds\dsBonoArticulo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsBonoArticulo.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\PlanillaBono\ds\dsLiquidacionBonoPersonal.cs">
+      <DependentUpon>dsLiquidacionBonoPersonal.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\PlanillaBono\ds\dsLiquidacionBonoPersonal.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsLiquidacionBonoPersonal.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\PlanillaBono\ds\dsLiquidacionBonoSupervisorIndividual.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsLiquidacionBonoSupervisorIndividual.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\PlanillaBono\ds\dsLiquidacionBonoSupervisorGeneral.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsLiquidacionBonoSupervisorGeneral.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\PlanillaBono\ds\dsPlanillaBonoPersonal.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsPlanillaBonoPersonal.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\PlanillaBono\ds\dsPlanillaBonoSupervisor.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsPlanillaBonoSupervisor.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\PlanillaBono\frm\frm_liquidacion_bono_resumen.aspx.cs">
+      <DependentUpon>frm_liquidacion_bono_resumen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\PlanillaBono\frm\frm_liquidacion_bono_resumen.aspx.designer.cs">
+      <DependentUpon>frm_liquidacion_bono_resumen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\PlanillaBono\frm\frm_liquidacion_bono_supervisor_general.aspx.cs">
+      <DependentUpon>frm_liquidacion_bono_supervisor_general.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\PlanillaBono\frm\frm_liquidacion_bono_supervisor_general.aspx.designer.cs">
+      <DependentUpon>frm_liquidacion_bono_supervisor_general.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\PlanillaBono\frm\frm_liquidacion_bono_supervisor_individual.aspx.cs">
+      <DependentUpon>frm_liquidacion_bono_supervisor_individual.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\PlanillaBono\frm\frm_liquidacion_bono_supervisor_individual.aspx.designer.cs">
+      <DependentUpon>frm_liquidacion_bono_supervisor_individual.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\PlanillaBono\frm\frm_reporte_bono_supervisor.aspx.cs">
+      <DependentUpon>frm_reporte_bono_supervisor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\PlanillaBono\frm\frm_reporte_bono_supervisor.aspx.designer.cs">
+      <DependentUpon>frm_reporte_bono_supervisor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\PlanillaBono\frm\frm_liquidacion_bono_personal.aspx.cs">
+      <DependentUpon>frm_liquidacion_bono_personal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\PlanillaBono\frm\frm_liquidacion_bono_personal.aspx.designer.cs">
+      <DependentUpon>frm_liquidacion_bono_personal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\PlanillaBono\frm\frm_reporte_bono_personal.aspx.cs">
+      <DependentUpon>frm_reporte_bono_personal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\PlanillaBono\frm\frm_reporte_bono_personal.aspx.designer.cs">
+      <DependentUpon>frm_reporte_bono_personal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\PlanillaComercial\ds\dsDetallePlanillaComercial.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsDetallePlanillaComercial.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\PlanillaComercial\frm\frm_reporte_planilla_comercial.aspx.cs">
+      <DependentUpon>frm_reporte_planilla_comercial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\PlanillaComercial\frm\frm_reporte_planilla_comercial.aspx.designer.cs">
+      <DependentUpon>frm_reporte_planilla_comercial.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\Planilla\ds\dsLiquidacion.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsLiquidacion.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\Planilla\ds\dsLiquidacionSupervisor.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsLiquidacionSupervisor.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\Planilla\ds\dsPlanilla.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsPlanilla.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\Planilla\frm\frm_reporte_liquidacion.aspx.cs">
+      <DependentUpon>frm_reporte_liquidacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\Planilla\frm\frm_reporte_liquidacion.aspx.designer.cs">
+      <DependentUpon>frm_reporte_liquidacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\Planilla\frm\frm_reporte_planilla.aspx.cs">
+      <DependentUpon>frm_reporte_planilla.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\Planilla\frm\frm_reporte_planilla.aspx.designer.cs">
+      <DependentUpon>frm_reporte_planilla.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\Planilla\frm\frm_reporte_resumen_liquidacion.aspx.cs">
+      <DependentUpon>frm_reporte_resumen_liquidacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\Planilla\frm\frm_reporte_resumen_liquidacion.aspx.designer.cs">
+      <DependentUpon>frm_reporte_resumen_liquidacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\ReporteComercial\ds\dsReporteComercial.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsReporteComercial.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\ReporteCuotasIniciales\ds\dsReporteCuotasIniciales.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsReporteCuotasIniciales.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\ReporteFinanzas\ds\dsReporteFinanzas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsReporteFinanzas.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Reporte\ReporteMigracionContratos\ds\dsReporteMigracionContratos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsReporteMigracionContratos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Comision\Services\ArticuloService.cs" />
+    <Compile Include="Areas\Comision\Services\BancoService.cs" />
+    <Compile Include="Areas\Comision\Services\CampoSantoSigecoService.cs" />
+    <Compile Include="Areas\Comision\Services\CanalGrupoService.cs" />
+    <Compile Include="Areas\Comision\Services\ConfiguracionCanalGrupoService.cs" />
+    <Compile Include="Areas\Comision\Services\EmpresaConfiguracionService.cs" />
+    <Compile Include="Areas\Comision\Services\EmpresaSIGECOService.cs" />
+    <Compile Include="Areas\Comision\Services\EstadoCuotaService.cs" />
+    <Compile Include="Areas\Comision\Services\EstadoPlanillaService.cs" />
+    <Compile Include="Areas\Comision\Services\EstadoReclamoService.cs" />
+    <Compile Include="Areas\Comision\Services\EstadoResultadoService.cs" />
+    <Compile Include="Areas\Comision\Services\TipoCuentaService.cs" />
+    <Compile Include="Areas\Comision\Services\MonedaService.cs" />
+    <Compile Include="Areas\Comision\Services\PersonalCanalGrupoService.cs" />
+    <Compile Include="Areas\Comision\Services\PersonalService.cs" />
+    <Compile Include="Areas\Comision\Services\PrecioArticuloService.cs" />
+    <Compile Include="Areas\Comision\Services\CategoriaService.cs" />
+    <Compile Include="Areas\Comision\Services\TipoDocumentoService.cs" />
+    <Compile Include="Areas\Comision\Services\TipoArticuloService.cs" />
+    <Compile Include="Areas\Comision\Services\UnidadNegocioService.cs" />
+    <Compile Include="Areas\Comision\Services\TipoComisionService.cs" />
+    <Compile Include="Areas\Comision\Services\TipoPagoService.cs" />
+    <Compile Include="Areas\Comision\Services\TipoPlanillaService.cs" />
+    <Compile Include="Areas\Comision\Services\TipoVentaService.cs" />
+    <Compile Include="Areas\Comision\Utils\FormatNumber.cs" />
+    <Compile Include="Areas\Comision\Utils\Listados.cs" />
+    <Compile Include="Areas\Comision\Utils\Utils.cs" />
+    <Compile Include="Common\Constante.cs" />
+    <Compile Include="Common\JQGridButton.cs" />
+    <Compile Include="Common\JQGridItem.cs" />
+    <Compile Include="Common\JQGridJsonResponse.cs" />
+    <Compile Include="Common\Response.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\ParametroSistemaController.cs" />
+    <Compile Include="Controllers\PerfilUsuarioController.cs" />
+    <Compile Include="Controllers\PersonaController.cs" />
+    <Compile Include="Controllers\PrincipalController.cs" />
+    <Compile Include="Controllers\TipoAccesoItemController.cs" />
+    <Compile Include="Controllers\TreeGirdController.cs" />
+    <Compile Include="Controllers\UsuarioController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Core\IResult.cs" />
+    <Compile Include="Core\Result.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\AppSettings.cs" />
+    <Compile Include="Helpers\CultureHelper.cs" />
+    <Compile Include="Helpers\EasyUITreeHelper.cs" />
+    <Compile Include="Helpers\ObjectToXMLGeneric.cs" />
+    <Compile Include="MemberShip\Cryptography\StringCipher.cs" />
+    <Compile Include="MemberShip\Filters\NoCacheAttribute.cs" />
+    <Compile Include="MemberShip\Filters\PersistentSessionAttribute.cs" />
+    <Compile Include="MemberShip\Filters\RequiresAuthenticationAttribute.cs" />
+    <Compile Include="MemberShip\Filters\RequiresAuthorizationAttribute.cs" />
+    <Compile Include="MemberShip\Filters\SessionTimeout.cs" />
+    <Compile Include="MemberShip\Helpers\RedirectResultTo.cs" />
+    <Compile Include="MemberShip\MyPrincipal.cs" />
+    <Compile Include="MemberShip\Providers\SIGEESMembershipProvider.cs" />
+    <Compile Include="MemberShip\Providers\SIGEESRoleProvider.cs" />
+    <Compile Include="MemberShip\UserManager.cs" />
+    <Compile Include="Models\agencia.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\articulo_cronograma.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Bean\BeanAnularVenta.cs" />
+    <Compile Include="Models\Bean\BeanAtributo.cs" />
+    <Compile Include="Models\Bean\BeanEntidad.cs" />
+    <Compile Include="Models\Bean\BeanItemTipoAcceso.cs" />
+    <Compile Include="Models\Bean\BeanPermisoMenu.cs" />
+    <Compile Include="Models\Bean\BeanRegistrarVenta.cs" />
+    <Compile Include="Models\Bean\BeanSesionUsuario.cs" />
+    <Compile Include="Models\Bean\BeanUser.cs" />
+    <Compile Include="Models\Bean\BeanFallecido.cs" />
+    <Compile Include="Models\Bean\LoginModel.cs" />
+    <Compile Include="Models\cabecera_lapida.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\campo_santo.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\caracteristica_lote.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\clave_usuario.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\cliente.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\conversion_espacio.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\corporacion.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\detalle_atributo.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\detalle_conversion_espacio.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\detalle_entidad.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\detalle_estado_espacio.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\detalle_exhumacion.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\detalle_grupo_lapida.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\detalle_producto.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\edificio.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\empresa.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\encofrado.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\espacio.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\estado_civil.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\estado_conversion.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\estado_espacio.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\estado_exhumacion.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\estado_fallecido.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\estado_lapida.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\estado_movimiento_tabla.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\evento_usuario.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\exhumacion_fallecido.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\fallecido.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\grupo_lapida.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\item_tipo_acceso.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\lapida.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\mensaje_sistema.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\menu.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\motivo_traslado.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\nivel_servicio.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\parametro_sistema.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Partial\PerfilUsuario.cs" />
+    <Compile Include="Models\Partial\TreeNode.cs" />
+    <Compile Include="Models\perfil_usuario.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\permiso_empresa.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\permiso_menu.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\persona.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\piso_pabellon.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\planilla_empresa.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\plataforma.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\producto.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\registro_fallecido.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\registro_incinerado.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Repository\DataRepository.cs" />
+    <Compile Include="Models\Repository\IRepository.cs" />
+    <Compile Include="Models\reserva.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sector.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sesion_usuario.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sexo.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SIGEES.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SIGEES.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SIGEES.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SIGEES.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SIGEES.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tipo_acceso_item.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tipo_bien.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tipo_bien_servicio.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tipo_conversion_espacio.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tipo_documento.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tipo_espacio.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tipo_evento.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tipo_fallecido.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tipo_nivel.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tipo_piso.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tipo_plataforma.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tipo_producto.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tipo_traslado.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TreeNode.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usuario.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\venta.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewModel\ConversionViewModel.cs" />
+    <Compile Include="Models\ViewModel\EncofradoViewModel.cs" />
+    <Compile Include="Models\ViewModel\EspacioViewModel.cs" />
+    <Compile Include="Models\ViewModel\LapidaViewModel.cs" />
+    <Compile Include="Models\ViewModel\UsuarioViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\ViewModel\VentaViewModel.cs" />
+    <Compile Include="Models\vista_pabellon.cs">
+      <DependentUpon>SIGEES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\DataSet\DSEspaciosVendidos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSEspaciosVendidos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\DataSet\DSFallecido.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSFallecido.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\DataSet\DSStockGeneral1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSStockGeneral.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Services\EncofradoService.cs" />
+    <Compile Include="Services\CabeceraLapidaService.cs" />
+    <Compile Include="Services\IEncofradoService.cs" />
+    <Compile Include="Services\PisoPabellonService.cs" />
+    <Compile Include="Services\EstadoLapidaService.cs" />
+    <Compile Include="Services\GrupoLapidaService.cs" />
+    <Compile Include="Services\ICabeceraLapidaService.cs" />
+    <Compile Include="Services\IPisoPabellonService.cs" />
+    <Compile Include="Services\IEstadoLapidaService.cs" />
+    <Compile Include="Services\IGrupoLapidaService.cs" />
+    <Compile Include="Services\VistaPabellonService.cs" />
+    <Compile Include="Services\EstadoConversionService.cs" />
+    <Compile Include="Services\IVistaPabellonService.cs" />
+    <Compile Include="Services\IEstadoConversionService.cs" />
+    <Compile Include="Services\TipoConversionEspacioService.cs" />
+    <Compile Include="Services\ITipoConversionEspacioService.cs" />
+    <Compile Include="Services\TipoTrasladoService.cs" />
+    <Compile Include="Services\CaracteristicaLoteService.cs" />
+    <Compile Include="Services\ITipoTrasladoService.cs" />
+    <Compile Include="Services\ICaracteristicaLoteService.cs" />
+    <Compile Include="Services\TipoBienService.cs" />
+    <Compile Include="Services\ITipoBienService.cs" />
+    <Compile Include="Services\TipoBienServicioService.cs" />
+    <Compile Include="Services\ITipoBienServicioService.cs" />
+    <Compile Include="Services\NivelServicio.cs" />
+    <Compile Include="Services\CampoSantoService.cs" />
+    <Compile Include="Services\AgenciaService.cs" />
+    <Compile Include="Services\INivelServicio.cs" />
+    <Compile Include="Services\IAgenciaService.cs" />
+    <Compile Include="Services\TipoPlataFormaService.cs" />
+    <Compile Include="Services\EstadoEspacioService.cs" />
+    <Compile Include="Services\ITipoPlataformaService.cs" />
+    <Compile Include="Services\IEstadoEspacioService.cs" />
+    <Compile Include="Services\ProductoService.cs" />
+    <Compile Include="Services\IProductoService.cs" />
+    <Compile Include="Services\ParametroSistemaService.cs" />
+    <Compile Include="Services\IParametroSistemaService.cs" />
+    <Compile Include="Services\PermisoEmpresaService.cs" />
+    <Compile Include="Services\IPermisoEmpresaService.cs" />
+    <Compile Include="Services\UsuarioService.cs" />
+    <Compile Include="Services\EspacioService..cs" />
+    <Compile Include="Services\ICampoSantoService.cs" />
+    <Compile Include="Services\IUsuarioService.cs" />
+    <Compile Include="Services\IEspacioService.cs" />
+    <Compile Include="Services\ISexoService.cs" />
+    <Compile Include="Services\PersonaService.cs" />
+    <Compile Include="Services\EmpresaService.cs" />
+    <Compile Include="Services\Direction.cs" />
+    <Compile Include="Services\CorporacionService.cs" />
+    <Compile Include="Services\EventoUsuarioService.cs" />
+    <Compile Include="Services\IPersonaService.cs" />
+    <Compile Include="Services\IEmpresaService.cs" />
+    <Compile Include="Services\IEventoUsuarioService.cs" />
+    <Compile Include="Services\IMenuService.cs" />
+    <Compile Include="Services\IPlataforma.cs" />
+    <Compile Include="Services\IReservaService .cs" />
+    <Compile Include="Services\IVentaService.cs" />
+    <Compile Include="Services\MenuService.cs" />
+    <Compile Include="Services\PlataformaService.cs" />
+    <Compile Include="Services\ReservaService .cs" />
+    <Compile Include="Services\SexoService.cs" />
+    <Compile Include="Services\TipoNivelService.cs" />
+    <Compile Include="Services\ITipoNivelService.cs" />
+    <Compile Include="Services\TipoPisoService.cs" />
+    <Compile Include="Services\ITipoPisoService.cs" />
+    <Compile Include="Services\TipoFallecidoService.cs" />
+    <Compile Include="Services\ITipoFallecidoService.cs" />
+    <Compile Include="Services\TipoEspacioService.cs" />
+    <Compile Include="Services\ITipoEspacioService.cs" />
+    <Compile Include="Services\TipoEventoService.cs" />
+    <Compile Include="Services\ICorporacionService.cs" />
+    <Compile Include="Services\ITipoEventoService.cs" />
+    <Compile Include="Services\TipoProductoService.cs" />
+    <Compile Include="Services\ITipoProductoService.cs" />
+    <Compile Include="Services\IEstadoCivilService.cs" />
+    <Compile Include="Services\ITipoAccesoItemService.cs" />
+    <Compile Include="Services\IPerfilUsuarioService.cs" />
+    <Compile Include="Services\ITreeNodeService.cs" />
+    <Compile Include="Services\EstadoCivilService.cs" />
+    <Compile Include="Services\TipoAccesoItemService.cs" />
+    <Compile Include="Services\PerfilUsuarioService.cs" />
+    <Compile Include="Services\TreeNodeService.cs" />
+    <Compile Include="Services\VentaService.cs" />
+    <Compile Include="Session\ExcludeSessionExpire.cs" />
+    <Compile Include="Session\SessionExpireFilterAttribute.cs" />
+    <Compile Include="Utils\Calculo.cs" />
+    <Compile Include="Utils\CifradoAES.cs" />
+    <Compile Include="Utils\Fechas.cs" />
+    <Compile Include="Utils\Globales.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Comision\Reporte\Articulo\frm\frm_reporte_articulo.aspx" />
+    <Content Include="Areas\Comision\Reporte\CanalGrupo\frm\frm_reporte_canal_grupo_interface.aspx" />
+    <Content Include="Areas\Comision\Reporte\ComisionManual\frm\frm_reporte_comision_manual.aspx" />
+    <Content Include="Areas\Comision\Reporte\Comision\frm\frm_reporte_consulta_comision.aspx" />
+    <Content Include="Areas\Comision\Reporte\Personal\frm\frm_reporte_personal_interface.aspx" />
+    <Content Include="Areas\Comision\Reporte\PlanillaBonoJN\frm\frmLiquidacionJN.aspx" />
+    <Content Include="Areas\Comision\Reporte\PlanillaBonoJN\frm\frmPlanillaBonoJN.aspx" />
+    <Content Include="Areas\Comision\Reporte\PlanillaBonoTrimestral\frm\frmLiquidacionBonoTrimestral.aspx" />
+    <Content Include="Areas\Comision\Reporte\PlanillaBonoTrimestral\frm\frmPlanillaBonoTrimestral.aspx" />
+    <Content Include="Areas\Comision\Reporte\PlanillaBonoTrimestral\frm\frmResumenLiquidacionBonoTrimestral.aspx" />
+    <Content Include="Areas\Comision\Reporte\PlanillaBono\frm\frm_liquidacion_bono_resumen.aspx" />
+    <Content Include="Areas\Comision\Reporte\PlanillaBono\frm\frm_liquidacion_bono_supervisor_general.aspx" />
+    <Content Include="Areas\Comision\Reporte\PlanillaBono\frm\frm_liquidacion_bono_supervisor_individual.aspx" />
+    <Content Include="Areas\Comision\Reporte\PlanillaBono\frm\frm_reporte_bono_supervisor.aspx" />
+    <Content Include="Areas\Comision\Reporte\PlanillaBono\frm\frm_liquidacion_bono_personal.aspx" />
+    <Content Include="Areas\Comision\Reporte\PlanillaBono\frm\frm_reporte_bono_personal.aspx" />
+    <Content Include="Areas\Comision\Reporte\PlanillaBono\rdl\rpt_planilla_bono_supervisor.rdlc" />
+    <Content Include="Areas\Comision\Reporte\PlanillaComercial\frm\frm_reporte_planilla_comercial.aspx" />
+    <Content Include="Areas\Comision\Reporte\Planilla\frm\frm_reporte_liquidacion.aspx" />
+    <Content Include="Areas\Comision\Reporte\Planilla\frm\frm_reporte_planilla.aspx" />
+    <Content Include="Areas\Comision\Reporte\Planilla\frm\frm_reporte_resumen_liquidacion.aspx" />
+    <Content Include="Areas\Comision\Scripts\Views\AnalisisComision\analisis.adicionarcuota.js" />
+    <Content Include="Areas\Comision\Scripts\Views\AnalisisComision\analisis.detalleoperacion.js" />
+    <Content Include="Areas\Comision\Scripts\Views\AnalisisComision\analisis.exclusioncuota.js" />
+    <Content Include="Areas\Comision\Scripts\Views\AnalisisComision\analisis.index.js" />
+    <Content Include="Areas\Comision\Scripts\Views\AnalisisComision\analisis.modificarcuota.js" />
+    <Content Include="Areas\Comision\Scripts\Views\Articulo\articulo.index.js" />
+    <Content Include="Areas\Comision\Scripts\Views\Articulo\articulo.v_articulo.js" />
+    <Content Include="Areas\Comision\Scripts\Views\Articulo\articulo.v_comision.js" />
+    <Content Include="Areas\Comision\Scripts\Views\CabeceraContrato\planilla.contrato.js" />
+    <Content Include="Areas\Comision\Scripts\Views\ChecklistBonoTrimestral\checklistbonotrimestral.contabilidad.js" />
+    <Content Include="Areas\Comision\Scripts\Views\ChecklistBonoTrimestral\checklistbonotrimestral.index.js" />
+    <Content Include="Areas\Comision\Scripts\Views\ChecklistBonoTrimestral\checklistbonotrimestral.listado.js" />
+    <Content Include="Areas\Comision\Scripts\Views\ChecklistBonoTrimestral\checklistbonotrimestral.planilla.js" />
+    <Content Include="Areas\Comision\Scripts\Views\ChecklistBono\checklistbono.contabilidad.js" />
+    <Content Include="Areas\Comision\Scripts\Views\ChecklistBono\checklistbono.index.js" />
+    <Content Include="Areas\Comision\Scripts\Views\ChecklistBono\checklistbono.listado.js" />
+    <Content Include="Areas\Comision\Scripts\Views\ChecklistBono\checklistbono.planilla.js" />
+    <Content Include="Areas\Comision\Scripts\Views\ChecklistComision\checklistcomision.contabilidad.js" />
+    <Content Include="Areas\Comision\Scripts\Views\ChecklistComision\checklistcomision.index.js" />
+    <Content Include="Areas\Comision\Scripts\Views\ChecklistComision\checklistcomision.listado.js" />
+    <Content Include="Areas\Comision\Scripts\Views\ChecklistComision\checklistcomision.planilla.js" />
+    <Content Include="Areas\Comision\Scripts\Views\ComisionPersonalInactivo\comisionpersonalinactivo.index.js" />
+    <Content Include="Areas\Comision\Scripts\Views\Comision\comision.modificar.js" />
+    <Content Include="Areas\Comision\Scripts\Views\ConsultaComisionPago\comision.pago.export.js" />
+    <Content Include="Areas\Comision\Scripts\Views\ConsultaComisionPago\comision.pago.index.js" />
+    <Content Include="Areas\Comision\Scripts\Views\Articulo\articulo.comision.js" />
+    <Content Include="Areas\Comision\Scripts\Views\Articulo\articulo.articulo.js" />
+    <Content Include="Areas\Comision\Scripts\Views\CanalGrupo\project.js" />
+    <Content Include="Areas\Comision\Scripts\Views\Comision\comision.personal.js" />
+    <Content Include="Areas\Comision\Scripts\Views\Comision\comision.articulo.js" />
+    <Content Include="Areas\Comision\Scripts\Views\DescuentoComision\DescuentoComision.Detalle.js" />
+    <Content Include="Areas\Comision\Scripts\Views\DescuentoComision\DescuentoComision.Index.js" />
+    <Content Include="Areas\Comision\Scripts\Views\DescuentoComision\DescuentoComision.Personal.js" />
+    <Content Include="Areas\Comision\Scripts\Views\DescuentoComision\DescuentoComision.Registro.js" />
+    <Content Include="Areas\Comision\Scripts\Views\empresa\empresa.index.js" />
+    <Content Include="Areas\Comision\Scripts\Views\empresa\empresa.nuevo.js" />
+    <Content Include="Areas\Comision\Scripts\Views\GestionExclusion\exclusion.habilitar.js" />
+    <Content Include="Areas\Comision\Scripts\Views\GestionExclusion\exclusion.index.js" />
+    <Content Include="Areas\Comision\Scripts\Views\Grupo\project.js" />
+    <Content Include="Areas\Comision\Scripts\Views\Comision\comision.index.js" />
+    <Content Include="Areas\Comision\Scripts\Views\Comision\comision.comision.js" />
+    <Content Include="Areas\Comision\Scripts\Views\LogContratoSAP\logcontratosap.contrato.js" />
+    <Content Include="Areas\Comision\Scripts\Views\LogProcesoBono\logprocesobono.detalle.js" />
+    <Content Include="Areas\Comision\Scripts\Views\LogProcesoBono\logprocesobono.index.js" />
+    <Content Include="Areas\Comision\Scripts\Views\PersonalNoValidado\personalnovsalidado.index.js" />
+    <Content Include="Areas\Comision\Scripts\Views\Personal\personal.detalle.js" />
+    <Content Include="Areas\Comision\Scripts\Views\Personal\personal.index.js" />
+    <Content Include="Areas\Comision\Scripts\Views\PlanillaBonoJN\planilla.contabilidad.js" />
+    <Content Include="Areas\Comision\Scripts\Views\PlanillaBonoJN\planilla.index.js" />
+    <Content Include="Areas\Comision\Scripts\Views\PlanillaBonoJN\planilla.planilla.js" />
+    <Content Include="Areas\Comision\Scripts\Views\PlanillaBonoTrimestral\planilla.contabilidad.js" />
+    <Content Include="Areas\Comision\Scripts\Views\PlanillaBonoTrimestral\planilla.index.js" />
+    <Content Include="Areas\Comision\Scripts\Views\PlanillaBonoTrimestral\planilla.planilla.js" />
+    <Content Include="Areas\Comision\Scripts\Views\PlanillaBono\planilla.contabilidad.js" />
+    <Content Include="Areas\Comision\Scripts\Views\Planilla\planilla.contabilidad.js" />
+    <Content Include="Areas\Comision\Scripts\Views\Planilla\planilla.exclusion.js" />
+    <Content Include="Areas\Comision\Scripts\Views\ReglaBonoTrimestral\reglabonotrimestral.index.js" />
+    <Content Include="Areas\Comision\Scripts\Views\ReglaBonoTrimestral\reglabonotrimestral.nuevo.js" />
+    <Content Include="Areas\Comision\Scripts\Views\ReglaCalculoBono\project.ReglaCalculoBono.Index.js" />
+    <Content Include="Areas\Comision\Scripts\Views\ReglaCalculoBono\project.ReglaCalculoBono.Registro.js" />
+    <Content Include="Areas\Comision\Scripts\Views\ReglaPagoComision\project.ReglaPagoComision.Registro.js" />
+    <Content Include="Areas\Comision\Scripts\Views\ReporteComercial\reportecomercial.index.js" />
+    <Content Include="Areas\Comision\Scripts\Views\ReporteCuotasIniciales\reportecuotasiniciales.index.js" />
+    <Content Include="Areas\Comision\Scripts\Views\ReporteFinanzas\reportefinanzas.index.js" />
+    <Content Include="Areas\Comision\Scripts\Views\ReporteMigracionContratos\reportemigracioncontratos.index.js" />
+    <Content Include="Areas\Comision\Scripts\Views\TipoCuenta\project.TipoCuenta.js" />
+    <Content Include="Areas\Comision\Scripts\Views\PlanillaBono\planilla.index.js" />
+    <Content Include="Areas\Comision\Scripts\Views\PlanillaBono\planilla.planilla.js" />
+    <Content Include="Areas\Comision\Scripts\Views\PlanillaComercial\planilla_comercial.index.js" />
+    <Content Include="Areas\Comision\Scripts\Views\PlanIntegral\project.PlanIntegral.js" />
+    <Content Include="Areas\Comision\Scripts\Views\ReglaCalculoBono\project.ReglaCalculoBono.Detalle.js" />
+    <Content Include="Areas\Comision\Scripts\Views\ReglaPagoComisionExcepcion\project.ReglaPagoComisionExcepcion.js" />
+    <Content Include="Areas\Comision\Scripts\Views\PlanillaComercial\planilla_comercial.planilla.js" />
+    <Content Include="Areas\Comision\Scripts\Views\ReglaCalculoComisionSupervisor\project.ReglaCalculoComisionSupervisor.js" />
+    <Content Include="Areas\Comision\Scripts\Views\ReglaRecupero\project.ReglaRecupero.js" />
+    <Content Include="Areas\Comision\Scripts\Views\ReglaTipoPlanilla\regla_tipo_planilla.nuevo.js" />
+    <Content Include="Areas\Comision\Scripts\Views\ReglaTipoPlanilla\regla_tipo_planilla.index.js" />
+    <Content Include="Areas\Comision\Scripts\Views\ReporteGeneral\project.ReporteGeneral.js" />
+    <Content Include="Areas\Comision\Scripts\Views\TipoDocumento\project.TipoDocumento.js" />
+    <Content Include="Areas\Comision\Scripts\Views\TipoPago\project.TipoPago.js" />
+    <Content Include="Areas\Comision\Scripts\Views\Banco\project.Banco.js" />
+    <Content Include="Areas\Comision\Scripts\Views\TipoComision\project.TipoComision.js" />
+    <Content Include="Areas\Comision\Scripts\Views\TipoPlanilla\project.TipoPlanilla.js" />
+    <Content Include="Areas\Comision\Scripts\Views\TipoVenta\project.TipoVenta.js" />
+    <Content Include="Areas\Comision\Scripts\Views\Personal\project.Personal.CanalGrupo.js" />
+    <Content Include="Areas\Comision\Scripts\Views\Planilla\planilla.contrato.js" />
+    <Content Include="Areas\Comision\Scripts\Views\Planilla\planilla.descuento.js" />
+    <Content Include="Areas\Comision\Scripts\Views\Planilla\planilla.planilla.js" />
+    <Content Include="Areas\Comision\Scripts\Views\Planilla\planilla.index.js" />
+    <Content Include="Areas\Comision\Scripts\Views\Reclamo\project.Reclamo.js" />
+    <Content Include="Areas\Comision\Scripts\Views\ReglaPagoComision\project.ReglaPagoComision.Index.js" />
+    <Content Include="Areas\Comision\Scripts\Views\Moneda\project.Moneda.js" />
+    <Content Include="Areas\Comision\Templates\EmailJefatura.html" />
+    <Content Include="Areas\Comision\Templates\EmailSupervisor.html" />
+    <Content Include="Areas\Comision\Templates\EmailTxtChecklist.html" />
+    <Content Include="Content\carrusel\images\bx_loader.gif" />
+    <Content Include="Content\carrusel\images\controls.png" />
+    <Content Include="Content\carrusel\images\nivel-a.png" />
+    <Content Include="Content\carrusel\images\nivel-b.png" />
+    <Content Include="Content\carrusel\jquery.bxslider.css" />
+    <Content Include="Content\carrusel\jquery.bxslider.js" />
+    <Content Include="Content\ContextMenu\icons\application-monitor.png" />
+    <Content Include="Content\ContextMenu\icons\application-table.png" />
+    <Content Include="Content\ContextMenu\icons\bin-metal.png" />
+    <Content Include="Content\ContextMenu\icons\book-open-list.png" />
+    <Content Include="Content\ContextMenu\icons\cassette.png" />
+    <Content Include="Content\ContextMenu\icons\magnifier-zoom-actual-equal.png" />
+    <Content Include="Content\ContextMenu\icons\receipt-text.png" />
+    <Content Include="Content\ContextMenu\icons\shopping-basket.png" />
+    <Content Include="Content\ContextMenu\jquery.contextmenu.css" />
+    <Content Include="Content\ContextMenu\jquery.contextmenu.js" />
+    <Content Include="Content\css\master.css" />
+    <Content Include="Content\css\superfish.css" />
+    <Content Include="Content\easyui\date.js" />
+    <Content Include="Content\easyui\jquery.easyui.newvalidationrules.js" />
+    <Content Include="Content\easyui\themes\default\easyui-extends.css" />
+    <Content Include="Content\easyui\themes\default\images\bg_menu_off.gif" />
+    <Content Include="Content\easyui\themes\default\images\bg_menu_on.gif" />
+    <Content Include="Content\easyui\themes\default\images\btn_sitemap_down.gif" />
+    <Content Include="Content\easyui\themes\default\images\menu_arrow_down.png" />
+    <Content Include="Content\easyui\themes\default\images\menu_arrow_up.png" />
+    <Content Include="Content\easyui\themes\icons\calculator.png" />
+    <Content Include="Content\easyui\themes\icons\detail.png" />
+    <Content Include="Content\easyui\themes\icons\email.png" />
+    <Content Include="Content\easyui\themes\icons\eraser.png" />
+    <Content Include="Content\easyui\themes\icons\excel.png" />
+    <Content Include="Content\easyui\themes\icons\gear.png" />
+    <Content Include="Content\easyui\themes\icons\pdf.png" />
+    <Content Include="Content\images\ajax-loader.gif" />
+    <Content Include="Content\images\bell.png" />
+    <Content Include="Content\images\bg_curva.gif" />
+    <Content Include="Content\images\bg_curva_pie.gif" />
+    <Content Include="Content\images\bg_menu_off.gif" />
+    <Content Include="Content\images\bg_menu_on.gif" />
+    <Content Include="Content\images\fondo_sigees.gif" />
+    <Content Include="Content\images\fondo_titulo.gif" />
+    <Content Include="Content\images\icn_add.gif" />
+    <Content Include="Content\images\icn_edit.gif" />
+    <Content Include="Content\images\icn_ficha.gif" />
+    <Content Include="Content\images\icn_save.gif" />
+    <Content Include="Content\images\icn-cruz.png" />
+    <Content Include="Content\images\imagen_login.jpg" />
+    <Content Include="Content\images\imagen_login_clean.jpg" />
+    <Content Include="Content\images\imagen_login_movil.jpg" />
+    <Content Include="Content\images\img-conversion\estado-encofrado.png" />
+    <Content Include="Content\images\img-conversion\estado-exhumacion.png" />
+    <Content Include="Content\images\img-conversion\estado-final-ejecucion.png" />
+    <Content Include="Content\images\img-conversion\estado-inhumacion.png" />
+    <Content Include="Content\images\img-conversion\flujo-alterno-conversion-encofrado.png" />
+    <Content Include="Content\images\img-conversion\flujo-alterno-conversion-final.png" />
+    <Content Include="Content\images\icn_delete.png" />
+    <Content Include="Content\images\img-conversion\pcv_finalizado.png" />
+    <Content Include="Content\images\img-conversion\pcv_planificacion.png" />
+    <Content Include="Content\images\img-ocultar\icn_mostrar_off.gif" />
+    <Content Include="Content\images\img-ocultar\icn_mostrar_on.gif" />
+    <Content Include="Content\images\img-ocultar\icn_ocultar_off.gif" />
+    <Content Include="Content\images\img-ocultar\icn_ocultar_on.gif" />
+    <Content Include="Content\images\leyenda-busqueda.png" />
+    <Content Include="Content\images\logo_blanco.png" />
+    <Content Include="Content\images\logo_jardines_principal.png" />
+    <Content Include="Content\images\logo_principal_verde.png" />
+    <Content Include="Content\images\logo_verde.png" />
+    <Content Include="Content\images\navegadores\Chrome.png" />
+    <Content Include="Content\images\navegadores\Edge.png" />
+    <Content Include="Content\images\navegadores\Firefox.png" />
+    <Content Include="Content\images\navegadores\IE.png" />
+    <Content Include="Content\images\navegadores\Opera.png" />
+    <Content Include="Content\images\navegadores\Safari.png" />
+    <Content Include="Content\images\tab_linea.gif" />
+    <Content Include="Content\images\tab_linea.png" />
+    <Content Include="Content\row.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\easyui\demo.css" />
+    <Content Include="Content\images\User.png" />
+    <Content Include="Content\easyui\changelog.txt" />
+    <Content Include="Content\easyui\easyloader.js" />
+    <Content Include="Content\easyui\jquery.easyui.min.js" />
+    <Content Include="Content\easyui\jquery.easyui.mobile.js" />
+    <Content Include="Content\easyui\jquery.min.js" />
+    <Content Include="Content\easyui\locale\easyui-lang-af.js" />
+    <Content Include="Content\easyui\locale\easyui-lang-am.js" />
+    <Content Include="Content\easyui\locale\easyui-lang-ar.js" />
+    <Content Include="Content\easyui\locale\easyui-lang-bg.js" />
+    <Content Include="Content\easyui\locale\easyui-lang-ca.js" />
+    <Content Include="Content\easyui\locale\easyui-lang-cs.js" />
+    <Content Include="Content\easyui\locale\easyui-lang-cz.js" />
+    <Content Include="Content\easyui\locale\easyui-lang-da.js" />
+    <Content Include="Content\easyui\locale\easyui-lang-de.js" />
+    <Content Include="Content\easyui\locale\easyui-lang-el.js" />
+    <Content Include="Content\easyui\locale\easyui-lang-en.js" />
+    <Content Include="Content\easyui\locale\easyui-lang-es.js" />
+    <Content Include="Content\easyui\locale\easyui-lang-fr.js" />
+    <Content Include="Content\easyui\locale\easyui-lang-it.js" />
+    <Content Include="Content\easyui\locale\easyui-lang-jp.js" />
+    <Content Include="Content\easyui\locale\easyui-lang-ko.js" />
+    <Content Include="Content\easyui\locale\easyui-lang-nl.js" />
+    <Content Include="Content\easyui\locale\easyui-lang-pl.js" />
+    <Content Include="Content\easyui\locale\easyui-lang-pt_BR.js" />
+    <Content Include="Content\easyui\locale\easyui-lang-ru.js" />
+    <Content Include="Content\easyui\locale\easyui-lang-sv_SE.js" />
+    <Content Include="Content\easyui\locale\easyui-lang-tr.js" />
+    <Content Include="Content\easyui\locale\easyui-lang-zh_CN.js" />
+    <Content Include="Content\easyui\locale\easyui-lang-zh_TW.js" />
+    <Content Include="Content\easyui\plugins\jquery.accordion.js" />
+    <Content Include="Content\easyui\plugins\jquery.calendar.js" />
+    <Content Include="Content\easyui\plugins\jquery.combo.js" />
+    <Content Include="Content\easyui\plugins\jquery.combobox.js" />
+    <Content Include="Content\easyui\plugins\jquery.combogrid.js" />
+    <Content Include="Content\easyui\plugins\jquery.combotree.js" />
+    <Content Include="Content\easyui\plugins\jquery.combotreegrid.js" />
+    <Content Include="Content\easyui\plugins\jquery.datagrid.js" />
+    <Content Include="Content\easyui\plugins\jquery.datalist.js" />
+    <Content Include="Content\easyui\plugins\jquery.datebox.js" />
+    <Content Include="Content\easyui\plugins\jquery.datetimebox.js" />
+    <Content Include="Content\easyui\plugins\jquery.datetimespinner.js" />
+    <Content Include="Content\easyui\plugins\jquery.dialog.js" />
+    <Content Include="Content\easyui\plugins\jquery.draggable.js" />
+    <Content Include="Content\easyui\plugins\jquery.droppable.js" />
+    <Content Include="Content\easyui\plugins\jquery.filebox.js" />
+    <Content Include="Content\easyui\plugins\jquery.form.js" />
+    <Content Include="Content\easyui\plugins\jquery.layout.js" />
+    <Content Include="Content\easyui\plugins\jquery.linkbutton.js" />
+    <Content Include="Content\easyui\plugins\jquery.menu.js" />
+    <Content Include="Content\easyui\plugins\jquery.menubutton.js" />
+    <Content Include="Content\easyui\plugins\jquery.messager.js" />
+    <Content Include="Content\easyui\plugins\jquery.mobile.js" />
+    <Content Include="Content\easyui\plugins\jquery.numberbox.js" />
+    <Content Include="Content\easyui\plugins\jquery.numberspinner.js" />
+    <Content Include="Content\easyui\plugins\jquery.pagination.js" />
+    <Content Include="Content\easyui\plugins\jquery.panel.js" />
+    <Content Include="Content\easyui\plugins\jquery.parser.js" />
+    <Content Include="Content\easyui\plugins\jquery.passwordbox.js" />
+    <Content Include="Content\easyui\plugins\jquery.progressbar.js" />
+    <Content Include="Content\easyui\plugins\jquery.propertygrid.js" />
+    <Content Include="Content\easyui\plugins\jquery.resizable.js" />
+    <Content Include="Content\easyui\plugins\jquery.searchbox.js" />
+    <Content Include="Content\easyui\plugins\jquery.slider.js" />
+    <Content Include="Content\easyui\plugins\jquery.spinner.js" />
+    <Content Include="Content\easyui\plugins\jquery.splitbutton.js" />
+    <Content Include="Content\easyui\plugins\jquery.switchbutton.js" />
+    <Content Include="Content\easyui\plugins\jquery.tabs.js" />
+    <Content Include="Content\easyui\plugins\jquery.textbox.js" />
+    <Content Include="Content\easyui\plugins\jquery.timespinner.js" />
+    <Content Include="Content\easyui\plugins\jquery.tooltip.js" />
+    <Content Include="Content\easyui\plugins\jquery.tree.js" />
+    <Content Include="Content\easyui\plugins\jquery.treegrid.js" />
+    <Content Include="Content\easyui\plugins\jquery.validatebox.js" />
+    <Content Include="Content\easyui\plugins\jquery.window.js" />
+    <Content Include="Content\easyui\src\easyloader.js" />
+    <Content Include="Content\easyui\src\jquery.accordion.js" />
+    <Content Include="Content\easyui\src\jquery.calendar.js" />
+    <Content Include="Content\easyui\src\jquery.combobox.js" />
+    <Content Include="Content\easyui\src\jquery.datebox.js" />
+    <Content Include="Content\easyui\src\jquery.draggable.js" />
+    <Content Include="Content\easyui\src\jquery.droppable.js" />
+    <Content Include="Content\easyui\src\jquery.form.js" />
+    <Content Include="Content\easyui\src\jquery.linkbutton.js" />
+    <Content Include="Content\easyui\src\jquery.menu.js" />
+    <Content Include="Content\easyui\src\jquery.parser.js" />
+    <Content Include="Content\easyui\src\jquery.progressbar.js" />
+    <Content Include="Content\easyui\src\jquery.propertygrid.js" />
+    <Content Include="Content\easyui\src\jquery.resizable.js" />
+    <Content Include="Content\easyui\src\jquery.slider.js" />
+    <Content Include="Content\easyui\src\jquery.tabs.js" />
+    <Content Include="Content\easyui\src\jquery.window.js" />
+    <Content Include="Content\easyui\themes\black\accordion.css" />
+    <Content Include="Content\easyui\themes\black\calendar.css" />
+    <Content Include="Content\easyui\themes\black\combo.css" />
+    <Content Include="Content\easyui\themes\black\combobox.css" />
+    <Content Include="Content\easyui\themes\black\datagrid.css" />
+    <Content Include="Content\easyui\themes\black\datalist.css" />
+    <Content Include="Content\easyui\themes\black\datebox.css" />
+    <Content Include="Content\easyui\themes\black\dialog.css" />
+    <Content Include="Content\easyui\themes\black\easyui.css" />
+    <Content Include="Content\easyui\themes\black\filebox.css" />
+    <Content Include="Content\easyui\themes\black\images\accordion_arrows.png" />
+    <Content Include="Content\easyui\themes\black\images\blank.gif" />
+    <Content Include="Content\easyui\themes\black\images\calendar_arrows.png" />
+    <Content Include="Content\easyui\themes\black\images\combo_arrow.png" />
+    <Content Include="Content\easyui\themes\black\images\datagrid_icons.png" />
+    <Content Include="Content\easyui\themes\black\images\datebox_arrow.png" />
+    <Content Include="Content\easyui\themes\black\images\layout_arrows.png" />
+    <Content Include="Content\easyui\themes\black\images\linkbutton_bg.png" />
+    <Content Include="Content\easyui\themes\black\images\loading.gif" />
+    <Content Include="Content\easyui\themes\black\images\menu_arrows.png" />
+    <Content Include="Content\easyui\themes\black\images\messager_icons.png" />
+    <Content Include="Content\easyui\themes\black\images\pagination_icons.png" />
+    <Content Include="Content\easyui\themes\black\images\panel_tools.png" />
+    <Content Include="Content\easyui\themes\black\images\passwordbox_close.png" />
+    <Content Include="Content\easyui\themes\black\images\passwordbox_open.png" />
+    <Content Include="Content\easyui\themes\black\images\searchbox_button.png" />
+    <Content Include="Content\easyui\themes\black\images\slider_handle.png" />
+    <Content Include="Content\easyui\themes\black\images\spinner_arrows.png" />
+    <Content Include="Content\easyui\themes\black\images\tabs_icons.png" />
+    <Content Include="Content\easyui\themes\black\images\tree_icons.png" />
+    <Content Include="Content\easyui\themes\black\images\validatebox_warning.png" />
+    <Content Include="Content\easyui\themes\black\layout.css" />
+    <Content Include="Content\easyui\themes\black\linkbutton.css" />
+    <Content Include="Content\easyui\themes\black\menu.css" />
+    <Content Include="Content\easyui\themes\black\menubutton.css" />
+    <Content Include="Content\easyui\themes\black\messager.css" />
+    <Content Include="Content\easyui\themes\black\numberbox.css" />
+    <Content Include="Content\easyui\themes\black\pagination.css" />
+    <Content Include="Content\easyui\themes\black\panel.css" />
+    <Content Include="Content\easyui\themes\black\passwordbox.css" />
+    <Content Include="Content\easyui\themes\black\progressbar.css" />
+    <Content Include="Content\easyui\themes\black\propertygrid.css" />
+    <Content Include="Content\easyui\themes\black\searchbox.css" />
+    <Content Include="Content\easyui\themes\black\slider.css" />
+    <Content Include="Content\easyui\themes\black\spinner.css" />
+    <Content Include="Content\easyui\themes\black\splitbutton.css" />
+    <Content Include="Content\easyui\themes\black\switchbutton.css" />
+    <Content Include="Content\easyui\themes\black\tabs.css" />
+    <Content Include="Content\easyui\themes\black\textbox.css" />
+    <Content Include="Content\easyui\themes\black\tooltip.css" />
+    <Content Include="Content\easyui\themes\black\tree.css" />
+    <Content Include="Content\easyui\themes\black\validatebox.css" />
+    <Content Include="Content\easyui\themes\black\window.css" />
+    <Content Include="Content\easyui\themes\bootstrap\accordion.css" />
+    <Content Include="Content\easyui\themes\bootstrap\calendar.css" />
+    <Content Include="Content\easyui\themes\bootstrap\combo.css" />
+    <Content Include="Content\easyui\themes\bootstrap\combobox.css" />
+    <Content Include="Content\easyui\themes\bootstrap\datagrid.css" />
+    <Content Include="Content\easyui\themes\bootstrap\datalist.css" />
+    <Content Include="Content\easyui\themes\bootstrap\datebox.css" />
+    <Content Include="Content\easyui\themes\bootstrap\dialog.css" />
+    <Content Include="Content\easyui\themes\bootstrap\easyui.css" />
+    <Content Include="Content\easyui\themes\bootstrap\filebox.css" />
+    <Content Include="Content\easyui\themes\bootstrap\images\accordion_arrows.png" />
+    <Content Include="Content\easyui\themes\bootstrap\images\blank.gif" />
+    <Content Include="Content\easyui\themes\bootstrap\images\calendar_arrows.png" />
+    <Content Include="Content\easyui\themes\bootstrap\images\combo_arrow.png" />
+    <Content Include="Content\easyui\themes\bootstrap\images\datagrid_icons.png" />
+    <Content Include="Content\easyui\themes\bootstrap\images\datebox_arrow.png" />
+    <Content Include="Content\easyui\themes\bootstrap\images\layout_arrows.png" />
+    <Content Include="Content\easyui\themes\bootstrap\images\linkbutton_bg.png" />
+    <Content Include="Content\easyui\themes\bootstrap\images\loading.gif" />
+    <Content Include="Content\easyui\themes\bootstrap\images\menu_arrows.png" />
+    <Content Include="Content\easyui\themes\bootstrap\images\messager_icons.png" />
+    <Content Include="Content\easyui\themes\bootstrap\images\pagination_icons.png" />
+    <Content Include="Content\easyui\themes\bootstrap\images\panel_tools.png" />
+    <Content Include="Content\easyui\themes\bootstrap\images\passwordbox_close.png" />
+    <Content Include="Content\easyui\themes\bootstrap\images\passwordbox_open.png" />
+    <Content Include="Content\easyui\themes\bootstrap\images\searchbox_button.png" />
+    <Content Include="Content\easyui\themes\bootstrap\images\slider_handle.png" />
+    <Content Include="Content\easyui\themes\bootstrap\images\spinner_arrows.png" />
+    <Content Include="Content\easyui\themes\bootstrap\images\tabs_icons.png" />
+    <Content Include="Content\easyui\themes\bootstrap\images\tree_icons.png" />
+    <Content Include="Content\easyui\themes\bootstrap\images\validatebox_warning.png" />
+    <Content Include="Content\easyui\themes\bootstrap\layout.css" />
+    <Content Include="Content\easyui\themes\bootstrap\linkbutton.css" />
+    <Content Include="Content\easyui\themes\bootstrap\menu.css" />
+    <Content Include="Content\easyui\themes\bootstrap\menubutton.css" />
+    <Content Include="Content\easyui\themes\bootstrap\messager.css" />
+    <Content Include="Content\easyui\themes\bootstrap\numberbox.css" />
+    <Content Include="Content\easyui\themes\bootstrap\pagination.css" />
+    <Content Include="Content\easyui\themes\bootstrap\panel.css" />
+    <Content Include="Content\easyui\themes\bootstrap\passwordbox.css" />
+    <Content Include="Content\easyui\themes\bootstrap\progressbar.css" />
+    <Content Include="Content\easyui\themes\bootstrap\propertygrid.css" />
+    <Content Include="Content\easyui\themes\bootstrap\searchbox.css" />
+    <Content Include="Content\easyui\themes\bootstrap\slider.css" />
+    <Content Include="Content\easyui\themes\bootstrap\spinner.css" />
+    <Content Include="Content\easyui\themes\bootstrap\splitbutton.css" />
+    <Content Include="Content\easyui\themes\bootstrap\switchbutton.css" />
+    <Content Include="Content\easyui\themes\bootstrap\tabs.css" />
+    <Content Include="Content\easyui\themes\bootstrap\textbox.css" />
+    <Content Include="Content\easyui\themes\bootstrap\tooltip.css" />
+    <Content Include="Content\easyui\themes\bootstrap\tree.css" />
+    <Content Include="Content\easyui\themes\bootstrap\validatebox.css" />
+    <Content Include="Content\easyui\themes\bootstrap\window.css" />
+    <Content Include="Content\easyui\themes\color.css" />
+    <Content Include="Content\easyui\themes\default\accordion.css" />
+    <Content Include="Content\easyui\themes\default\calendar.css" />
+    <Content Include="Content\easyui\themes\default\combo.css" />
+    <Content Include="Content\easyui\themes\default\combobox.css" />
+    <Content Include="Content\easyui\themes\default\datagrid.css" />
+    <Content Include="Content\easyui\themes\default\datalist.css" />
+    <Content Include="Content\easyui\themes\default\datebox.css" />
+    <Content Include="Content\easyui\themes\default\dialog.css" />
+    <Content Include="Content\easyui\themes\default\easyui.css" />
+    <Content Include="Content\easyui\themes\default\filebox.css" />
+    <Content Include="Content\easyui\themes\default\images\accordion_arrows.png" />
+    <Content Include="Content\easyui\themes\default\images\blank.gif" />
+    <Content Include="Content\easyui\themes\default\images\calendar_arrows.png" />
+    <Content Include="Content\easyui\themes\default\images\combo_arrow.png" />
+    <Content Include="Content\easyui\themes\default\images\datagrid_icons.png" />
+    <Content Include="Content\easyui\themes\default\images\datebox_arrow.png" />
+    <Content Include="Content\easyui\themes\default\images\layout_arrows.png" />
+    <Content Include="Content\easyui\themes\default\images\linkbutton_bg.png" />
+    <Content Include="Content\easyui\themes\default\images\loading.gif" />
+    <Content Include="Content\easyui\themes\default\images\menu_arrows.png" />
+    <Content Include="Content\easyui\themes\default\images\messager_icons.png" />
+    <Content Include="Content\easyui\themes\default\images\pagination_icons.png" />
+    <Content Include="Content\easyui\themes\default\images\panel_tools.png" />
+    <Content Include="Content\easyui\themes\default\images\passwordbox_close.png" />
+    <Content Include="Content\easyui\themes\default\images\passwordbox_open.png" />
+    <Content Include="Content\easyui\themes\default\images\searchbox_button.png" />
+    <Content Include="Content\easyui\themes\default\images\slider_handle.png" />
+    <Content Include="Content\easyui\themes\default\images\spinner_arrows.png" />
+    <Content Include="Content\easyui\themes\default\images\tabs_icons.png" />
+    <Content Include="Content\easyui\themes\default\images\tree_icons.png" />
+    <Content Include="Content\easyui\themes\default\images\validatebox_warning.png" />
+    <Content Include="Content\easyui\themes\default\layout.css" />
+    <Content Include="Content\easyui\themes\default\linkbutton.css" />
+    <Content Include="Content\easyui\themes\default\menu.css" />
+    <Content Include="Content\easyui\themes\default\menubutton.css" />
+    <Content Include="Content\easyui\themes\default\messager.css" />
+    <Content Include="Content\easyui\themes\default\numberbox.css" />
+    <Content Include="Content\easyui\themes\default\pagination.css" />
+    <Content Include="Content\easyui\themes\default\panel.css" />
+    <Content Include="Content\easyui\themes\default\passwordbox.css" />
+    <Content Include="Content\easyui\themes\default\progressbar.css" />
+    <Content Include="Content\easyui\themes\default\propertygrid.css" />
+    <Content Include="Content\easyui\themes\default\searchbox.css" />
+    <Content Include="Content\easyui\themes\default\slider.css" />
+    <Content Include="Content\easyui\themes\default\spinner.css" />
+    <Content Include="Content\easyui\themes\default\splitbutton.css" />
+    <Content Include="Content\easyui\themes\default\switchbutton.css" />
+    <Content Include="Content\easyui\themes\default\tabs.css" />
+    <Content Include="Content\easyui\themes\default\textbox.css" />
+    <Content Include="Content\easyui\themes\default\tooltip.css" />
+    <Content Include="Content\easyui\themes\default\tree.css" />
+    <Content Include="Content\easyui\themes\default\validatebox.css" />
+    <Content Include="Content\easyui\themes\default\window.css" />
+    <Content Include="Content\easyui\themes\gray\accordion.css" />
+    <Content Include="Content\easyui\themes\gray\calendar.css" />
+    <Content Include="Content\easyui\themes\gray\combo.css" />
+    <Content Include="Content\easyui\themes\gray\combobox.css" />
+    <Content Include="Content\easyui\themes\gray\datagrid.css" />
+    <Content Include="Content\easyui\themes\gray\datalist.css" />
+    <Content Include="Content\easyui\themes\gray\datebox.css" />
+    <Content Include="Content\easyui\themes\gray\dialog.css" />
+    <Content Include="Content\easyui\themes\gray\easyui.css" />
+    <Content Include="Content\easyui\themes\gray\filebox.css" />
+    <Content Include="Content\easyui\themes\gray\images\accordion_arrows.png" />
+    <Content Include="Content\easyui\themes\gray\images\blank.gif" />
+    <Content Include="Content\easyui\themes\gray\images\calendar_arrows.png" />
+    <Content Include="Content\easyui\themes\gray\images\combo_arrow.png" />
+    <Content Include="Content\easyui\themes\gray\images\datagrid_icons.png" />
+    <Content Include="Content\easyui\themes\gray\images\datebox_arrow.png" />
+    <Content Include="Content\easyui\themes\gray\images\layout_arrows.png" />
+    <Content Include="Content\easyui\themes\gray\images\linkbutton_bg.png" />
+    <Content Include="Content\easyui\themes\gray\images\loading.gif" />
+    <Content Include="Content\easyui\themes\gray\images\menu_arrows.png" />
+    <Content Include="Content\easyui\themes\gray\images\messager_icons.png" />
+    <Content Include="Content\easyui\themes\gray\images\pagination_icons.png" />
+    <Content Include="Content\easyui\themes\gray\images\panel_tools.png" />
+    <Content Include="Content\easyui\themes\gray\images\passwordbox_close.png" />
+    <Content Include="Content\easyui\themes\gray\images\passwordbox_open.png" />
+    <Content Include="Content\easyui\themes\gray\images\searchbox_button.png" />
+    <Content Include="Content\easyui\themes\gray\images\slider_handle.png" />
+    <Content Include="Content\easyui\themes\gray\images\spinner_arrows.png" />
+    <Content Include="Content\easyui\themes\gray\images\tabs_icons.png" />
+    <Content Include="Content\easyui\themes\gray\images\tree_icons.png" />
+    <Content Include="Content\easyui\themes\gray\images\validatebox_warning.png" />
+    <Content Include="Content\easyui\themes\gray\layout.css" />
+    <Content Include="Content\easyui\themes\gray\linkbutton.css" />
+    <Content Include="Content\easyui\themes\gray\menu.css" />
+    <Content Include="Content\easyui\themes\gray\menubutton.css" />
+    <Content Include="Content\easyui\themes\gray\messager.css" />
+    <Content Include="Content\easyui\themes\gray\numberbox.css" />
+    <Content Include="Content\easyui\themes\gray\pagination.css" />
+    <Content Include="Content\easyui\themes\gray\panel.css" />
+    <Content Include="Content\easyui\themes\gray\passwordbox.css" />
+    <Content Include="Content\easyui\themes\gray\progressbar.css" />
+    <Content Include="Content\easyui\themes\gray\propertygrid.css" />
+    <Content Include="Content\easyui\themes\gray\searchbox.css" />
+    <Content Include="Content\easyui\themes\gray\slider.css" />
+    <Content Include="Content\easyui\themes\gray\spinner.css" />
+    <Content Include="Content\easyui\themes\gray\splitbutton.css" />
+    <Content Include="Content\easyui\themes\gray\switchbutton.css" />
+    <Content Include="Content\easyui\themes\gray\tabs.css" />
+    <Content Include="Content\easyui\themes\gray\textbox.css" />
+    <Content Include="Content\easyui\themes\gray\tooltip.css" />
+    <Content Include="Content\easyui\themes\gray\tree.css" />
+    <Content Include="Content\easyui\themes\gray\validatebox.css" />
+    <Content Include="Content\easyui\themes\gray\window.css" />
+    <Content Include="Content\easyui\themes\icon.css" />
+    <Content Include="Content\easyui\themes\icons\back.png" />
+    <Content Include="Content\easyui\themes\icons\blank.gif" />
+    <Content Include="Content\easyui\themes\icons\cancel.png" />
+    <Content Include="Content\easyui\themes\icons\clear.png" />
+    <Content Include="Content\easyui\themes\icons\cut.png" />
+    <Content Include="Content\easyui\themes\icons\edit_add.png" />
+    <Content Include="Content\easyui\themes\icons\edit_remove.png" />
+    <Content Include="Content\easyui\themes\icons\filesave.png" />
+    <Content Include="Content\easyui\themes\icons\filter.png" />
+    <Content Include="Content\easyui\themes\icons\help.png" />
+    <Content Include="Content\easyui\themes\icons\large_chart.png" />
+    <Content Include="Content\easyui\themes\icons\large_clipart.png" />
+    <Content Include="Content\easyui\themes\icons\large_picture.png" />
+    <Content Include="Content\easyui\themes\icons\large_shapes.png" />
+    <Content Include="Content\easyui\themes\icons\large_smartart.png" />
+    <Content Include="Content\easyui\themes\icons\lock.png" />
+    <Content Include="Content\easyui\themes\icons\man.png" />
+    <Content Include="Content\easyui\themes\icons\mini_add.png" />
+    <Content Include="Content\easyui\themes\icons\mini_edit.png" />
+    <Content Include="Content\easyui\themes\icons\mini_refresh.png" />
+    <Content Include="Content\easyui\themes\icons\more.png" />
+    <Content Include="Content\easyui\themes\icons\no.png" />
+    <Content Include="Content\easyui\themes\icons\ok.png" />
+    <Content Include="Content\easyui\themes\icons\pencil.png" />
+    <Content Include="Content\easyui\themes\icons\print.png" />
+    <Content Include="Content\easyui\themes\icons\redo.png" />
+    <Content Include="Content\easyui\themes\icons\reload.png" />
+    <Content Include="Content\easyui\themes\icons\search.png" />
+    <Content Include="Content\easyui\themes\icons\sum.png" />
+    <Content Include="Content\easyui\themes\icons\tip.png" />
+    <Content Include="Content\easyui\themes\icons\undo.png" />
+    <Content Include="Content\easyui\themes\material\accordion.css" />
+    <Content Include="Content\easyui\themes\material\calendar.css" />
+    <Content Include="Content\easyui\themes\material\combo.css" />
+    <Content Include="Content\easyui\themes\material\combobox.css" />
+    <Content Include="Content\easyui\themes\material\datagrid.css" />
+    <Content Include="Content\easyui\themes\material\datalist.css" />
+    <Content Include="Content\easyui\themes\material\datebox.css" />
+    <Content Include="Content\easyui\themes\material\dialog.css" />
+    <Content Include="Content\easyui\themes\material\easyui.css" />
+    <Content Include="Content\easyui\themes\material\filebox.css" />
+    <Content Include="Content\easyui\themes\material\images\accordion_arrows.png" />
+    <Content Include="Content\easyui\themes\material\images\blank.gif" />
+    <Content Include="Content\easyui\themes\material\images\calendar_arrows.png" />
+    <Content Include="Content\easyui\themes\material\images\combo_arrow.png" />
+    <Content Include="Content\easyui\themes\material\images\datagrid_icons.png" />
+    <Content Include="Content\easyui\themes\material\images\datebox_arrow.png" />
+    <Content Include="Content\easyui\themes\material\images\layout_arrows.png" />
+    <Content Include="Content\easyui\themes\material\images\linkbutton_bg.png" />
+    <Content Include="Content\easyui\themes\material\images\loading.gif" />
+    <Content Include="Content\easyui\themes\material\images\menu_arrows.png" />
+    <Content Include="Content\easyui\themes\material\images\messager_icons.png" />
+    <Content Include="Content\easyui\themes\material\images\pagination_icons.png" />
+    <Content Include="Content\easyui\themes\material\images\panel_tools.png" />
+    <Content Include="Content\easyui\themes\material\images\passwordbox_close.png" />
+    <Content Include="Content\easyui\themes\material\images\passwordbox_open.png" />
+    <Content Include="Content\easyui\themes\material\images\searchbox_button.png" />
+    <Content Include="Content\easyui\themes\material\images\slider_handle.png" />
+    <Content Include="Content\easyui\themes\material\images\spinner_arrows.png" />
+    <Content Include="Content\easyui\themes\material\images\tabs_icons.png" />
+    <Content Include="Content\easyui\themes\material\images\tree_icons.png" />
+    <Content Include="Content\easyui\themes\material\images\validatebox_warning.png" />
+    <Content Include="Content\easyui\themes\material\layout.css" />
+    <Content Include="Content\easyui\themes\material\linkbutton.css" />
+    <Content Include="Content\easyui\themes\material\menu.css" />
+    <Content Include="Content\easyui\themes\material\menubutton.css" />
+    <Content Include="Content\easyui\themes\material\messager.css" />
+    <Content Include="Content\easyui\themes\material\numberbox.css" />
+    <Content Include="Content\easyui\themes\material\pagination.css" />
+    <Content Include="Content\easyui\themes\material\panel.css" />
+    <Content Include="Content\easyui\themes\material\passwordbox.css" />
+    <Content Include="Content\easyui\themes\material\progressbar.css" />
+    <Content Include="Content\easyui\themes\material\propertygrid.css" />
+    <Content Include="Content\easyui\themes\material\searchbox.css" />
+    <Content Include="Content\easyui\themes\material\slider.css" />
+    <Content Include="Content\easyui\themes\material\spinner.css" />
+    <Content Include="Content\easyui\themes\material\splitbutton.css" />
+    <Content Include="Content\easyui\themes\material\switchbutton.css" />
+    <Content Include="Content\easyui\themes\material\tabs.css" />
+    <Content Include="Content\easyui\themes\material\textbox.css" />
+    <Content Include="Content\easyui\themes\material\tooltip.css" />
+    <Content Include="Content\easyui\themes\material\tree.css" />
+    <Content Include="Content\easyui\themes\material\validatebox.css" />
+    <Content Include="Content\easyui\themes\material\window.css" />
+    <Content Include="Content\easyui\themes\metro\accordion.css" />
+    <Content Include="Content\easyui\themes\metro\calendar.css" />
+    <Content Include="Content\easyui\themes\metro\combo.css" />
+    <Content Include="Content\easyui\themes\metro\combobox.css" />
+    <Content Include="Content\easyui\themes\metro\datagrid.css" />
+    <Content Include="Content\easyui\themes\metro\datalist.css" />
+    <Content Include="Content\easyui\themes\metro\datebox.css" />
+    <Content Include="Content\easyui\themes\metro\dialog.css" />
+    <Content Include="Content\easyui\themes\metro\easyui.css" />
+    <Content Include="Content\easyui\themes\metro\filebox.css" />
+    <Content Include="Content\easyui\themes\metro\images\accordion_arrows.png" />
+    <Content Include="Content\easyui\themes\metro\images\blank.gif" />
+    <Content Include="Content\easyui\themes\metro\images\calendar_arrows.png" />
+    <Content Include="Content\easyui\themes\metro\images\combo_arrow.png" />
+    <Content Include="Content\easyui\themes\metro\images\datagrid_icons.png" />
+    <Content Include="Content\easyui\themes\metro\images\datebox_arrow.png" />
+    <Content Include="Content\easyui\themes\metro\images\layout_arrows.png" />
+    <Content Include="Content\easyui\themes\metro\images\linkbutton_bg.png" />
+    <Content Include="Content\easyui\themes\metro\images\loading.gif" />
+    <Content Include="Content\easyui\themes\metro\images\menu_arrows.png" />
+    <Content Include="Content\easyui\themes\metro\images\messager_icons.png" />
+    <Content Include="Content\easyui\themes\metro\images\pagination_icons.png" />
+    <Content Include="Content\easyui\themes\metro\images\panel_tools.png" />
+    <Content Include="Content\easyui\themes\metro\images\passwordbox_close.png" />
+    <Content Include="Content\easyui\themes\metro\images\passwordbox_open.png" />
+    <Content Include="Content\easyui\themes\metro\images\searchbox_button.png" />
+    <Content Include="Content\easyui\themes\metro\images\slider_handle.png" />
+    <Content Include="Content\easyui\themes\metro\images\spinner_arrows.png" />
+    <Content Include="Content\easyui\themes\metro\images\tabs_icons.png" />
+    <Content Include="Content\easyui\themes\metro\images\tree_icons.png" />
+    <Content Include="Content\easyui\themes\metro\images\validatebox_warning.png" />
+    <Content Include="Content\easyui\themes\metro\layout.css" />
+    <Content Include="Content\easyui\themes\metro\linkbutton.css" />
+    <Content Include="Content\easyui\themes\metro\menu.css" />
+    <Content Include="Content\easyui\themes\metro\menubutton.css" />
+    <Content Include="Content\easyui\themes\metro\messager.css" />
+    <Content Include="Content\easyui\themes\metro\numberbox.css" />
+    <Content Include="Content\easyui\themes\metro\pagination.css" />
+    <Content Include="Content\easyui\themes\metro\panel.css" />
+    <Content Include="Content\easyui\themes\metro\passwordbox.css" />
+    <Content Include="Content\easyui\themes\metro\progressbar.css" />
+    <Content Include="Content\easyui\themes\metro\propertygrid.css" />
+    <Content Include="Content\easyui\themes\metro\searchbox.css" />
+    <Content Include="Content\easyui\themes\metro\slider.css" />
+    <Content Include="Content\easyui\themes\metro\spinner.css" />
+    <Content Include="Content\easyui\themes\metro\splitbutton.css" />
+    <Content Include="Content\easyui\themes\metro\switchbutton.css" />
+    <Content Include="Content\easyui\themes\metro\tabs.css" />
+    <Content Include="Content\easyui\themes\metro\textbox.css" />
+    <Content Include="Content\easyui\themes\metro\tooltip.css" />
+    <Content Include="Content\easyui\themes\metro\tree.css" />
+    <Content Include="Content\easyui\themes\metro\validatebox.css" />
+    <Content Include="Content\easyui\themes\metro\window.css" />
+    <Content Include="Content\easyui\themes\mobile.css" />
+    <Content Include="Content\sigees\styleInterface-skill-negro.css" />
+    <Content Include="Content\sigees\styleInterface.css" />
+    <Content Include="Content\sigees\styleLayout.css" />
+    <Content Include="Content\sigees\styleLayoutMovil.css" />
+    <Content Include="Content\sigees\styleEspacio.css" />
+    <Content Include="Content\sigees\styleLogin.css" />
+    <Content Include="Content\themes\base\images\animated-overlay.gif" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.menu.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.spinner.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\themes\base\jquery.ui.tooltip.css" />
+    <Content Include="Content\themes\base\minified\images\animated-overlay.gif" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.menu.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.spinner.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tooltip.min.css" />
+    <Content Include="Content\themes\ui-lightness\images\animated-overlay.gif" />
+    <Content Include="Content\themes\ui-lightness\images\ui-anim_basic_16x16.gif" />
+    <Content Include="Content\themes\ui-lightness\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="Content\themes\ui-lightness\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="Content\themes\ui-lightness\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\ui-lightness\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="Content\themes\ui-lightness\images\ui-bg_flat_55_fbec88_40x100.png" />
+    <Content Include="Content\themes\ui-lightness\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="Content\themes\ui-lightness\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="Content\themes\ui-lightness\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\ui-lightness\images\ui-bg_glass_75_d0e5f5_1x400.png" />
+    <Content Include="Content\themes\ui-lightness\images\ui-bg_glass_85_dfeffc_1x400.png" />
+    <Content Include="Content\themes\ui-lightness\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\ui-lightness\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="Content\themes\ui-lightness\images\ui-bg_gloss-wave_55_5c9ccc_500x100.png" />
+    <Content Include="Content\themes\ui-lightness\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="Content\themes\ui-lightness\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="Content\themes\ui-lightness\images\ui-bg_inset-hard_100_f5f8f9_1x100.png" />
+    <Content Include="Content\themes\ui-lightness\images\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="Content\themes\ui-lightness\images\ui-icons_217bc0_256x240.png" />
+    <Content Include="Content\themes\ui-lightness\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\ui-lightness\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="Content\themes\ui-lightness\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\ui-lightness\images\ui-icons_469bdd_256x240.png" />
+    <Content Include="Content\themes\ui-lightness\images\ui-icons_6da8d5_256x240.png" />
+    <Content Include="Content\themes\ui-lightness\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\ui-lightness\images\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="Content\themes\ui-lightness\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="Content\themes\ui-lightness\images\ui-icons_f9bd01_256x240.png" />
+    <Content Include="Content\themes\ui-lightness\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="Content\themes\ui-lightness\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\themes\ui-lightness\jquery-ui-1.10.4.css" />
+    <Content Include="Content\themes\ui-lightness\jquery-ui-1.10.4.min.css" />
+    <Content Include="Content\themes\ui-lightness\jquery-ui.css" />
+    <Content Include="Content\themes\ui-lightness\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\ui-lightness\jquery.ui.all.css" />
+    <Content Include="Content\themes\ui-lightness\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\ui-lightness\jquery.ui.base.css" />
+    <Content Include="Content\themes\ui-lightness\jquery.ui.button.css" />
+    <Content Include="Content\themes\ui-lightness\jquery.ui.core.css" />
+    <Content Include="Content\themes\ui-lightness\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\ui-lightness\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\ui-lightness\jquery.ui.menu.css" />
+    <Content Include="Content\themes\ui-lightness\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\ui-lightness\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\ui-lightness\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\ui-lightness\jquery.ui.slider.css" />
+    <Content Include="Content\themes\ui-lightness\jquery.ui.spinner.css" />
+    <Content Include="Content\themes\ui-lightness\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\ui-lightness\jquery.ui.theme.css" />
+    <Content Include="Content\themes\ui-lightness\jquery.ui.tooltip.css" />
+    <Content Include="Content\themes\ui-lightness\minified\images\animated-overlay.gif" />
+    <Content Include="Content\themes\ui-lightness\minified\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="Content\themes\ui-lightness\minified\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="Content\themes\ui-lightness\minified\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="Content\themes\ui-lightness\minified\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="Content\themes\ui-lightness\minified\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="Content\themes\ui-lightness\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\ui-lightness\minified\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="Content\themes\ui-lightness\minified\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="Content\themes\ui-lightness\minified\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="Content\themes\ui-lightness\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\ui-lightness\minified\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="Content\themes\ui-lightness\minified\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="Content\themes\ui-lightness\minified\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="Content\themes\ui-lightness\minified\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\themes\ui-lightness\minified\jquery-ui.min.css" />
+    <Content Include="Content\themes\ui-lightness\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Content\themes\ui-lightness\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Content\themes\ui-lightness\minified\jquery.ui.button.min.css" />
+    <Content Include="Content\themes\ui-lightness\minified\jquery.ui.core.min.css" />
+    <Content Include="Content\themes\ui-lightness\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Content\themes\ui-lightness\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Content\themes\ui-lightness\minified\jquery.ui.menu.min.css" />
+    <Content Include="Content\themes\ui-lightness\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Content\themes\ui-lightness\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Content\themes\ui-lightness\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Content\themes\ui-lightness\minified\jquery.ui.slider.min.css" />
+    <Content Include="Content\themes\ui-lightness\minified\jquery.ui.spinner.min.css" />
+    <Content Include="Content\themes\ui-lightness\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Content\themes\ui-lightness\minified\jquery.ui.theme.min.css" />
+    <Content Include="Content\themes\ui-lightness\minified\jquery.ui.tooltip.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\themes\ui-lightness\images\Thumbs.db" />
+    <Content Include="Models\SIGEES.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SIGEES.edmx</DependentUpon>
+      <LastGenOutput>SIGEES.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\SIGEES.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SIGEES.edmx</DependentUpon>
+      <LastGenOutput>SIGEES.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\Aditional\datagrid-bufferview.js" />
+    <Content Include="Scripts\Aditional\datagrid-detailview.js" />
+    <Content Include="Scripts\Aditional\datagrid-export.js" />
+    <Content Include="Scripts\Aditional\datagrid-filter.js" />
+    <Content Include="Scripts\Aditional\datagrid-groupview.js" />
+    <Content Include="Scripts\Aditional\jquery.lib.sigees.js" />
+    <Content Include="Scripts\Aditional\jquery.lib.page.js" />
+    <Content Include="Scripts\Aditional\jquery.lib.message.js" />
+    <Content Include="Scripts\shortcut.js" />
+    <Content Include="Scripts\jquery-1.11.0.js" />
+    <Content Include="Scripts\jquery-ui-1.10.4.js" />
+    <Content Include="Scripts\jquery.blockUI.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Content\easyui\themes\material\images\Thumbs.db" />
+    <Content Include="packages.config" />
+    <Content Include="Views\Shared\ReportViewerASPX.aspx" />
+    <Content Include="Areas\Comision\Views\Web.config" />
+    <Content Include="Areas\Comision\Views\Articulo\Index.cshtml" />
+    <Content Include="Areas\Comision\Views\Articulo\_Registrar.cshtml" />
+    <Content Include="Areas\Comision\Views\Articulo\_Comision.cshtml" />
+    <Content Include="Areas\Comision\Views\Planilla\Index.cshtml" />
+    <Content Include="Areas\Comision\Views\Planilla\_Planilla.cshtml" />
+    <Content Include="Areas\Comision\Views\CanalGrupo\Index.cshtml" />
+    <Content Include="Areas\Comision\Views\CanalGrupo\_Registrar.cshtml" />
+    <Content Include="Areas\Comision\Views\CanalGrupo\_BusquedaPersona.cshtml" />
+    <Content Include="Areas\Comision\Views\Personal\Index.cshtml" />
+    <Content Include="Areas\Comision\Views\Personal\_Registro.cshtml" />
+    <Content Include="Areas\Comision\Views\Reclamos\Index.cshtml" />
+    <Content Include="Areas\Comision\Views\Reclamos\_Atender.cshtml" />
+    <Content Include="Areas\Comision\Views\Reclamos\_BusquedaPersona.cshtml" />
+    <Content Include="Areas\Comision\Views\Reclamos\_Detalle.cshtml" />
+    <Content Include="Areas\Comision\Views\Reclamos\_Registro.cshtml" />
+    <Content Include="Areas\Comision\Views\Grupo\Index.cshtml" />
+    <Content Include="Areas\Comision\Views\Grupo\_BusquedaPersona.cshtml" />
+    <Content Include="Areas\Comision\Views\Grupo\_Registrar.cshtml" />
+    <Content Include="Areas\Comision\Views\Planilla\_Descuento.cshtml" />
+    <Content Include="Areas\Comision\Views\CanalGrupo\_Transferencia.cshtml" />
+    <Content Include="Areas\Comision\Views\Grupo\_Transferencia.cshtml" />
+    <Content Include="Areas\Comision\Views\Planilla\_Persona_Busqueda.cshtml" />
+    <Content Include="Areas\Comision\Reporte\Planilla\ds\dsPlanilla.xsc">
+      <DependentUpon>dsPlanilla.xsd</DependentUpon>
+    </Content>
+    <Content Include="Areas\Comision\Reporte\Planilla\ds\dsLiquidacion.xsc">
+      <DependentUpon>dsLiquidacion.xsd</DependentUpon>
+    </Content>
+    <Content Include="Areas\Comision\Reporte\Articulo\ds\dsArticulo.xsc">
+      <DependentUpon>dsArticulo.xsd</DependentUpon>
+    </Content>
+    <Content Include="Areas\Comision\Reporte\CanalGrupo\ds\dsCanalGrupo.xsc">
+      <DependentUpon>dsCanalGrupo.xsd</DependentUpon>
+    </Content>
+    <Content Include="Areas\Comision\Reporte\Comision\ds\dsComision.xsc">
+      <DependentUpon>dsComision.xsd</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Areas\Comision\Entity\SIGECO.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SIGECO.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Areas\Comision\Entity\SIGECO.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SIGECO.edmx</DependentUpon>
+      <LastGenOutput>SIGECO.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Comision\Entity\SIGECO.edmx.diagram">
+      <DependentUpon>SIGECO.edmx</DependentUpon>
+    </Content>
+    <Content Include="Areas\Comision\Entity\SIGECO.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SIGECO.edmx</DependentUpon>
+      <LastGenOutput>SIGECO.cs</LastGenOutput>
+    </Content>
+    <Content Include="Areas\Comision\Reporte\ComisionManual\ds\dsComisionManual.xsc">
+      <DependentUpon>dsComisionManual.xsd</DependentUpon>
+    </Content>
+    <None Include="Areas\Comision\Reporte\ComisionManual\ds\dsComisionManual.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsComisionManual.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Areas\Comision\Reporte\ComisionManual\ds\dsComisionManual.xss">
+      <DependentUpon>dsComisionManual.xsd</DependentUpon>
+    </Content>
+    <Content Include="Areas\Comision\Reporte\ComisionPersonalInactivo\ds\dsComisionPersonalInactivo.xsc">
+      <DependentUpon>dsComisionPersonalInactivo.xsd</DependentUpon>
+    </Content>
+    <None Include="Areas\Comision\Reporte\ComisionPersonalInactivo\ds\dsComisionPersonalInactivo.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsComisionPersonalInactivo.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Areas\Comision\Reporte\ComisionPersonalInactivo\ds\dsComisionPersonalInactivo.xss">
+      <DependentUpon>dsComisionPersonalInactivo.xsd</DependentUpon>
+    </Content>
+    <None Include="Areas\Comision\Reporte\Comision\ds\dsComision.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsComision.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Areas\Comision\Reporte\Comision\ds\dsComision.xss">
+      <DependentUpon>dsComision.xsd</DependentUpon>
+    </Content>
+    <None Include="Areas\Comision\Reporte\CanalGrupo\ds\dsCanalGrupo.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsCanalGrupo.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Areas\Comision\Reporte\CanalGrupo\ds\dsCanalGrupo.xss">
+      <DependentUpon>dsCanalGrupo.xsd</DependentUpon>
+    </Content>
+    <None Include="Areas\Comision\Reporte\Articulo\ds\dsArticulo.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsArticulo.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Areas\Comision\Reporte\Articulo\ds\dsArticulo.xss">
+      <DependentUpon>dsArticulo.xsd</DependentUpon>
+    </Content>
+    <Content Include="Areas\Comision\Reporte\Personal\ds\dsPesonal.xsc">
+      <DependentUpon>dsPesonal.xsd</DependentUpon>
+    </Content>
+    <None Include="Areas\Comision\Reporte\Personal\ds\dsPesonal.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsPesonal.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Areas\Comision\Reporte\Personal\ds\dsPesonal.xss">
+      <DependentUpon>dsPesonal.xsd</DependentUpon>
+    </Content>
+    <Content Include="Areas\Comision\Reporte\PlanillaBono\ds\dsPlanillaBonoPersonal.xsc">
+      <DependentUpon>dsPlanillaBonoPersonal.xsd</DependentUpon>
+    </Content>
+    <Content Include="Areas\Comision\Reporte\PlanillaBono\ds\dsLiquidacionBonoPersonal.xsc">
+      <DependentUpon>dsLiquidacionBonoPersonal.xsd</DependentUpon>
+    </Content>
+    <Content Include="Areas\Comision\Reporte\PlanillaBono\ds\dsBonoArticulo.xsc">
+      <DependentUpon>dsBonoArticulo.xsd</DependentUpon>
+    </Content>
+    <Content Include="Areas\Comision\Reporte\PlanillaBonoJN\ds\dsPlanillaBonoJNResumen.xsc">
+      <DependentUpon>dsPlanillaBonoJNResumen.xsd</DependentUpon>
+    </Content>
+    <None Include="Areas\Comision\Reporte\PlanillaBonoJN\ds\dsPlanillaBonoJNResumen.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsPlanillaBonoJNResumen.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Areas\Comision\Reporte\PlanillaBonoJN\ds\dsPlanillaBonoJNResumen.xss">
+      <DependentUpon>dsPlanillaBonoJNResumen.xsd</DependentUpon>
+    </Content>
+    <Content Include="Areas\Comision\Reporte\PlanillaBonoTrimestral\ds\DSLiquidacionBonoTrimestral.xsc">
+      <DependentUpon>DSLiquidacionBonoTrimestral.xsd</DependentUpon>
+    </Content>
+    <None Include="Areas\Comision\Reporte\PlanillaBonoTrimestral\ds\DSLiquidacionBonoTrimestral.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSLiquidacionBonoTrimestral.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Areas\Comision\Reporte\PlanillaBonoTrimestral\ds\DSLiquidacionBonoTrimestral.xss">
+      <DependentUpon>DSLiquidacionBonoTrimestral.xsd</DependentUpon>
+    </Content>
+    <None Include="Areas\Comision\Reporte\PlanillaBono\ds\dsBonoArticulo.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsBonoArticulo.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Areas\Comision\Reporte\PlanillaBono\ds\dsBonoArticulo.xss">
+      <DependentUpon>dsBonoArticulo.xsd</DependentUpon>
+    </Content>
+    <None Include="Areas\Comision\Reporte\PlanillaBono\ds\dsLiquidacionBonoPersonal.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsLiquidacionBonoPersonal.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Areas\Comision\Reporte\PlanillaBono\ds\dsLiquidacionBonoPersonal.xss">
+      <DependentUpon>dsLiquidacionBonoPersonal.xsd</DependentUpon>
+    </Content>
+    <Content Include="Areas\Comision\Reporte\PlanillaBono\ds\dsLiquidacionBonoSupervisorIndividual.xsc">
+      <DependentUpon>dsLiquidacionBonoSupervisorIndividual.xsd</DependentUpon>
+    </Content>
+    <None Include="Areas\Comision\Reporte\PlanillaBono\ds\dsLiquidacionBonoSupervisorIndividual.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsLiquidacionBonoSupervisorIndividual.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Areas\Comision\Reporte\PlanillaBono\ds\dsLiquidacionBonoSupervisorIndividual.xss">
+      <DependentUpon>dsLiquidacionBonoSupervisorIndividual.xsd</DependentUpon>
+    </Content>
+    <Content Include="Areas\Comision\Reporte\PlanillaBono\ds\dsLiquidacionBonoSupervisorGeneral.xsc">
+      <DependentUpon>dsLiquidacionBonoSupervisorGeneral.xsd</DependentUpon>
+    </Content>
+    <None Include="Areas\Comision\Reporte\PlanillaBono\ds\dsLiquidacionBonoSupervisorGeneral.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsLiquidacionBonoSupervisorGeneral.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Areas\Comision\Reporte\PlanillaBono\ds\dsLiquidacionBonoSupervisorGeneral.xss">
+      <DependentUpon>dsLiquidacionBonoSupervisorGeneral.xsd</DependentUpon>
+    </Content>
+    <None Include="Areas\Comision\Reporte\PlanillaBono\ds\dsPlanillaBonoPersonal.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsPlanillaBonoPersonal.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Areas\Comision\Reporte\PlanillaBono\ds\dsPlanillaBonoPersonal.xss">
+      <DependentUpon>dsPlanillaBonoPersonal.xsd</DependentUpon>
+    </Content>
+    <Content Include="Areas\Comision\Reporte\PlanillaComercial\ds\dsDetallePlanillaComercial.xsc">
+      <DependentUpon>dsDetallePlanillaComercial.xsd</DependentUpon>
+    </Content>
+    <Content Include="Areas\Comision\Reporte\PlanillaBono\ds\dsPlanillaBonoSupervisor.xsc">
+      <DependentUpon>dsPlanillaBonoSupervisor.xsd</DependentUpon>
+    </Content>
+    <None Include="Areas\Comision\Reporte\PlanillaBono\ds\dsPlanillaBonoSupervisor.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsPlanillaBonoSupervisor.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Areas\Comision\Reporte\PlanillaBono\ds\dsPlanillaBonoSupervisor.xss">
+      <DependentUpon>dsPlanillaBonoSupervisor.xsd</DependentUpon>
+    </Content>
+    <None Include="Areas\Comision\Reporte\PlanillaComercial\ds\dsDetallePlanillaComercial.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsDetallePlanillaComercial.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Areas\Comision\Reporte\PlanillaComercial\ds\dsDetallePlanillaComercial.xss">
+      <DependentUpon>dsDetallePlanillaComercial.xsd</DependentUpon>
+    </Content>
+    <None Include="Areas\Comision\Reporte\Planilla\ds\dsLiquidacion.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsLiquidacion.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Areas\Comision\Reporte\Planilla\ds\dsLiquidacion.xss">
+      <DependentUpon>dsLiquidacion.xsd</DependentUpon>
+    </Content>
+    <Content Include="Areas\Comision\Reporte\Planilla\ds\dsLiquidacionSupervisor.xsc">
+      <DependentUpon>dsLiquidacionSupervisor.xsd</DependentUpon>
+    </Content>
+    <None Include="Areas\Comision\Reporte\Planilla\ds\dsLiquidacionSupervisor.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsLiquidacionSupervisor.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Areas\Comision\Reporte\Planilla\ds\dsLiquidacionSupervisor.xss">
+      <DependentUpon>dsLiquidacionSupervisor.xsd</DependentUpon>
+    </Content>
+    <None Include="Areas\Comision\Reporte\Planilla\ds\dsPlanilla.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsPlanilla.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Areas\Comision\Reporte\Planilla\ds\dsPlanilla.xss">
+      <DependentUpon>dsPlanilla.xsd</DependentUpon>
+    </Content>
+    <Content Include="Areas\Comision\Views\Planilla\_Reporte.cshtml" />
+    <Content Include="Areas\Comision\Views\Planilla\_Contrato.cshtml" />
+    <Content Include="Areas\Comision\Views\Planilla\_Exclusion.cshtml" />
+    <Content Include="Areas\Comision\Views\ReglaPagoComision\_Detalle_regla.cshtml" />
+    <Content Include="Areas\Comision\Views\ReglaPagoComision\_Registrar.cshtml" />
+    <Content Include="Areas\Comision\Views\ReglaPagoComision\Index.cshtml" />
+    <Content Include="Areas\Comision\Views\Moneda\_Modificar.cshtml" />
+    <Content Include="Areas\Comision\Views\Moneda\_Registrar.cshtml" />
+    <Content Include="Areas\Comision\Views\Moneda\_Visualizar.cshtml" />
+    <Content Include="Areas\Comision\Views\Moneda\Index.cshtml" />
+    <Content Include="Areas\Comision\Views\TipoVenta\_Modificar.cshtml" />
+    <Content Include="Areas\Comision\Views\TipoVenta\_Registrar.cshtml" />
+    <Content Include="Areas\Comision\Views\TipoVenta\_Visualizar.cshtml" />
+    <Content Include="Areas\Comision\Views\TipoVenta\Index.cshtml" />
+    <Content Include="Areas\Comision\Views\TipoPlanilla\_Modificar.cshtml" />
+    <Content Include="Areas\Comision\Views\TipoPlanilla\_Registrar.cshtml" />
+    <Content Include="Areas\Comision\Views\TipoPlanilla\_Visualizar.cshtml" />
+    <Content Include="Areas\Comision\Views\TipoPlanilla\Index.cshtml" />
+    <Content Include="Areas\Comision\Views\TipoDocumento\_Modificar.cshtml" />
+    <Content Include="Areas\Comision\Views\TipoDocumento\_Registrar.cshtml" />
+    <Content Include="Areas\Comision\Views\TipoDocumento\_Visualizar.cshtml" />
+    <Content Include="Areas\Comision\Views\TipoDocumento\Index.cshtml" />
+    <Content Include="Areas\Comision\Views\TipoPago\_Modificar.cshtml" />
+    <Content Include="Areas\Comision\Views\TipoPago\_Registrar.cshtml" />
+    <Content Include="Areas\Comision\Views\TipoPago\_Visualizar.cshtml" />
+    <Content Include="Areas\Comision\Views\TipoPago\Index.cshtml" />
+    <Content Include="Areas\Comision\Views\Banco\_Modificar.cshtml" />
+    <Content Include="Areas\Comision\Views\Banco\_Registrar.cshtml" />
+    <Content Include="Areas\Comision\Views\Banco\_Visualizar.cshtml" />
+    <Content Include="Areas\Comision\Views\Banco\Index.cshtml" />
+    <Content Include="Areas\Comision\Views\TipoComision\_Modificar.cshtml" />
+    <Content Include="Areas\Comision\Views\TipoComision\_Registrar.cshtml" />
+    <Content Include="Areas\Comision\Views\TipoComision\_Visualizar.cshtml" />
+    <Content Include="Areas\Comision\Views\TipoComision\Index.cshtml" />
+    <Content Include="Areas\Comision\Views\PlanillaComercial\Index.cshtml" />
+    <Content Include="Areas\Comision\Views\Planilla\_Analisis_Contrato.cshtml" />
+    <Content Include="Areas\Comision\Views\GestionComisionManual\Index.cshtml" />
+    <Content Include="Areas\Comision\Views\GestionComisionManual\_Registrar.cshtml" />
+    <Content Include="Areas\Comision\Views\Planilla\_Reporte_Liquidacion.cshtml" />
+    <Content Include="Areas\Comision\Views\ReglaCalculoComisionSupervisor\_Modificar.cshtml" />
+    <Content Include="Areas\Comision\Views\ReglaCalculoComisionSupervisor\_Registrar.cshtml" />
+    <Content Include="Areas\Comision\Views\ReglaCalculoComisionSupervisor\Index.cshtml" />
+    <Content Include="Areas\Comision\Views\ReglaCalculoBono\Index.cshtml" />
+    <Content Include="Areas\Comision\Views\ReglaCalculoBono\_Registro.cshtml" />
+    <Content Include="Areas\Comision\Views\ReglaPagoComisionExcepcion\_Modificar.cshtml" />
+    <Content Include="Areas\Comision\Views\ReglaPagoComisionExcepcion\_Registrar.cshtml" />
+    <Content Include="Areas\Comision\Views\ReglaPagoComisionExcepcion\Index.cshtml" />
+    <Content Include="Areas\Comision\Views\ReglaPagoComisionExcepcion\_Articulo.cshtml" />
+    <Content Include="Areas\Comision\Views\ReglaCalculoBono\_BusquedaArticulo.cshtml" />
+    <Content Include="Areas\Comision\Views\Planilla\_Cuota_Cronograma.cshtml" />
+    <Content Include="Areas\Comision\Views\ReporteGeneral\ReportePersonal.cshtml" />
+    <Content Include="Areas\Comision\Views\PlanillaBono\Index.cshtml" />
+    <Content Include="Areas\Comision\Views\PlanillaBono\_Planilla.cshtml" />
+    <Content Include="Areas\Comision\Views\PlanillaComercial\_Planilla.cshtml" />
+    <Content Include="Areas\Comision\Views\Articulo\_Reporte.cshtml" />
+    <Content Include="Areas\Comision\Views\ReporteGeneral\ReporteCanalGrupo.cshtml" />
+    <Content Include="Areas\Comision\Views\CanalGrupo\_TransferenciaSupervisor.cshtml" />
+    <Content Include="Areas\Comision\Views\Grupo\_TransferenciaSupervisor.cshtml" />
+    <Content Include="Areas\Comision\Views\PlanillaBono\_Reporte.cshtml" />
+    <Content Include="Areas\Comision\Views\Personal\_Reporte.cshtml" />
+    <Content Include="Areas\Comision\Views\CanalGrupo\_Reporte.cshtml" />
+    <Content Include="Areas\Comision\Views\PlanillaComercial\_Reporte.cshtml" />
+    <Content Include="Areas\Comision\Views\GestionExclusion\Index.cshtml" />
+    <Content Include="Areas\Comision\Views\GestionExclusion\_Detalle_Exclusion.cshtml" />
+    <Content Include="Areas\Comision\Views\GestionExclusion\_Registrar_Exclusion.cshtml" />
+    <Content Include="Areas\Comision\Views\GestionComisionManual\_Busqueda_Articulo.cshtml" />
+    <Content Include="Areas\Comision\Views\GestionComisionManual\_Busqueda_Personal.cshtml" />
+    <Content Include="Areas\Comision\Views\ReglaTipoPlanilla\Index.cshtml" />
+    <Content Include="Areas\Comision\Views\ReglaTipoPlanilla\_Nuevo.cshtml" />
+    <Content Include="Areas\Comision\Views\Reclamos\_SeleccionCuota.cshtml" />
+    <Content Include="Areas\Comision\Views\ReglaRecupero\Index.cshtml" />
+    <Content Include="Areas\Comision\Views\ReglaRecupero\_Registro.cshtml" />
+    <Content Include="Areas\Comision\Views\PlanIntegral\Index.cshtml" />
+    <Content Include="Areas\Comision\Views\PlanIntegral\_Registro.cshtml" />
+    <EntityDeploy Include="Models\SIGEES.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SIGEES.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\SIGEES.edmx.diagram">
+      <DependentUpon>SIGEES.edmx</DependentUpon>
+    </Content>
+    <Content Include="Areas\Comision\Views\ReglaCalculoBono\_Detalle.cshtml" />
+    <Content Include="Areas\Comision\Views\ConsultaComisionPago\Index.cshtml" />
+    <Content Include="Areas\Comision\Views\ConsultaComisionPago\_Persona_Busqueda.cshtml" />
+    <Content Include="Areas\Comision\Views\TipoCuenta\_Modificar.cshtml" />
+    <Content Include="Areas\Comision\Views\TipoCuenta\_Registrar.cshtml" />
+    <Content Include="Areas\Comision\Views\TipoCuenta\_Visualizar.cshtml" />
+    <Content Include="Areas\Comision\Views\TipoCuenta\Index.cshtml" />
+    <Content Include="Areas\Comision\Views\EmpresaSigeco\_Registro.cshtml" />
+    <Content Include="Areas\Comision\Views\EmpresaSigeco\_Reporte.cshtml" />
+    <Content Include="Areas\Comision\Views\EmpresaSigeco\Index.cshtml" />
+    <Content Include="Areas\Comision\Views\LogProcesoBono\Index.cshtml" />
+    <Content Include="Areas\Comision\Views\LogProcesoBono\_Detalle.cshtml" />
+    <Content Include="Areas\Comision\Views\Planilla\_TXTContabilidad.cshtml" />
+    <Content Include="Areas\Comision\Views\Articulo\_Visualizar.cshtml" />
+    <Content Include="Areas\Comision\Views\Articulo\_VisualizarComision.cshtml" />
+    <Content Include="Areas\Comision\Views\AnalisisComision\Index.cshtml" />
+    <Content Include="Areas\Comision\Views\LogContratoSAP\Index.cshtml" />
+    <Content Include="Areas\Comision\Views\LogContratoSAP\_Detalle.cshtml" />
+    <Content Include="Areas\Comision\Views\DescuentoComision\Index.cshtml" />
+    <Content Include="Areas\Comision\Views\DescuentoComision\_Busqueda_Personal.cshtml" />
+    <Content Include="Areas\Comision\Views\DescuentoComision\_Registro.cshtml" />
+    <Content Include="Areas\Comision\Views\DescuentoComision\_Detalle.cshtml" />
+    <Content Include="Areas\Comision\Views\LogContratoSAP\_AnalisisComision.cshtml" />
+    <Content Include="Areas\Comision\Views\AnalisisComision\_ModificarCuota.cshtml" />
+    <Content Include="Areas\Comision\Views\AnalisisComision\_DetalleCuota.cshtml" />
+    <Content Include="Areas\Comision\Views\AnalisisComision\_ExclusionCuota.cshtml" />
+    <Content Include="Areas\Comision\Views\AnalisisComision\_AdicionarCuota.cshtml" />
+    <Content Include="Areas\Comision\Views\ComisionPersonalInactivo\Index.cshtml" />
+    <Content Include="Areas\Comision\Views\Personal\_Detalle.cshtml" />
+    <Content Include="Areas\Comision\Views\PlanillaBono\_TXTContabilidad.cshtml" />
+    <Content Include="Areas\Comision\Views\Reclamos\_AtenderN1.cshtml" />
+    <Content Include="Areas\Comision\Views\GestionComisionManual\_Detalle.cshtml" />
+    <Content Include="Areas\Comision\Views\GestionComisionManual\_Modificar.cshtml" />
+    <Content Include="Areas\Comision\Views\ConsultaPlanillaBono\Index.cshtml" />
+    <Content Include="Areas\Comision\Views\ConsultaPlanillaBono\_Planilla.cshtml" />
+    <Content Include="Areas\Comision\Views\ConsultaPlanillaBono\_Reporte.cshtml" />
+    <Content Include="Areas\Comision\Views\PlanillaBonoJN\Index.cshtml" />
+    <Content Include="Areas\Comision\Views\PlanillaBonoJN\_Planilla.cshtml" />
+    <Content Include="Areas\Comision\Views\PlanillaBonoJN\_Reporte.cshtml" />
+    <Content Include="Areas\Comision\Views\PlanillaBonoJN\_TXTContabilidad.cshtml" />
+    <Content Include="Areas\Comision\Views\ReporteComercial\Index.cshtml" />
+    <Content Include="Areas\Comision\Reporte\ReporteComercial\ds\dsReporteComercial.xsc">
+      <DependentUpon>dsReporteComercial.xsd</DependentUpon>
+    </Content>
+    <None Include="Areas\Comision\Reporte\ReporteComercial\ds\dsReporteComercial.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsReporteComercial.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Areas\Comision\Reporte\ReporteComercial\ds\dsReporteComercial.xss">
+      <DependentUpon>dsReporteComercial.xsd</DependentUpon>
+    </Content>
+    <Content Include="Areas\Comision\Views\ReporteFinanzas\Index.cshtml" />
+    <Content Include="Areas\Comision\Reporte\ReporteFinanzas\ds\dsReporteFinanzas.xsc">
+      <DependentUpon>dsReporteFinanzas.xsd</DependentUpon>
+    </Content>
+    <Content Include="Areas\Comision\Reporte\ReporteCuotasIniciales\ds\dsReporteCuotasIniciales.xsc">
+      <DependentUpon>dsReporteCuotasIniciales.xsd</DependentUpon>
+    </Content>
+    <None Include="Areas\Comision\Reporte\ReporteCuotasIniciales\ds\dsReporteCuotasIniciales.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsReporteCuotasIniciales.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Areas\Comision\Reporte\ReporteCuotasIniciales\ds\dsReporteCuotasIniciales.xss">
+      <DependentUpon>dsReporteCuotasIniciales.xsd</DependentUpon>
+    </Content>
+    <None Include="Areas\Comision\Reporte\ReporteFinanzas\ds\dsReporteFinanzas.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsReporteFinanzas.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Areas\Comision\Reporte\ReporteFinanzas\ds\dsReporteFinanzas.xss">
+      <DependentUpon>dsReporteFinanzas.xsd</DependentUpon>
+    </Content>
+    <Content Include="Areas\Comision\Views\ReporteMigracionContratos\Index.cshtml" />
+    <Content Include="Areas\Comision\Views\ReporteCuotasIniciales\Index.cshtml" />
+    <Content Include="Areas\Comision\Reporte\ReporteMigracionContratos\ds\dsReporteMigracionContratos.xsc">
+      <DependentUpon>dsReporteMigracionContratos.xsd</DependentUpon>
+    </Content>
+    <None Include="Areas\Comision\Reporte\ReporteMigracionContratos\ds\dsReporteMigracionContratos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsReporteMigracionContratos.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Areas\Comision\Reporte\ReporteMigracionContratos\ds\dsReporteMigracionContratos.xss">
+      <DependentUpon>dsReporteMigracionContratos.xsd</DependentUpon>
+    </Content>
+    <Content Include="Areas\Comision\Views\ChecklistComision\Index.cshtml" />
+    <Content Include="Areas\Comision\Views\ChecklistComision\_Listado.cshtml" />
+    <Content Include="Areas\Comision\Views\ChecklistComision\_Planilla.cshtml" />
+    <Content Include="Areas\Comision\Views\ChecklistComision\_TXTContabilidad.cshtml" />
+    <Content Include="Areas\Comision\Views\ChecklistBono\Index.cshtml" />
+    <Content Include="Areas\Comision\Views\ChecklistBono\_Listado.cshtml" />
+    <Content Include="Areas\Comision\Views\ChecklistBono\_Planilla.cshtml" />
+    <Content Include="Areas\Comision\Views\ChecklistBono\_TXTContabilidad.cshtml" />
+    <Content Include="Areas\Comision\Views\ReglaBonoTrimestral\Index.cshtml" />
+    <Content Include="Areas\Comision\Views\ReglaBonoTrimestral\_Nuevo.cshtml" />
+    <Content Include="Areas\Comision\Views\PlanillaBonoTrimestral\Index.cshtml" />
+    <Content Include="Areas\Comision\Views\PlanillaBonoTrimestral\_Planilla.cshtml" />
+    <Content Include="Areas\Comision\Views\PlanillaBonoTrimestral\_Reporte.cshtml" />
+    <Content Include="Areas\Comision\Views\ChecklistBonoTrimestral\Index.cshtml" />
+    <Content Include="Areas\Comision\Views\ChecklistBonoTrimestral\_Listado.cshtml" />
+    <Content Include="Areas\Comision\Views\ChecklistBonoTrimestral\_Planilla.cshtml" />
+    <Content Include="Areas\Comision\Views\ChecklistBonoTrimestral\_TXTContabilidad.cshtml" />
+    <Content Include="Areas\Comision\Views\PersonalNoValidado\Index.cshtml" />
+    <Content Include="Areas\Comision\Views\ComisionPersonalInactivo\_Detalle.cshtml" />
+    <Content Include="Plantilla\plantilla_comision_chiclayo.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Plantilla\plantilla_resumen_representantes_gestores_chiclayo.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Plantilla\planilla_comision_representantes_gestores_chiclayo.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Plantilla\plantilla_comision_proveedores_orden_servicio.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Plantilla\plantilla_comision_supervisor.xlsx" />
+    <Content Include="Plantilla\plantilla_detalle_contratos_supervisor_chiclayo.xlsx" />
+    <Content Include="Plantilla\plantilla_detalle_contratos_jefatura_chiclayo.xlsx" />
+    <Content Include="Plantilla\plantilla_comision_supervisor.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Plantilla\plantilla_comision_jefatura_trujillo.xlsx" />
+    <None Include="Properties\PublishProfiles\ROSSEL.pubxml" />
+    <None Include="Properties\PublishProfiles\sigeco.pubxml" />
+    <None Include="Properties\PublishProfiles\smith.pubxml" />
+    <Content Include="Reports\DataSet\DSFallecido.xsc">
+      <DependentUpon>DSFallecido.xsd</DependentUpon>
+    </Content>
+    <Content Include="Reports\DataSet\DSEspaciosVendidos.xsc">
+      <DependentUpon>DSEspaciosVendidos.xsd</DependentUpon>
+    </Content>
+    <None Include="Reports\DataSet\DSEspaciosVendidos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSEspaciosVendidos.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Reports\DataSet\DSEspaciosVendidos.xss">
+      <DependentUpon>DSEspaciosVendidos.xsd</DependentUpon>
+    </Content>
+    <None Include="Reports\DataSet\DSFallecido.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSFallecido.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Reports\DataSet\DSFallecido.xss">
+      <DependentUpon>DSFallecido.xsd</DependentUpon>
+    </Content>
+    <Content Include="Reports\DataSet\DSStockGeneral.xsc">
+      <DependentUpon>DSStockGeneral.xsd</DependentUpon>
+    </Content>
+    <None Include="Reports\DataSet\DSStockGeneral.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSStockGeneral1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Reports\DataSet\DSStockGeneral.xss">
+      <DependentUpon>DSStockGeneral.xsd</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\knockout-2.1.0.debug.js" />
+    <Content Include="Scripts\knockout-2.1.0.js" />
+    <Content Include="Scripts\modernizr-2.5.3.js" />
+    <Content Include="Scripts\Views\Account\Login.js" />
+    <Content Include="Scripts\Views\ParametroSistema\project.ParametroSistema.js" />
+    <Content Include="Scripts\Views\Persona\project.Persona.js" />
+    <Content Include="Scripts\Views\principal.js" />
+    <Content Include="Scripts\Views\jsDefault.js" />
+    <Content Include="Scripts\Views\Account\project.Account.js" />
+    <Content Include="Scripts\Views\Menu\project.extends.js" />
+    <Content Include="Scripts\Views\Menu\project.Menu.js" />
+    <Content Include="Scripts\Views\Menu\project.TreeNode.js" />
+    <Content Include="Scripts\Views\PerfilUsuario\project.PerfilUsuario.js" />
+    <Content Include="Scripts\Views\project.js" />
+    <Content Include="Scripts\Views\TipoAccesoItem\project.TipoAccesoItem.js" />
+    <Content Include="Scripts\Views\Usuario\project.Usuario.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Admin.cshtml" />
+    <Content Include="Views\TreeGird\_Edit.cshtml" />
+    <Content Include="Views\TreeGird\Index.cshtml" />
+    <Content Include="Views\TreeGird\_Visualizar.cshtml" />
+    <Content Include="Views\PerfilUsuario\Index.cshtml" />
+    <Content Include="Views\PerfilUsuario\_Modificar.cshtml" />
+    <Content Include="Views\PerfilUsuario\_Visualizar.cshtml" />
+    <Content Include="Views\PerfilUsuario\_Registrar.cshtml" />
+    <Content Include="Views\TipoAccesoItem\_Modificar.cshtml" />
+    <Content Include="Views\TipoAccesoItem\_Registrar.cshtml" />
+    <Content Include="Views\TipoAccesoItem\_Visualizar.cshtml" />
+    <Content Include="Views\TipoAccesoItem\Index.cshtml" />
+    <Content Include="Views\Menu\Index.cshtml" />
+    <Content Include="Views\Menu\_Modificar.cshtml" />
+    <Content Include="Views\Menu\_Registrar.cshtml" />
+    <Content Include="Views\Menu\_Visualizar.cshtml" />
+    <Content Include="Views\Persona\_Modificar.cshtml" />
+    <Content Include="Views\Persona\_Registrar.cshtml" />
+    <Content Include="Views\Persona\_Visualizar.cshtml" />
+    <Content Include="Views\Persona\Index.cshtml" />
+    <Content Include="Views\Usuario\_Modificar.cshtml" />
+    <Content Include="Views\Usuario\_Registrar.cshtml" />
+    <Content Include="Views\Usuario\_Visualizar.cshtml" />
+    <Content Include="Views\Usuario\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout.Mobile.cshtml" />
+    <Content Include="Views\Usuario\_ModalPersona.cshtml" />
+    <Content Include="Views\ParametroSistema\_Modificar.cshtml" />
+    <Content Include="Views\ParametroSistema\_Registrar.cshtml" />
+    <Content Include="Views\ParametroSistema\_Visualizar.cshtml" />
+    <Content Include="Views\ParametroSistema\Index.cshtml" />
+    <Content Include="Views\Comun\_Filtro_busqueda_espacio.cshtml" />
+    <Content Include="Views\Comun\_informacion_espacio.cshtml" />
+    <Content Include="Views\Home\TimeoutRedirect.cshtml" />
+    <Content Include="Views\Home\AccesoDenegado.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Comision\Reporte\Planilla\pdf\" />
+    <Folder Include="Areas\Comision\Reporte\Planilla\txt\" />
+    <Folder Include="Areas\Comision\Reporte\ReporteComercial\frm\" />
+    <Folder Include="Areas\Comision\Reporte\ReporteCuotasIniciales\frm\" />
+    <Folder Include="Areas\Comision\Reporte\ReporteFinanzas\frm\" />
+    <Folder Include="Areas\Comision\Reporte\ReporteMigracionContratos\frm\" />
+    <Folder Include="Areas\Comision\Styles\" />
+    <Folder Include="Areas\Comision\Views\Shared\" />
+    <Folder Include="Content\plugins\" />
+    <Folder Include="Plantilla\Temp\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Transversal\SIGECO-Norte.Entidades\SIGECO-Norte.Entidades.csproj">
+      <Project>{9a3faeb1-4556-4319-8032-f4f38f3c9bd2}</Project>
+      <Name>SIGECO-Norte.Entidades</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\BackEnd\Business Logic\SIGECO-Norte.BusinessLogic\SIGECO-Norte.BusinessLogic.csproj">
+      <Project>{971807ec-0f26-4c25-9bf2-d5cef68001a8}</Project>
+      <Name>SIGECO-Norte.BusinessLogic</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\RFallecido.rdlc" />
+    <Content Include="Reports\REspaciosVendidos.rdlc" />
+    <Content Include="Reports\RStockGeneral.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Comision\Reporte\Articulo\rdl\rpt_articulo.rdlc" />
+    <Content Include="Areas\Comision\Reporte\CanalGrupo\rdl\rpt_canal_grupo_general.rdlc" />
+    <Content Include="Areas\Comision\Reporte\CanalGrupo\rdl\rpt_canal_grupo_interface.rdlc" />
+    <Content Include="Areas\Comision\Reporte\Personal\rdl\rpt_personal_interface.rdlc" />
+    <Content Include="Areas\Comision\Reporte\Personal\rdl\rpt_personal_general.rdlc" />
+    <Content Include="Areas\Comision\Reporte\PlanillaComercial\rpt\rpt_reporte_planilla_comercial.rdlc" />
+    <Content Include="Areas\Comision\Reporte\Planilla\rdl\rpt_liquidacion.rdlc" />
+    <Content Include="Areas\Comision\Reporte\Planilla\rdl\rpt_planilla_personal.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Comision\Reporte\Comision\rdl\rpt_comision.rdlc" />
+    <Content Include="Areas\Comision\Reporte\ComisionManual\rdl\rpt_comision_manual.rdlc" />
+    <Content Include="Areas\Comision\Reporte\PlanillaBono\rdl\rpt_liquidacion_bono_supervisor_individual.rdlc" />
+    <Content Include="Areas\Comision\Reporte\PlanillaBono\rdl\rpt_liquidacion_bono_supervisor_general.rdlc" />
+    <Content Include="Areas\Comision\Reporte\Planilla\rdl\rpt_planilla - Copia.rdlc" />
+    <Content Include="Areas\Comision\Reporte\Planilla\rdl\rpt_planilla_supervisor.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Comision\Reporte\ComisionPersonalInactivo\rdl\rpt_comisionpersonalinactivo.rdlc" />
+    <Content Include="Areas\Comision\Reporte\PlanillaBono\rdl\rpt_detalle_bono_personal.rdlc" />
+    <Content Include="Areas\Comision\Reporte\PlanillaBono\rdl\rpt_resumen_bono_personal.rdlc" />
+    <Content Include="Areas\Comision\Reporte\PlanillaBono\rdl\sub_rpt_articulo_personal.rdlc" />
+    <Content Include="Areas\Comision\Reporte\Planilla\rdl\rpt_liquidacion_b.rdlc" />
+    <Content Include="Areas\Comision\Reporte\Planilla\rdl\rpt_planilla_personal_b.rdlc" />
+    <Content Include="Areas\Comision\Reporte\Planilla\rdl\rpt_liquidacion_c.rdlc" />
+    <Content Include="Areas\Comision\Reporte\Planilla\rdl\rpt_planilla_personal_c.rdlc" />
+    <Content Include="Areas\Comision\Reporte\Planilla\rdl\rpt_planilla_supervisor_b.rdlc" />
+    <Content Include="Areas\Comision\Reporte\PlanillaBonoJN\rdl\planilla_bono_jn.rdlc" />
+    <Content Include="Areas\Comision\Reporte\PlanillaBonoJN\rdl\liquidacion_jn.rdlc" />
+    <EmbeddedResource Include="Areas\Comision\Reporte\PlanillaBonoJN\rdl\planilla_bono_jn_articulo.rdlc" />
+    <Content Include="Areas\Comision\Reporte\Planilla\rdl\rpt_planilla_supervisor_c.rdlc" />
+    <Content Include="Areas\Comision\Reporte\ReporteComercial\rdl\rpt_reporte_comercial.rdlc" />
+    <Content Include="Areas\Comision\Reporte\PlanillaBonoJN\rdl\resumen_contabilidad.rdlc" />
+    <Content Include="Areas\Comision\Reporte\Planilla\rdl\rpt_liquidacion_resumen.rdlc" />
+    <Content Include="Areas\Comision\Reporte\Planilla\rdl\rpt_liquidacion_resumen_c.rdlc" />
+    <Content Include="Areas\Comision\Reporte\Planilla\rdl\rpt_liquidacion_resumen_b.rdlc" />
+    <Content Include="Areas\Comision\Reporte\PlanillaBono\rdl\rpt_liquidacion_bono_resumen.rdlc" />
+    <Content Include="Areas\Comision\Reporte\ReporteCuotasIniciales\rdl\rpt_reporte_cuotas_iniciales.rdlc" />
+    <Content Include="Areas\Comision\Reporte\ReporteFinanzas\rdl\rpt_reporte_finanzas.rdlc" />
+    <Content Include="Areas\Comision\Reporte\ReporteMigracionContratos\rdl\rpt_reporte_migracion_contratos.rdlc" />
+    <Content Include="Areas\Comision\Reporte\ReporteFinanzas\rdl\rpt_reporte_finanzas_detalle.rdlc" />
+    <Content Include="Areas\Comision\Reporte\PlanillaBonoTrimestral\rdlc\rpt_liquidacion.rdlc" />
+    <Content Include="Areas\Comision\Reporte\PlanillaBonoTrimestral\rdlc\rpt_planilla.rdlc" />
+    <Content Include="Areas\Comision\Reporte\PlanillaBonoTrimestral\rdlc\rpt_prueba.rdlc" />
+    <Content Include="Areas\Comision\Reporte\PlanillaBonoTrimestral\rdlc\rpt_resumen_liquidacion.rdlc" />
+    <Content Include="Areas\Comision\Reporte\Planilla\rdl\rpt_liquidacion_resumen_e.rdlc" />
+    <Content Include="Areas\Comision\Reporte\Planilla\rdl\rpt_liquidacion_resumen_supervisor.rdlc" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>14066</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:14336/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Import Project="$(VSToolsPath)\SSDT\Microsoft.Data.Tools.Schema.Sql.UnitTesting.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\SSDT\Microsoft.Data.Tools.Schema.Sql.UnitTesting.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

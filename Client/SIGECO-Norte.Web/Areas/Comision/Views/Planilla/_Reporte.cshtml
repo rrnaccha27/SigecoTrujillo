@@ -1,0 +1,63 @@
+﻿@model SIGEES.Web.Areas.Comision.Models.ReporteViewModel
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $('.content').ResizeModal({
+            widthMax: '100%',
+            widthMin: '100%',
+            div: 'div_reporte_general'
+        });
+
+        var iframe = "<iframe id='ifReporte' width='100%' style='position: absolute; height: 95vh; border: none' frameborder='0'src='" + '@Model.url' + "'></iframe>";
+        $("#frame_reporte_general").html(iframe);
+
+    });
+
+</script>
+<div id="frame_reporte_general" style="width:100%;">
+</div>
+
+
+
+@*<script type="text/javascript">
+    var tipoTra = null;
+    $(document).ready(function () {
+
+        $('.content').ResizeModal({
+            widthMax: '90%',
+            widthMin: '60%',
+            div: 'div_reporte_planilla'
+        });
+        CargarReporte();
+    });
+
+
+    function CargarReporte() {
+        var item = {
+            codigo_planilla: ActionPlanillaUrl._codigo_planilla
+        };
+
+
+        $.ajax({
+            url: '@Url.Action("ReportePlanilla", "Planilla", new { area = string.Empty })',
+            type: 'POST',
+            dataType: 'json',
+            data: item,
+            success: function (result) {
+                $("#Frame_div_reporte_consolidado").html(result.vUrl);
+            },
+            error: function (e) {
+                console.log(e)
+            }
+        });
+
+    }
+
+</script>
+
+
+<div id="Frame_div_reporte_consolidado" style="width:100%;">
+
+</div>*@
+

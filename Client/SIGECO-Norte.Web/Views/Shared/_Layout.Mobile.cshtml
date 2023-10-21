@@ -1,0 +1,147 @@
+﻿@using SIGEES.Web.Models.Bean;
+
+@{
+    ViewBag.Title = SIGEES.Web.Helpers.AppSettings.AppName();
+    var usuario = Session["usuario"] as BeanSesionUsuario;
+}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>MOBILE - @ViewBag.Title</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    @Styles.Render("~/Content/easyui")
+    @RenderSection("styles", false)
+	@Scripts.Render("~/bundles/modernizr")
+	@Scripts.Render("~/bundles/jquery")
+	@Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/easyui")
+    @Scripts.Render("~/bundles/Aditional")
+
+    @Html.Hidden("GetMenuByPerfilJSON", Url.Action("GetMenuByPerfilJSON", "Principal"))
+
+    <link rel="stylesheet" href="~/Content/sigees/styleInterface.css" />
+    <link rel="stylesheet" href="~/Content/sigees/styleLayoutMovil.css" />
+    @*<script type="text/javascript" src="~/Scripts/Views/principal.js"></script>*@
+    <script type="text/javascript" src="~/Scripts/Aditional/datagrid-filter.js"></script>
+    <script type="text/javascript" src="~/Scripts/Aditional/datagrid-detailview.js"></script>
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "100%";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+
+        jQuery(document).ready(function () {
+
+            $.ajax({
+                type: 'post',
+                url: $("#GetMenuByPerfilJSON").val(),
+                async: false,
+                cache: false,
+                dataType: 'json',
+                success: function (data) {
+                    $('#MenuPrincipal').tree({
+                        data: data,
+                        onClick: function (node) {
+
+                            if (node.ruta.length > 0) {
+                                ActualizarSesion(node.id);
+
+                                var splitRuta = node.ruta.split("/");
+                                var controlador = splitRuta[0];
+                                var metodo = splitRuta[1];
+
+                                var url = '@Url.Action("Metodo", "Controlador")';
+
+                                var urlRedireccionar = '';
+                                urlRedireccionar = url.replace('Controlador', controlador);
+                                urlRedireccionar = urlRedireccionar.replace('Metodo', metodo);
+
+                                window.location.href = urlRedireccionar;
+
+                            }
+
+                        }
+                    });
+
+                },
+                error: function () {
+                    project.AlertErrorMessage('Error', 'Error');
+                }
+            });
+
+        });
+
+        function ActualizarSesion(codigoMenu) {
+
+            $.ajax({
+                url: $("#ActualizarSesion_CodigoMenu").val(),
+                data: { codigoMenu: codigoMenu },
+                async: false,
+                cache: false,
+                type: "POST",
+                dataType: "json",
+                success: function (data) {
+                    if (data.Msg != "Success") {
+                        project.AlertErrorMessage('Alerta', data.Msg);
+                    }
+                }
+            });
+        }
+    </script>
+
+</head>
+<body class="easyui-layout">
+    <script src="~/Scripts/Views/project.js"></script>
+    @{
+        var controller = HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString();
+        var action = HttpContext.Current.Request.RequestContext.RouteData.Values["action"].ToString();
+    }
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <br/>
+        <ul id="MenuPrincipal" class="easyui-tree" ></ul>
+    </div>
+
+    <div data-options="region:'north',border:false" style="height: 60px; background-color: #045B2F; padding: 10px">
+        <table style="width:100%; height: 100%">
+            <tr>
+                <td style="width: 10%">
+                    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+                </td>
+                <td style="width: 80%; text-align: center">
+                    @ViewBag.Title
+                </td>
+                <td style="width: 10%; text-align: right">
+                    <a href="#" class="easyui-menubutton" data-options="menu:'#opciones',iconCls:'icon-more'" style="width: 30px"></a>
+                    <div id="opciones">
+                        <div><a href="@Url.Action("Salir","Principal")" class="Salir">Cerrar Sesión</a></div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        
+    </div>
+    <!--
+    <div data-options="region:'south',border:false" style="height: 50px; background: #4D6F5F; padding: 10px; color: white; border-style: none">
+        <div style="width:100%;height:100%; text-align: center">
+            Jardines de la Paz 2017 - Derechos Reservados<br/>
+            Consultas: webmaster@jardinesdelapaz.com
+        </div>
+    </div>
+    -->
+
+    <div id="cuerpo" data-options="region:'center'">
+        @Html.Hidden("urlBase", @Url.Content("~/"))
+        @this.RenderBody()
+    </div>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

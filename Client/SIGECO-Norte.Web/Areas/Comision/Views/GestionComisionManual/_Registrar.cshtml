@@ -1,0 +1,217 @@
+﻿@model SIGEES.Entidades.comision_manual_dto
+
+<div class="easyui-layout" data-options="fit:true">
+    <form id="frm_registrar_comision" method="post">
+        <div data-options="region:'center', border:false" style="padding:5px;">
+            <div class="easyui-panel" title="Datos del Fallecido" style="width:100%; ">
+                <div class="panelGridModal">
+                    <table style="width:100%">
+                        <tr>
+                            <td class="tdEtiqueta">
+                                <label class="colGridModal">Tipo Documento</label>
+                            </td>
+                            <td class="tdValor">
+                                <input class="easyui-combobox" id="cmb_tipo_documento" value="@Model.codigo_tipo_documento" style="width:99%;" data-options="required: true,novalidate:true,disabled:false,editable:false" />
+                            </td>
+                            <td class="tdEtiqueta" >
+                                <label class="colGridModal">Nro. Documento</label>
+                            </td>
+                            <td class="tdValor">
+                                <input class="easyui-validatebox textbox" maxlength="12" id="txt_numero_documento" value="@Model.nro_documento" style="width:99%;" data-options="required: true,novalidate:true,disabled:false" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tdEtiqueta">
+                                <label class="colGridModal">Nombres</label>
+                            </td>
+                            <td class="tdValor2" colspan="3">
+                                <input class="easyui-validatebox textbox" value="@Model.nombre_fallecido" id="txt_nombres_fallecido" maxlength="20" style="width:99%;" data-options="required: true,novalidate:true,disabled:false" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tdEtiqueta">
+                                <label class="colGridModal">Apellido Paterno</label>
+                            </td>
+                            <td class="tdValor">
+                                <input class="easyui-validatebox textbox" style="width:99%;" id="txt_apellido_paterno_fallecido" value="@Model.apellido_paterno_fallecido" maxlength="20" data-options="required: true,novalidate:true,disabled:false" />
+                            </td>
+                            <td class="tdEtiqueta">
+                                <label class="colGridModal">Apellido Materno</label>
+                            </td>
+                            <td class="tdValor">
+                                <input class="easyui-validatebox textbox" value="@Model.apellido_materno_fallecido" id="txt_apellido_materno_fallecido" maxlength="20" style="width:99%;" data-options="required: true,novalidate:true,disabled:false" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="easyui-panel" title="Datos Venta" style="width: 100%; ">
+                <div class="panelGridModal">
+                    <table style="width:100%">
+                        <tr>
+                            <td class="tdEtiqueta">
+                                <label class="colGridModal">Vendedor</label>
+                            </td>
+                            <td class="tdValor">
+                                <div class="easyui-layout" data-options="fit:true">
+                                    <div data-options="region:'center', border:false">
+                                        <input class="easyui-textbox" id="txt_apellidos_nombres_personal" value="@Model.nombre_personal" style="width:100%;" data-options="disabled:true" />
+                                    </div>
+                                    <div data-options="region:'east', border:false" style="width:26px">
+                                        <a href="javascript:fnVentanaBuscarPersonal();" class="easyui-linkbutton" iconcls="icon-search"></a>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="tdEtiqueta">
+                                <label class="colGridModal">Canal</label>
+                            </td>
+                            <td class="tdValor">
+                                <input class="easyui-textbox" id="txt_nombre_canal" value="@Model.nombre_canal" style="width:99%;" data-options="novalidate:true,disabled:true" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tdEtiqueta">
+                                <label class="colGridModal">Empresa</label>
+                            </td>
+                            <td class="tdValor">
+                                <input class="easyui-combobox" id="cmb_empresa" value="@Model.codigo_empresa" style="width:100%;" data-options="required: true,novalidate:true,editable:false" />
+                            </td>
+                            <td class="tdEtiqueta">
+                                <label class="colGridModal">Nro Contrato</label>
+                            </td>
+                            <td class="tdValor">
+                                <input class="easyui-validatebox textbox" id="txt_numero_contrato" maxlength="10" value="@Model.nro_contrato" style="width:99%;" data-options="required: false,novalidate:true,disabled:false" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tdEtiqueta">
+                                <label class="colGridModal">Tipo Venta</label>
+                            </td>
+                            <td class="tdValor">
+                                <input class="easyui-textbox" id="txt_tipo_pago" value="@Model.nombre_tipo_venta" style="width:100%;" data-options="disabled:true" />
+                            </td>
+                            <td class="tdEtiqueta">
+                                <label class="colGridModal">Tipo Pago</label>
+                            </td>
+                            <td class="tdValor">
+                                <input class="easyui-combobox" id="cmb_tipo_pago" value="@Model.codigo_tipo_pago" style="width:100%;" data-options="required:true,novalidate:true,editable:false" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tdEtiqueta">
+                                <label class="colGridModal">Artículo</label>
+                            </td>
+                            <td class="tdValor">
+                                <div class="easyui-layout" data-options="fit:true">
+                                    <div data-options="region:'center', border:false">
+                                        <input class="easyui-textbox" id="txt_nombre_articulo" value="@Model.nombre_articulo" style="width:100%;" data-options="disabled:true" />
+                                    </div>
+                                    <div data-options="region:'east', border:false" style="width:26px">
+                                        <a href="javascript:fnVentanaBuscarArticulo();" class="easyui-linkbutton" iconcls="icon-search"></a>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="tdEtiqueta">
+                                <label class="colGridModal">Factura Vendedor</label>
+                            </td>
+                            <td class="tdValor">
+                                <input class="easyui-validatebox textbox" id="txt_nro_factura_vendedor" name="txt_nro_factura_vendedor" maxlength="20" value="@Model.nro_factura_vendedor" style="width:99%;" data-options="required: false,novalidate:true,disabled:false" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tdEtiqueta" style="vertical-align:top;">
+                                <label class="colGridModal">Comentario</label>
+                            </td>
+                            <td class="tdValor2" colspan="3">
+                                <input class="easyui-textbox" id="txt_comentario" value="@Model.comentario" maxlength="250" style="width:100%;height:50px;" data-options="required: true,novalidate:true,multiline:true" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="easyui-panel" title="Comisión del Vendedor" style="width: 100%; ">
+                <table style="width:100%">
+                    <tr>
+                        <td class="tdEtiqueta">
+                            <label class="colGridModal">Importe</label>
+                        </td>
+                        <td class="tdValor">
+                            <input class="easyui-numberbox" id="txt_monto_comision" value="@Model.monto_bruto" style="width: 99%; text-align: right;" data-options="required: true,novalidate:true,disabled:true,precision:2,groupSeparator:','" />
+                        </td>
+                        <td colspan="2">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="tdEtiqueta">
+                            <label class="colGridModal">IGV(@Model.igv)%</label>
+                        </td>
+                        <td class="tdValor">
+                            <input class="easyui-numberbox" id="txt_monto_igv" value="@Model.monto_igv" style="width: 99%; text-align: right;" data-options="required: true,novalidate:true,disabled:true,precision:2,groupSeparator:','" />
+                        </td>
+                        <td colspan="2">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="tdEtiqueta">
+                            <label class="colGridModal">Total</label>
+                        </td>
+                        <td class="tdValor">
+                            <input class="easyui-numberbox" id="txt_monto_total_comision" value="@Model.monto_neto" style="width:99%; text-align:right;" data-options="required: true,novalidate:true,disabled:true,precision:2,groupSeparator:','" />
+                        </td>
+                        <td colspan="2">&nbsp;</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div data-options="region:'south',border:true" style="text-align:right;padding:5px;height:38px">
+            <a href="javascript:RegistrarComision();" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " iconcls="icon-save" id="btnGuardar">Guardar</a>
+            <a href="javascript:cerrar_comision();" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " iconcls="icon-cancel" id="btnCancelar">Cerrar</a>
+        </div>
+    </form>
+</div>
+<style>
+    .tdEtiqueta {
+        width: 15%;
+        padding: 10px;
+    }
+
+    .tdValor {
+        width: 35%;
+    }
+
+    .tdValor2 {
+        width: 85%;
+    }
+</style>
+<div id="div_busqueda_articulo" class="easyui-dialog" data-options="resizable:true,modal:true,closed:true"
+     style="width: 65%; height: 80%;line-height: 12px;"></div>
+<div id="div_busqueda_personal" class="easyui-dialog" data-options="resizable:true,modal:true,closed:true"
+     style="width: 55%; height: 80%;line-height: 12px;"></div>
+
+<script type="text/javascript" src="~/Areas/Comision/Scripts/Views/Comision/comision.comision.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var actionUrls =
+        {
+
+            _GetTipoDocumentoJson: '@Url.Action("GetTipoDocumentoJson", "Personal", new { area = "Comision" })',
+            GetTipoPagoJson: '@Url.Action("GetTipoPagoJson", "GestionComisionManual", new { area = "Comision" })',
+
+            _GetEmpresaJson: '@Url.Action("GetEmpresaJson", "GestionComisionManual", new { area = "Comision" })',
+            _ValidarExisteContratoJson: '@Url.Action("ValidarExisteContratoJson", "Reclamos", new { area = "Comision" })',
+            _Busqueda_Articulo: '@Url.Action("_Busqueda_Articulo", "GestionComisionManual", new { area = "Comision" })',
+            _Busqueda_Personal: '@Url.Action("_Busqueda_Personal", "GestionComisionManual", new { area = "Comision" })',
+            _Registrar_Comision: '@Url.Action("Registrar_Comision", "GestionComisionManual", new { area = "Comision" })',
+            _GetComisionPersonalArticulo: '@Url.Action("GetComisionPersonalArticulo", "GestionComisionManual", new { area = "Comision" })',
+            ValidarReferencia: '@Url.Action("ValidarReferencia", "GestionComisionManual", new { area = "Comision" })',
+            _codigo_personal: '@Model.codigo_personal',
+            _codigo_canal: '@Model.codigo_canal',
+            _codigo_articulo: '@Model.codigo_articulo',
+            _igv: '@Model.igv',
+            _codigo_tipo_pago: '@Model.codigo_tipo_pago',
+            _codigo_tipo_venta: '@Model.codigo_tipo_venta',
+            _codigo_comision_manual: '@Model.codigo_comision_manual'
+        };
+
+        project.comision.Initialize(actionUrls);
+
+    });
+</script>

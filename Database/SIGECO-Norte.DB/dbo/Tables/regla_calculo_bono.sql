@@ -1,0 +1,20 @@
+﻿CREATE TABLE [dbo].[regla_calculo_bono] (
+    [codigo_regla_calculo_bono] INT             IDENTITY (1, 1) NOT NULL,
+    [codigo_tipo_planilla]      INT             NOT NULL,
+    [codigo_canal]              INT             NULL,
+    [codigo_grupo]              INT             NULL,
+    [vigencia_inicio]           DATETIME        NOT NULL,
+    [vigencia_fin]              DATETIME        NOT NULL,
+    [monto_meta]                DECIMAL (10, 2) NOT NULL,
+    [porcentaje_pago]           DECIMAL (10, 2) NOT NULL,
+    [monto_tope]                DECIMAL (10, 2) NOT NULL,
+    [cantidad_ventas]           INT             NULL,
+    [estado_registro]           BIT             NOT NULL,
+    [fecha_registra]            DATETIME        NOT NULL,
+    [usuario_registra]          VARCHAR (50)    NOT NULL,
+    [fecha_modifica]            DATETIME        NULL,
+    [usuario_modifica]          VARCHAR (50)    NULL,
+    [calcular_igv]              BIT             NOT NULL,
+    [es_jn]                     BIT             DEFAULT ((0)) NOT NULL,
+    CONSTRAINT [PK_regla_calculo_bono] PRIMARY KEY CLUSTERED ([codigo_regla_calculo_bono] ASC)
+);

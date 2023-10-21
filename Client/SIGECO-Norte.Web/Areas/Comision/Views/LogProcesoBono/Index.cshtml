@@ -1,0 +1,108 @@
+﻿@model SIGEES.Web.Models.Bean.BeanItemTipoAcceso
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<input type="hidden" id="hdCodigoEmpresa" />
+<input type="hidden" id="hdNroContrato" />
+
+<div style="width: 99%; background-color: #D3EBDE; vertical-align: middle; padding-top: 2%; padding-bottom: 2%; padding-left: 1%">
+    <center>
+        <h2>Log de Proceso para Bono</h2>
+    </center>
+    <br />
+    <div style="width: 100%">
+        <label class="colGridModal">Fecha Inicio</label>&nbsp;
+        <input class="easyui-datebox" id="fechaInicio" name="fechaInicio" style="width:140px;" data-options="required:true" />&nbsp;&nbsp;&nbsp;&nbsp;
+        <label class="colGridModal">Fecha Fin</label>&nbsp;
+        <input class="easyui-datebox" id="fechaFin" name="fechaFin" style="width:140px;" data-options="required:true" />
+    </div>
+    <br />
+    <div style="width: 100%">
+        @if (Model.estadoLectura.CompareTo("A") == 0)
+        {
+            <a href="javascript:GetAllJson()" id="btnBuscar" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " data-options="iconCls:'icon-search'">Buscar</a>
+			<a href="javascript:Detalle()" id="btnModificar" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " data-options="iconCls:'icon-detail'">Detalle</a>
+        }
+    </div>
+</div>
+<br />
+<div style="width: 99%; padding-left: 1%">
+    @if (Model.estadoLectura.CompareTo("A") == 0)
+    {
+        <table id="DataGrid" style="width: 100%"></table>
+    }
+</div>
+
+<div id="dlgDetalle" class="easyui-dialog" data-options="modal:true,closed:true,maximizable:true,buttons:'#divRegistroBotones'"
+     style="width: 80%; height: 80%; padding: 5px 5px; line-height: 10px;">
+</div>
+
+@section scripts
+{
+
+<script type="text/javascript" src="~/Areas/Comision/Scripts/Views/LogProcesoBono/logprocesobono.index.js"></script>
+
+<script type="text/javascript">
+    var actionUrls =
+    {
+        GetFechas: '@Url.Action("GetFechas", "LogProcesoBono", new { area = "Comision" })',
+        GetAllJson: '@Url.Action("GetAllJson", "LogProcesoBono", new { area = "Comision" })',
+        _Detalle: '@Url.Action("_Detalle", "LogProcesoBono", new { area = "Comision" })',
+    };
+
+    $(document).ready(function () {
+
+        $('#fechaInicio').datebox({
+            formatter: function (date) {
+                var y = date.getFullYear();
+                var m = date.getMonth() + 1;
+                var d = date.getDate();
+                return (d < 10 ? ('0' + d) : d) + '/' + (m < 10 ? ('0' + m) : m) + '/' + y;
+            },
+            parser: function (s) {
+
+                if (!s) return new Date();
+                var ss = s.split('/');
+                var y = parseInt(ss[2], 10);
+                var m = parseInt(ss[1], 10);
+                var d = parseInt(ss[0], 10);
+                if (!isNaN(y) && !isNaN(m) && !isNaN(d)) {
+                    return new Date(y, m - 1, d)
+                } else {
+                    return new Date();
+                }
+            }
+        });
+
+        $('#fechaFin').datebox({
+            formatter: function (date) {
+                var y = date.getFullYear();
+                var m = date.getMonth() + 1;
+                var d = date.getDate();
+                return (d < 10 ? ('0' + d) : d) + '/' + (m < 10 ? ('0' + m) : m) + '/' + y;
+            },
+            parser: function (s) {
+
+                if (!s) return new Date();
+                var ss = s.split('/');
+                var y = parseInt(ss[2], 10);
+                var m = parseInt(ss[1], 10);
+                var d = parseInt(ss[0], 10);
+                if (!isNaN(y) && !isNaN(m) && !isNaN(d)) {
+                    return new Date(y, m - 1, d)
+                } else {
+                    return new Date();
+                }
+            }
+        })
+
+        project.logprocesobono_index.Initialize(actionUrls);
+
+    });
+
+</script>
+
+}

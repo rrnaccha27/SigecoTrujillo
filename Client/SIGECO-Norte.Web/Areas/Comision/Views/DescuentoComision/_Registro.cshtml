@@ -1,0 +1,89 @@
+﻿@model SIGEES.Entidades.descuento_comision_dto
+@{
+	int? codigo_empresa = Model.codigo_descuento_comision != -1 ? Model.codigo_empresa : (int?)null;
+}
+
+<div class="easyui-layout" data-options="fit:true">
+    <form id="frmRegistro" method="post">
+        <div data-options="region:'north', border:false" style="padding:5px 5px 0px 5px;height:220px;">
+            <div class="easyui-layout" data-options="fit:true">
+                <div class="easyui-panel" title="Datos Generales" style="width: 100%;">
+                    <table style="width:99%">
+						<tr>
+							<td class="tdEtiqueta">
+								<label class="colGridModal">Vendedor</label>
+							</td>
+							<td class="tdDoble" colspan="3">
+								<a href="javascript:BuscarPersonal();" class="easyui-linkbutton" id="btnBuscarPersona" name="btnBuscarPersona" iconcls="icon-search"></a> <input class="easyui-textbox" id="nombre_personal" name="nombre_personal" style="width:93%;" readonly>
+							</td>
+						</tr>
+                        <tr>
+                            <td class="tdEtiqueta">
+                                <label class="colGridModal">Empresa</label>
+                            </td>
+                            <td class="tdValor">
+                                <input class="easyui-combobox" id="codigo_empresa" name="codigo_empresa" value="@codigo_empresa" style="width: 99%" data-options="required:true, editable:false" />
+                            </td>
+                            <td class="tdEtiqueta">
+                                <label class="colGridModal">Monto</label>
+                            </td>
+                            <td class="tdValor">
+                                <input class="easyui-numberbox" id="monto" name="monto" value="@Model.monto" style="width: 100%" data-options="required:true, min:0,max:999999, precision:2" />
+                            </td>
+                        </tr>
+						<tr>
+                            <td class="tdEtiqueta">
+                                <label class="colGridModal">Motivo</label>
+                            </td>
+                            <td class="tdDoble" colspan="3">
+                                <input class="easyui-textbox" name="motivo" id="motivo" style="width: 100%; height: 60px;" data-options="required: true,novalidate:true,multiline:true" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div data-options="region:'south', border:false" style="padding:0px;">
+            <div id="divRegistroBotones" style="width: 100%; height: 100%; display: inline-block; text-align:right;">
+                <a href="javascript:Guardar()" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " iconcls="icon-ok" id="btnGuardar">Guardar</a>
+                <a href="javascript:Cancelar()" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " iconcls="icon-cancel" id="btnCancelar">Cancelar</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div id="div_busqueda_personal" class="easyui-dialog" data-options="resizable:true,modal:true,closed:true"
+     style="width: 55%; height: 80%;line-height: 12px;"></div>
+
+<style>
+    .tdEtiqueta {
+        width: 15%;
+        padding: 5px;
+    }
+
+    .tdValor {
+        width: 35%;
+    }
+    .tdDoble {
+        width: 85%;
+    }
+</style>
+
+<script type="text/javascript" src="~/Areas/Comision/Scripts/Views/DescuentoComision/DescuentoComision.Registro.js"></script>
+<script>
+
+    $(document).ready(function () {
+        var registroUrls =
+        {
+            GetEmpresaJson: '@Url.Action("GetEmpresaJson", "DescuentoComision", new { area = "Comision" })',
+            _Busqueda_Personal: '@Url.Action("_Busqueda_Personal", "DescuentoComision", new { area = "Comision" })',
+            Guardar: '@Url.Action("Guardar", "DescuentoComision", new { area = "Comision" })',
+            codigo_descuento_comision: '@Model.codigo_descuento_comision'
+        };
+
+        project.DescuentoComisionRegistro.Initialize(registroUrls);
+    });
+
+</script>
+

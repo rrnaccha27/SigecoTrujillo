@@ -1,0 +1,31 @@
+﻿@model SIGEES.Entidades.operacion_cuota_comision_listado_dto
+
+<div class="easyui-layout" data-options="fit:true">
+    <div data-options="region:'center', border:false" style="padding:5px;">
+        <table id="dgDetalle" style="width: 100%; height:100%"></table>
+    </div>
+
+    <div data-options="region:'south', border:false" style="padding:5px;">
+        <div id="divRegistroBotones" style="width: 100%; height: 100%; display: inline-block; text-align:right;">
+            <a href="javascript:CerrarDetalle()" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " iconcls="icon-cancel" id="btnCancelar">Cerrar</a>
+        </div>
+    </div>
+</div>
+
+<div id="mnuDetalle" class="easyui-menu">
+    <div onclick="fnCopiarDetalle('observacion');">Copiar Motivo</div>
+</div>
+
+<script type="text/javascript" src="~/Areas/Comision/Scripts/Views/AnalisisComision/analisis.detalleoperacion.js"></script>
+
+<script type="text/javascript">
+    var actionDetalleUrls =
+    {
+        GetListadoOperacionJson: '@Url.Action("GetListadoOperacionJson", "AnalisisComision", new { area = "Comision" })',
+        _codigo_detalle_cronograma: '@Model.codigo_detalle_cronograma',
+    };
+
+    $(document).ready(function () {
+        project.detalle_operacion.Initialize(actionDetalleUrls);
+    });
+</script>

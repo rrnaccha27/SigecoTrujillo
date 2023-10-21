@@ -1,0 +1,302 @@
+﻿<div id="dlgRegistrar" class="easyui-dialog" data-options="modal:true,closed:true"
+     style="width: 70%; height: 410px; padding: 10px 20px; line-height: 20px;">
+	<form id="frmRegistrar" method="post">
+	
+		<div style="width: 99%; height: 370px;">
+            <div class="easyui-layout" style="width:99%; height:100%">
+                <div data-options="region:'center'">
+                    <div class="panelGridModal" style="height:auto;">
+                        <table style="width:100%;padding:10px;" border="0">
+                            <colgroup><col width="12%" /><col width="88%" /></colgroup>
+                            <tr>
+                                <td>
+                                    <label class="colGridModal">Descripción</label>
+                                </td>
+                                <td>
+                                    <input class="easyui-textbox" id="nombre" name="nombre" style="width:50%" data-options="required:true" />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div style="height:auto%">
+                        <div id="tabRegistrar" class="easyui-tabs" style="width:100%;height:auto">
+                            <div title="Parámetros Supervisor" style="padding:10px;">
+
+                                <div class="panelGridModal" style="height:auto;">
+                                    <table style="width:100%; padding:10px;" border="0">
+                                        <tr>
+                                            <td style="width:14%">
+                                                <label class="colGridModal">Tiene Supervisor</label>
+                                            </td>
+                                            <td style="width:10%">
+                                                <input class="easyui-switchbutton" id="tieneSupervisor" name="tieneSupervisor" data-options="onText:'Si', offText:'No', required:true" />
+                                            </td>
+                                            <td style="width:8%">
+                                                <label class="colGridModal">Supervisor</label>
+                                            </td>
+                                            <td style="width:68%">
+                                                <a href="#" class="easyui-linkbutton" id="btnBuscarPersona" name="btnBuscarPersona" iconcls="icon-search"></a> <input class="easyui-textbox" id="nombre_personal" name="nombre_personal" style="width:55%;" readonly>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                                <div class="easyui-layout" style="width:99%; height:155px">
+                                    <div data-options="region:'center', title:'Comision'" style="padding:10px;">
+                                        <div class="panelGridModal">
+
+                                            <table style="width:100%; padding:2px;" border="0">
+                                                <colgroup><col width="30%" /><col width="19%" /><col width="17%" /><col width="34%" /></colgroup>
+                                                <tr>
+                                                    <td>
+                                                        <label class="colGridModal">Percibe Comisión</label>
+                                                    </td>
+                                                    <td colspan="3">
+                                                        <input class="easyui-switchbutton" id="comisionSupervisor" name="comisionSupervisor" data-options="onText:'Si', offText:'No', required:true" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <label class="colGridModal">Paga x Planilla</label>
+                                                    </td>
+                                                    <td>
+                                                        <input class="easyui-switchbutton" id="planillaComisionSupervisor" name="planillaComisionSupervisor" data-options="onText:'Si', offText:'No', required:true" />
+                                                    </td>
+                                                    <td>
+                                                        <label class="colGridModal">Empresa</label>
+                                                    </td>
+                                                    <td>
+                                                        <input class="easyui-combobox" id="empresaPlanillaComisionSupervisor" name="empresaPlanillaComisionSupervisor" style="width:95%" data-options="editable:false, multiple:true" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <label class="colGridModal">Emite Factura</label>
+                                                    </td>
+                                                    <td>
+                                                        <input class="easyui-switchbutton" id="facturaComisionSupervisor" name="facturaComisionSupervisor" data-options="onText:'Si', offText:'No', required:true" />
+                                                    </td>
+                                                    <td>
+                                                        <label class="colGridModal">Empresa</label>
+                                                    </td>
+                                                    <td>
+                                                        <input class="easyui-combobox" id="empresaFacturaComisionSupervisor" name="empresaFacturaComisionSupervisor" style="width:95%" data-options="editable:false, multiple:true" />
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+                                        </div>
+                                    </div>
+
+                                    <div data-options="region:'east', title:'Bono', collapsible:false" style="padding:10px;width:50%;">
+                                        <div class="panelGridModal">
+                                            <table style="width:100%; padding:2px;" border="0">
+                                                <colgroup><col width="30%" /><col width="19%" /><col width="17%" /><col width="34%" /></colgroup>
+                                                <tr>
+                                                    <td>
+                                                        <label class="colGridModal">Percibe Bono</label>
+                                                    </td>
+                                                    <td colspan="3">
+                                                        <input class="easyui-switchbutton" id="bonoSupervisor" name="bonoSupervisor" data-options="onText:'Si', offText:'No', required:true" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <label class="colGridModal">Paga x Planilla</label>
+                                                    </td>
+                                                    <td>
+                                                        <input class="easyui-switchbutton" id="planillaBonoSupervisor" name="planillaBonoSupervisor" data-options="onText:'Si', offText:'No', required:true" />
+                                                    </td>
+                                                    <td>
+                                                        <label class="colGridModal">Empresa</label>
+                                                    </td>
+                                                    <td>
+                                                        <input class="easyui-combobox" id="empresaPlanillaBonoSupervisor" name="empresaPlanillaBonoSupervisor" style="width:95%" data-options="editable:false, multiple:true" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <label class="colGridModal">Emite Factura</label>
+                                                    </td>
+                                                    <td>
+                                                        <input class="easyui-switchbutton" id="facturaBonoSupervisor" name="facturaBonoSupervisor" data-options="onText:'Si', offText:'No', required:true" />
+                                                    </td>
+                                                    <td>
+                                                        <label class="colGridModal">Empresa</label>
+                                                    </td>
+                                                    <td>
+                                                        <input class="easyui-combobox" id="empresaFacturaBonoSupervisor" name="empresaFacturaBonoSupervisor" style="width:95%" data-options="editable:false, multiple:true" />
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div title="Parámetros Vendedor" style="padding:10px;">
+                                <div class="easyui-layout" style="width:99%; height:155px">
+                                    <div data-options="region:'center', title:'Comision'" style="padding:10px;">
+                                        <div class="panelGridModal">
+
+                                            <table style="width:100%; padding:2px;" border="0">
+                                                <colgroup><col width="30%" /><col width="19%" /><col width="17%" /><col width="34%" /></colgroup>
+                                                <tr>
+                                                    <td>
+                                                        <label class="colGridModal">Percibe Comisión</label>
+                                                    </td>
+                                                    <td colspan="3">
+                                                        <input class="easyui-switchbutton" id="comisionPersonal" name="comisionPersonal" data-options="onText:'Si', offText:'No', required:true" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <label class="colGridModal">Paga x Planilla</label>
+                                                    </td>
+                                                    <td>
+                                                        <input class="easyui-switchbutton" id="planillaComisionPersonal" name="planillaComisionPersonal" data-options="onText:'Si', offText:'No', required:true" />
+                                                    </td>
+                                                    <td>
+                                                        <label class="colGridModal">Empresa</label>
+                                                    </td>
+                                                    <td>
+                                                        <input class="easyui-combobox" id="empresaPlanillaComisionPersonal" name="empresaPlanillaComisionPersonal" style="width:95%" data-options="editable:false, multiple:true" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <label class="colGridModal">Emite Factura</label>
+                                                    </td>
+                                                    <td>
+                                                        <input class="easyui-switchbutton" id="facturaComisionPersonal" name="facturaComisionPersonal" data-options="onText:'Si', offText:'No', required:true" />
+                                                    </td>
+                                                    <td>
+                                                        <label class="colGridModal">Empresa</label>
+                                                    </td>
+                                                    <td>
+                                                        <input class="easyui-combobox" id="empresaFacturaComisionPersonal" name="empresaFacturaComisionPersonal" style="width:95%" data-options="editable:false, multiple:true" />
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+                                        </div>
+                                    </div>
+
+                                    <div data-options="region:'east', title:'Bono', collapsible:false" style="padding:10px;width:50%;">
+                                        <div class="panelGridModal">
+                                            <table style="width:100%; padding:2px;" border="0">
+                                                <colgroup><col width="30%" /><col width="19%" /><col width="17%" /><col width="34%" /></colgroup>
+                                                <tr>
+                                                    <td>
+                                                        <label class="colGridModal">Percibe Bono</label>
+                                                    </td>
+                                                    <td colspan="3">
+                                                        <input class="easyui-switchbutton" id="bonoPersonal" name="bonoPersonal" data-options="onText:'Si', offText:'No', required:true" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <label class="colGridModal">Paga x Planilla</label>
+                                                    </td>
+                                                    <td>
+                                                        <input class="easyui-switchbutton" id="planillaBonoPersonal" name="planillaBonoPersonal" data-options="onText:'Si', offText:'No', required:true" />
+                                                    </td>
+                                                    <td>
+                                                        <label class="colGridModal">Empresa</label>
+                                                    </td>
+                                                    <td>
+                                                        <input class="easyui-combobox" id="empresaPlanillaBonoPersonal" name="empresaPlanillaBonoPersonal" style="width:95%" data-options="editable:false, multiple:true" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <label class="colGridModal">Emite Factura</label>
+                                                    </td>
+                                                    <td>
+                                                        <input class="easyui-switchbutton" id="facturaBonoPersonal" name="facturaBonoPersonal" data-options="onText:'Si', offText:'No', required:true" />
+                                                    </td>
+                                                    <td>
+                                                        <label class="colGridModal">Empresa</label>
+                                                    </td>
+                                                    <td>
+                                                        <input class="easyui-combobox" id="empresaFacturaBonoPersonal" name="empresaFacturaBonoPersonal" style="width:95%" data-options="editable:false, multiple:true" />
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div title="Relacion Vendedores" style="padding:10px;">
+
+
+                                <div class="panelGridModal" style="height:auto;">
+                                    <table style="width:100%; padding:10px;" border="0">
+                                        <colgroup><col width="14%" /><col width="10%" /><col width="66%" /></colgroup>
+                                        <tr>
+                                            <td>
+                                                <label class="colGridModal">Administra Grupos</label>
+                                            </td>
+                                            <td>
+                                                <input class="easyui-switchbutton" id="administraGrupos" name="administraGrupos" data-options="onText:'Si', offText:'No', required:true" />
+                                            </td>
+                                            <td align="right">
+                                                <a href="#" class="easyui-linkbutton" iconcls="icon-add" id="btnTransferir">Transferir</a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                                <div class="easyui-layout" style="width:99%; height:183px">
+                                    <div data-options="region:'center'">
+                                        <table id="dgPersonalYaAsignado" class="easyui-datagrid" title="" style="width:100%;height:100%"
+                                               data-options="
+                                                                iconCls: 'icon-edit',
+                                                                singleSelect: true,
+                                                                method: 'get',
+                                                                fit:true,fitColumns:true
+                                                                     ">
+                                            <thead>
+                                                <tr>
+                                                    <th data-options="field:'codigo_registro', hidden:true"></th>
+                                                    <th data-options="field:'codigo_personal', hidden:true"></th>
+                                                    <th data-options="field:'nombre', width:185, align:'left', halign:'center'">Nombres</th>
+                                                    <th data-options="field:'fecha_registra', width:110, align:'center', halign:'center'">Fecha Creación</th>
+                                                    <th data-options="field:'usuario_registra', width:100, align:'left', halign:'center'">Usuario Creación</th>
+                                                    <th data-options="field:'es_supervisor',width:80,align:'center', halign:'center', formatter: function (value) { return '<input type=checkbox ' + (value=='true'?'checked':'') + ' disabled>'; } ">Supervisor</th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div data-options="region:'south'" style="text-align:right;vertical-align:central;height:30px">
+                    <a href="#" class="easyui-linkbutton" iconcls="icon-ok" id="btnGuardar">Guardar</a>
+                    <a href="#" class="easyui-linkbutton" iconcls="icon-cancel" id="btnCancelar">Cancelar</a>
+                </div>
+            </div>
+        </div>
+			
+	</form>
+</div>
+<script type="text/javascript">
+    
+    //$('#tieneSupervisor').switchbutton({
+    //    onChange: function (checked) {
+    //        return false;
+    //        //if (checked && $('#dlgRegistrar #administraGrupos').switchbutton('options').checked)
+    //        //{
+    //        //    $.messager.alert('Error', 'No debe configurar Supervisor si Administra Grupos.', 'warning');
+    //        //}
+    //    }
+    //});
+    //!project.CanalGrupo.ValidaSupervisor
+</script>

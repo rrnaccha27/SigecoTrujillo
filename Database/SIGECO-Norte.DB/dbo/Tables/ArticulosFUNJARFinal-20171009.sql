@@ -1,0 +1,20 @@
+﻿CREATE TABLE [dbo].[ArticulosFUNJARFinal-20171009] (
+    [CCS]               NVARCHAR (255) NULL,
+    [Campo Santo]       NVARCHAR (255) NULL,
+    [Estado]            NVARCHAR (255) NULL,
+    [Empresa]           NVARCHAR (255) NULL,
+    [SKU]               NVARCHAR (255) NULL,
+    [Descripción]       NVARCHAR (255) NULL,
+    [Abreviatura]       NVARCHAR (255) NULL,
+    [CC]                FLOAT (53)     NULL,
+    [Categoría]         NVARCHAR (255) NULL,
+    [CUN]               FLOAT (53)     NULL,
+    [Unidad de negocio] NVARCHAR (255) NULL,
+    [CP]                FLOAT (53)     NULL,
+    [Tipo de venta]     NVARCHAR (255) NULL,
+    [Precio]            MONEY          NULL,
+    [CON IGV]           MONEY          NULL,
+    [Moneda]            NVARCHAR (255) NULL,
+    [COMISION EN %]     FLOAT (53)     NULL,
+    [Comisión]          MONEY          NULL
+);

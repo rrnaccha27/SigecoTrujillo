@@ -1,0 +1,114 @@
+﻿@model SIGEES.Web.Models.Bean.BeanItemTipoAcceso
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<input type="hidden" id="hdCodigo" />
+<input type="hidden" id="hdCantidadRegistros" />
+
+
+<div style="width: 99%; background-color: #D3EBDE; vertical-align: middle; padding-top: 2%; padding-bottom: 2%; padding-left: 1%">
+    <center>
+        <h2>Regla de Cálculo Comision Supervisor</h2>
+    </center>
+    <br />
+    <div style="width: 99%; padding-left: 1%; ">
+        
+        <div style="width: 99%">
+            <div style="display: inline-block;width: 33%">
+                <table style="width: 100%">
+                    <tr>
+                        <td style="width: 30%">
+                            <label class="colGridModal">Campo Santo</label>
+                        </td>
+                        <td style="width: 70%">
+                            <input id="cmbCampoSanto" class="easyui-combobox" name="cmbCampoSanto" style="width:75%;" data-options="valueField: 'id' ,textField: 'text' ,editable:false ">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div style="display: inline-block;width: 33%">
+                <table style="width: 100%">
+                    <tr>
+                        <td style="width: 30%">
+                            <label class="colGridModal">Empresa</label>
+                        </td>
+                        <td style="width: 70%">
+                            <input id="cmbEmpresa" class="easyui-combobox" name="cmbEmpresa" style="width:75%;" data-options="valueField: 'id' ,textField: 'text' ,editable:false ">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div style="display: inline-block;width: 33%">
+                <table style="width: 100%">
+                    <tr>
+                        <td style="width: 30%">
+                            <label class="colGridModal">Canal de Venta</label>
+                        </td>
+                        <td style="width: 70%">
+                            <input id="cmbCanalVenta" class="easyui-combobox" name="cmbCanalVenta" style="width:75%;" data-options="valueField: 'id' ,textField: 'text' ,editable:false ">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <br/>
+   
+    <div style="width: 100%">
+        @if (Model.estadoLectura.CompareTo("A") == 0)
+        {
+            <a href="javascript:void(0)" id="btnRefrescar" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " data-options="iconCls:'icon-search'">Buscar</a>
+        }
+        @if (Model.estadoEscritura.CompareTo("A") == 0)
+        {
+            <a href="javascript:void(0)" id="btnNuevo" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " data-options="iconCls:'icon-add'">Crear</a>
+        }
+        @*@if (Model.estadoModificacion.CompareTo("A") == 0)
+        {
+            <a href="javascript:void(0)" id="btnModificar" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " data-options="iconCls:'icon-edit'">Modificar</a>
+        }*@
+        @if (Model.estadoEliminacion.CompareTo("A") == 0)
+        {
+            <a href="javascript:void(0)" id="btnEliminar" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " data-options="disabled:true,iconCls:'icon-cancel'">Desactivar</a>
+        }
+    </div>
+
+</div>
+</div>
+
+<div style="width: 99%; padding-left: 1%">
+    @if (Model.estadoLectura.CompareTo("A") == 0)
+    {
+        <table id="DataGrid" style="width: 100%"></table>
+    }
+</div>
+
+@Html.Partial("_Registrar")
+@*@Html.Partial("_Modificar")*@
+
+@section scripts
+{
+    <script type="text/javascript" src="~/Areas/Comision/Scripts/Views/ReglaCalculoComisionSupervisor/project.ReglaCalculoComisionSupervisor.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            var actionUrls =
+            {
+                Listar: '@Url.Action("Listar", "ReglaCalculoComisionSupervisor")',
+                GetRegistro: '@Url.Action("GetRegistro", "ReglaCalculoComisionSupervisor")',
+                Modificar: '@Url.Action("Modificar", "ReglaCalculoComisionSupervisor")',
+                Eliminar: '@Url.Action("Eliminar", "ReglaCalculoComisionSupervisor")',
+                Registrar: '@Url.Action("Registrar", "ReglaCalculoComisionSupervisor")',
+                GetEmpresaJSON: '@Url.Action("GetEmpresaJSON", "ReglaCalculoComisionSupervisor")',
+                GetCampoSantoJSON: '@Url.Action("GetCampoSantoJSON", "ReglaCalculoComisionSupervisor")',
+                GetCanalGrupoJSON: '@Url.Action("GetCanalGrupoJSON", "ReglaCalculoComisionSupervisor")'
+            };
+
+            project.ReglaCalculoComisionSupervisor.Initialize(actionUrls);
+
+        });
+
+    </script>
+}

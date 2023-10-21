@@ -1,0 +1,101 @@
+﻿@*@model SIGEES.Entidades.descuento_dto
+@{
+    int codigo_descuento = Model.codigo_descuento;
+    string fecha_actual = DateTime.Now.ToShortDateString();
+
+}*@
+<div class="easyui-layout" data-options="fit:true">
+    <div data-options="region:'center'" style="padding: 10px; width: 100%; ">
+        <form id="frmDescuento" method="post">
+
+            <div class="panelGridModal">
+
+                <div class="rowGridModal" style="width: 98%;">
+                    <div class="rowGridModalDouble" style="width:10%;">
+                        <label class="colGridModal">Vendedor</label>
+                    </div>
+                    <div class="rowGridModalDouble" style="width:75%;">
+                        <input class="easyui-textbox" id="txt_apellidos_nombres_personal" style="width:100%;" data-options="disabled:true" />
+
+                    </div>
+                    <div class="rowGridModalDouble" style="width:5%;">
+                        <a href="javascript:fnBuscarPersonal();" class="easyui-linkbutton" iconcls="icon-search"></a>
+                    </div>
+
+                </div>
+
+                <div class="rowBoth"></div>
+                <div class="rowGridModal" style="width: 98%;">
+                    <div class="rowGridModalDouble" style="width:10%;">
+                        <label class="colGridModal">Monto</label>
+                    </div>
+
+                    <div class="rowGridModalDouble" style="width:20%;">
+                        <input class="easyui-numberbox" id="txt_monto_descuento" style="width:100%;" data-options="precision: 2,
+                        required: true,novalidate:true" />
+                    </div>
+                    <div class="rowGridModalDouble" style="width:20%;">
+                        <label class="colGridModal">Comisión Total</label>
+                    </div>
+
+                    <div class="rowGridModalDouble" style="width:30%;">
+                        <input class="easyui-numberbox" id="txt_monto_comisión"  style="width:100%;" data-options="precision: 2,
+                        required: true,novalidate:true,disabled:true" />
+                    </div>
+                </div>
+                <div class="rowBoth"></div>
+                <div class="rowGridModal" style="width: 98%;">
+                    <div class="rowGridModalDouble" style="width:10%;">
+                        <label class="colGridModal">Motivo</label>
+                    </div>
+
+                    <div class="rowGridModalDouble" style="width:84%;">
+                        <input class="easyui-textbox" id="txt_motivo_descuento"  style="width: 100%; height: 80px;" data-options="required: true,novalidate:true,multiline:true" />
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div data-options="region:'south',border:false" style="text-align:center;padding:5px 0 0;">
+
+        <div data-options="region:'south'" style="text-align:right;height:30px">
+            <a href="javascript:fnRegistrarDescuento();" class="easyui-linkbutton" iconcls="icon-save" id="btnCancelar">Guardar</a>
+            <a href="javascript:cerrar_descuento();" class="easyui-linkbutton" iconcls="icon-cancel" id="btnCancelar">Cerrar</a>
+        </div>
+    </div>
+
+</div>
+
+<div id="div_listado_personal" class="easyui-dialog" data-options="resizable:true,modal:true,closed:true"
+     style="width: 60%; height: 80%;line-height: 20px;"></div>
+
+
+
+@*<script type="text/javascript" src="~/Areas/Comision/Scripts/Views/Planilla/planilla.descuento.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var actionUrls =
+        {
+            _codigo_personal: '@Model.codigo_personal',
+            _codigo_planilla: '@Model.codigo_planilla',
+            _codigo_descuento: '@Model.codigo_descuento',
+            _Personal: '@Url.Action("_Persona_Busqueda", "Planilla", new { area = "Comision" })',
+            _Registrar_Descuento: '@Url.Action("Descuento_Registrar", "Planilla", new { area = string.Empty })',
+            _Calcular_Comision_Persona: '@Url.Action("Calcular_Comision_Persona", "Planilla", new { area = string.Empty })'
+
+
+        };
+        project.descuento.Initialize(actionUrls);
+    });
+
+</script>*@
+
+
+
+
+
+
+
+

@@ -1,0 +1,49 @@
+﻿@model SIGEES.Web.Models.Bean.BeanItemTipoAcceso
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div style="width: 99%;background-color: #D3EBDE; vertical-align: middle; padding-top: 1%; padding-bottom: 2%; padding-left: 1%">
+    <center>
+        <h2>Consulta de Planilla de Comisiones</h2>
+    </center>
+    <div style="width:100%" id="toolbar_planilla_opcion">
+        @if (Model.estadoLectura != null && Model.estadoLectura.CompareTo("A") == 0)
+        {
+            <a href="javascript:fnConsultarPlanilla()" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " data-options="iconCls:'icon-search'">Buscar</a>
+        }
+        @if (Model.estadoEscritura != null && Model.estadoEscritura.CompareTo("A") == 0)
+        {
+            <a href="javascript:fnPlanillaComercial()" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " data-options="iconCls:'icon-detail'">Detalle</a>
+        }
+    </div>
+</div>
+<br />
+
+<div style="width: 99%; padding-left: 1%">
+
+    <table id="dgv_planilla_comercial" style="width: 100%"></table>
+
+</div>
+<div id="div_planilla_comercial" class="easyui-dialog" data-options="resizable:true,modal:true,closed:true"
+     style="width: 70%; height: 95%;line-height: 15px;"></div>
+@section scripts
+{
+    <script type="text/javascript" src="~/Scripts/Aditional/datagrid-bufferview.js"></script>
+    <script type="text/javascript" src="~/Areas/Comision/Scripts/Views/PlanillaComercial/planilla_comercial.index.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            var actionUrls =
+            {
+                _Buscar: '@Url.Action("_Buscar", "Planilla", new { area =string.Empty })',
+                _Planilla: '@Url.Action("_Planilla", "PlanillaComercial", new { area ="Comision"})',
+                _GetCanalJson: '@Url.Action("GetCanalJson", "Planilla", new { area = string.Empty })',
+            };
+
+            project.index.Initialize(actionUrls);
+        });
+    </script>
+}

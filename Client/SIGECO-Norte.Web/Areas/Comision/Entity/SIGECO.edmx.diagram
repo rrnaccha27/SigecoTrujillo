@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="069aa62cb08743d0a6cdf36a63735304" Name="Diagram1" ZoomLevel="65">
+        <EntityTypeShape EntityType="SIGECOModel.tipo_cuenta" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIGECOModel.articulo" Width="1.5" PointX="8" PointY="5" />
+        <EntityTypeShape EntityType="SIGECOModel.banco" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="SIGECOModel.campo_santo_sigeco" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SIGECOModel.categoria" Width="1.5" PointX="5.75" PointY="5.875" />
+        <EntityTypeShape EntityType="SIGECOModel.configuracion_canal_grupo" Width="1.5" PointX="3.75" PointY="0.875" />
+        <EntityTypeShape EntityType="SIGECOModel.empresa_configuracion" Width="1.5" PointX="6" PointY="0.875" />
+        <EntityTypeShape EntityType="SIGECOModel.estado_cuota" Width="1.5" PointX="0.75" PointY="8.75" />
+        <EntityTypeShape EntityType="SIGECOModel.estado_planilla" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SIGECOModel.estado_reclamo" Width="1.5" PointX="10.75" PointY="4.75" />
+        <AssociationConnector Association="SIGECOModel.articulo_codigo_categoria_categoria_codigo_categoria" />
+        <AssociationConnector Association="SIGECOModel.FK_empresa_configuracion_codigo_configuracion_configuracion_canal_grupo_codigo_configuracion" />
+        <EntityTypeShape EntityType="SIGECOModel.estado_resultado" Width="1.5" PointX="13.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SIGECOModel.moneda" Width="1.5" PointX="4.125" PointY="12.25" />
+        <EntityTypeShape EntityType="SIGECOModel.personal_canal_grupo" Width="1.5" PointX="13.625" PointY="9.125" />
+        <EntityTypeShape EntityType="SIGECOModel.regla_calculo_comision" Width="1.5" PointX="6.375" PointY="16.5" />
+        <EntityTypeShape EntityType="SIGECOModel.tipo_articulo" Width="1.5" PointX="6.125" PointY="31.125" />
+        <EntityTypeShape EntityType="SIGECOModel.tipo_comision" Width="1.5" PointX="4.125" PointY="27.125" />
+        <EntityTypeShape EntityType="SIGECOModel.tipo_documento" Width="1.5" PointX="9.125" PointY="16.75" />
+        <EntityTypeShape EntityType="SIGECOModel.tipo_pago" Width="1.5" PointX="4.125" PointY="16" />
+        <EntityTypeShape EntityType="SIGECOModel.tipo_planilla" Width="1.5" PointX="4.125" PointY="19.625" />
+        <EntityTypeShape EntityType="SIGECOModel.tipo_venta" Width="1.5" PointX="4.125" PointY="23" />
+        <EntityTypeShape EntityType="SIGECOModel.unidad_negocio" Width="1.5" PointX="0.75" PointY="13" />
+        <AssociationConnector Association="SIGECOModel.articulo_codigo_unidad_negocio_unidad_negocio_codigo_unidad_negocio" />
+        <AssociationConnector Association="SIGECOModel.FK_articulo_codigo_tipo_articulo_tipo_articulo_codigo_tipo_articulo" />
+        <AssociationConnector Association="SIGECOModel.FK_regla_calculo_comision_codigo_tipo_comision_tipo_comision_codigo_tipo_comision" />
+        <AssociationConnector Association="SIGECOModel.FK_regla_calculo_comision_codigo_tipo_pago_tipo_pago_codigo_tipo_pago" />
+        <EntityTypeShape EntityType="SIGECOModel.canal_grupo" Width="1.5" PointX="2.25" PointY="11.25" />
+        <AssociationConnector Association="SIGECOModel.FK_configuracion_canal_grupo_codigo_canal_grupo_canal_grupo_codigo_canal_grupo" />
+        <AssociationConnector Association="SIGECOModel.FK_regla_calculo_comision_codigo_canal_canal_grupo_codigo_canal_grupo" />
+        <AssociationConnector Association="SIGECOModel.personal_canal_grupo_codigo_canal_grupo_canal_grupo_codigo_canal_grupo" />
+        <EntityTypeShape EntityType="SIGECOModel.precio_articulo" Width="1.5" PointX="12" PointY="14.75" />
+        <AssociationConnector Association="SIGECOModel.FK_precio_articulo_codigo_articulo_articulo_codigo_articulo" />
+        <AssociationConnector Association="SIGECOModel.FK_precio_articulo_codigo_campo_santo_campo_santo_sigeco_codigo_campo_santo" />
+        <AssociationConnector Association="SIGECOModel.FK_precio_articulo_codigo_moneda_moneda_codigo_moneda" />
+        <AssociationConnector Association="SIGECOModel.FK_precio_articulo_codigo_tipo_venta_tipo_venta_codigo_tipo_venta" />
+        <AssociationConnector Association="SIGECOModel.FK_regla_calculo_comision_codigo_precio_precio_articulo_codigo_precio" />
+        <EntityTypeShape EntityType="SIGECOModel.cronograma_pago_comision" Width="1.5" PointX="15.875" PointY="14.25" />
+        <AssociationConnector Association="SIGECOModel.FK_cronograma_pago_comision_codigo_moneda_moneda_codigo_moneda" />
+        <AssociationConnector Association="SIGECOModel.FK_cronograma_pago_comision_codigo_personal_canal_grupo_personal_canal_grupo_codigo_registro" />
+        <AssociationConnector Association="SIGECOModel.FK_cronograma_pago_comision_codigo_tipo_pago_tipo_pago_codigo_tipo_pago" />
+        <AssociationConnector Association="SIGECOModel.FK_cronograma_pago_comision_codigo_tipo_planilla_tipo_planilla_tipo_planilla" />
+        <AssociationConnector Association="SIGECOModel.FK_cronograma_pago_comision_codigo_tipo_venta_tipo_venta_codigo_tipo_venta" />
+        <EntityTypeShape EntityType="SIGECOModel.empresa_sigeco" Width="1.5" PointX="3" PointY="5.5" />
+        <AssociationConnector Association="SIGECOModel.FK_cronograma_pago_comision_codigo_empresa_empresa_sigeco_codigo_empresa" />
+        <AssociationConnector Association="SIGECOModel.FK_empresa_configuracion_codigo_empresa_empresa_sigeco_codigo_empresa" />
+        <AssociationConnector Association="SIGECOModel.FK_empresa_sigeco_codigo_tipo_cuenta_tipo_cuenta_codigo_tipo_cuenta" />
+        <AssociationConnector Association="SIGECOModel.FK_precio_articulo_codigo_empresa_empresa_sigeco_codigo_empresa" />
+        <EntityTypeShape EntityType="SIGECOModel.personal" Width="1.5" PointX="16.375" PointY="7" />
+        <AssociationConnector Association="SIGECOModel.FK_personal_codigo_banco_banco_codigo_banco" />
+        <AssociationConnector Association="SIGECOModel.FK_personal_codigo_tipo_cuenta_tipo_cuenta_codigo_tipo_cuenta" />
+        <AssociationConnector Association="SIGECOModel.FK_personal_codigo_tipo_documento_tipo_documento_codigo_tipo_documento" />
+        <AssociationConnector Association="SIGECOModel.personal_canal_grupo_codigo_personal_personal_codigo_personal" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

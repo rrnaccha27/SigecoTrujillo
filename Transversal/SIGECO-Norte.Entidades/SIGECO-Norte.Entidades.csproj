@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9A3FAEB1-4556-4319-8032-F4F38F3C9BD2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SIGEES.Entidades</RootNamespace>
+    <AssemblyName>SIGECO-Norte.Entidades</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Auditoria_dto.cs" />
+    <Compile Include="BeanReporte\BeanFallecido.cs" />
+    <Compile Include="beantxt\BeanCabeceraCargoPlanillaHPD.cs" />
+    <Compile Include="beantxt\BeanDetalleHA.cs" />
+    <Compile Include="beantxt\BeanDetallePP.cs" />
+    <Compile Include="beantxt\txt_detalle_planilla_dto.cs" />
+    <Compile Include="beantxt\FormatoReporteTXT.cs" />
+    <Compile Include="beantxt\txt_contabilidad_dto.cs" />
+    <Compile Include="beantxt\utilitario.cs" />
+    <Compile Include="beanxml\CustomerDetail.cs" />
+    <Compile Include="beanxml\espacio_xml_dto.cs" />
+    <Compile Include="Comision\checklist_bono_dto.cs" />
+    <Compile Include="Comision\checklist_comision_dto.cs" />
+    <Compile Include="Comision\comision_precio_supervisor_dto.cs" />
+    <Compile Include="Comision\descuento_comision_dto.cs" />
+    <Compile Include="Comision\descuento_dto.cs" />
+    <Compile Include="Comision\detalle_cronograma_dto.cs" />
+    <Compile Include="Comision\detalle_planilla_dto.cs" />
+    <Compile Include="Comision\empresa_sigeco_dto.cs" />
+    <Compile Include="Comision\comision_dto.cs" />
+    <Compile Include="Comision\contrato_dto.cs" />
+    <Compile Include="Comision\estado_planilla_dto.cs" />
+    <Compile Include="Comision\log_contrato_sap_dts.cs" />
+    <Compile Include="Comision\log_proceso_bono_dts.cs" />
+    <Compile Include="Comision\log_wcf_sap_dto.cs" />
+    <Compile Include="Comision\detalle_regla_comision_dto.cs" />
+    <Compile Include="Comision\meta_regla_comision_dto.cs" />
+    <Compile Include="Comision\regla_pago_comision_search_dto.cs" />
+    <Compile Include="Comision\regla_pago_comision_dto.cs" />
+    <Compile Include="Comision\operacion_cuota_comision.cs" />
+    <Compile Include="Comision\pago_comision_manual_dto.cs" />
+    <Compile Include="Comision\cronograma_pago_comision_dto.cs" />
+    <Compile Include="Comision\periodo_trimestral_dto.cs" />
+    <Compile Include="Comision\planilla_dto.cs" />
+    <Compile Include="Comision\plan_integral_dto.cs" />
+    <Compile Include="Comision\regla_bono_trimestral_detalle_dto.cs" />
+    <Compile Include="Comision\regla_bono_trimestral_dto.cs" />
+    <Compile Include="Comision\regla_bono_trimestral_meta_dto.cs" />
+    <Compile Include="Comision\regla_calculo_bono_dts.cs" />
+    <Compile Include="Comision\regla_calculo_comision_validacion_dto.cs" />
+    <Compile Include="Comision\regla_pago_comision_excepcion_dto.cs" />
+    <Compile Include="Comision\regla_calculo_comision_supervisor_dto.cs" />
+    <Compile Include="Comision\old_regla_pago_comision_dto.cs" />
+    <Compile Include="Comision\canal_grupo_dto.cs" />
+    <Compile Include="Comision\personal_canal_grupo_dto.cs" />
+    <Compile Include="Comision\personal_dto.cs" />
+    <Compile Include="Comision\precio_articulo_dto.cs" />
+    <Compile Include="Comision\reclamo_dto.cs" />
+    <Compile Include="Comision\regla_calculo_comision_dto.cs" />
+    <Compile Include="Comision\detalle_regla_tipo_planilla_dto.cs" />
+    <Compile Include="Comision\regla_recupero_dto.cs" />
+    <Compile Include="Comision\regla_tipo_planilla_dto.cs" />
+    <Compile Include="Comision\reporte_detalle_planilla.cs" />
+    <Compile Include="Comision\reporte_general_dto.cs" />
+    <Compile Include="Comision\template_correo_dto.cs" />
+    <Compile Include="Comision\tipo_planilla_dto.cs" />
+    <Compile Include="Common\combo_dto.cs" />
+    <Compile Include="Common\Item_dto.cs" />
+    <Compile Include="Common\collection_id_eneral_dto.cs" />
+    <Compile Include="gestionespacio\CampoSantoDTO.cs" />
+    <Compile Include="gestionespacio\cabecera_lapida_dto.cs" />
+    <Compile Include="gestionespacio\campo_santo_dto.cs" />
+    <Compile Include="gestionespacio\cliente_dto.cs" />
+    <Compile Include="Comision\articulo_dto.cs" />
+    <Compile Include="Common\formula_dto.cs" />
+    <Compile Include="Common\leyenda_dto.cs" />
+    <Compile Include="Common\PaginacionDTO.cs" />
+    <Compile Include="gestionespacio\Contact.cs" />
+    <Compile Include="gestionespacio\CorporacionBE.cs" />
+    <Compile Include="gestionespacio\corporacion_dto.cs" />
+    <Compile Include="gestionespacio\detalle_estado_espacio_dto.cs" />
+    <Compile Include="gestionespacio\detalle_producto_dto.cs" />
+    <Compile Include="gestionespacio\documento_dto.cs" />
+    <Compile Include="gestionespacio\EmpresaDTO.cs" />
+    <Compile Include="gestionespacio\Empresa_dto.cs" />
+    <Compile Include="gestionespacio\detalle_espacio_dto.cs" />
+    <Compile Include="gestionespacio\EspacioDTO.cs" />
+    <Compile Include="gestionespacio\espacio_dto.cs" />
+    <Compile Include="gestionespacio\espacio_json_dto.cs" />
+    <Compile Include="gestionespacio\estado_civil_dto.cs" />
+    <Compile Include="gestionespacio\estado_espacio_dto.cs" />
+    <Compile Include="gestionespacio\fallecido_dto.cs" />
+    <Compile Include="gestionespacio\IdiomaDTO.cs" />
+    <Compile Include="gestionespacio\informacion_cabecera_lapida_dto.cs" />
+    <Compile Include="gestionespacio\informacion_conversion_dto.cs" />
+    <Compile Include="gestionespacio\informacion_detalle_exhumacion_dto.cs" />
+    <Compile Include="gestionespacio\informacion_edificio_dto.cs" />
+    <Compile Include="gestionespacio\informacion_encofrado_dto.cs" />
+    <Compile Include="gestionespacio\informacion_espacio_dto.cs" />
+    <Compile Include="gestionespacio\informacion_exhumacion_dto.cs" />
+    <Compile Include="gestionespacio\informacion_fallecido_dto.cs" />
+    <Compile Include="gestionespacio\informacion_lapida_dto.cs" />
+    <Compile Include="gestionespacio\informacion_nicho_dto.cs" />
+    <Compile Include="gestionespacio\informacion_registro_fallecido_dto.cs" />
+    <Compile Include="gestionespacio\informacion_reserva_dto.cs" />
+    <Compile Include="gestionespacio\informacion_venta_dto.cs" />
+    <Compile Include="gestionespacio\lote_dto.cs" />
+    <Compile Include="gestionespacio\MensajeDTO.cs" />
+    <Compile Include="gestionespacio\modalidad_persona_dto.cs" />
+    <Compile Include="gestionespacio\motivo_traslado_dto.cs" />
+    <Compile Include="gestionespacio\nicho_dto.cs" />
+    <Compile Include="gestionespacio\observacion_dto.cs" />
+    <Compile Include="gestionespacio\PerfilUsuarioDTO.cs" />
+    <Compile Include="gestionespacio\persona_dto.cs" />
+    <Compile Include="menu_dto.cs" />
+    <Compile Include="gestionespacio\PlataformaDTO.cs" />
+    <Compile Include="gestionespacio\plataforma_dto.cs" />
+    <Compile Include="gestionespacio\producto_dto.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="gestionespacio\registro_fallecido_dto.cs" />
+    <Compile Include="gestionespacio\registro_incinerado_dto.cs" />
+    <Compile Include="gestionespacio\reserva_dto.cs" />
+    <Compile Include="gestionespacio\SectorDTO.cs" />
+    <Compile Include="gestionespacio\sector_dto.cs" />
+    <Compile Include="gestionespacio\sector_piso_pabellon_dto.cs" />
+    <Compile Include="gestionespacio\TipoAccesoItemDTO.cs" />
+    <Compile Include="gestionespacio\TipoDocumentoDTO.cs" />
+    <Compile Include="gestionespacio\tipo_documento_dto.cs" />
+    <Compile Include="gestionespacio\tipo_espacio_dto.cs" />
+    <Compile Include="gestionespacio\tipo_fallecido_dto.cs" />
+    <Compile Include="gestionespacio\tipo_nivel_dto.cs" />
+    <Compile Include="gestionespacio\tipo_plataforma.cs" />
+    <Compile Include="gestionespacio\tipo_producto_dto.cs" />
+    <Compile Include="gestionespacio\UsuarioDTO.cs" />
+    <Compile Include="gestionespacio\vendedor_reserva_dto.cs" />
+    <Compile Include="gestionespacio\venta_dto.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

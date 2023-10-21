@@ -1,0 +1,43 @@
+﻿<div id="dlgModalPersona" class="easyui-dialog" data-options="modal:true,closed:true,buttons:'#dlgModalPersonaBotones'"
+     style="width: 50%; height: 90%; padding: 10px 20px; line-height: 20px;">
+
+    <div class="easyui-layout" data-options="fit:true">
+        <form id="frmModalPersona" method="post">
+            <div data-options="region:'center'" style="padding:10px;">
+                <br />
+                <hr style="color: #B5B5B5; width:96%" />
+                <div class="panelGridModal">
+                    <div class="rowGridModal">
+                        <label class="colGridModal">Filtro Persona</label>
+                        <input class="easyui-combobox" id="cboFiltro" name="cboFiltro" data-options="
+		                        valueField: 'value',
+		                        textField: 'label',
+		                        data: [{
+			                        label: 'Nro. Documento',
+			                        value: '1'
+		                        },{
+			                        label: 'Nombre y Apellido',
+			                        value: '2'
+		                        }]" style="width:100%" />
+                    </div>
+                    <div class="rowGridModal">
+                        <label class="colGridModal">Ingrese Valor</label>
+                        <input class="easyui-textbox" id="valor" name="valor" data-options="buttonText:'Buscar',buttonAlign:'right',buttonIcon:'icon-search'" style="width:100%;">
+                    </div>
+                    <div class="rowGridModalDouble">
+                        <label class="colGridModal">Lista Persona</label>
+                        <table id="dataGridPersona" style="width: 100%"></table>
+                    </div>
+                    <div class="rowBoth" />
+                </div>
+                <br />
+                <hr style="color: #B5B5B5; width:96%" />
+
+            </div>
+            <div id="dlgModalPersonaBotones">
+                <a href="#" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " iconcls="icon-ok" id="btnGuardar">Seleccionar</a>
+                <a href="#" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " iconcls="icon-cancel" id="btnCancelar">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>

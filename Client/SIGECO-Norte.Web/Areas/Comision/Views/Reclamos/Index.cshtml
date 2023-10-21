@@ -1,0 +1,120 @@
+﻿@model SIGEES.Web.Models.Bean.BeanItemTipoAcceso
+@using SIGEES.Web.Models.Bean;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+    BeanSesionUsuario beanSesionUsuario = Session[SIGEES.Web.Common.Constante.session_name.sesionUsuario] as BeanSesionUsuario;
+}
+
+<input type="hidden" id="hdCodigo" />
+<input type="hidden" id="hdEstado" />
+<input type="hidden" id="hdFila" />
+<input type="hidden" id="hdColumna" />
+<input type="hidden" id="hdCantidadRegistros" />
+<input type="hidden" id="hdPerfil" value="@beanSesionUsuario.codigoPerfil" />
+
+<div style="width: 99%; background-color: #D3EBDE; vertical-align: middle; padding-top: 1%; padding-bottom: 2%; padding-left: 1%">
+    <center>
+        <h2>Reclamos de Comisión</h2>
+    </center>
+    <br />
+    <div style="width: 100%">
+        <table style="width:100%">
+            <tr>
+                <td style="width:10%;text-align:right">
+                    <label class="colGridModal">Nro Contrato&nbsp;&nbsp;</label>
+                </td>
+                <td style="width:10%">
+                    <input class="easyui-textbox" id="NroContrato" name="NroContrato" style="width:90%" />
+                </td>
+                <td style="width:8%;text-align:right">
+                    <label class="colGridModal">Vendedor&nbsp;&nbsp;</label>
+                </td>
+                <td style="width:25%">
+                    <input class="easyui-textbox" id="PersonalVentas" name="PersonalVentas" style="width:90%" />
+                </td>
+                <td style="width:8%;text-align:right">
+                    <label class="colGridModal">Estado&nbsp;&nbsp;</label>
+                </td>
+                <td style="width:15%">
+                    <input class="easyui-combobox" id="cboEstado" name="cboEstado" style="width: 80%" data-options="editable:false" />
+                </td>
+                <td style="width:24%">
+                    &nbsp;
+                </td>
+            </tr>
+        </table>
+    </div>
+    <br />
+    <div style="width: 100%">
+        @if (Model.estadoLectura.CompareTo("A") == 0)
+        {
+            <a href="javascript:void(0)" id="btnBuscar" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " data-options="iconCls:'icon-search'">Buscar</a>
+            <a href="javascript:void(0)" id="btnVisualizar" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " data-options="iconCls:'icon-detail'">Detalle</a>
+        }
+        @if ((Model.estadoEscritura != null && Model.estadoEscritura.CompareTo("A") == 0) && (Model.estadoReclamoCrear != null && Model.estadoReclamoCrear.CompareTo("A") == 0))
+        {
+            <a href="javascript:void(0)" id="btnNuevo" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " data-options="iconCls:'icon-add'">Crear</a>
+        }
+        @if ((Model.estadoEscritura != null && Model.estadoEscritura.CompareTo("A") == 0) && (Model.estadoReclamoAtenderN1 != null && Model.estadoReclamoAtenderN1.CompareTo("A") == 0))
+        {
+            <a href="javascript:void(0)" id="btnAtenderN1" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " data-options="iconCls:'icon-edit'" title="Nivel 1">Atender</a>
+        }
+        @if ((Model.estadoEscritura != null && Model.estadoEscritura.CompareTo("A") == 0) && (Model.estadoReclamoAtenderN2 != null && Model.estadoReclamoAtenderN2.CompareTo("A") == 0))
+        {
+            <a href="javascript:void(0)" id="btnAtender" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " data-options="iconCls:'icon-edit'" title="Nivel 2">Atender</a>
+        }
+    </div>
+</div>
+<br>
+<div style="width: 99%; padding-left: 1%">
+    @if (Model.estadoLectura.CompareTo("A") == 0)
+    {
+        <table id="DataGrid" style="width: 100%"></table>
+    }
+</div>
+
+@Html.Partial("_Registro")
+@Html.Partial("_Atender")
+@Html.Partial("_AtenderN1")
+@Html.Partial("_BusquedaPersona")
+@Html.Partial("_SeleccionCuota")
+@Html.Partial("_Detalle")
+
+@section scripts
+{
+    <script type="text/javascript" src="~/Areas/Comision/Scripts/Views/Reclamo/project.Reclamo.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+
+        var actionUrls =
+        {
+            GetAllEstadoReclamoJson: '@Url.Action("GetAllEstadoReclamoJson", "Reclamos", new { area = "comision" })',
+            GetAllEstadoResultadoJson: '@Url.Action("GetAllEstadoResultadoJson", "Reclamos", new { area = "comision" })',
+            GetAllEmpresasJson: '@Url.Action("GetAllEmpresasJson", "Reclamos", new { area = "comision" })',
+            GetAllJson: '@Url.Action("GetAllJson", "Reclamos", new { area = "comision" })',
+            Registrar: '@Url.Action("Registrar", "Reclamos", new { area = "comision" })',
+            Modificar: '@Url.Action("Modificar", "Reclamos", new { area = "comision" })',
+            Eliminar: '@Url.Action("Eliminar", "Reclamos", new { area = "comision" })',
+            GetRegistro: '@Url.Action("GetRegistro", "Reclamos", new { area = "comision" })',
+            GetPersonalByNombreJson: '@Url.Action("GetPersonalByNombreJson", "Reclamos", new { area = "comision" })',
+            GetArticulosByFilterJson: '@Url.Action("GetArticulosByFilterJson", "Reclamos", new { area = "comision" })',
+            ValidarRegistro: '@Url.Action("ValidarRegistro", "Reclamos", new { area = "comision" })',
+            ValidarExisteContratoJson: '@Url.Action("ValidarExisteContratoJson", "Reclamos", new { area = "comision" })',
+            ValidarExistePagoJson: '@Url.Action("ValidarExistePagoJson", "Reclamos", new { area = "comision" })',
+            _GetArticulosByContratoEmpresaJson: '@Url.Action("GetArticulosByContratoEmpresaJson", "Planilla", new { area = "comision" })',
+            _GetDetalleCronogramaPagoByArticuloJson: '@Url.Action("GetDetalleCronogramaPagoByArticuloJson", "Planilla", new { area = "comision" })',
+            GetEstadoContratoJson: '@Url.Action("GetEstadoContrato", "Reclamos", new { area = "comision" })',
+            AtenderContratoMigrado: '@Url.Action("AtenderContratoMigrado", "Reclamos", new { area = "comision" })',
+            AtenderN1: '@Url.Action("AtenderN1", "Reclamos", new { area = "comision" })',
+            ModificarNotificacionPendientes: '@Url.Action("ModificarNotificacionPendientes", "Reclamos", new { area = "comision" })',
+        };
+
+        project.Reclamo.Initialize(actionUrls);
+    });
+    </script>
+}
+
+

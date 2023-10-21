@@ -1,0 +1,65 @@
+﻿<div id="dlgTransferir" class="easyui-dialog" data-options="modal:true,closed:true, buttons:'#divTransferirBotones'"
+     style="width: 38%; height: 200px; padding: 10px; line-height: 20px;">
+
+	<form id="frmTransferir" method="post" >
+
+		<div class="easyui-panel" title="Canal/Grupo" style="width: 99%; ">
+			<div class="panelGridModal">
+				<table style="width:100%">
+                    <tr>
+                        <td class="tdEtiqueta">
+                            <label class="colGridModal">Canal</label>
+                        </td>
+                        <td class="tdValor">
+                            <input class="easyui-combobox" id="codigo_canal" name="codigo_canal" style="width: 95%" data-options="required:true" />
+                        </td>
+                        <td class="tdEtiqueta2">
+                            <label class="colGridModal">Percibe Comisión</label>
+                        </td>
+                        <td class="tdValor2">
+                            <input class="easyui-switchbutton" id="percibe_comision" name="percibe_comision" data-options="onText:'Si', offText:'No', required:true" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tdEtiqueta">
+                            <label class="colGridModal">Grupo</label>
+                        </td>
+                        <td class="tdValor">
+                            <input class="easyui-combobox" id="codigo_grupo" name="codigo_grupo" style="width: 95%" />
+                        </td>
+                        <td class="tdEtiqueta2">
+                            <label class="colGridModal">Percibe Bono</label>
+                        </td>
+                        <td class="tdValor2">
+                            <input class="easyui-switchbutton" id="percibe_bono" name="percibe_bono" data-options="onText:'Si', offText:'No', required:true" />
+                        </td>
+                    </tr>
+				</table>
+			</div>
+		</div>
+		<div id="divTransferirBotones" style="width: 100%; height: 100%; display: inline-block">
+            <a href="#" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " iconcls="icon-ok" id="btnAceptar">Aceptar</a>
+            <a href="#" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " iconcls="icon-cancel" id="btnCancelar">Cancelar</a>
+		</div>
+	</form>
+</div>
+
+<style>
+    .tdEtiqueta {
+        width: 15%;
+        padding: 5px;
+    }
+
+    .tdValor {
+        width: 45%;
+    }
+    .tdEtiqueta2 {
+        width: 25%;
+        padding: 5px;
+    }
+
+    .tdValor2 {
+        width: 15%;
+    }
+</style>
+

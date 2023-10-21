@@ -1,0 +1,115 @@
+html{
+    height: 100%;
+}
+
+body {
+    height: 90%;
+    background-image: url('../../Content/images/imagen_login.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    
+}
+
+#separador-top{
+    height: 20%;
+}
+
+div.table {
+    display: table;
+}
+div.tr {
+    display: table-row;
+}
+div.td {
+    display: table-cell;
+    padding: 12px;
+}
+
+
+.textbox {
+    border-color: #B5B5B5 !important;
+    border-radius: 12px !important;
+    height: 25px;
+}
+
+.textbox-text {
+    color: #9B9B9B;
+}
+
+.colGridModal{
+    color: #9B9B9B;
+}
+
+.Absolute-Center {
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: white;
+  border-radius: 55px;
+  max-width: 550px;
+
+  -moz-background-clip: padding;     /* Firefox 3.6 */
+  -webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
+  background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */		
+  border: 16px solid rgba(185,198,206,0.5);
+
+  padding-top: 0px;
+  padding-bottom: 10px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+@media screen and (max-width: 600px) {
+
+    #separador-top{
+        height: 10%;
+    }
+
+    div.table {
+        display: block;
+    }
+    div.tr {
+        display: block;
+    }
+    div.td {
+        display: block;
+    }
+
+    .Absolute-Center {
+        border-width: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        max-width: 550px;
+    }
+
+    #logo{
+        width: 90%;
+    }
+}
+
+
+@media screen and (min-width: 600px) {
+
+    #separador-top{
+        height: 20%;
+    }
+
+    div.table {
+        display: table;
+    }
+    div.tr {
+        display: table-row;
+    }
+    div.td {
+        display: table-cell;
+        padding: 12px;
+    }
+
+    .Absolute-Center {
+        border-width: 16px;
+    }
+
+}
+

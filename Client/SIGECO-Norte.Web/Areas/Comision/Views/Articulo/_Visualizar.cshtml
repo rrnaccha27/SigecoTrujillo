@@ -1,0 +1,171 @@
+﻿@model SIGEES.Entidades.articulo_dto
+@{
+
+    int v_tiene_contrato_vinculante = Model.tiene_contrato_vinculante ? 1 : 0;
+    string v_anho = DateTime.Now.Year.ToString();
+
+}
+<div class="easyui-layout" data-options="fit:true">
+    <form id="frmregistrar" method="post">
+        <div data-options="region:'north', border:false" style="padding:10px 10px 0px 10px;height:245px">
+            <div class="easyui-layout" data-options="fit:true">
+                <div data-options="region:'center',border:false" style="width:100%">
+                    <div class="easyui-layout" data-options="fit:true">
+                        <div class="easyui-panel" title="Datos Generales" style="width: 99%; ">
+                            <div class="rowGridModalDouble" style="width:12%;">
+                                <label class="colGridModal">C&oacute;digo SKU</label>
+                            </div>
+                            <div class="rowGridModalDouble" style="width:30%;">
+                                <input class="easyui-textbox" value="@Model.codigo_sku" id="txt_articulo_codigo_sku" maxlength="20" style="width:100%;" disabled />
+                            </div>
+                            <div class="rowGridModalDouble" style="width:13%;">
+                                <label class="colGridModal">Año Excepción</label>
+                            </div>
+                            <div class="rowGridModalDouble" style="width:15%;">
+                                <input id="nbb_anio_contrato_vinculante" value="@Model.anio_contrato_vinculante" class="easyui-numberbox textbox" style="width:100%;" disabled>
+                            </div>
+                            <!--SEGUNDA FILA ......................................-->
+                            <div class="rowBoth"></div>
+                            <div class="rowGridModalDouble" style="width:12%;">
+                                <label class="colGridModal">Descripción</label>
+                            </div>
+                            <div class="rowGridModalDouble" style="width:79%;">
+                                <input class="easyui-textbox" id="txt_articulo_nombre" value="@Model.nombre" maxlength="250" style="width:100%;" data-options="disabled:true" />
+                            </div>
+
+                            <!--TERCERA FILA ......................................-->
+                            <div class="rowBoth"></div>
+                            <div class="rowGridModalDouble" style="width:12%;">
+                                <label class="colGridModal">Abreviatura</label>
+                            </div>
+                            <div class="rowGridModalDouble" style="width:30%;">
+                                <input class="easyui-textbox" value="@Model.abreviatura" maxlength="3" id="txt_articulo_abreviatura" style="width:100%;" data-options="disabled:true" />
+                            </div>
+
+                            <div class="rowGridModalDouble" style="width:13%;">
+                                <label class="colGridModal">Categoria</label>
+                            </div>
+                            <div class="rowGridModalDouble" style="width:30%;">
+                                @{
+                                    int? v_codigo_categoria = Model.codigo_categoria <= 0 ? (int?)null : Model.codigo_categoria;
+
+                                }
+                                <input id="cmb_categoria_v" value="@v_codigo_categoria" class="easyui-combobox" style="width:100%;" data-options="disabled:true">
+                            </div>
+                            <!--CUARTA FILA ......................................-->
+
+                            <div class="rowBoth"></div>
+                            <div class="rowGridModalDouble" style="width:12%;">
+                                <label class="colGridModal">Unidad Negocio</label>
+                            </div>
+                            <div class="rowGridModalDouble" style="width:30%;">
+                                @{
+                                    int? v_codigo_unidad_negocio = Model.codigo_unidad_negocio <= 0 ? (int?)null : Model.codigo_unidad_negocio;
+
+                                }
+                                <input id="cmb_unidad_negocio_v" value="@v_codigo_unidad_negocio" class="easyui-combobox" style="width:100%;" data-options="disabled:true">
+                            </div>
+                            <div class="rowGridModalDouble" style="width:13%;">
+                                <label class="colGridModal">Tipo Artículo</label>
+                            </div>
+                            <div class="rowGridModalDouble" style="width:30%;">
+
+                                <input id="cmb_tipo_articulo_v" value="@Model.codigo_tipo_articulo" class="easyui-combobox" style="width:100%;" data-options="disabled:true">
+                            </div>
+                            <!--QUINTA FILA ......................................-->
+
+                            <div class="rowBoth"></div>
+                            <div class="rowGridModalDouble" style="width:12%;">
+                                <label class="colGridModal">Cant. Única (1)</label>
+                            </div>
+                            <div class="rowGridModalDouble" style="width:30%;">
+								<input class="easyui-switchbutton" checked="@Model.cantidad_unica" id="ckb_cantidad_unica" data-options="onText:'Si', offText:'No', disabled:true" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div data-options="region:'east',border:false" style="width:250px">
+                    <div class="easyui-layout" data-options="fit:true">
+                        <div class="easyui-panel" title="Configuración" style="width: 100%; ">
+                            <div class="rowGridModalDouble" style="width:70%;">
+                                <label class="colGridModal">Genera Comisión</label>
+                            </div>
+                            <div class="rowGridModalDouble" style="width:10%;">
+                                <input class="easyui-switchbutton" checked="@Model.genera_comision" id="ckb_genera_comision" data-options="onText:'Si', offText:'No', disabled:true" />
+
+                            </div>
+                            <div class="rowBoth"></div>
+                            <div class="rowGridModalDouble" style="width:70%;">
+                                <label class="colGridModal">Genera Dinero Ingresado</label>
+                            </div>
+                            <div class="rowGridModalDouble" style="width:10%;">
+                                <input class="easyui-switchbutton" checked="@Model.genera_bono" id="ckb_genera_bono" data-options="onText:'Si', offText:'No', disabled:true" />
+
+                            </div>
+                            <div class="rowBoth"></div>
+                            <div class="rowGridModalDouble" style="width:70%;">
+                                <label class="colGridModal">Genera Monto Contratado</label>
+                            </div>
+                            <div class="rowGridModalDouble" style="width:10%;">
+                                <input class="easyui-switchbutton" checked="@Model.genera_bolsa_bono" id="ckb_genera_bolsa_bono" data-options="onText:'Si', offText:'No', disabled:true" />
+
+                            </div>
+                            <div class="rowBoth"></div>
+                            <div style="width:100%;text-align:center;">
+                                @if (Model.codigo_articulo > 0)
+                                {
+                                    <a href="javascript:fnReporteArticulo(@Model.codigo_articulo);" class="easyui-linkbutton" iconcls="icon-print" style="text-align: left; padding: 0px 0px 0px 15px; width: 50%;">Reporte</a>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div data-options="region:'center', border:false" style="padding:0px 10px 10px 10px;">
+            <table id="dgv_precio_articulo_v" style="width: 100%;height:100%"></table>
+        </div>
+        <div data-options="region:'south'" style="text-align:right;padding:5px;">
+            <div style="height:100%;width:100%">
+                <a href="javascript:cerrar_articulo();" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; "iconcls="icon-cancel" id="btnCancelar">Cerrar</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div id="div_visualizar_comision" class="easyui-dialog" data-options="resizable:true,modal:true,closed:true"
+     style="width: 90%; height: 90%;line-height: 20px;"></div>
+
+<div id="div_reporte_articulo" class="easyui-dialog" data-options="resizable:true,modal:true,closed:true"
+     style="width: 100%; height: 80%;line-height: 20px;"></div>
+
+<script type="text/javascript" src="~/Areas/Comision/Scripts/Views/Articulo/articulo.v_articulo.js"></script>
+<script type="text/javascript">
+    function cerrar_articulo()
+    {
+        $('#div_visualizar_articulo').dialog('close');
+    }
+
+    $(document).ready(function () {
+        var actionUrls =
+        {
+            _Reporte: '@Url.Action("_Reporte", "Articulo", new { area = "Comision"})',
+            _GetEmpresaJson: '@Url.Action("GetEmpresaJson", "Articulo", new { area = "Comision" })',
+            _GetMonedaJson: '@Url.Action("GetMonedaJson", "Articulo", new { area = "Comision" })',
+            _GetTipoVentaJson: '@Url.Action("GetTipoVentaJson", "Articulo", new { area = "Comision" })',
+            _GetTipoArticuloJson: '@Url.Action("GetTipoArticuloJson", "Articulo", new { area = "Comision" })',
+
+            _UrlComision: '@Url.Action("_VisualizarComision", "Articulo", new { area = "Comision" })',
+            _GetUnidadNegocioJson: '@Url.Action("GetUnidadNegocioJson", "Articulo", new { area = "Comision" })',
+            _GetCategoriaJson: '@Url.Action("GetCategoriaJson", "Articulo", new { area = "Comision" })',
+            _Registrar: '@Url.Action("Registrar", "Articulo", new { area = "Comision" })',
+            _ValidarRangoFechaPrecio: '@Url.Action("ValidarRangoFechaPrecio", "Articulo", new { area = "Comision" })',
+
+            _GetPreciobyArticuloJson: '@Url.Action("GetPreciobyArticuloJson", "Articulo", new { area = "Comision" })',
+            _codigo_articulo:@Model.codigo_articulo,
+            _tiene_contrato_vinculante:@v_tiene_contrato_vinculante,
+            _estado_registro:'0'
+        };
+        project.v_articulo.Initialize(actionUrls);
+    });
+</script>

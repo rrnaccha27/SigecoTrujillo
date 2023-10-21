@@ -1,0 +1,33 @@
+﻿@model SIGEES.Entidades.Planilla_bono_dto
+
+<div class="easyui-layout" data-options="fit:true">
+    <div data-options="region:'center', border:false" style="padding:5px;">
+        <table id="dgDetalle" style="width: 100%; height:100%"></table>
+    </div>
+
+    <div data-options="region:'south', border:false" style="padding:5px;">
+        <div id="divRegistroBotones" style="width: 100%; height: 100%; display: inline-block; text-align:right;">
+            @if (Model.es_planilla_jn == 1)
+            {
+                <a href="javascript:ToExcel()" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " iconcls="icon-excel" id="btnExportar">Exportar</a>@:&nbsp;
+            }
+            <a href="javascript:Cerrar()" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " iconcls="icon-cancel" id="btnCancelar">Cerrar</a>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="~/Areas/Comision/Scripts/Views/LogProcesoBono/logprocesobono.detalle.js"></script>
+@if (Model.es_planilla_jn == 1)
+{
+    <script type="text/javascript" src="~/Scripts/Aditional/datagrid-export.js"></script>
+}
+<script type="text/javascript">
+    var actionDetalleUrls =
+    {
+        GetDetalleJson: '@Url.Action("GetDetalleJson", "LogProcesoBono", new { area = "Comision" })',
+        _codigo_planilla: '@Model.codigo_planilla',
+    };
+
+    $(document).ready(function () {
+        project.logprocesobono_detalle.Initialize(actionDetalleUrls);
+    });
+</script>

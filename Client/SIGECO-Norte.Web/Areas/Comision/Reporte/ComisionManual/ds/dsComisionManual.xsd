@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsComisionManual" targetNamespace="http://tempuri.org/dsComisionManual.xsd" xmlns:mstns="http://tempuri.org/dsComisionManual.xsd" xmlns="http://tempuri.org/dsComisionManual.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsComisionManual" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsComisionManual" msprop:Generator_UserDSName="dsComisionManual">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dtComision" msprop:Generator_TableClassName="dtComisionDataTable" msprop:Generator_TableVarName="tabledtComision" msprop:Generator_RowChangedName="dtComisionRowChanged" msprop:Generator_TablePropName="dtComision" msprop:Generator_RowDeletingName="dtComisionRowDeleting" msprop:Generator_RowChangingName="dtComisionRowChanging" msprop:Generator_RowEvHandlerName="dtComisionRowChangeEventHandler" msprop:Generator_RowDeletedName="dtComisionRowDeleted" msprop:Generator_RowClassName="dtComisionRow" msprop:Generator_UserTableName="dtComision" msprop:Generator_RowEvArgName="dtComisionRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="fecha_registra" msprop:Generator_ColumnVarNameInTable="columnfecha_registra" msprop:Generator_ColumnPropNameInRow="fecha_registra" msprop:Generator_ColumnPropNameInTable="fecha_registraColumn" msprop:Generator_UserColumnName="fecha_registra" type="xs:string" minOccurs="0" />
+              <xs:element name="empresa" msprop:Generator_ColumnVarNameInTable="columnempresa" msprop:Generator_ColumnPropNameInRow="empresa" msprop:Generator_ColumnPropNameInTable="empresaColumn" msprop:Generator_UserColumnName="empresa" type="xs:string" minOccurs="0" />
+              <xs:element name="tipo_venta" msprop:Generator_ColumnVarNameInTable="columntipo_venta" msprop:Generator_ColumnPropNameInRow="tipo_venta" msprop:Generator_ColumnPropNameInTable="tipo_ventaColumn" msprop:Generator_UserColumnName="tipo_venta" type="xs:string" minOccurs="0" />
+              <xs:element name="tipo_pago" msprop:Generator_ColumnVarNameInTable="columntipo_pago" msprop:Generator_ColumnPropNameInRow="tipo_pago" msprop:Generator_ColumnPropNameInTable="tipo_pagoColumn" msprop:Generator_UserColumnName="tipo_pago" type="xs:string" minOccurs="0" />
+              <xs:element name="vendedor" msprop:Generator_ColumnVarNameInTable="columnvendedor" msprop:Generator_ColumnPropNameInRow="vendedor" msprop:Generator_ColumnPropNameInTable="vendedorColumn" msprop:Generator_UserColumnName="vendedor" type="xs:string" minOccurs="0" />
+              <xs:element name="canal" msprop:Generator_ColumnVarNameInTable="columncanal" msprop:Generator_ColumnPropNameInRow="canal" msprop:Generator_ColumnPropNameInTable="canalColumn" msprop:Generator_UserColumnName="canal" type="xs:string" minOccurs="0" />
+              <xs:element name="articulo" msprop:Generator_ColumnVarNameInTable="columnarticulo" msprop:Generator_ColumnPropNameInRow="articulo" msprop:Generator_ColumnPropNameInTable="articuloColumn" msprop:Generator_UserColumnName="articulo" type="xs:string" minOccurs="0" />
+              <xs:element name="comision" msprop:Generator_ColumnVarNameInTable="columncomision" msprop:Generator_ColumnPropNameInRow="comision" msprop:Generator_ColumnPropNameInTable="comisionColumn" msprop:Generator_UserColumnName="comision" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nro_contrato" msprop:Generator_ColumnVarNameInTable="columnnro_contrato" msprop:Generator_ColumnPropNameInRow="nro_contrato" msprop:Generator_ColumnPropNameInTable="nro_contratoColumn" msprop:Generator_UserColumnName="nro_contrato" type="xs:string" minOccurs="0" />
+              <xs:element name="nro_factura_vendedor" msprop:Generator_ColumnVarNameInTable="columnnro_factura_vendedor" msprop:Generator_ColumnPropNameInRow="nro_factura_vendedor" msprop:Generator_ColumnPropNameInTable="nro_factura_vendedorColumn" msprop:Generator_UserColumnName="nro_factura_vendedor" type="xs:string" minOccurs="0" />
+              <xs:element name="usuario_registra" msprop:Generator_ColumnVarNameInTable="columnusuario_registra" msprop:Generator_ColumnPropNameInRow="usuario_registra" msprop:Generator_ColumnPropNameInTable="usuario_registraColumn" msprop:Generator_UserColumnName="usuario_registra" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

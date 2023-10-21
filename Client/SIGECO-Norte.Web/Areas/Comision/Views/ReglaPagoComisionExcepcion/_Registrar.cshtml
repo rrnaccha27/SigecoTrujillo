@@ -1,0 +1,151 @@
+﻿<div id="dlgRegistrar" class="easyui-dialog" data-options="modal:true,closed:true"
+     style="width: 70%; height: 90%; padding: 10px 20px; line-height: 20px;">
+
+    <div class="easyui-layout" data-options="fit:true">
+        <form id="frmRegistrar" method="post">
+            <div data-options="region:'center'" style="padding:10px;">
+                <br />
+                @*<hr style="color: #B5B5B5; width:96%" />*@
+                <div class="panelGridModal">
+
+                    <div class="easyui-panel" title="Datos Generales" style="width: 99%; ">
+
+                        <div class="rowGridModal">
+                            <table style="width:100%">
+                                <tr>
+                                    <td style="width: 40%">
+                                        <label class="colGridModal">Nombre</label>
+                                    </td>
+                                    <td style="width: 60%">
+                                        <input class="easyui-textbox" id="nombre" name="nombre" maxlength="50" style="width:99%" data-options="required:true" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="rowGridModal">
+                            <table style="width:100%">
+                                <tr>
+                                    <td style="width: 40%">
+                                        <label class="colGridModal">Camposanto</label>
+                                    </td>
+                                    <td style="width: 60%">
+                                        <input id="cmbCampoSanto" class="easyui-combobox" name="cmbCampoSanto" style="width:99%;" data-options="valueField: 'id' ,textField: 'text' ,required:true, editable: false ">
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="rowGridModal">
+                            <table style="width:100%">
+                                <tr>
+                                    <td style="width: 40%">
+                                        <label class="colGridModal">Empresa</label>
+                                    </td>
+                                    <td style="width: 60%">
+                                        <input id="cmbEmpresa" class="easyui-combobox" name="cmbEmpresa" style="width:99%;" data-options="valueField: 'id' ,textField: 'text' ,required:true, editable: false ">
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="rowGridModal">
+                            <table style="width:100%">
+                                <tr>
+                                    <td style="width: 40%">
+                                        <label class="colGridModal">Canal de Venta</label>
+                                    </td>
+                                    <td style="width: 60%">
+                                        <input id="cmbCanalVenta" class="easyui-combobox" name="cmbCanalVenta" style="width:99%;" data-options="valueField: 'id' ,textField: 'text' ,required:true, editable: false ">
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="rowGridModal">
+                            <table style="width:100%">
+                                <tr>
+                                    <td style="width: 40%">
+                                        <label class="colGridModal">Artículo</label>
+                                    </td>
+                                    <td style="width: 60%">
+                                        <table style="width: 100%">
+                                            <tr>
+                                                <td style="width: 90%">
+                                                    <input class="easyui-textbox" id="articulo" name="articulo" style="width:99%" data-options="required:true" readonly />
+                                                </td>
+                                                <td style="width: 10%">
+                                                    <a href="#" class="easyui-linkbutton" iconcls="icon-search" id="btnModalArticulo"></a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="rowGridModal">
+                            <table style="width:100%">
+                                <tr>
+                                    <td style="width: 40%">
+                                        <label class="colGridModal">Valor Promoción</label>
+                                    </td>
+                                    <td style="width: 60%">
+                                        <input class="easyui-numberbox" id="valor_promocion" name="valor_promocion" value="" style="width: 30%" data-options="required:true, min:0,max:100, precision:0" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="easyui-panel" title="Tipo Pago" style="width: 99%; ">
+                        <div class="rowGridModal">
+                            <table style="width:100%">
+                                <tr>
+                                    <td style="width: 40%">
+                                        <label class="colGridModal">Nro Cuotas</label>
+                                    </td>
+                                    <td style="width: 60%">
+                                        <input class="easyui-numberbox" id="cuotas" name="cuotas" data-options="min:1,max:100,precision:0,required:true" style="width: 30%" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="rowGridModalDouble">
+                        </div>
+                    </div>
+
+                    <div class="easyui-panel" title="Vigencia" style="width: 99%; ">
+
+                        <div class="rowGridModal">
+                            <table style="width:100%">
+                                <tr>
+                                    <td style="width: 40%">
+                                        <label class="colGridModal">Inicio</label>
+                                    </td>
+                                    <td style="width: 60%">
+                                        <input class="easyui-datebox" id="fechaInicio" name="fechaInicio" style="width:99%;" data-options="required:true" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="rowGridModal">
+                            <table style="width:100%">
+                                <tr>
+                                    <td style="width: 40%">
+                                        <label class="colGridModal">Fin</label>
+                                    </td>
+                                    <td style="width: 60%">
+                                        <input class="easyui-datebox" id="fechaFin" name="fechaFin" style="width:99%;" data-options="required:true" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                @*<hr style="color: #B5B5B5; width:96%" />*@
+
+            </div>
+            <div data-options="region:'south',border:false" style="text-align:right;padding:5px 0 0;">
+                <a href="#" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " iconcls="icon-ok" id="btnGuardar">Guardar</a>
+                <a href="#" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " iconcls="icon-cancel" id="btnCancelar">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>

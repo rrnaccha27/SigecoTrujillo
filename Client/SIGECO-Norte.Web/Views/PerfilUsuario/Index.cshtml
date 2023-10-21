@@ -1,0 +1,73 @@
+﻿@model SIGEES.Web.Models.Bean.BeanItemTipoAcceso
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<input type="hidden" id="hdCodigo" />
+<input type="hidden" id="hdCantidadRegistros" />
+
+<div style="width: 99%; background-color: #D3EBDE; vertical-align: middle; padding-top: 2%; padding-bottom: 2%; padding-left: 1%">
+
+    <center>
+        <h2>Mantenimiento Perfil Usuario</h2>
+    </center>
+
+
+    @if (Model.estadoEscritura.CompareTo("A") == 0)
+    {
+        <a href="javascript:void(0)" id="btnNuevo" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " data-options="iconCls:'icon-add'">Nuevo</a>
+    }
+    @if (Model.estadoModificacion.CompareTo("A") == 0)
+    {
+        <a href="javascript:void(0)" id="btnModificar" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " data-options="iconCls:'icon-edit'">Modificar</a>
+    }
+    @if (Model.estadoEliminacion.CompareTo("A") == 0)
+    {
+        <a href="javascript:void(0)" id="btnEliminar" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " data-options="iconCls:'icon-cancel'">Eliminar</a>
+    }
+    @if (Model.estadoLectura.CompareTo("A") == 0)
+    {
+        <a href="javascript:void(0)" id="btnVisualizar" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " data-options="iconCls:'icon-search'">Detalle</a>
+        <a href="javascript:void(0)" id="btnRefrescar" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " data-options="iconCls:'icon-reload'">Refrescar</a>
+    }
+</div>
+<br />
+<div style="width: 99%; padding-left: 1%">
+    @if (Model.estadoLectura.CompareTo("A") == 0)
+    {
+        <table id="DataGrid" style="width: 100%"></table>
+    }
+</div>
+
+@Html.Partial("_Registrar")
+@Html.Partial("_Modificar")
+@Html.Partial("_Visualizar")
+
+@section scripts
+{
+    <script type="text/javascript" src="~/Scripts/Views/PerfilUsuario/project.PerfilUsuario.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            var actionUrls =
+            {
+                GetRegistrosJSON: '@Url.Action("GetRegistrosJSON", "PerfilUsuario")',
+                GetRegistro: '@Url.Action("GetRegistro", "PerfilUsuario")',
+                Modificar: '@Url.Action("Modificar", "PerfilUsuario")',
+                Eliminar: '@Url.Action("Eliminar", "PerfilUsuario")',
+                Registrar: '@Url.Action("Registrar", "PerfilUsuario")',
+                GetMenuJSON: '@Url.Action("GetMenuJSON", "PerfilUsuario")',
+                GetMenuByPerfilJSON: '@Url.Action("GetMenuByPerfilJSON", "PerfilUsuario")',
+                GetListaTipoAccesoItemJSON: '@Url.Action("GetListaTipoAccesoItemJSON", "PerfilUsuario")',
+                GetListaTipoAccesoItemBYPerfilJSON: '@Url.Action("GetListaTipoAccesoItemBYPerfilJSON", "PerfilUsuario")'
+
+            };
+
+            project.PerfilUsuario.Initialize(actionUrls);
+
+        });
+
+    </script>
+}

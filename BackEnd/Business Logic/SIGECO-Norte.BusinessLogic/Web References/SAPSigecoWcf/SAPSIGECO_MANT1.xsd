@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/WCFSAPSIGECO_MANT.Datos" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WCFSAPSIGECO_MANT.Datos" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://afrodita/WCFSIGECOSAP/SAPSIGECO_MANT.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="EArticulo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Bien" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Categoria" nillable="true" type="xs:string" />
+      <xs:element name="Codigo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Concepto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Empresa" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Grupo" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Local" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UM" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UnidadNegocio" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EArticulo" nillable="true" type="tns:EArticulo" />
+  <xs:complexType name="EPrecioArt">
+    <xs:sequence>
+      <xs:element name="Codigo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FinNF" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FinNI" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="InicioNF" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="InicioNI" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="MonedaNF" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MonedaNI" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PrecioNF" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="PrecioNI" nillable="true" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EPrecioArt" nillable="true" type="tns:EPrecioArt" />
+  <xs:complexType name="ECanal">
+    <xs:sequence>
+      <xs:element name="Codigo" nillable="true" type="xs:string" />
+      <xs:element name="Estado" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ECanal" nillable="true" type="tns:ECanal" />
+  <xs:complexType name="EGrupo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ECanal">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Canal" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EGrupo" nillable="true" type="tns:EGrupo" />
+  <xs:complexType name="EVendedor">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ESupervisor">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Cuenta" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CuentaUSD" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DNI" nillable="true" type="xs:string" />
+          <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Grupos" nillable="true" type="q1:ArrayOfstring" />
+          <xs:element minOccurs="0" name="Supervisor" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Tipo" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EVendedor" nillable="true" type="tns:EVendedor" />
+  <xs:complexType name="ESupervisor">
+    <xs:sequence>
+      <xs:element name="Codigo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Grupo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ESupervisor" nillable="true" type="tns:ESupervisor" />
+</xs:schema>

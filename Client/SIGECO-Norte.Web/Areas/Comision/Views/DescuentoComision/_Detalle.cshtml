@@ -1,0 +1,118 @@
+﻿@model SIGEES.Entidades.descuento_comision_detalle_dto
+
+<div class="easyui-layout" data-options="fit:true">
+	<div data-options="region:'north', border:false" style="padding:5px 5px 0px 5px;height:260px;">
+        <div class="easyui-layout" data-options="fit:true">
+            <div class="easyui-panel" title="Datos Generales" style="width: 100%;">
+                <table style="width:99%">
+                    <tr>
+                        <td class="tdEtiqueta">
+                            <label class="colGridModal">Vendedor</label>
+                        </td>
+                        <td class="tdValor">
+                            <input class="easyui-textbox" id="nombre_personal" name="nombre_personal" value="@Model.nombre_personal" style="width:100%;" disabled>
+                        </td>
+                        <td class="tdEtiqueta">
+                            <label class="colGridModal">Empresa</label>
+                        </td>
+                        <td class="tdValor">
+                            <input class="easyui-textbox" id="codigo_empresa" name="codigo_empresa" value="@Model.nombre_empresa" style="width: 99%" disabled />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tdEtiqueta">
+                            <label class="colGridModal">Monto</label>
+                        </td>
+                        <td class="tdValor">
+                            <input class="easyui-numberbox" id="monto" name="monto" value="@Model.monto" style="width: 50%;text-align:right;" data-options="required:true, min:0,max:999999, precision:2" disabled/>
+                        </td>
+                        <td class="tdEtiqueta">
+                            <label class="colGridModal">Saldo</label>
+                        </td>
+                        <td class="tdValor">
+                            <input class="easyui-numberbox" id="saldo" name="saldo" value="@Model.saldo" style="width: 50%;text-align:right;" data-options="required:true, min:0,max:999999, precision:2" disabled/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tdEtiqueta">
+                            <label class="colGridModal">Motivo</label>
+                        </td>
+                        <td class="tdDoble" colspan="3">
+                            <input class="easyui-textbox" name="motivo" id="motivo" value="@Model.motivo" style="width: 100%; height: 60px;" data-options="required: true,novalidate:true,multiline:true" disabled/>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="easyui-panel" title="Datos Auditoria" style="width: 100%;">
+                <table style="width:99%">
+                    <tr>
+                        <td class="tdEtiqueta">
+                            <label class="colGridModal">Fecha Registro</label>
+                        </td>
+                        <td class="tdValor">
+                            <input class="easyui-textbox" id="fecha_registra" name="fecha_registra" value="@Model.fecha_registra" style="width:100%;" disabled>
+                        </td>
+                        <td class="tdEtiqueta">
+                            <label class="colGridModal">Usuario Registro</label>
+                        </td>
+                        <td class="tdValor">
+                            <input class="easyui-textbox" id="usuario_registra" name="usuario_registra" value="@Model.usuario_registra" style="width: 99%" disabled />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tdEtiqueta">
+                            <label class="colGridModal">Fecha Desactivación</label>
+                        </td>
+                        <td class="tdValor">
+                            <input class="easyui-textbox" id="fecha_desactiva" name="fecha_desactiva" value="@Model.fecha_desactiva" style="width:100%;" disabled>
+                        </td>
+                        <td class="tdEtiqueta">
+                            <label class="colGridModal">Usuario Desactivación</label>
+                        </td>
+                        <td class="tdValor">
+                            <input class="easyui-textbox" id="usuario_desactiva" name="usuario_desactiva" value="@Model.usuario_desactiva" style="width: 99%" disabled />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+	</div>
+		
+    <div data-options="region:'center', border:false" style="padding:5px;">
+        <table id="dgDetalle" style="width: 100%; height:100%"></table>
+    </div>
+
+    <div data-options="region:'south', border:false" style="padding:3px;">
+        <div id="divRegistroBotones" style="width: 100%; height: 100%; display: inline-block; text-align:right;">
+            <a href="javascript:Cerrar()" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " iconcls="icon-cancel" id="btnCancelar">Cerrar</a>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="~/Areas/Comision/Scripts/Views/DescuentoComision/DescuentoComision.Detalle.js"></script>
+
+<script type="text/javascript">
+    var actionDetalleUrls =
+    {
+        GetPlanillaJson: '@Url.Action("GetPlanillaJson", "DescuentoComision", new { area = "Comision" })',
+        _codigo_descuento_comision: '@Model.codigo_descuento_comision',
+    };
+
+    $(document).ready(function () {
+        project.descuentocomision_detalle.Initialize(actionDetalleUrls);
+    });
+</script>
+
+<style>
+    .tdEtiqueta {
+        width: 15%;
+        padding: 5px;
+    }
+    .tdValor {
+        width: 35%;
+    }
+    .tdDoble {
+        width: 85%;
+    }
+</style>

@@ -1,0 +1,122 @@
+﻿<div id="flotante" class="panelGridModal">
+    <div class="panelGridModal" style="width: 45%; float: left;">
+        <div class="rowGridModal" style="width:100%;">
+            <div style="width: 50%; float:left; text-align: left;">
+                <label class="colGridModal">Campo santo</label>
+            </div>
+            <div style="width: 50%; float: left; text-align: right; font-weight: bold;">
+                <label class="colGridModal">@Model.informacion_espacio_dto.nombre_campo_santo</label>
+            </div>
+
+        </div>
+        <div class="rowBoth" />
+        <div class="rowGridModal" style="width:100%;">
+            <div style="width: 50%; float:left; text-align: left;">
+                <label class="colGridModal">Plataforma</label>
+            </div>
+            <div style="width: 50%; float: left; text-align: right; font-weight: bold;">
+                <label class="colGridModal">@Model.informacion_espacio_dto.nombre_plataforma</label>
+            </div>
+
+        </div>
+        <div class="rowBoth" />
+        <div class="rowGridModal" style="width:100%;">
+            <div style="width: 50%; float:left; text-align: left;">
+                <label class="colGridModal">Código</label>
+            </div>
+            <div style="width: 50%; float: left; text-align: right; font-weight: bold;">
+                <label class="colGridModal">@Model.informacion_espacio_dto.codigo_espacio</label>
+            </div>
+
+        </div>
+        <div class="rowBoth" />
+        <div class="rowGridModal" style="width:100%;">
+            <div style="width: 50%; float:left; text-align: left;">
+                <label class="colGridModal">Estado</label>
+            </div>
+            <div style="width: 50%; float: left; text-align: right; font-weight: bold;">
+                <label class="colGridModal">@Model.informacion_espacio_dto.nombre_estado_espacio</label>
+            </div>
+
+        </div>
+        <div class="rowBoth" />
+        <div class="rowGridModal" style="width:100%;">
+            <div style="width: 50%; float:left; text-align: left;">
+                <label class="colGridModal">Bien</label>
+            </div>
+            <div style="width: 50%; float: left; text-align: right; font-weight: bold;">
+                <label class="colGridModal">@Model.informacion_espacio_dto.nombre_tipo_bien</label>
+            </div>
+
+        </div>
+        <div class="rowBoth" />
+        <div class="rowGridModal" style="width:100%;">
+            <div style="width: 50%; float:left; text-align: left;">
+                <label class="colGridModal">Lapida</label>
+            </div>
+            <div style="width: 50%; float: left; text-align: right;font-weight:bold;">
+                @{
+                    string lapida = Model.informacion_espacio_dto.lapida == true ? "Si" : "No";
+                }
+                <label class="colGridModal">@lapida</label>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="panelGridModal" style="width: 45%; float: left;margin-left:5%;">
+        <div class="rowGridModal" style="width:100%;">
+            <div style="width: 50%; float:left; text-align: left;">
+                <label class="colGridModal">Eje izquierdo</label>
+            </div>
+            <div style="width: 50%; float: left; text-align: right; font-weight: bold;">
+                <label class="colGridModal">@Model.informacion_espacio_dto.eje_izquierdo</label>
+            </div>
+
+        </div>
+        <div class="rowBoth" />
+        <div class="rowGridModal" style="width:100%;">
+            <div style="width: 50%; float:left; text-align: left;">
+                <label class="colGridModal">Eje derecho</label>
+            </div>
+            <div style="width: 50%; float: left; text-align: right; font-weight: bold;">
+                <label class="colGridModal">@Model.informacion_espacio_dto.eje_derecho</label>
+            </div>
+
+        </div>
+        <div class="rowBoth" />
+        <div class="rowGridModal" style="width:100%;">
+            <div style="width: 50%; float:left; text-align: left;">
+                <label class="colGridModal">Eje superior</label>
+            </div>
+            <div style="width: 50%; float: left; text-align: right; font-weight: bold;">
+                <label class="colGridModal">@Model.informacion_espacio_dto.eje_superior</label>
+            </div>
+
+        </div>
+        <div class="rowBoth" />
+        <div class="rowGridModal" style="width:100%;">
+            <div style="width: 50%; float:left; text-align: left;">
+                <label class="colGridModal">Eje inferior</label>
+            </div>
+            <div style="width: 50%; float: left; text-align: right;font-weight:bold;">
+                <label class="colGridModal">@Model.informacion_espacio_dto.eje_inferior</label>
+            </div>
+
+        </div>
+        <div class="rowBoth" />
+        <div class="rowGridModal" style="width:100%;">
+            <div style="width: 50%; float:left; text-align: left;">
+                <label class="colGridModal">Encofrado</label>
+            </div>
+            <div style="width: 50%; float: left; text-align: right;font-weight:bold;">
+                @{
+                    string encofrado = Model.informacion_espacio_dto.encofrado == true ? "Si" : "No";
+                }
+                <label class="colGridModal">@encofrado</label>
+            </div>
+
+        </div>
+    </div>
+</div>

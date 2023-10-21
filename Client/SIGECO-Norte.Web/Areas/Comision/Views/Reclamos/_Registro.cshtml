@@ -1,0 +1,96 @@
+﻿<div id="dlgRegistrar" class="easyui-dialog" data-options="modal:true,closed:true,buttons:'#dlgRegistroBotones'"
+     style="width: 65%; height: 300px; padding:5px; line-height: 10px;">
+    
+    <div class="easyui-layout" data-options="fit:true" >
+        <form id="frmRegistro" method="post">
+            <div data-options="region:'center'">
+                <table style="width:99%;padding:3px;">
+                    <tr>
+                        <td class="tdEtiqueta">
+                            <label class="colGridModal">Vendedor</label>
+                        </td>
+                        <td style="width: 85%;" colspan="3">
+                            <input class="easyui-textbox" id="PersonalVentas" name="PersonalVentas" style="width:89%;" data-options="disabled:true">
+                            <a href="#" class="easyui-linkbutton" id="btnBuscarPersona" name="btnBuscarPersona" iconcls="icon-search"></a>
+                            <input type="hidden" id="hdCodigoPersonal" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tdEtiqueta">
+                            <label class="colGridModal">Empresa</label>
+                        </td>
+                        <td class="tdValor">
+                            <input class="easyui-combobox" id="cboEmpresa" name="cboEmpresa" style="width: 99%" data-options="required:true,editable:false" />
+                        </td>
+                        <td class="tdEtiqueta">
+                            <label class="colGridModal">Contrato</label>
+                        </td>
+                        <td class="tdValor">
+                            <input class="easyui-validatebox textbox" id="NroContrato" name="NroContrato" maxlength="10" style="width:120px;" data-options="required:true,novalidate:true,disabled:false" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tdEtiqueta">
+                            <label class="colGridModal">Articulo</label>
+                        </td>
+                        <td style="width: 85%;" colspan="3">
+                            <input class="easyui-textbox" id="Articulo" name="Articulo" style="width:89%" data-options="disabled:true" />
+                            <a href="#" class="easyui-linkbutton" id="btnBuscarArticulo" name="btnBuscarArticulo" iconcls="icon-search"></a>
+                            <input type="hidden" id="hdCodigoArticulo" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tdEtiqueta">
+                            <label class="colGridModal">Cuota</label>
+                        </td>
+                        <td class="tdValor">
+                            <input class="easyui-numberbox" id="Cuota" name="Cuota" maxlength="2" style="width: 120px" data-options="required:true, min:0,max:99" readonly />
+                        </td>
+                        <td class="tdEtiqueta">
+                            <label class="colGridModal">Importe Comisión</label>
+                        </td>
+                        <td class="tdValor">
+                            <input class="easyui-numberbox" id="ImporteOriginal" name="ImporteOriginal" style="width: 120px" data-options="required:true, min:0,max:9999999.99,precision:2,disabled:true" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tdEtiqueta">
+                            <label class="colGridModal">Error Contrato</label>
+                        </td>
+                        <td class="tdValor">
+                            <input class="easyui-textbox" id="error_contrato_migrado" name="error_contrato_migrado" style="width: 120px" data-options="disabled:true" />
+                        </td>
+                        <td class="tdEtiqueta">
+                            <label class="colGridModal">Importe</label>
+                        </td>
+                        <td class="tdValor">
+                            <input class="easyui-numberbox" id="Importe" name="Importe" style="width: 120px" data-options="required:true, min:0,max:9999999.99,precision:2" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tdEtiqueta">
+                            <label class="colGridModal">Observación</label>
+                        </td>
+                        <td style="width: 85%;" colspan="3">
+                            <input class="easyui-textbox" id="Observacion" name="Observacion" style="width: 99%; height: 40px" data-options="multiline:true,required:true" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div data-options="region:'south',border:false" style="text-align:right;vertical-align:central;padding:5px">
+                <a href="#" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " iconcls="icon-ok" id="btnGuardar">Guardar</a>
+                <a href="#" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " iconcls="icon-cancel" id="btnCancelar">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+<style>
+    .tdEtiqueta {
+        width: 14%;
+        padding: 5px;
+    }
+
+    .tdValor {
+        width: 36%;
+    }
+</style>

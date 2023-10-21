@@ -1,0 +1,65 @@
+﻿@model SIGEES.Web.Models.Bean.BeanItemTipoAcceso
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div style="width: 99%; background-color: #D3EBDE; vertical-align: middle; padding-top: 1%; padding-bottom: 2%; padding-left: 1%">
+
+    <center>
+        <h2>Gestión de Exclusiones</h2>
+    </center>
+
+    <div id="toolbar_planilla_opcion">
+        @if (Model.estadoLectura != null && Model.estadoLectura.CompareTo("A") == 0)
+        {
+            <a href="javascript:fnConsultarExclusion()" id="btnBuscar" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " data-options="iconCls:'icon-search'">Buscar</a>
+        }
+
+        @if (Model.estadoEscritura != null && Model.estadoEscritura.CompareTo("A") == 0)
+        {
+            <a href="javascript:fnHabilitarExclusion();" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " data-options="iconCls:'icon-add'">Habilitar Exclusión</a>
+        }
+
+    </div>
+</div>
+<br />
+<div style="width: 99%; padding-left: 1%;">
+    @if (Model.estadoLectura != null && Model.estadoLectura.CompareTo("A") == 0)
+    {
+        <table id="dgv_exclusion" style="width: 100%;"></table>
+    }
+</div>
+
+<div id="div_detalle_exclusion" class="easyui-dialog" data-options="resizable:false,modal:true,closed:true"
+     style="width: 60%; height: 620px;line-height: 5px;"></div>
+<div id="div_habilitar_exclusion" class="easyui-dialog" data-options="resizable:false,modal:true,closed:true"
+     style="width: 60%; height: 80%;line-height: 5px;"></div>
+
+@section scripts
+{
+    <script type="text/javascript" src="~/Areas/Comision/Scripts/Views/GestionExclusion/exclusion.index.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            var actionUrls =
+            {
+                _GetPagosExcluidoAllJson: '@Url.Action("GetPagosExcluidoAllJson", "GestionExclusion", new { area = string.Empty })',
+                _Detalle_Exclusion: '@Url.Action("_Detalle_Exclusion", "GestionExclusion", new { area = "Comision" })',
+                _Registrar_Exclusion: '@Url.Action("_Registrar_Exclusion", "GestionExclusion", new { area = "Comision" })'
+
+            };
+
+            project.index.Initialize(actionUrls);
+        });
+    </script>
+}
+
+
+<style>
+    .dg-nocheck .datagrid-cell-check {
+        display: none;
+    }
+</style>

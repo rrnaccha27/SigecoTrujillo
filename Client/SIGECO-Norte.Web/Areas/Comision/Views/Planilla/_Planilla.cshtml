@@ -1,0 +1,282 @@
+﻿@model SIGEES.Web.Areas.Comision.Models.PlanillaViewModel
+@{
+    int codigo_planilla = Model.planilla.codigo_planilla;
+    string fecha_actual = DateTime.Now.ToShortDateString();
+    string tituloAuditoria = "";
+    string fechaAuditoria = "";
+    string usuarioAuditoria = "";
+    if (Model.planilla.codigo_estado_planilla == (int)SIGEES.Web.Areas.Comision.Utils.EstadoPlanilla.anulado)
+    {
+        tituloAuditoria = "Anulación";
+        fechaAuditoria = Model.planilla.fecha_anulacion == null ? "" : DateTime.Parse(Model.planilla.fecha_anulacion.ToString()).ToString("dd/MM/yyyy HH:mm:ss"); ;
+        usuarioAuditoria = Model.planilla.usuario_anulacion;
+    }
+    else if (Model.planilla.codigo_estado_planilla == (int)SIGEES.Web.Areas.Comision.Utils.EstadoPlanilla.cerrado)
+    {
+        tituloAuditoria = "Cierre";
+        fechaAuditoria = Model.planilla.fecha_cierre == null ? "" : DateTime.Parse(Model.planilla.fecha_cierre.ToString()).ToString("dd/MM/yyyy HH:mm:ss"); ;
+        usuarioAuditoria = Model.planilla.usuario_cierre;
+    }
+    else
+    {
+        tituloAuditoria = "Cierre";
+    }
+}
+
+<div class="easyui-layout" data-options="fit:true">
+    <div data-options="region:'north', border:false" style="padding:5px;height:223px;">
+        <div class="easyui-layout" data-options="fit:true">
+            <div data-options="region:'center',border:false" style="width:100%">
+                <div class="easyui-layout" data-options="fit:true">
+                    <div class="easyui-panel" title="Datos Generales" style="width:99%; ">
+                        <form id="fmr_registrar_planilla">
+                            <div class="rowGridModalDouble" style="width:12%;">
+                                <label class="colGridModal">N&uacute;mero Planilla</label>
+                            </div>
+                            <div class="rowGridModalDouble" style="width:15%;">
+                                <input class="easyui-textbox" type="text" value="@Model.planilla.numero_planilla" style="width: 100%;" data-options="disabled:true" id="txt_numero_planilla" />
+                            </div>
+                            <div class="rowGridModalDouble" style="width:12%;">
+                                <label class="colGridModal">Planilla</label>
+                            </div>
+                            <div class="rowGridModalDouble" style="width:15%;">
+                                @if (codigo_planilla > 0)
+                                {
+                                    <input id="cmb_regla_tipo_planilla" value="@Model.planilla.codigo_regla_tipo_planilla" class="easyui-combobox" style="width:100%;" data-options="required:true,novalidate:true,editable:false,disabled:true">
+                                }
+                                else
+                                {
+                                    <input id="cmb_regla_tipo_planilla" class="easyui-combobox" style="width:100%;" data-options="required:true,novalidate:true,editable:false">
+                                }
+                            </div>
+                            <div class="rowGridModalDouble" style="width:12%;">
+                                <label class="colGridModal">Tipo Planilla</label>
+                            </div>
+                            <div class="rowGridModalDouble" style="width:15%;">
+                                @if (codigo_planilla > 0)
+                                {
+                                    <input id="cmb_tipo_planilla" value="@Model.planilla.codigo_tipo_planilla" class="easyui-combobox" style="width:100%;" data-options="disabled:true">
+                                }
+                                else
+                                {
+                                    <input id="cmb_tipo_planilla" value="" class="easyui-combobox" style="width:100%;" data-options="disabled:true">
+                                }
+                            </div>
+                            <!--segunda linea-->
+                            <div class="rowBoth"></div>
+                            <div class="rowGridModalDouble" style="width:12%;">
+                                <label class="colGridModal">Fecha Inicio</label>
+                            </div>
+                            <div class="rowGridModalDouble" style="width:15%;">
+                                @if (codigo_planilla > 0)
+                                {
+                                    <input class="easyui-datebox" type="text" value="@Model.planilla.fecha_inicio" style="width: 100%;"
+                                           data-options="required:true,disabled:true,novalidate:true,validType:'fechaMenorAHoyYMenorA[\'#dtp_fecha_fin\',\'Fecha Fin\',\'dd/MM/yyyy\']'" id="dtp_fecha_inicio" />
+                                }
+                                else
+                                {
+
+                                    <input class="easyui-datebox" type="text" style="width: 100%;"
+                                           data-options="required:true,editable: false,novalidate:true,validType:'fechaMenorAHoyYMenorA[\'#dtp_fecha_fin\',\'Fecha Fin\',\'dd/MM/yyyy\']'" id="dtp_fecha_inicio" />
+
+                                }
+                            </div>
+                            <div class="rowGridModalDouble" style="width:12%;">
+                                <label class="colGridModal">Fecha Fin</label>
+                            </div>
+                            <div class="rowGridModalDouble" style="width:15%;">
+                                @if (codigo_planilla > 0)
+                                {
+                                    <input class="easyui-datebox" type="text" value="@Model.planilla.fecha_fin" style="width: 100%;"
+                                           data-options="required:true,disabled:true,novalidate:true,validType:'MenorIgualAHoy[\'dd/MM/yyyy\',\'#dtp_fecha_fin\']'" id="dtp_fecha_fin" />
+                                }
+                                else
+                                {
+                                    <input class="easyui-datebox" type="text" value="@fecha_actual" style="width: 100%;"
+                                           data-options="required:true,editable: false,novalidate:true,validType:'MenorIgualAHoy[\'dd/MM/yyyy\',\'#dtp_fecha_fin\']'" id="dtp_fecha_fin" />
+                                }
+                            </div>
+                            <div class="rowGridModalDouble" style="width:12%;">
+                                <label class="colGridModal">Estado</label>
+                            </div>
+                            <div class="rowGridModalDouble" style="width:15%;">
+                                @if (codigo_planilla > 0)
+                                {
+                                    <input class="easyui-textbox" type="text" value="@Model.planilla.estado_planilla.nombre" style="width: 100%;" data-options="disabled:true" />
+                                }
+                                else
+                                {
+
+                                    <input class="easyui-textbox" type="text" value="Abierto" style="width: 100%;" data-options="disabled:true" />
+                                }
+
+                            </div>
+
+                        </form>
+                    </div>
+                    <div class="easyui-panel" title="Datos de Auditoria" style="width:99%; ">
+                        <div class="rowGridModalDouble" style="width:12%;">
+                            <label class="colGridModal">Fecha Apertura</label>
+                        </div>
+                        <div class="rowGridModalDouble" style="width:15%;">
+                            <input class="easyui-textbox" type="text" value="@Model.planilla.fecha_apertura.ToString("dd/MM/yyyy HH:mm:ss")" style="width: 100%;" data-options="disabled:true" />
+                        </div>
+                        <div class="rowGridModalDouble" style="width:12%;">
+                            <label class="colGridModal">Usuario</label>
+                        </div>
+                        <div class="rowGridModalDouble" style="width:42%;">
+                            <input class="easyui-textbox" type="text" value="@Model.planilla.usuario_apertura" style="width: 100%;" data-options="disabled:true" />
+                        </div>
+                        <!--segunda linea-->
+                        <div class="rowBoth"></div>
+                        <div class="rowGridModalDouble" style="width:12%;">
+                            <label class="colGridModal">Fecha @tituloAuditoria</label>
+                        </div>
+                        <div class="rowGridModalDouble" style="width:15%;">
+                            <input class="easyui-textbox" type="text" value="@fechaAuditoria" style="width: 100%;" data-options="disabled:true" />
+                        </div>
+                        <div class="rowGridModalDouble" style="width:12%;">
+                            <label class="colGridModal">Usuario</label>
+                        </div>
+                        <div class="rowGridModalDouble" style="width:42%;">
+                            <input class="easyui-textbox" type="text" value="@usuarioAuditoria" style="width: 100%;" data-options="disabled:true" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div data-options="region:'east',border:false" style="width:200px">
+                <div class="easyui-panel" title="Opciones" style="width: 100%; ">
+                    @{
+                        if (codigo_planilla <= 0)
+                        {
+                            <a href="javascript:RegistrarPlanilla();" class="easyui-linkbutton" iconcls="icon-gear" style="text-align: left; padding: 2px 0px 2px 15px; width: 99%">Aperturar</a>
+                        }
+                        else
+                        {
+                            
+                           
+                            if ((Model.planilla.codigo_estado_planilla == (int)SIGEES.Web.Areas.Comision.Utils.EstadoPlanilla.abierto) && (Model.bean.estadoEscritura != null && Model.bean.estadoEscritura.CompareTo("A") == 0))
+                            {
+                                <a href="javascript:CerrarPlanilla(@Model.planilla.codigo_planilla);" class="easyui-linkbutton" iconcls="icon-ok" style="text-align: left; padding: 2px 0px 2px 15px; width: 99%">Cerrar Planilla</a>
+                                <a href="javascript:AnularPlanilla(@Model.planilla.codigo_planilla);" class="easyui-linkbutton" iconcls="icon-cancel" style="text-align: left; padding: 2px 0px 2px 15px; width: 99%">Anular</a>
+                            }
+                        }
+                    }
+                    <a href="javascript:cerrar_planilla();" class="easyui-linkbutton" iconcls="icon-undo" style="text-align: left; padding: 2px 0px 2px 15px; width: 99%">Salir</a>
+                    @*<a href="javascript:generar_comision_excel();" class="easyui-linkbutton" iconcls="icon-undo" style="text-align: left; padding: 2px 0px 2px 15px; width: 99%">Generar Excel</a>*@
+                </div>
+            </div>
+        </div>
+    </div>
+    <div data-options="region:'center',border:false" style="padding:0px 5px 5px 5px;">
+        <div class="easyui-panel" title="Detalle Planilla" style="height:100%">
+            <div class="easyui-tabs" style="height:100%">
+                <div title="Pagos Habilitados" style="padding:10px">
+                    <table id="dgv_planilla_pago_habilitado" style="width:100%;height:100%"></table>
+                </div>          
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<div id="mnuReportesComision" class="easyui-menu">
+    <div onclick="fnReportePlanilla(@Model.planilla.codigo_planilla);">Reporte Planilla</div>
+    <div onclick="fnReporteLiquidacion(@Model.planilla.codigo_planilla);">Reporte Liquidación</div>
+    <div onclick="fnReporteResumenLiquidacion(@Model.planilla.codigo_planilla);">Reporte Resúmen Liq.</div>
+</div>*@
+
+<div id="div_registrar_descuento" class="easyui-dialog" data-options="resizable:true,modal:true,closed:true"
+     style="width: 50%; height: 80%;line-height: 15px;"></div>
+
+<div id="div_registrar_contrato" class="easyui-dialog" data-options="resizable:true,modal:true,closed:true,maximizable:true"
+     style="width: 90%; height: 90%;line-height: 15px;"></div>
+
+<div id="div_reporte_general" class="easyui-dialog" data-options="resizable:true,modal:true,closed:true"
+     style="width: 100%; height: 100%;line-height: 20px;"></div>
+
+<div id="div_exclusion_planilla" class="easyui-dialog" data-options="resizable:true,modal:true,closed:true"
+     style="width: 400px; height: 224px;line-height: 15px;"></div>
+
+<div id="toolbar_pago_descuento">
+    @*@{
+        if ((Model.planilla.codigo_estado_planilla == (int)SIGEES.Web.Areas.Comision.Utils.EstadoPlanilla.abierto) && (Model.bean.estadoEscritura != null && Model.bean.estadoEscritura.CompareTo("A") == 0))
+        {
+            <a href="javascript:fnNuevoDescuento(@Model.planilla.codigo_planilla);" iconcls="icon-gear" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; ">Generar</a>
+            <a href="javascript:fnDesactivarDescuento();" class="easyui-linkbutton" iconcls="icon-remove" style="padding: 0px 10px 0px 10px; ">Desactivar</a>
+        }
+    }*@
+</div>
+
+<div id="toolbar_pago_habilitado">
+    @{
+        if (Model.planilla.codigo_planilla > 0)
+        {
+            <label class="colGridModal">Vendedor :</label>
+            <input id="cmbg_personal_planilla" class="easyui-combogrid" data-options="required:true,novalidate:true,editable:true" style="width:300px">
+            <a href="javascript:fnFiltrarPlanilla();" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " iconcls="icon-search" >Buscar</a>
+            <a href="javascript:fnLimpiarFiltrarPlanilla();" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " iconcls="icon-eraser">Limpiar</a>
+            @*<a href="javascript:fnNuevoAnalisisContrato(@Model.planilla.codigo_planilla);" iconcls="icon-detail" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; ">Análisis de Comisión</a>*@
+        }
+        @*if ((Model.planilla.codigo_estado_planilla == (int)SIGEES.Web.Areas.Comision.Utils.EstadoPlanilla.abierto) && (Model.bean.estadoEscritura != null && Model.bean.estadoEscritura.CompareTo("A") == 0))
+        {
+            <a href="javascript:excluir_planilla(@Model.planilla.codigo_planilla);" class="easyui-linkbutton" iconcls="icon-remove" style="padding: 0px 10px 0px 10px; ">Excluir</a>
+        }*@
+    }
+</div>
+
+@*MYJ - 20171124*@
+@*<div id="toolbar_pago_inclusion">
+    @{
+        if ((Model.planilla.codigo_estado_planilla == (int)SIGEES.Web.Areas.Comision.Utils.EstadoPlanilla.abierto) && (Model.bean.estadoEscritura != null && Model.bean.estadoEscritura.CompareTo("A") == 0))
+        {
+            <label class="colGridModal">Nro. Contrato :</label>
+            <input class="easyui-validatebox textbox" id="nro_contrato_incluir" maxlength="20" style="width:150px;" data-options="required:true,novalidate:true,editable:true" />
+            <a href="javascript:fnIncluirListar();" id="btnIncluirListar" class="easyui-linkbutton" iconcls="icon-search" style="padding: 0px 10px 0px 10px; ">Buscar</a>
+            <a href="javascript:fnIncluirLimpiar();" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " iconcls="icon-eraser">Limpiar</a>
+            <a href="javascript:void(0);" id="btnIncluirProcesar" class="easyui-linkbutton" iconcls="icon-add" style="padding: 0px 10px 0px 10px; " data-options="disabled:true">Incluir</a>
+        }
+    }
+</div>*@
+
+<script type="text/javascript" src="~/Areas/Comision/Scripts/Views/Planilla/planilla.planilla.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var actionUrls =
+        {
+            _Registrar: '@Url.Action("Registrar", "Planilla", new { area = string.Empty })',
+            _GetEmpresaJson: '@Url.Action("GetEmpresaJson", "Articulo", new { area = string.Empty })',
+            _Anular: '@Url.Action("Anular", "Planilla", new { area = string.Empty })',
+            GenerarDescuento: '@Url.Action("GenerarDescuento", "DescuentoComision", new { area = "Comision" })',
+            ValidarDescuentos: '@Url.Action("ValidarPlanilla", "DescuentoComision", new { area = "Comision" })',
+            _Descuento_Desactivar: '@Url.Action("Descuento_Desactivar", "Planilla", new { area = "Comision" })',
+            _Analisis_Contrato: '@Url.Action("_Analisis_Contrato", "Planilla", new { area = "Comision" })',
+            _Reporte: '@Url.Action("_Reporte_Planilla", "Planilla", new { area = "Comision" })',
+            _Reporte_Liquidacion: '@Url.Action("_Reporte_Liquidacion", "Planilla", new { area = "Comision" })',
+            _Reporte_Resumen_Liquidacion: '@Url.Action("_Reporte_Resumen_Liquidacion", "Planilla", new { area = "Comision" })',
+            _Enviar_Correo_Liquidacion: '@Url.Action("_Enviar_Correo_Liquidacion", "Planilla", new { area = "Comision" })',
+
+            _Cerrar: '@Url.Action("Cerrar", "Planilla", new { area = string.Empty })',
+            _Exclusion: '@Url.Action("_Exclusion", "Planilla", new { area = "Comision" })',
+            _Excluir: '@Url.Action("Excluir", "Planilla", new { area = string.Empty })',
+            _GetCanalJson: '@Url.Action("GetCanalJson", "Planilla", new { area = string.Empty })',
+            _GetTipoPlanillaJson: '@Url.Action("GetTipoPlanillaJson", "Planilla", new { area = string.Empty })',
+            _GetPagoHabilitadoJson: '@Url.Action("GetPagosHabilitadoJson", "Planilla", new { area = string.Empty })',
+            _GetPagosExcluidoJson: '@Url.Action("GetPagosExcluidoJson", "Planilla", new { area = string.Empty })',
+            _GetPagosDescuentoJson: '@Url.Action("GetPagosDescuentoJson", "Planilla", new { area = string.Empty })',
+            _GetFilterTipoVentaJson: '@Url.Action("GetFilterTipoVentaJson", "Planilla", new { area = string.Empty })',
+            _codigo_planilla: '@codigo_planilla',
+            _numero_planilla: '@Model.planilla.numero_planilla',
+            _codigo_estado_planilla: '@Model.planilla.codigo_estado_planilla',
+            _GetPersonalPlanillaAllJson: '@Url.Action("GetPersonalPlanillaAllJson", "Personal", new { area = string.Empty })',
+            _GetReglaTipoPlanillaJson: '@Url.Action("GetComboReglaTipoPlanillaAllJson", "Planilla", new { area = string.Empty })',
+            GenerarTxt: '@Url.Action("GenerarTxt", "Planilla", new { area = "Comision" })',
+            _Incluir_Listar: '@Url.Action("Incluir_Listar", "Planilla", new { area = "Comision" })',//MYJ - 20171124
+            _Incluir_Procesar: '@Url.Action("Incluir_Procesar", "Planilla", new { area = "Comision" })',//MYJ - 20171124
+            _GetPagosComisionManualJson: '@Url.Action("GetPagosComisionManualJson", "Planilla", new { area = "Comision" })',
+
+            SetDataExcel: '@Url.Action("SetDataExcel", "Planilla", new { area = "Comision" })',
+            GenerarExcel: '@Url.Action("GenerarExcel", "Planilla", new { area = "Comision" })',
+        };
+        project.planilla.Initialize(actionUrls);
+    });
+</script>

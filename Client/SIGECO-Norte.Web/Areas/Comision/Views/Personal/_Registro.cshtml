@@ -1,0 +1,287 @@
+﻿@model SIGEES.Entidades.personal_dto
+@{
+    string esJuridica = (Model.codigo_personal != -1 ? Model.es_persona_juridica : false) ? "checked" : "";
+    int? tipoDocumento = Model.codigo_personal != -1 ? Model.codigo_tipo_documento : (int?)null;
+    int? banco = Model.codigo_personal != -1 ? Model.codigo_banco : (int?)null;
+}
+
+<div class="easyui-layout" data-options="fit:true">
+    <div data-options="region:'center', border:false">
+        <div id="tabPersonal" class="easyui-tabs" style="width:100%;height:100%">
+            <div title="Datos Principales" style="padding:10px;">
+                <form id="frmRegistro" method="post">
+                    <div class="easyui-panel" title="Datos Generales" style="width: 100%;">
+                        <div class="panelGridModal">
+                            <table style="width:100%">
+                                <tr>
+                                    <td class="tdEtiqueta">
+                                        <label class="colGridModal">Persona Jurídica</label>
+                                    </td>
+                                    <td class="tdValor">
+                                        <input class="easyui-switchbutton" id="es_persona_juridica" name="es_persona_juridica" @esJuridica data-options="onText:'Si', offText:'No', required:true" />
+                                    </td>
+                                    <td class="tdEtiqueta">
+                                        <label class="colGridModal">Tipo Documento</label>
+                                    </td>
+                                    <td class="tdValor">
+                                        <input class="easyui-combobox" id="cboTipo_Documento" name="cboTipo_Documento" value="@tipoDocumento" style="width: 85%" data-options="required:true, editable:false" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tdEtiqueta">
+                                        <label class="colGridModal">Nro RUC</label>
+                                    </td>
+                                    <td class="tdValor">
+                                        <input class="easyui-validatebox textbox" id="nro_ruc" name="nro_ruc" value="@Model.nro_ruc" maxlength="11" style="width:85%" data-options="required:false,novalidate:true,editable:true,validType:'ValidarNumeros'" />
+                                    </td>
+                                    <td class="tdEtiqueta">
+                                        <label class="colGridModal">Nro Documento</label>
+                                    </td>
+                                    <td class="tdValor">
+                                        <input class="easyui-validatebox textbox" id="nro_documento" name="nro_documento" value="@Model.nro_documento" maxlength="15" style="width:85%" data-options="required:false,novalidate:true,editable:true,validType:'ValidarNumeros'" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tdEtiqueta">
+                                        <label class="colGridModal">Nombres</label>
+                                    </td>
+                                    <td style="width:80%" colspan="3">
+                                        <input class="easyui-textbox" id="txt_nombre_personal" name="nombre" value="@Model.nombre" style="width:95%" data-options="required:true" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tdEtiqueta">
+                                        <label class="colGridModal">Ap Paterno</label>
+                                    </td>
+                                    <td class="tdValor">
+                                        <input class="easyui-textbox" id="apellido_paterno" name="apellido_paterno" value="@Model.apellido_paterno" style="width:85%" />
+                                    </td>
+                                    <td class="tdEtiqueta">
+                                        <label class="colGridModal">Ap Materno</label>
+                                    </td>
+                                    <td class="tdValor">
+                                        <input class="easyui-textbox" id="apellido_materno" name="apellido_materno" value="@Model.apellido_materno" style="width:85%" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tdEtiqueta">
+                                        <label class="colGridModal">Teléfono Fijo</label>
+                                    </td>
+                                    <td class="tdValor">
+                                        <input class="easyui-validatebox textbox" id="telefono_fijo" name="telefono_fijo" maxlength="10" style="width:85%" value="@Model.telefono_fijo" data-options="required:true,novalidate:true,editable:true,validType:'ValidarTelefono'" />
+                                    </td>
+                                    <td class="tdEtiqueta">
+                                        <label class="colGridModal">Teléfono Celular</label>
+                                    </td>
+                                    <td class="tdValor">
+                                        <input class="easyui-validatebox textbox" id="telefono_celular" name="telefono_celular" maxlength="10" value="@Model.telefono_celular" style="width:85%" data-options="required:true,novalidate:true,editable:true,validType:'ValidarTelefono'" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tdEtiqueta">
+                                        <label class="colGridModal">Email</label>
+                                    </td>
+                                    <td class="tdValor">
+                                        <input class="easyui-textbox" id="correo_electronico" name="correo_electronico" value="@Model.correo_electronico" style="width:85%" data-options="required:true,validType:'email'" />
+                                    </td>
+                                    <td class="tdEtiqueta">Dirección</td>
+                                    <td class="tdValor">
+                                        <input class="easyui-textbox" id="direccion" name="correo_electronico" value="@Model.direccion" style="width:85%" data-options="required:true" />
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tdEtiqueta">
+                                        <label class="colGridModal">Contacto</label>
+                                    </td>
+                                    <td class="tdValor">
+                                        <input class="easyui-textbox" id="contacto" name="correo_electronico" value="@Model.contacto" style="width:85%" data-options="required:true" />
+                                    </td>
+                                    <td class="tdEtiqueta"></td>
+                                    <td class="tdValor"></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="easyui-panel" title="Datos Bancarios" style="width: 100%;">
+                        <div class="panelGridModal">
+                            <table style="width:100%">
+                                <tr>
+                                    <td class="tdEtiqueta">
+                                        <label class="colGridModal">Banco</label>
+                                    </td>
+                                    <td class="tdValor">
+                                        <input class="easyui-combobox" id="cboCodigo_Banco" name="cboCodigo_Banco" value="@banco" style="width: 85%" data-options="required:true, editable:false" />
+                                    </td>
+                                    <td class="tdEtiqueta"></td>
+                                    <td class="tdValor"></td>
+                                </tr>
+                                <tr>
+                                    <td class="tdEtiqueta">
+                                        <label class="colGridModal">Nro Cuenta</label>
+                                    </td>
+                                    <td class="tdValor">
+                                        <input class="easyui-validatebox textbox" id="nro_cuenta" name="nro_cuenta" value="@Model.nro_cuenta" maxlength="50" style="width:85%" data-options="required:true,novalidate:true,editable:true,validType:'ValidarCuentaBancaria'" />
+                                    </td>
+                                    <td class="tdEtiqueta">
+                                        <label class="colGridModal">Cod Interbancario</label>
+                                    </td>
+                                    <td class="tdValor">
+                                        <input class="easyui-validatebox textbox" id="codigo_interbancario" name="codigo_interbancario" value="@Model.codigo_interbancario" maxlength="50" style="width:85%" data-options="required:true,novalidate:true,editable:true,validType:'ValidarCuentaBancaria'" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tdEtiqueta">
+                                        <label class="colGridModal">Tipo Cuenta</label>
+                                    </td>
+                                    <td class="tdValor">
+                                        @{
+                                            if (Model.codigo_tipo_cuenta > 0)
+                                            {
+                                                <input class="easyui-combobox" id="cmb_tipo_cuenta" value="@Model.codigo_tipo_cuenta" style="width:85%" data-options="required:true,novalidate:true,editable:false" />
+                                            }
+                                            else
+                                            {
+                                                <input class="easyui-combobox" id="cmb_tipo_cuenta" value="" style="width:85%" data-options="required:true,novalidate:true,editable:false" />
+                                            }
+
+                                        }
+
+                                    </td>
+                                    <td class="tdEtiqueta">
+                                        <label class="colGridModal">Moneda</label>
+                                    </td>
+                                    <td class="tdValor">
+                                        @{
+                                            if (Model.codigo_moneda > 0)
+                                            {
+                                                <input class="easyui-combobox" id="cmb_moneda" value="@Model.codigo_moneda" style="width:85%" data-options="required:true,novalidate:true,editable:false" />
+                                            }
+                                            else
+                                            {
+                                                <input class="easyui-combobox" id="cmb_moneda" value="" style="width:85%" data-options="required:true,novalidate:true,editable:false" />
+                                            }
+
+                                        }
+
+                                    </td>
+                                </tr>
+                            </table>
+
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div title="Canal\Grupo de Ventas" style="padding:10px;">
+                <div id="tb" style="width: 100%">
+                    <a href="javascript:NuevoRegistro()" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " data-options="iconCls:'icon-add'" id="btnNuevoRegistro">Asignar</a>
+                    <a href="javascript:EliminarRegistro()" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " data-options="iconCls:'icon-remove'" id="btnQuitarRegistro">Quitar</a>
+                    <a href="javascript:AceptarRegistro()" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " data-options="iconCls:'icon-save', disabled:true" id="btnAceptarRegistro">Aceptar</a>
+                    <a href="javascript:CancelarRegistro()" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " data-options="iconCls:'icon-cancel', disabled:true" id="btnCancelarRegistro">Cancelar</a>
+                </div>
+                <div style="width: 100%;height:100%">
+                    <table id="dgCanales" style="width: 100%"></table>
+                </div>
+            </div>
+            @*<div title="Datos Adicionales" style="padding:10px;">
+                <div class="easyui-panel" title="Datos Auditoria" style="width: 100%;">
+                    <div class="panelGridModal">
+                        <table style="width:100%">
+                            <tr>
+                                <td class="tdEtiqueta">
+                                    <label class="colGridModal">Estado</label>
+                                </td>
+                                <td class="tdValor">
+                                    <input class="easyui-textbox" id="estado" name="estado" value="@Model.estado_registro_texto" maxlength="50" style="width:85%" disabled />
+                                </td>
+                                <td class="tdEtiqueta"></td>
+                                <td class="tdValor"></td>
+                            </tr>
+                            <tr>
+                                <td class="tdEtiqueta">
+                                    <label class="colGridModal">Fecha Registro</label>
+                                </td>
+                                <td class="tdValor">
+                                    <input class="easyui-textbox" id="fecha_registra" name="fecha_registra" value="@Model.fecha_registra_texto" maxlength="50" style="width:85%" disabled />
+                                </td>
+                                <td class="tdEtiqueta">
+                                    <label class="colGridModal">Usuario Registro</label>
+                                </td>
+                                <td class="tdValor">
+                                    <input class="easyui-textbox" id="usuario_registra" name="usuario_registra" value="@Model.usuario_registra" maxlength="50" style="width:85%" disabled />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="tdEtiqueta">
+                                    <label class="colGridModal">Fecha Modifica</label>
+                                </td>
+                                <td class="tdValor">
+                                    <input class="easyui-textbox" id="fecha_modifica" name="fecha_modifica" value="@Model.fecha_modifica_texto" maxlength="50" style="width:85%" disabled />
+                                </td>
+                                <td class="tdEtiqueta">
+                                    <label class="colGridModal">Usuario Modifica</label>
+                                </td>
+                                <td class="tdValor">
+                                    <input class="easyui-textbox" id="usuario_modifica" name="usuario_modifica" value="@Model.usuario_modifica" maxlength="50" style="width:85%" disabled />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <br />
+                    <div style="width: 100%;height:100%">
+                        <table id="dgHistoricoValidaciones" style="width: 100%"></table>
+                    </div>
+                </div>
+            </div>
+            <div title="Bloqueos Planilla" style="padding:10px;">
+                <div style="width: 100%;height:100%">
+                    <table id="dgHistoricoBloqueo" style="width: 100%"></table>
+                </div>
+            </div>*@
+        </div>
+    </div>
+    <div data-options="region:'south', border:false" style="padding:5px;">
+        <div id="divRegistroBotones" style="width: 100%; height: 100%; display: inline-block; text-align:right;">
+            <a href="javascript:GuardarPersonal()" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " iconcls="icon-ok" id="btnGuardar">Guardar</a>
+            <a href="javascript:Cancelar()" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " iconcls="icon-cancel" id="btnCancelar">Cancelar</a>
+        </div>
+    </div>
+</div>
+
+<style>
+    .tdEtiqueta {
+        width: 20%;
+        padding: 5px;
+    }
+
+    .tdValor {
+        width: 30%;
+    }
+</style>
+
+<script type="text/javascript" src="~/Areas/Comision/Scripts/Views/Personal/project.Personal.CanalGrupo.js"></script>
+<script>
+
+    $(document).ready(function () {
+
+        var actionUrls =
+        {
+            GetTipoCuentaJson: '@Url.Action("GetTipoCuentaJson", "Personal", new { area = "comision" })',
+            GetTipoDocumentoJson: '@Url.Action("GetTipoDocumentoJson", "Personal", new { area = "comision" })',
+            GetBancoJson: '@Url.Action("GetBancoJson", "Personal", new { area = "comision" })',
+            GetPersonalCanalesJson: '@Url.Action("GetPersonalCanalesJson", "Personal", new { area = "comision" })',
+            GetCanalGrupoJson: '@Url.Action("GetCanalGrupoJson", "Personal", new { area = "comision" })',
+            Guardar: '@Url.Action("Guardar", "Personal", new { area = "comision" })',
+            codigo_personal: '@Model.codigo_personal',
+            estado_registro: '@Model.estado_registro',
+            GetTipoMonedaJson: '@Url.Action("GetTipoMonedaJson", "Personal", new { area = "comision" })',
+            GetHistorialValidacionJson: '@Url.Action("GetHistorialValidacionJson", "Personal", new { area = "comision" })',
+            GetHistorialBloqueoJson: '@Url.Action("GetHistorialBloqueoJson", "Personal", new { area = "comision" })'
+        };
+
+        project.Personal.Initialize(actionUrls);
+    });
+
+
+</script>

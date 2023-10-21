@@ -1,0 +1,403 @@
+﻿@model SIGEES.Web.Models.Bean.BeanItemTipoAcceso
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<input type="hidden" id="hdCodigoEmpresa" />
+<input type="hidden" id="hdNroContrato" />
+
+<div style="width: 99%; background-color: #D3EBDE; vertical-align: middle; padding-top: 2%; padding-bottom: 2%; padding-left: 1%">
+    <center>
+        <h2>Contratos migrados</h2>
+    </center>
+    <br />
+    <div style="width: 100%">
+        <label class="colGridModal">Fecha Contrato:</label>&nbsp;&nbsp;<label class="colGridModal">Inicio</label>&nbsp;
+        <input class="easyui-datebox" id="fechaInicio" name="fechaInicio" style="width:140px;" data-options="required:true" />&nbsp;&nbsp;&nbsp;
+        <label class="colGridModal">Fin</label>&nbsp;
+        <input class="easyui-datebox" id="fechaFin" name="fechaFin" style="width:140px;" data-options="required:true" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label class="colGridModal">Canal de Venta:</label>&nbsp;
+        <input class="easyui-combobox" id="codigo_canal" name="codigo_canal" style="width: 30%" data-options="required:true,editable:false,multiple:true" />
+    </div>
+    <br />
+    <div style="width: 100%">
+        @if (Model.estadoLectura.CompareTo("A") == 0)
+        {
+            <a href="javascript:GetAllJson()" id="btnBuscar" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " data-options="iconCls:'icon-search'">Buscar</a>
+            <a href="javascript:Detalle()" id="btnModificar" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " data-options="iconCls:'icon-detail'">Detalle</a>
+            <a href="javascript:AnalisisComision()" id="btnAnalisis" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " data-options="iconCls:'icon-detail'">Análisis de Comisión</a>
+        }
+        @*@if (Model.estadoModificacion.CompareTo("A") == 0)
+        {
+            <a href="javascript:HabilitarReproceso()" id="btnHabilitarReproceso" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " data-options="iconCls:'icon-edit'">Habilitar ReProceso</a>
+        }*@
+    </div>
+</div>
+<br />
+<div style="width: 99%; padding-left: 1%">
+    @if (Model.estadoLectura.CompareTo("A") == 0)
+    {
+        <table id="DataGrid" style="width: 100%"></table>
+    }
+</div>
+
+<div id="dlgDetalle" class="easyui-dialog" data-options="modal:true,closed:true,buttons:'#divRegistroBotones'"
+     style="width: 50%; height: 400px; padding: 5px 5px; line-height: 10px;">
+</div>
+
+<div id="dglAnalisis" class="easyui-dialog" data-options="resizable:true,modal:true,closed:true,maximizable:true"
+     style="width: 95%; height: 95%;line-height: 15px;"></div>
+
+<script type="text/javascript">
+    var actionUrls =
+    {
+        GetFechas: '@Url.Action("GetFechas", "LogContratoSAP", new { area = "Comision" })',
+        GetAllJson: '@Url.Action("GetAllJson", "LogContratoSAP", new { area = "Comision" })',
+        Detalle: '@Url.Action("_Detalle", "LogContratoSAP", new { area = "Comision" })',
+        HabilitarReproceso: '@Url.Action("HabilitarReproceso", "LogContratoSAP", new { area = "Comision" })',
+        GetCanalJson: '@Url.Action("GetCanalJson", "LogContratoSAP", new { area = "Comision" })',
+        _AnalisisComision: '@Url.Action("_AnalisisComision", "LogContratoSAP", new { area = "Comision" })',
+     };
+
+    var listaTipoRegla = [];
+
+    $(document).ready(function () {
+
+        var fecha_inicio = '';
+        var fecha_fin = '';
+
+        $.ajax({
+            type: 'post',
+            url: actionUrls.GetFechas,
+            async: false,
+            cache: false,
+            dataType: 'json',
+            success: function (data) {
+                if (data.Msg) {
+                    project.AlertErrorMessage('Error', data.Msg);
+                } else {
+                    fecha_inicio = data.fecha_inicio;
+                    fecha_fin = data.fecha_fin;
+                }
+            },
+            error: function () {
+                project.AlertErrorMessage('Error', 'Error');
+            }
+        });
+
+        $('.content').combobox_sigees({
+            id: '#codigo_canal',
+            url: actionUrls.GetCanalJson
+        });
+
+        var queryParams = {
+            fecha_inicio: FormatoFecha(fecha_inicio), fecha_fin: FormatoFecha(fecha_fin), codigo_canal : ''
+        };
+
+        $('#DataGrid').datagrid({
+            url: actionUrls.GetAllJson,
+            idField: 'identificador_contrato',
+            fitColumns: true,
+            queryParams: queryParams,
+            singleSelect: true,
+            rownumbers: true,
+            pageList: [100, 200, 300, 400, 500],
+            pageSize: 100,
+            pagination: true,
+            columns:
+            [[
+                    { field: 'codigo_empresa', title: 'Codigo', hidden: 'true' },
+                    { field: 'prueba', checkbox: 'true' },
+                { field: 'nro_contrato', title: 'Nro. Contrato', width: 60, align: 'left', halign: 'center' },
+                { field: 'nombre_empresa', title: 'Empresa', width: 80, align: 'left', halign: 'center' },
+                { field: 'fecha_contrato', title: 'Fecha Contrato', width: 100, align: 'center', halign: 'center' },
+                { field: 'fecha_migracion', title: 'Fecha Migración', width: 100, align: 'center', halign: 'center' },
+                { field: 'fecha_proceso', title: 'Fecha Proceso', width: 100, align: 'center', halign: 'center' },
+                { field: 'usuario', title: 'Usuario', width: 80, align: 'center', halign: 'center' },
+                { field: 'estado', title: 'Estado', width: 70, align: 'center', halign: 'center' },
+                { field: 'codigo_estado_proceso', hidden: true },
+                { field: 'codigo_empresa_sigeco', hidden: true },
+            ]]
+        });
+
+        $('#DataGrid').datagrid('enableFilter', [{
+            field: 'estado',
+            type: 'combobox',
+            options: {
+                editable:false,
+                panelHeight: 'auto',
+                data: [{ value: '', text: 'Todos' }, { value: '1', text: 'No Procesado' }, { value: '2', text: 'Error' }, { value: '3', text: 'Procesado' }],
+                onChange: function (value) {
+                    if (value == '') {
+                        $('#DataGrid').datagrid('removeFilterRule', 'codigo_estado_proceso');
+                    } else {
+                        $('#DataGrid').datagrid('addFilterRule', {
+                            field: 'codigo_estado_proceso',
+                            op: 'equal',
+                            value: value
+                        });
+                    }
+                    $('#DataGrid').datagrid('doFilter');
+                }
+            }
+        }]);
+
+        $('#fechaInicio').datebox({
+            formatter: function (date) {
+                var y = date.getFullYear();
+                var m = date.getMonth() + 1;
+                var d = date.getDate();
+                return (d < 10 ? ('0' + d) : d) + '/' + (m < 10 ? ('0' + m) : m) + '/' + y;
+            },
+            parser: function (s) {
+
+                if (!s) return new Date();
+                var ss = s.split('/');
+                var y = parseInt(ss[2], 10);
+                var m = parseInt(ss[1], 10);
+                var d = parseInt(ss[0], 10);
+                if (!isNaN(y) && !isNaN(m) && !isNaN(d)) {
+                    return new Date(y, m - 1, d)
+                } else {
+                    return new Date();
+                }
+            }
+        });
+
+        $('#fechaFin').datebox({
+            formatter: function (date) {
+                var y = date.getFullYear();
+                var m = date.getMonth() + 1;
+                var d = date.getDate();
+                return (d < 10 ? ('0' + d) : d) + '/' + (m < 10 ? ('0' + m) : m) + '/' + y;
+            },
+            parser: function (s) {
+
+                if (!s) return new Date();
+                var ss = s.split('/');
+                var y = parseInt(ss[2], 10);
+                var m = parseInt(ss[1], 10);
+                var d = parseInt(ss[0], 10);
+                if (!isNaN(y) && !isNaN(m) && !isNaN(d)) {
+                    return new Date(y, m - 1, d)
+                } else {
+                    return new Date();
+                }
+            }
+        })
+
+        $('#fechaInicio').textbox('setText', fecha_inicio);
+        $('#fechaFin').textbox('setText', fecha_fin);
+
+        if ($("#codigo_canal").data('combobox')) {
+            fnFormatComboboxCheck($("#codigo_canal"));
+        }
+    });
+
+    function GetAllJson() {
+        var fecha_inicio = $.trim($('#fechaInicio').textbox('getText'));
+        var fecha_fin = $.trim($('#fechaFin').textbox('getText'));
+        var canal = $.trim($('#codigo_canal').combobox('getValues'));
+
+        if (!fecha_inicio) {
+            $.messager.alert("Log Contratos", "Debe seleccionar una Fecha Inicio.", "warning");
+            return false;
+        }
+
+        if (!ValidarFecha(fecha_inicio)) {
+            $.messager.alert("Log Contratos", "Fecha Inicio en formato incorrecto.", "warning");
+            return false;
+        }
+
+        if (!fecha_fin) {
+            $.messager.alert("Log Contratos", "Debe seleccionar una Fecha Fin.", "warning");
+            return false;
+        }
+
+        if (!ValidarFecha(fecha_fin)) {
+            $.messager.alert("Log Contratos", "Fecha Fin en formato incorrecto.", "warning");
+            return false;
+        }
+
+        fecha_inicio = FormatoFecha(fecha_inicio);
+        fecha_fin = FormatoFecha(fecha_fin);
+
+        if (parseInt(fecha_inicio) > parseInt(fecha_fin)) {
+            $.messager.alert("Log Contratos", "Inicio debe ser menor a Fin.", "warning");
+            return false;
+        }
+
+        if (!canal) {
+            $.messager.alert("Log Contratos", "Debe seleccionar un Canal de Venta.", "warning");
+            return false;
+        }
+
+        var queryParams = {
+            fecha_inicio: fecha_inicio, fecha_fin: fecha_fin, codigo_canal : canal
+        };
+
+        $('#DataGrid').datagrid('reload', queryParams);
+        ClearSelection();
+    }
+
+    function Detalle() {
+        var nombreOpcion = "Detalle";
+        if (ValidarSeleccionMultiple(nombreOpcion)) {
+            return false;
+        }
+
+        var row = $('#DataGrid').datagrid('getSelected');
+
+        if (!row) {
+            $.messager.alert(nombreOpcion, 'Por favor seleccione un registro.', 'warning');
+            return false;
+        }
+
+        AbrirVentanaPersonal(row.codigo_empresa, row.nro_contrato);
+    }
+
+    function ClearSelection()
+    {
+        $('#DataGrid').datagrid('clearSelections');
+        $("#hdCodigoEmpresa").val('');
+        $("#hdNroContrato").val('');
+
+    }
+
+    function AbrirVentanaPersonal(codigo_empresa, nro_contrato)
+    {
+        $(this).AbrirVentanaEmergente({
+            parametro: "?codigo_empresa=" + codigo_empresa + "&nro_contrato=" + nro_contrato,
+            div: 'dlgDetalle',
+            title: "Detalle de Contrato",
+            url: actionUrls.Detalle
+        });
+    }
+
+    function ValidarFecha(fecha) {
+        try {
+            testdate = $.datepicker.parseDate('dd/mm/yy', fecha);
+            return true;
+        } catch (e) {
+
+            return false;
+        }
+    }
+
+    function FormatoFecha(fecha) {
+        return fecha.substring(6, 10) + fecha.substring(3, 5) + fecha.substring(0, 2);
+    }
+
+    function HabilitarReproceso() {
+        var rows = $('#DataGrid').datagrid('getSelections');
+
+        if (rows.length == 0) {
+            $.messager.alert('Habilitación', 'Por favor seleccione un registro.', 'warning');
+            return false;
+        }
+
+        var lstContratos = [];
+        $.each(rows, function (index, data) {
+            var contrato = {
+                codigo_empresa: data.codigo_empresa,
+                nro_contrato: data.nro_contrato
+            };
+            lstContratos.push(contrato);
+        });
+
+        $.messager.confirm('Confirm', '¿Seguro que desea habilitar el reproceso de ' + lstContratos.length + ' registro(s)?', function (result) {
+            if (result) {
+                $.ajax({
+                    type: 'post',
+                    url: actionUrls.HabilitarReproceso,
+                    data: JSON.stringify({ lstContratos: lstContratos }),
+                    async: false,
+                    cache: false,
+                    dataType: 'json',
+                    contentType: 'application/json; charset=utf-8',
+                    success: function (data) {
+                        if (data.Msg) {
+                            GetAllJson();
+                            if (data.Msg != 'Success') {
+                                $.messager.alert('Habilitar Reproceso', data.Msg, 'warning');
+                            }
+                            else {
+                                project.ShowMessage('Alerta', 'Se realizó la habilitacion.');
+                            }
+                        }
+                        else {
+                            project.AlertErrorMessage('Error', 'Error de procesamiento');
+                        }
+                    },
+                    error: function () {
+                        project.AlertErrorMessage('Error', 'Error');
+                    }
+                });
+            }
+        });
+    }
+
+    function fnFormatComboboxCheck(cmb_target) {
+        $(cmb_target).combobox({
+            formatter: function (row) {
+                var opts = $(this).combobox('options');
+                return '<input type="checkbox" class="combobox-checkbox">' + row[opts.textField]
+            },
+            onLoadSuccess: function () {
+                var opts = $(this).combobox('options');
+                var target = this;
+                var values = $(target).combobox('getValues');
+
+                $.map(values, function (value) {
+                    var el = opts.finder.getEl(target, value);
+                    el.find('input.combobox-checkbox')._propAttr('checked', true);
+                })
+            },
+            onSelect: function (row) {
+                console.log(row)
+                var opts = $(this).combobox('options');
+                var el = opts.finder.getEl(this, row[opts.valueField]);
+                el.find('input.combobox-checkbox')._propAttr('checked', true);
+            },
+            onUnselect: function (row) {
+                var opts = $(this).combobox('options');
+                var el = opts.finder.getEl(this, row[opts.valueField]);
+                el.find('input.combobox-checkbox')._propAttr('checked', false);
+            }
+        });
+    }
+
+    function AnalisisComision() {
+        var nombreOpcion = "Analisis";
+        if (ValidarSeleccionMultiple(nombreOpcion)) {
+            return false;
+        }
+
+        var row = $('#DataGrid').datagrid('getSelected');
+
+        if (!row) {
+            $.messager.alert(nombreOpcion, 'Por favor seleccione un registro.', 'warning');
+            return false;
+        }
+
+        $(this).AbrirVentanaEmergente({
+            parametro: "?codigo_empresa=" + row.codigo_empresa_sigeco + "&nro_contrato=" + row.nro_contrato,
+            div: 'dglAnalisis',
+            title: "Análisis de Comisión",
+            url: actionUrls._AnalisisComision
+        });
+    }
+
+    function ValidarSeleccionMultiple(nombreOpcion) {
+        if ($('#DataGrid').datagrid('getSelections').length > 1) {
+            $.messager.alert(nombreOpcion, 'Esta opción solo puede efectuarse con un unico registro seleccionado.', 'warning');
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+</script>
+

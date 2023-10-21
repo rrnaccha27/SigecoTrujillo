@@ -1,0 +1,188 @@
+﻿@model SIGEES.Entidades.detalle_exclusion_dto
+<div class="easyui-layout" data-options="fit:true">
+    <div data-options="region:'west',border:false" style="padding:5px 5px 0px 5px;">
+        <div class="easyui-layout" data-options="fit:true">
+            <div class="easyui-panel" title="Datos Venta" style="width: 100%; ">
+                <div class="rowGridModalDouble" style="width:15%;">
+                    <label class="colGridModal">Canal</label>
+                </div>
+                <div class="rowGridModalDouble" style="width:29%;">
+                    <input class="easyui-textbox" id="txt_nombre_canal_venta" value="@Model.nombre_canal" style="width:100%;" data-options="disabled:true" />
+                </div>
+                <div class="rowGridModalDouble" style="width:15%;">
+                    <label class="colGridModal">Grupo</label>
+                </div>
+                <div class="rowGridModalDouble" style="width:29%;">
+                    <input class="easyui-textbox" id="txt_nombre_canal_venta" value="@Model.nombre_grupo" style="width:100%;" data-options="disabled:true" />
+                </div>
+
+                <div class="rowBoth"></div>
+
+                <div class="rowGridModalDouble" style="width:15%;">
+                    <label class="colGridModal">Artículo</label>
+                </div>
+                <div class="rowGridModalDouble" style="width:79%;">
+                    <input class="easyui-textbox" id="txt_apellidos_nombres_vendedor" value="@Model.nombre_articulo" style="width:100%;" data-options="disabled:true" />
+                </div>
+
+                <div class="rowBoth"></div>
+
+                <div class="rowGridModalDouble" style="width:15%;">
+                    <label class="colGridModal">Tipo Venta</label>
+                </div>
+                <div class="rowGridModalDouble" style="width:29%;">
+                    <input class="easyui-textbox" id="txt_nombre_canal_venta" value="@Model.nombre_tipo_venta" style="width:100%;" data-options="disabled:true" />
+                </div>
+                <div class="rowGridModalDouble" style="width:15%;">
+                    <label class="colGridModal">Tipo Pago</label>
+                </div>
+                <div class="rowGridModalDouble" style="width:29%;">
+                    <input class="easyui-textbox" id="txt_nombre_canal_venta" value="@Model.nombre_tipo_pago" style="width:100%;" data-options="disabled:true" />
+                </div>
+                
+                <div class="rowBoth"></div>
+                
+                <div class="rowGridModalDouble" style="width:15%;">
+                    <label class="colGridModal">Empresa</label>
+                </div>
+                <div class="rowGridModalDouble" style="width:29%;">
+                    <input class="easyui-textbox" id="txt_nombre_canal_venta" value="@Model.nombre_empresa" style="width:100%;" data-options="disabled:true" />
+                </div>
+                <div class="rowGridModalDouble" style="width:15%;">
+                    <label class="colGridModal">Nro. Contrato</label>
+                </div>
+                <div class="rowGridModalDouble" style="width:29%;">
+                    <input class="easyui-textbox" id="txt_nombre_canal_venta" value="@Model.nro_contrato" style="width:100%;" data-options="disabled:true" />
+                </div>
+                
+                <div class="rowBoth"></div>
+
+                <div class="rowGridModalDouble" style="width:15%;">
+                    <label class="colGridModal">Nro. Cuota</label>
+                </div>
+                <div class="rowGridModalDouble" style="width:29%;">
+                    <input class="easyui-textbox" id="txt_nombre_canal_venta" value="@Model.nro_cuota" style="width:100%;text-align: right;" data-options="disabled:true" />
+                </div>
+                <div class="rowGridModalDouble" style="width:15%;">
+                    <label class="colGridModal">Estado Cuota</label>
+                </div>
+                <div class="rowGridModalDouble" style="width:29%;">
+                    <label class="colGridModal" style="font-size:16px;font-weight:bold;color:#808080">@Model.nombre_estado_cuota</label>
+                </div>
+                
+                <div class="rowBoth"></div>
+
+                <div class="rowGridModalDouble" style="width:15%;">
+                    <label class="colGridModal">Importe</label>
+                </div>
+                <div class="rowGridModalDouble" style="width:29%;">
+                    <input class="easyui-textbox" id="txt_nombre_canal_venta" value="@Model.s_monto_bruto" style="width: 100%; text-align: right;" data-options="disabled:true,precision:2" />
+                </div>
+                <div class="rowGridModalDouble" style="width:15%;">
+                    <label class="colGridModal">Estado Exclusión</label>
+                </div>
+                <div class="rowGridModalDouble" style="width:29%;">
+                    <label class="colGridModal" style="font-size:16px;font-weight:bold;color:#101387">@Model.nombre_estado_exclusion</label>
+                </div>
+                
+                <div class="rowBoth"></div>
+
+                <div class="rowGridModalDouble" style="width:15%;">
+                    <label class="colGridModal">I.G.V</label>
+                </div>
+                <div class="rowGridModalDouble" style="width:29%;">
+
+                    <input class="easyui-textbox" id="txt_igv_exclusion" value="@Model.s_igv" style="width: 100%; text-align: right;" data-options="disabled:true,precision:2" />
+                </div>
+                <div class="rowBoth"></div>
+                <div class="rowGridModalDouble" style="width:15%;">
+                    <label class="colGridModal">Comisión Total</label>
+                </div>
+                <div class="rowGridModalDouble" style="width:29%;">
+                    <input class="easyui-textbox" value="@Model.s_monto_neto" style="width:100%; text-align:right;" data-options="disabled:true,precision:2" />
+                </div>
+            </div>
+
+            <div class="easyui-panel" title="Información de Exclusión" style="width: 100%; ">
+                <div class="rowGridModalDouble" style="width:15%;">
+                    <label class="colGridModal">Motivo</label>
+                </div>
+                <div class="rowGridModalDouble" style="width:79%;">
+                    <input class="easyui-textbox" id="txt_nombre_tipo_venta" value="@Model.motivo_exclusion" style="width:100%;" data-options="disabled:true" />
+                </div>
+
+                <div class="rowBoth"></div>
+                
+                <div class="rowGridModalDouble" style="width:15%;">
+                    <label class="colGridModal">Usuario</label>
+                </div>
+                <div class="rowGridModalDouble" style="width:29%;">
+                    <input class="easyui-textbox" id="txt_nombre_tipo_pago" value="@Model.usuario_exclusion" style="width:100%;" data-options="disabled:true" />
+                </div>
+                <div class="rowGridModalDouble" style="width:15%;">
+                    <label class="colGridModal">Fecha</label>
+                </div>
+                <div class="rowGridModalDouble" style="width:29%;">
+                    <input class="easyui-textbox" id="txt_nombre_tipo_pago" value="@Model.str_fecha_exclusion" style="width:100%;" data-options="disabled:true" />
+                </div>
+
+            </div>
+
+            <div class="easyui-panel" title="Información de Habilitación" style="width: 100%; ">
+                <div class="rowGridModalDouble" style="width:15%;">
+                    <label class="colGridModal">Motivo</label>
+                </div>
+                <div class="rowGridModalDouble" style="width:79%;">
+                    <input class="easyui-textbox" id="txt_nombre_tipo_venta" value="@Model.motivo_habilitacion" style="width:100%;" data-options="disabled:true" />
+                </div>
+
+                <div class="rowBoth"></div>
+
+                <div class="rowGridModalDouble" style="width:15%;">
+                    <label class="colGridModal">Usuario</label>
+                </div>
+                <div class="rowGridModalDouble" style="width:29%;">
+                    <input class="easyui-textbox" id="txt_nombre_tipo_pago" value="@Model.usuario_habilitacion" style="width:100%;" data-options="disabled:true" />
+                </div>
+                <div class="rowGridModalDouble" style="width:15%;">
+                    <label class="colGridModal">Fecha</label>
+                </div>
+                <div class="rowGridModalDouble" style="width:29%;">
+                    <input class="easyui-textbox" id="txt_nombre_tipo_pago" value="@Model.str_fecha_habilitacion" style="width:100%;" data-options="disabled:true" />
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <div data-options="region:'south',border:false" style="text-align:right;padding:5px;">
+        <a href="javascript:cerrar_detalle_exclusion();" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " iconcls="icon-cancel" id="btnCancelar">Cerrar</a>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        //debugger;
+        @*var _v_igv =('@Model.igv');
+        alert(_v_igv);
+        $("#txt_igv_exclusion").numberbox("setValue", _v_igv);*@
+
+        //$('.content').ResizeModal({
+        //    widthMax: '90%',
+        //    widthMin: '60%',
+        //    div: 'div_detalle_exclusion'
+        //});
+    });
+
+    function cerrar_detalle_exclusion()
+    {
+        $("#div_detalle_exclusion").dialog("close");
+    }
+</script>
+
+
+
+
+
+
+

@@ -1,0 +1,23 @@
+﻿CREATE TABLE [dbo].[edificio] (
+    [id_edificio]            INT           IDENTITY (1, 1) NOT NULL,
+    [codigo_edificio]        VARCHAR (30)  NULL,
+    [id_sector]              INT           NOT NULL,
+    [secuencia_edificio]     INT           NOT NULL,
+    [nombre_edificio]        VARCHAR (150) NOT NULL,
+    [identificador_edificio] VARCHAR (20)  NULL,
+    [numero_fila]            INT           NOT NULL,
+    [numero_columna]         INT           NOT NULL,
+    [es_seleccionado]        BIT           DEFAULT ((0)) NOT NULL,
+    [estado]                 BIT           DEFAULT ((1)) NOT NULL,
+    [fecha_registra]         DATETIME      DEFAULT (getdate()) NOT NULL,
+    [fecha_modifica]         DATETIME      NULL,
+    [usuario_registra]       VARCHAR (50)  NOT NULL,
+    [usuario_modifica]       VARCHAR (50)  NULL,
+    [id_edificio_padre]      INT           NULL,
+    [orientacion_eje_x]      VARCHAR (10)  NULL,
+    [codigo_vista_edificio]  INT           NULL,
+    [cara_vista_edificio]    CHAR (10)     NULL,
+    [codigo_piso_pabellon]   INT           NULL,
+    PRIMARY KEY CLUSTERED ([id_edificio] ASC),
+    FOREIGN KEY ([id_sector]) REFERENCES [dbo].[sector] ([id_sector])
+);

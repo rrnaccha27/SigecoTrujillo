@@ -1,0 +1,23 @@
+﻿@model SIGEES.Web.Areas.Comision.Models.ReporteViewModel
+<script type="text/javascript">
+    var tipoTra = null;
+    $(document).ready(function () {
+
+        $('.content').ResizeModal({
+            widthMax: '90%',
+            widthMin: '80%',
+            div: 'div_reporte_articulo'
+        });
+
+        var iframe = "<iframe id='ifReporte' width='100%' style='height:500px;' frameborder='0'src='" + '@Model.url' + "'></iframe>";
+        
+        $("#Frame_div_reporte_articulo").html(iframe);
+
+    });
+
+
+</script>
+
+<div id="Frame_div_reporte_articulo" style="width:100%;">
+</div>
+

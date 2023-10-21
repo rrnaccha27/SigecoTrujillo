@@ -1,0 +1,88 @@
+﻿@model SIGEES.Entidades.detalle_cronograma_comision_dto
+
+<div class="easyui-layout" data-options="fit:true">
+    <div data-options="region:'center'" style="padding: 2px; width: 100%; ">
+        <div  style="width: 100%; ">
+            <form id="frm_modificarcuota" method="post">
+                <table style="width:100%">
+                    <tr>
+                        <td class="tdEtiqueta">
+                            <label class="colGridModal">Artículo</label>
+                        </td>
+                        <td class="tdDoble" colspan="3">
+                            <input class="easyui-textbox" id="nombre_articulo" value="@Model.nombre_articulo" style="width: 100%" disabled />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tdEtiqueta">
+                            <label class="colGridModal">Tipo Planilla</label>
+                        </td>
+                        <td class="tdValor">
+                            <input class="easyui-textbox" id="monto" name="monto" value="@Model.nombre_tipo_planilla" style="width: 100%;" disabled />
+                        </td>
+                        <td class="tdEtiqueta">
+                            <label class="colGridModal">Nro. Cuota</label>
+                        </td>
+                        <td class="tdValor">
+                            <input class="easyui-textbox" id="monto" name="monto" value="@Model.nro_cuota" style="width: 50%;text-align:right;" disabled />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tdEtiqueta">
+                            <label class="colGridModal">Comisión Actual</label>
+                        </td>
+                        <td class="tdValor">
+                            <input class="easyui-numberbox" name="importe_comision_original" id="importe_comision_original" value="@Model.importe_comision" style="width: 50%;text-align:right;" data-options="required:true, min:0,max:999999, precision:2" disabled />
+                        </td>
+                        <td class="tdEtiqueta">
+                            <label class="colGridModal">Nueva Comisión</label>
+                        </td>
+                        <td class="tdValor">
+                            <input class="easyui-numberbox" id="importe_comision" name="importe_comision" value="@Model.importe_comision" style="width: 50%;text-align:right;" data-options="required:true, min:0,max:999999, precision:2" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tdEtiqueta">
+                            <label class="colGridModal">Motivo</label>
+                        </td>
+                        <td class="tdDoble" colspan="3">
+                            <input class="easyui-textbox" name="txt_motivo" id="txt_motivo" style="width: 99%; height: 80px;" data-options="required: true,novalidate:true,multiline:true" />
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+
+    <div data-options="region:'south',border:false" style="text-align:right;padding:5px;">
+        <a href="javascript:AceptarModificar();" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " iconcls="icon-ok" id="btnAceptar">Aceptar</a>
+        <a href="javascript:CerrarModificar();" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " iconcls="icon-cancel" id="btnCerrar">Cerrar</a>
+    </div>
+</div>
+
+<script type="text/javascript" src="~/Areas/Comision/Scripts/Views/AnalisisComision/analisis.modificarcuota.js"></script>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        var actionUrls =
+        {
+                ModificarCuota: '@Url.Action("ModificarCuota", "AnalisisComision", new { area = "Comision" })',
+                _codigo_detalle_cronograma: '@Model.codigo_detalle_cronograma'
+        };
+        project.modificarcuota.Initialize(actionUrls);
+    });
+
+</script>
+
+<style>
+    .tdEtiqueta {
+        width: 19%;
+        padding: 5px 5px 5px 10px;
+    }
+    .tdValor {
+        width: 31%;
+    }
+    .tdDoble {
+        width: 81%;
+    }
+</style>

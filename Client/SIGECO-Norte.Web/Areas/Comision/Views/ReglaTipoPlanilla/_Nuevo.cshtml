@@ -1,0 +1,147 @@
+﻿@model SIGEES.Entidades.regla_tipo_planilla_dto
+@{
+    string codigo_tipo_planilla = "";
+    string tipo_planilla_option = "required: true,novalidate: true,editable:false";
+    string afecto_doc_completa = "";
+    string afecto_doc_completa_option = "onText:'Si', offText:'No', required:true";
+    string codigo_tipo_reporte = "";
+    string detraccion_contrato = "";
+    string detraccion_contrato_option = "onText:'Si', offText:'No', required:true";
+    string envio_liquidacion = "";
+    string envio_liquidacion_option = "onText:'Si', offText:'No', required:true";
+    
+    if (Model.codigo_regla_tipo_planilla > 0)
+    {
+        codigo_tipo_planilla = Model.codigo_tipo_planilla.ToString();
+        tipo_planilla_option = tipo_planilla_option + ",disabled:true";
+        afecto_doc_completa_option = afecto_doc_completa_option + ", disabled:true";
+        codigo_tipo_reporte = Model.codigo_tipo_reporte.ToString();
+        detraccion_contrato_option = detraccion_contrato_option + ", disabled:true";
+        envio_liquidacion_option = envio_liquidacion_option + ", disabled:true";
+    }
+    else
+    {
+        Model.afecto_doc_completa = true;
+        Model.detraccion_contrato = false;
+        Model.envio_liquidacion = false;
+    }
+
+    if (Model.afecto_doc_completa) {
+        afecto_doc_completa = "checked=checked";
+    }
+
+    if (Model.detraccion_contrato)
+    {
+        detraccion_contrato = "checked=checked";
+    }
+    
+    if (Model.envio_liquidacion)
+    {
+        envio_liquidacion = "checked=checked";
+    }
+    
+
+}
+<div class="easyui-layout" data-options="fit:true">
+    <form id="frmregistrar" method="post">
+
+        <div data-options="region:'north',border:false" style="padding:5px 5px 5px 0px;height:110px;width:99%">
+            <div class="rowDivEtiqueta">
+                <label class="colGridModal">Nombre</label>
+            </div>
+            <div class="rowDivValor">
+                <input class="easyui-validatebox textbox" value="@Model.nombre" maxlength="100" id="txt_nombre_regla" style="width:99%;" data-options="required:true,novalidate:true,editable:true" />
+            </div>
+            <div class="rowDivEtiqueta">
+                <label class="colGridModal">Tipo Planilla</label>
+            </div>
+            <div class="rowDivValor">
+                <input id="cmb_tipo_planilla" value="@codigo_tipo_planilla" class="easyui-combobox" style="width:99%;" data-options="@tipo_planilla_option">
+            </div>
+
+
+            <div class="rowBoth"></div>
+            <div class="rowDivEtiqueta">
+                <label class="colGridModal">Doc Completa</label>
+            </div>
+            <div class="rowDivValor">
+                <input class="easyui-switchbutton" @afecto_doc_completa id="ckb_doc_completa" data-options="@afecto_doc_completa_option" />
+            </div>
+            <div class="rowDivEtiqueta">
+                <label class="colGridModal">Tipo Reporte</label>
+            </div>
+            @*<div class="rowDivValor">
+                <input id="cmb_tipo_reporte" name="cmb_tipo_reporte" value="@codigo_tipo_reporte" class="easyui-combobox" style="width:99%;" data-options="@tipo_planilla_option">
+            </div>*@
+
+            <div class="rowBoth"></div>
+            <div class="rowDivEtiqueta">
+                <label class="colGridModal">Detracción por Contrato</label>
+            </div>
+            <div class="rowDivValor">
+                <input class="easyui-switchbutton" @detraccion_contrato id="ckb_detraccion_contrato" name="ckb_detraccion_contrato" data-options="@detraccion_contrato_option" />
+            </div>
+            <div class="rowDivEtiqueta">
+                <label class="colGridModal">Envío Liquidación</label>
+            </div>
+            <div class="rowDivValor">
+                <input class="easyui-switchbutton" @envio_liquidacion id="ckb_envio_liquidacion" name="ckb_envio_liquidacion" data-options="@envio_liquidacion_option" />
+            </div>
+
+        </div>
+
+        <div data-options="region:'center'" style="padding:5px;width:99%">
+            <div id="tlb_detalle_regla" style="height: auto; background-color: #ffffff;">
+                @if (Model.estado_registro)
+                {
+                    <a href="javascript:void(0)" id="btn_detalle_regla_crear" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " data-options="iconCls:'icon-add',disabled:false" onclick="NuevoDetalleRegla()">Crear</a>
+                    <a href="javascript:void(0)" id="btn_detalle_regla_quitar" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " data-options="iconCls:'icon-remove',disabled:true" onclick="fnEliminarDetalleRegla()">Quitar</a>
+                    <a href="javascript:void(0)" id="btn_detalle_regla_aceptar" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " data-options="iconCls:'icon-save',disabled:true" onclick="fnGuardarDetalleRegla()">Aceptar</a>
+                    <a href="javascript:void(0)" id="btn_detalle_regla_cancelar" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " data-options="iconCls:'icon-undo',disabled:true" onclick="fnCancelarDetalleRegla()">Cancelar</a>
+                }
+
+            </div>
+            <table id="dgv_lista_detalle_regla" style="width: 100%;height:100%"></table>
+        </div>
+
+        <div data-options="region:'south',border:false" style="text-align:right;padding:5px 0px 5px 0px;width:99%">
+            @if (Model.estado_registro)
+            {
+                <a href="javascript:void(0)" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " iconcls="icon-ok" id="btnGuardar" onclick="fnRegistrarReglaTipoPlanilla()">Guardar</a>
+            }
+
+            <a href="javascript:void(0)" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " iconcls="icon-cancel" id="btnCancelar" onclick="cerrar_regla()">Cancelar</a>
+        </div>
+
+    </form>
+</div>
+
+
+<script type="text/javascript" src="~/Areas/Comision/Scripts/Views/ReglaTipoPlanilla/regla_tipo_planilla.nuevo.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var actionUrls =
+        {
+            _GetTipoPlanillaJson: '@Url.Action("GetTipoPlanillaJson", "ReglaTipoPlanilla", new { area = "Comision" })',
+            _GetCampoSantoJson: '@Url.Action("GetCampoSantoJson", "ReglaTipoPlanilla", new { area = "Comision" })',
+            _GetEmpresaJson: '@Url.Action("GetEmpresaJson", "ReglaTipoPlanilla", new { area = "Comision" })',
+            _GetCanalJson: '@Url.Action("GetCanalJson", "ReglaTipoPlanilla", new { area = "Comision" })',
+            _GetTipoVentaJson: '@Url.Action("GetTipoVentaJson", "ReglaTipoPlanilla", new { area = "Comision" })',
+            _ValidarDuplicidadRegistro: '@Url.Action("ValidarDuplicidadRegla", "ReglaTipoPlanilla", new { area = "Comision" })',
+            _Registrar: '@Url.Action("Registrar", "ReglaTipoPlanilla", new { area = "Comision" })',
+            _GetDetalleAllJson: '@Url.Action("GetDetalleAllJson", "ReglaTipoPlanilla", new { area = "Comision" })',
+            _GetTipoReporteJson: '@Url.Action("GetTipoReporteJson", "ReglaTipoPlanilla", new { area = "Comision" })',
+            _codigo_regla_tipo_planilla:@Model.codigo_regla_tipo_planilla
+            };
+        project.regla_tipo_planilla_nuevo.Initialize(actionUrls);
+    });
+
+    function cerrar_regla()
+    {
+
+        $("#div_registrar_regla").dialog("close");
+    }
+</script>
+
+
+

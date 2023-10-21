@@ -1,0 +1,108 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{2065AEA7-45CF-4C4E-82D1-4BE6FDCE2B67}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BackEnd", "BackEnd", "{5AAC523C-8965-40EE-9DCC-EA6BE4CA3350}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business Logic", "Business Logic", "{33D88CE2-1C87-4145-BFC4-0A923542E2E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data Access", "Data Access", "{0DFDE656-C087-462C-8506-73FDACE3D708}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Transversal", "Transversal", "{7E0A42AE-7210-41D7-8B71-64D365049467}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{E53C7FBD-5782-47DE-81AF-2D623DC8D3D8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{22E1D573-B66B-4BF3-B184-64BAC8AE56EF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Library", "Library", "{5EDD1D9B-B15F-4865-82EA-324889FFF1B8}"
+	ProjectSection(SolutionItems) = preProject
+		Library\Antlr3.Runtime.dll = Library\Antlr3.Runtime.dll
+		Library\CryptoSSA.dll = Library\CryptoSSA.dll
+		Library\DotCMIS.dll = Library\DotCMIS.dll
+		Library\DynamicExpresso.Core.dll = Library\DynamicExpresso.Core.dll
+		Library\EntityFramework.dll = Library\EntityFramework.dll
+		Library\EntityFramework.SqlServer.dll = Library\EntityFramework.SqlServer.dll
+		Library\EntLibContrib.Data.OdpNet.dll = Library\EntLibContrib.Data.OdpNet.dll
+		..\..\Program Files (x86)\ST-Fonavi\SIFO\Microsoft.Office.Interop.Outlook.dll = ..\..\Program Files (x86)\ST-Fonavi\SIFO\Microsoft.Office.Interop.Outlook.dll
+		Library\Microsoft.Practices.EnterpriseLibrary.Common.dll = Library\Microsoft.Practices.EnterpriseLibrary.Common.dll
+		Library\Microsoft.Practices.EnterpriseLibrary.Data.dll = Library\Microsoft.Practices.EnterpriseLibrary.Data.dll
+		Library\Microsoft.Practices.ServiceLocation.dll = Library\Microsoft.Practices.ServiceLocation.dll
+		Library\Microsoft.Practices.Unity.Configuration.dll = Library\Microsoft.Practices.Unity.Configuration.dll
+		Library\Microsoft.Practices.Unity.dll = Library\Microsoft.Practices.Unity.dll
+		Library\Microsoft.Practices.Unity.Interception.Configuration.dll = Library\Microsoft.Practices.Unity.Interception.Configuration.dll
+		Library\Microsoft.Practices.Unity.Interception.dll = Library\Microsoft.Practices.Unity.Interception.dll
+		Library\Microsoft.ReportViewer.WebForms.dll = Library\Microsoft.ReportViewer.WebForms.dll
+		Library\Newtonsoft.Json.dll = Library\Newtonsoft.Json.dll
+		Library\System.Web.Optimization.dll = Library\System.Web.Optimization.dll
+		Library\Unity.Mvc4.dll = Library\Unity.Mvc4.dll
+		Library\WebGrease.dll = Library\WebGrease.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{A8134018-2C7B-45C1-9230-831F86447D92}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIGECO-Norte.BusinessLogic", "BackEnd\Business Logic\SIGECO-Norte.BusinessLogic\SIGECO-Norte.BusinessLogic.csproj", "{971807EC-0F26-4C25-9BF2-D5CEF68001A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIGECO-Norte.DataAcces", "BackEnd\Data Access\SIGECO-Norte.DataAcces\SIGECO-Norte.DataAcces.csproj", "{FD75F8EF-0014-45AA-87D9-B81B18E6E582}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIGECO-Norte.Web", "Client\SIGECO-Norte.Web\SIGECO-Norte.Web.csproj", "{BCBAB7BD-C9AC-410C-931A-8F55D81056E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIGECO-Norte.Entidades", "Transversal\SIGECO-Norte.Entidades\SIGECO-Norte.Entidades.csproj", "{9A3FAEB1-4556-4319-8032-F4F38F3C9BD2}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "SIGECO-Norte.DB", "Database\SIGECO-Norte.DB\SIGECO-Norte.DB.sqlproj", "{D859988F-F1E3-4AF0-B5D1-4B33FB8E5371}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Resources", "Resources\Resources-Norte\Resources.csproj", "{D1167CEC-52DB-4DBA-854C-F9BD776D6B01}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{971807EC-0F26-4C25-9BF2-D5CEF68001A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{971807EC-0F26-4C25-9BF2-D5CEF68001A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{971807EC-0F26-4C25-9BF2-D5CEF68001A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{971807EC-0F26-4C25-9BF2-D5CEF68001A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD75F8EF-0014-45AA-87D9-B81B18E6E582}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD75F8EF-0014-45AA-87D9-B81B18E6E582}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD75F8EF-0014-45AA-87D9-B81B18E6E582}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD75F8EF-0014-45AA-87D9-B81B18E6E582}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCBAB7BD-C9AC-410C-931A-8F55D81056E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCBAB7BD-C9AC-410C-931A-8F55D81056E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCBAB7BD-C9AC-410C-931A-8F55D81056E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCBAB7BD-C9AC-410C-931A-8F55D81056E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A3FAEB1-4556-4319-8032-F4F38F3C9BD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A3FAEB1-4556-4319-8032-F4F38F3C9BD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A3FAEB1-4556-4319-8032-F4F38F3C9BD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A3FAEB1-4556-4319-8032-F4F38F3C9BD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D859988F-F1E3-4AF0-B5D1-4B33FB8E5371}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D859988F-F1E3-4AF0-B5D1-4B33FB8E5371}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1167CEC-52DB-4DBA-854C-F9BD776D6B01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1167CEC-52DB-4DBA-854C-F9BD776D6B01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1167CEC-52DB-4DBA-854C-F9BD776D6B01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1167CEC-52DB-4DBA-854C-F9BD776D6B01}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{33D88CE2-1C87-4145-BFC4-0A923542E2E8} = {5AAC523C-8965-40EE-9DCC-EA6BE4CA3350}
+		{0DFDE656-C087-462C-8506-73FDACE3D708} = {5AAC523C-8965-40EE-9DCC-EA6BE4CA3350}
+		{971807EC-0F26-4C25-9BF2-D5CEF68001A8} = {33D88CE2-1C87-4145-BFC4-0A923542E2E8}
+		{FD75F8EF-0014-45AA-87D9-B81B18E6E582} = {0DFDE656-C087-462C-8506-73FDACE3D708}
+		{BCBAB7BD-C9AC-410C-931A-8F55D81056E1} = {2065AEA7-45CF-4C4E-82D1-4BE6FDCE2B67}
+		{9A3FAEB1-4556-4319-8032-F4F38F3C9BD2} = {7E0A42AE-7210-41D7-8B71-64D365049467}
+		{D859988F-F1E3-4AF0-B5D1-4B33FB8E5371} = {E53C7FBD-5782-47DE-81AF-2D623DC8D3D8}
+		{D1167CEC-52DB-4DBA-854C-F9BD776D6B01} = {22E1D573-B66B-4BF3-B184-64BAC8AE56EF}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D2A84BF3-186C-4334-865E-F9CFFAE86337}
+	EndGlobalSection
+EndGlobal

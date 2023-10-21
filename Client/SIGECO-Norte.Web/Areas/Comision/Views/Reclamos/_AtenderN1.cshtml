@@ -1,0 +1,123 @@
+﻿<div id="dlgAtenderN1" class="easyui-dialog" data-options="modal:true,closed:true"
+     style="width: 65%; height: 440px; padding:5px; line-height: 10px;">
+	<form id="frmAtenderN1" method="post">
+        <input type="hidden" id="hdAtenderEsContratoMigrado" name="hdAtenderEsContratoMigrado" value="">
+		<div style="width: 100%; height: 390px;">
+            <div class="easyui-layout" style="width:100%; height:100%;">
+                <div data-options="region:'center', border:false">
+                    <div class="panelGridModal" style="height:auto;">
+                        <div class="easyui-panel" title="Reclamo" style="width: 100%;">
+                            <table style="width:99%; padding:10px;" border="0">
+                                <tr>
+                                    <td class="tdEtiqueta">
+                                        <label class="colGridModal">Vendedor</label>
+                                    </td>
+                                    <td class="tdValor">
+                                        <input class="easyui-textbox" id="PersonalVentas" name="PersonalVentas" style="width:85%" data-options="required:true,disabled:true" readonly />
+                                        <input type="hidden" id="hdCodigoPersonal" />
+                                    </td>
+                                    <td class="tdEtiqueta">
+                                        <label class="colGridModal">Contrato</label>
+                                    </td>
+                                    <td class="tdValor">
+                                        <input class="easyui-textbox" id="NroContrato" name="NroContrato" style="width:120px" data-options="required:true,disabled:true" readonly />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tdEtiqueta">
+                                        <label class="colGridModal">Empresa</label>
+                                    </td>
+                                    <td class="tdValor">
+                                        <input class="easyui-textbox" id="nombre_empresa_a" name="nombre_empresa_a" style="width: 85%" data-options="required:true,disabled:true,editable:false" readonly />
+                                    </td>
+                                    <td class="tdEtiqueta">
+                                        <label class="colGridModal">Articulo</label>
+                                    </td>
+                                    <td class="tdValor">
+                                        <input class="easyui-textbox" id="Articulo_1" name="Articulo_1" style="width:100%" data-options="required:true,disabled:true" readonly />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tdEtiqueta">
+                                        <label class="colGridModal">Cuota</label>
+                                    </td>
+                                    <td class="tdValor">
+                                        <input class="easyui-numberbox" id="Cuota_1" name="Cuota_1" style="width: 120px" data-options="required:true,disabled:true" />
+                                    </td>
+                                    <td class="tdEtiqueta">
+                                        <label class="colGridModal">Importe</label>
+                                    </td>
+                                    <td class="tdValor">
+                                        <input class="easyui-numberbox" id="Importe_1" name="Importe_1" style="width: 120px" data-options="required:true,disabled:true, min:0,max:9999999.99,precision:2" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tdEtiqueta">
+                                        <label class="colGridModal">Error Contrato</label>
+                                    </td>
+                                    <td class="tdValor">
+                                        <input class="easyui-textbox" id="es_contrato_migrado" name="es_contrato_migrado" style="width:120px" data-options="disabled:true" readonly />
+                                    </td>
+                                    <td class="tdEtiqueta" colspan="2">
+                                        &nbsp;
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tdEtiqueta">
+                                        <label class="colGridModal">Observación</label>
+                                    </td>
+                                    <td style="width: 85%;" colspan="3">
+                                        <input class="easyui-textbox" id="Observacion_1" name="Observacion_1" style="width: 100%; height: 40px; " data-options="multiline:true,required:true,disabled:true" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="panelGridModal" style="height:auto;">
+                        <div class="easyui-panel" title="Atención" style="width: 100%;">
+                            <table style="width:99%; padding:10px;" border="0">
+                                <tr>
+                                    <td class="tdEtiqueta">
+                                        <label class="colGridModal">Estado</label>
+                                    </td>
+                                    <td class="tdValor">
+                                        <input class="easyui-textbox" id="nombre_estado_reclamo_a" name="nombre_estado_reclamo_a" style="width: 120px" data-options="required:true,disabled:true,editable:false" />
+                                    </td>
+                                    <td class="tdEtiqueta">
+                                        <label class="colGridModal">Resultado</label>
+                                    </td>
+                                    <td class="tdValor">
+                                        <input class="easyui-combobox" id="cboResultado_N1" name="cboResultado_N1" style="width: 120px" data-options="required:true,editable:false" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tdEtiqueta">
+                                        <label class="colGridModal">Respuesta</label>
+                                    </td>
+                                    <td style="width: 85%;" colspan="3">
+                                        <input class="easyui-textbox" id="Respuesta_N1" name="Respuesta_N1" style="width: 100%; height: 40px; " data-options="multiline:true,required:true" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div data-options="region:'south', border:false" style="text-align: right; vertical-align: central; height: 40px; padding: 5px; ">
+                    <a href="#" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " iconcls="icon-ok" id="btnGuardar">Guardar</a>
+                    <a href="#" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " iconcls="icon-cancel" id="btnCancelar">Cancelar</a>
+                </div>
+            </div>
+        </div>
+			
+	</form>
+</div>
+<style>
+    .tdEtiqueta {
+        width: 15%;
+        padding: 5px;
+    }
+
+    .tdValor {
+        width: 35%;
+    }
+</style>

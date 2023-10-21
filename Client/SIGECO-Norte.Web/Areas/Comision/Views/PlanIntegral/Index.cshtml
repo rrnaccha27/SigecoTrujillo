@@ -1,0 +1,251 @@
+﻿@model SIGEES.Web.Models.Bean.BeanItemTipoAcceso
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<input type="hidden" id="hdCodigo" />
+<input type="hidden" id="hdEstado" />
+
+<div style="width: 99%; background-color: #D3EBDE; vertical-align: middle; padding-top: 2%; padding-bottom: 2%; padding-left: 1%">
+    <center>
+        <h2>Configuración de Plan Integral</h2>
+    </center>
+    <br />
+    <div style="width: 100%">
+        <table style="width:100%">
+            <tr>
+                <td style="width:45px">
+                    <label class="colGridModal">Estado</label>
+                </td>
+                <td style="width:170px">
+                    <input class="easyui-combobox" id="estado_registro" name="estado_registro" style="width: 95%" />
+                </td>
+                <td >&nbsp;</td>
+            </tr>
+        </table>
+    </div>
+    <br />
+    <div style="width: 100%">
+        @if (Model.estadoLectura.CompareTo("A") == 0)
+        {
+            <a href="javascript:GetAllJson()" id="btnBuscar" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " data-options="iconCls:'icon-search'">Buscar</a>
+        }
+        @if (Model.estadoEscritura.CompareTo("A") == 0)
+        {
+            <a href="javascript:Crear()" id="btnNuevo" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " data-options="iconCls:'icon-add'">Crear</a>
+        }
+        @if (Model.estadoModificacion.CompareTo("A") == 0)
+        {
+            <a href="javascript:Modificar()" id="btnModificar" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " data-options="iconCls:'icon-edit'">Modificar</a>
+        }
+        @if (Model.estadoEliminacion.CompareTo("A") == 0)
+        {
+            <a href="javascript:void(0)" id="btnDesactivar" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " data-options="disabled:true,iconCls:'icon-cancel'">Desactivar</a>
+        }
+    </div>
+</div>
+<br />
+<div style="width: 99%; padding-left: 1%">
+    @if (Model.estadoLectura.CompareTo("A") == 0)
+    {
+        <table id="DataGrid" style="width: 100%"></table>
+    }
+</div>
+
+<div id="dlgRegistro" class="easyui-dialog" data-options="modal:true,closed:true,buttons:'#divRegistroBotones'"
+     style="width: 62%; height: 65%; padding: 10px 20px; line-height: 10px;">
+</div>
+
+<script type="text/javascript">
+    var actionUrls =
+    {
+        GetAllJson: '@Url.Action("GetAllJson", "PlanIntegral", new { area = "comision" })',
+        Desactivar: '@Url.Action("Desactivar", "PlanIntegral", new { area = "comision" })',
+        Registro: '@Url.Action("_Registro", "PlanIntegral", new { area = "comision" })',
+    };
+
+    var listaEstado = [];
+
+    $(document).ready(function () {
+        LlenarEstado();
+
+        $('#DataGrid').datagrid({
+            url: actionUrls.GetAllJson,
+            queryParams: { estado_registro: '-1' },
+            fitColumns: true,
+            idField: 'codigo_plan_integral',
+            data: null,
+            pagination: true,
+            singleSelect: true,
+            rownumbers: true,
+            pageList: [20, 60, 80, 100, 150],
+            pageSize: 20,
+            columns:
+            [[
+                { field: 'codigo_plan_integral', hidden: 'true' },
+				{ field: 'estado_registro', hidden: 'true' },
+                { field: 'nombre', title: 'Nombre', width: 150, align: 'left', halign: 'center' },
+                { field: 'vigencia_inicio', title: 'Vigencia Inicio', width: 60, align: 'center', halign: 'center' },
+                { field: 'vigencia_fin', title: 'Vigencia Fin', width: 60, align: 'center', halign: 'center' },
+                { field: 'estado_nombre', title: 'Estado', width: 50, align: 'center', halign: 'center' },
+                { field: 'indica_estado', hidden: true, formatter: function (value, row, index) { if (row.estado_registro) { return '1'; } else { return '0'; } } }
+            ]],
+            onClickRow: function (index, row) {
+                $("#hdCodigo").val(row['codigo_plan_integral']);
+                $("#hdEstado").val(row['estado_registro']);
+                EvalDesactivar(row['estado_nombre']);
+            }
+        });
+        
+        
+        /******************************************************************************************************/
+        $('#DataGrid').datagrid('enableFilter', [{
+            field: 'estado_nombre',
+            type: 'combobox',
+            options: {
+                panelHeight: 'auto',
+                data: [{ value: '', text: 'Todos' }, { value: '1', text: 'Activo' }, { value: '0', text: 'Inactivo' }],
+                editable:false,
+                onChange: function (value) {
+
+                    if (value == '') {
+                        $('#DataGrid').datagrid('removeFilterRule', 'indica_estado');
+                    } else {
+                        $('#DataGrid').datagrid('addFilterRule', {
+                            field: 'indica_estado',
+                            op: 'equal',
+                            value: value
+                        });
+                    }
+                    $('#DataGrid').datagrid('doFilter');
+                }
+            }
+        }]);
+        /*********************************************************************************************************/
+
+        $('#estado_registro').combobox({
+            valueField: 'id',
+            textField: 'text',
+            data: listaEstado
+        });
+
+        $('#estado_registro').combobox({ editable: false });
+        $('#estado_registro').combobox('setValue', listaEstado[0].id);
+        $("#btnDesactivar").on('click', function () { Desactivar(); });
+        //GetAllJson();
+    });
+
+    function ObtenerFiltro(nombreCombo) {
+        var codigo = $.trim($('#' + nombreCombo).combobox('getValue'));
+        if (!codigo) {
+            codigo = '-1';
+        }
+        return codigo;
+    }
+
+    function GetAllJson() {
+        var queryParams = { estado_registro: ObtenerFiltro('estado_registro') };
+        $('#DataGrid').datagrid('reload', queryParams);
+        ClearSelection();
+        EvalDesactivar();
+    }
+
+    function Crear() {
+        AbrirVentanaDatos(-1);
+    }
+
+    function Modificar() {
+        var codigo = $.trim($("#hdCodigo").val());
+		var estado = $.trim($("#hdEstado").val());
+		
+        if (!codigo) {
+            $.messager.alert('Modificar', 'Por favor seleccione un registro', 'warning');
+            return false;
+        }
+
+        //if (estado == 'false') {
+        //    $.messager.alert('Modificar', 'No se puede modificar un registro inactivo.', 'warning');
+        //    return false;
+        //}
+
+        AbrirVentanaDatos(codigo);
+    }
+
+    function Desactivar() {
+        var codigo = $("#hdCodigo").val();
+        var estado = $.trim($("#hdEstado").val());
+
+        if ($('#btnDesactivar').linkbutton('options').disabled) { return false };
+
+        if (!codigo) {
+            $.messager.alert('Desactivar', 'Por favor seleccione un registro', 'warning');
+            return false;
+        }
+
+        if (estado == 'false') {
+            $.messager.alert('Desactivar', 'No se puede desactivar un registro ya inactivo.', 'warning');
+            return false;
+        }
+
+        $.messager.confirm('Confirm', '¿Seguro que desea Desactivar este registro?', function (result) {
+            if (result) {
+                $.ajax({
+                    type: 'post',
+                    url: actionUrls.Desactivar,
+                    data: { codigo_plan_integral: codigo },
+                    async: false,
+                    cache: false,
+                    dataType: 'json',
+                    success: function (data) {
+                        if (data.Msg) {
+                            if (data.Msg != 'Success') {
+                                $.messager.alert('Error', data.Msg, 'error');
+                            }
+                            else {
+                                project.ShowMessage('Alerta', 'Se Desactivó con éxito');
+                                GetAllJson();
+                            }
+                        }
+                        else {
+                            project.AlertErrorMessage('Error', 'Error de procesamiento');
+                        }
+                    },
+                    error: function () {
+                        project.AlertErrorMessage('Error', 'Error');
+                    }
+                });
+            }
+        });
+    }
+
+    function ClearSelection()
+    {
+        $('#DataGrid').datagrid('clearSelections');
+        $("#hdCodigo").val('');
+		$("#hdEstado").val('');
+    }
+
+    function LlenarEstado()
+    {
+        listaEstado.push({ "id": "-1", "text": "Ninguno" });
+        listaEstado.push({ "id": "1", "text": "Activo" });
+        listaEstado.push({ "id": "0", "text": "Inactivo" });
+    }
+
+    function AbrirVentanaDatos(codigo_plan_integral)
+    {
+        $(this).AbrirVentanaEmergente({
+            parametro: "?codigo_plan_integral=" + codigo_plan_integral,
+            div: 'dlgRegistro',
+            title: "Mantenimiento de Plan Integral",
+            url: actionUrls.Registro
+        });
+    }
+
+    function EvalDesactivar(valor) {
+        $("#btnDesactivar").linkbutton((valor == 'Activo' ? 'enable' : 'disable'));
+    }
+</script>
+

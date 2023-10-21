@@ -1,0 +1,20 @@
+﻿<div class="easyui-layout" data-options="fit:true">
+    <div data-options="region:'south'" style="padding:10px;">
+        <div style="height:100%;">
+            <label class="colGridModal" style="color:#f56363;">(*) Para seleccionar un artículo haga doble click sobre el registro.</label>
+        </div>
+    </div>
+    <div data-options="region:'center', border:false" style="padding:10px;">
+        <table id="dgv_listado_articulo" style="width: 100%; height: 100%;"></table>
+    </div>
+</div>
+
+<script type="text/javascript" src="~/Areas/Comision/Scripts/Views/Comision/comision.articulo.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var actionUrls = {
+            _GetListarArticuloJson: '@Url.Action("GetListarArticuloJson", "GestionComisionManual", new { area = "Comision" })',
+        };
+        project.articulo.Initialize(actionUrls);
+    });
+</script>

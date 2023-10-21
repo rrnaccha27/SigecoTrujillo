@@ -1,0 +1,122 @@
+﻿@model SIGEES.Entidades.precio_articulo_dto
+     
+<div class="easyui-layout" data-options="fit:true">
+
+    <form id="frmComision" method="post">
+
+        <div data-options="region:'north', border:false" style="padding:10px 10px 0px 10px;height:190px">
+            <div class="easyui-layout" data-options="fit:true">
+
+                <div class="easyui-panel" title="Datos Generales" style="width: 100%; ">
+                    <div class="rowGridModalDouble" style="width:10%;">
+                        <label class="colGridModal">Articulo</label>
+                    </div>
+                    <div class="rowGridModalDouble" style="width:30%;">
+                        <input class="easyui-textbox" id="txt_articulo_nombre" style="width:100%;" disabled />
+                    </div>
+
+                    <div class="rowGridModalDouble" style="width:10%;">
+                        <label class="colGridModal">Empresa</label>
+                    </div>
+                    <div class="rowGridModalDouble" style="width:30%;">
+                        <input class="easyui-textbox" id="txt_empresa_nombre" style="width:100%;" disabled />
+                    </div>
+
+                    <div class="rowBoth"></div>
+                    <div class="rowGridModalDouble" style="width:10%;">
+                        <label class="colGridModal">Tipo Venta</label>
+                    </div>
+                    <div class="rowGridModalDouble" style="width:30%;">
+                        <input class="easyui-textbox" id="txt_tipo_venta_nombre" style="width:100%;" disabled />
+                    </div>
+                    <div class="rowGridModalDouble" style="width:10%;">
+                        <label class="colGridModal">Moneda</label>
+                    </div>
+                    <div class="rowGridModalDouble" style="width:30%;">
+                        <div style="width:100%">
+                            <div class="rowGridModalDouble" style="width:30%;">
+                                <input class="easyui-textbox" id="txt_moneda_nombre" style="width:100%;" disabled />
+                            </div>
+                            <div class="rowGridModalDouble" style="width:30%;">
+                                <label class="colGridModal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Precio</label>
+                            </div>
+                            <div class="rowGridModalDouble" style="width:31%;">
+                                <input class="easyui-textbox" id="txt_articulo_precio" style="width:100%;" disabled />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rowBoth"></div>
+
+                <div class="easyui-panel" title="Rango de Fecha Vigencia Precio" style="width: 100%;">
+
+                    <div class="rowGridModalDouble" style="width:10%;">
+                        <label class="colGridModal">Desde</label>
+                    </div>
+
+                    <div class="rowGridModalDouble" style="width:30%;">
+                        <input class="easyui-textbox" id="dtp_fecha_vigencia_inicio" style="width:30%;" disabled />
+                    </div>
+
+                    <div class="rowGridModalDouble" style="width:10%;">
+                        <label class="colGridModal">Hasta</label>
+                    </div>
+
+                    <div class="rowGridModalDouble" style="width:30%;">
+                        <input class="easyui-textbox" id="dtp_fecha_vigencia_fin" style="width:30%;" disabled />
+                    </div>
+                </div>
+
+                <div class="rowBoth"></div>
+
+            </div>
+        </div>
+
+        <div data-options="region:'center', border:false" style="padding:0px 10px 10px 10px;">
+            <div class="easyui-tabs" style="height:100%" >
+                <div title="Vendedor" style="padding:1px">
+                    <table id="dgv_comision_v" style="width: 100%;height:100%"></table>
+                </div>
+                <div title="Supervisor" style="padding:1px">
+                    <table id="dgv_comision_supervisor_v" style="width: 100%;height:100%"></table>
+                </div>
+            </div>
+        </div>
+
+        <div data-options="region:'south'" style="text-align:right;padding:5px;">
+            <div style="height:100%;width:100%">
+                <a href="javascript:cerrar_comision();" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " iconcls="icon-cancel" id="btnCancelar">Cerrar</a>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+<script type="text/javascript" src="~/Areas/Comision/Scripts/Views/Articulo/articulo.v_comision.js"></script>
+<script type="text/javascript">
+
+    function cerrar_comision() {
+        $('#div_visualizar_comision').dialog('close');
+    }
+
+    $(document).ready(function () {
+
+        var actionUrls =
+        {
+            _codigo_precio: '@Model.codigo_precio',
+            _estado_registro: '@(Model.estado_registro?"1":"0")',
+            _GetTipoPagoJson: '@Url.Action("GetTipoPagoJson", "Articulo", new { area = "Comision" })',
+            _GetCanalVentaJson: '@Url.Action("GetCanalJson", "Articulo", new { area = "Comision" })',
+            _GetComisionadoPorJson: '@Url.Action("GetComisionaPorJson", "Articulo", new { area = "Comision" })',
+            _GetReglasbyPrecioJson: '@Url.Action("GetReglasbyPrecioJson", "Articulo", new { area = "Comision" })',
+            _ValidarRangoFechaComision: '@Url.Action("ValidarRangoFechaComision", "Articulo", new { area = "Comision" })',
+            _GetTipoComisionSupervisorJson: '@Url.Action("GetTipoComisionSupervisorJson", "Articulo", new { area = "Comision" })',
+            _ValidarRangoFechaComisionSupervisor: '@Url.Action("ValidarRangoFechaComisionSupervisor", "Articulo", new { area = "Comision" })',
+            _GetComisionPrecioSupervisorJson: '@Url.Action("GetComisionPrecioSupervisorJson", "Articulo", new { area = "Comision" })',
+        };
+        project.v_comision.Initialize(actionUrls);
+    });
+</script>
+
+

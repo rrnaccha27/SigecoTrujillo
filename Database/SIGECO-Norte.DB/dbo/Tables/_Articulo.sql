@@ -1,0 +1,4 @@
+﻿CREATE TABLE [dbo].[$Articulo] (
+    [CODIGO] NVARCHAR (255) NULL,
+    [DESC]   NVARCHAR (255) NULL
+);

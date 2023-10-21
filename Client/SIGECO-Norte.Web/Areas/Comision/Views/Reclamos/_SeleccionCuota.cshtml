@@ -1,0 +1,35 @@
+﻿<div id="dlgSeleccionCuota" class="easyui-dialog" data-options="modal:true,closed:true,maximizable:true, resizable: true"
+     style="width: 65%; height: 90%; ">
+
+    <div class="easyui-layout" data-options="fit:true">
+        <div data-options="region:'north', border:false" style="padding:10px;height:60px">
+            <form id="frmSelecionCuota" method="post">
+                <input type="hidden" id="codigo_estado_proceso" name="codigo_estado_proceso">
+                <div style="height:100%;">
+                    <div class="rowGridModal">
+                        <label class="colGridModal">Estado</label>
+                        <input class="easyui-textbox" id="nombre_estado_proceso" name="nombre_estado_proceso" style="width:80%" data-options="disabled:true" />
+                    </div>
+                    <div class="rowGridModal">
+                        <label class="colGridModal">Observación</label>
+                        <input class="easyui-textbox" id="observacion" name="observacion" style="width:80%" data-options="disabled:true" />
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div data-options="region:'center', border:false" style="padding:10px;">
+            <table id="dgv_analisis_contrato_articulo" style="width: 100%; height:45%;"></table>
+            <table id="dgv_contrato_detalle_pago" style="width: 100%; height:55%;"></table>
+        </div>
+        <div data-options="region:'south'" style="padding:5px;height:40px">
+            <div style="height:100%;">
+                <div id="divSeleccionCuota" style="vertical-align:middle;display:none">
+                    <label class="colGridModal" style="color:#f56363;">(*) Para seleccionar una cuota haga doble click sobre el registro.</label>
+                </div>
+                <div id="divSeleccionContrato" style="text-align:right;vertical-align:middle;display:none">
+                    <a href="#" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " iconcls="icon-ok" id="btnSeleccionarCuotaComision">Seleccionar Contrato</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

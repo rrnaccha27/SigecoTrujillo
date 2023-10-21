@@ -1,0 +1,2178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SIGECOModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="articulo">
+          <Key>
+            <PropertyRef Name="codigo_articulo" />
+          </Key>
+          <Property Name="codigo_articulo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codigo_unidad_negocio" Type="int" Nullable="false" />
+          <Property Name="codigo_categoria" Type="int" Nullable="false" />
+          <Property Name="codigo_sku" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="abreviatura" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="genera_comision" Type="bit" Nullable="false" />
+          <Property Name="genera_bono" Type="bit" Nullable="false" />
+          <Property Name="genera_bolsa_bono" Type="bit" Nullable="false" />
+          <Property Name="anio_contrato_vinculante" Type="int" />
+          <Property Name="tiene_contrato_vinculante" Type="bit" />
+          <Property Name="estado_registro" Type="bit" Nullable="false" />
+          <Property Name="fecha_registra" Type="datetime" Nullable="false" />
+          <Property Name="usuario_registra" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fecha_modifica" Type="datetime" />
+          <Property Name="usuario_modifica" Type="varchar" MaxLength="50" />
+          <Property Name="codigo_tipo_articulo" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="banco">
+          <Key>
+            <PropertyRef Name="codigo_banco" />
+          </Key>
+          <Property Name="codigo_banco" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="estado_registro" Type="bit" Nullable="false" />
+          <Property Name="fecha_registra" Type="datetime" Nullable="false" />
+          <Property Name="usuario_registra" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fecha_modifica" Type="datetime" />
+          <Property Name="usuario_modifica" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="campo_santo_sigeco">
+          <Key>
+            <PropertyRef Name="codigo_campo_santo" />
+          </Key>
+          <Property Name="codigo_campo_santo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codigo_equivalencia" Type="nvarchar" MaxLength="10" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="estado_registro" Type="bit" Nullable="false" />
+          <Property Name="fecha_registra" Type="datetime" Nullable="false" />
+          <Property Name="fecha_modifica" Type="datetime" />
+          <Property Name="usuario_registra" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="usuario_modifica" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="canal_grupo">
+          <Key>
+            <PropertyRef Name="codigo_canal_grupo" />
+          </Key>
+          <Property Name="codigo_canal_grupo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="es_canal_grupo" Type="bit" Nullable="false" />
+          <Property Name="codigo_equivalencia" Type="varchar" MaxLength="4" />
+          <Property Name="nombre" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="administra_grupos" Type="bit" Nullable="false" />
+          <Property Name="codigo_padre" Type="int" />
+          <Property Name="estado_registro" Type="bit" Nullable="false" />
+          <Property Name="fecha_registra" Type="datetime" Nullable="false" />
+          <Property Name="usuario_registra" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fecha_modifica" Type="datetime" />
+          <Property Name="usuario_modifica" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="categoria">
+          <Key>
+            <PropertyRef Name="codigo_categoria" />
+          </Key>
+          <Property Name="codigo_categoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codigo_equivalencia" Type="nvarchar" MaxLength="10" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="estado_registro" Type="bit" Nullable="false" />
+          <Property Name="fecha_registra" Type="datetime" Nullable="false" />
+          <Property Name="usuario_registra" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fecha_modifica" Type="datetime" />
+          <Property Name="usuario_modifica" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="configuracion_canal_grupo">
+          <Key>
+            <PropertyRef Name="codigo_configuracion" />
+          </Key>
+          <Property Name="codigo_configuracion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codigo_canal_grupo" Type="int" Nullable="false" />
+          <Property Name="supervisor_personal" Type="bit" Nullable="false" />
+          <Property Name="comision_bono" Type="bit" Nullable="false" />
+          <Property Name="percibe" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cronograma_pago_comision">
+          <Key>
+            <PropertyRef Name="codigo_cronograma" />
+          </Key>
+          <Property Name="codigo_cronograma" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codigo_tipo_planilla" Type="int" Nullable="false" />
+          <Property Name="codigo_empresa" Type="int" Nullable="false" />
+          <Property Name="codigo_personal_canal_grupo" Type="int" Nullable="false" />
+          <Property Name="nro_contrato" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="codigo_tipo_venta" Type="int" Nullable="false" />
+          <Property Name="codigo_tipo_pago" Type="int" Nullable="false" />
+          <Property Name="codigo_moneda" Type="int" Nullable="false" />
+          <Property Name="fecha_registro" Type="datetime" Nullable="false" />
+          <Property Name="estado_registro" Type="bit" Nullable="false" />
+          <Property Name="nro_contrato_adicional" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="empresa_configuracion">
+          <Key>
+            <PropertyRef Name="codigo_empresa_configuracion" />
+          </Key>
+          <Property Name="codigo_empresa_configuracion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codigo_configuracion" Type="int" Nullable="false" />
+          <Property Name="codigo_empresa" Type="int" Nullable="false" />
+          <Property Name="planilla_factura" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="empresa_sigeco">
+          <Key>
+            <PropertyRef Name="codigo_empresa" />
+          </Key>
+          <Property Name="codigo_empresa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codigo_equivalencia" Type="nvarchar" MaxLength="4" />
+          <Property Name="nombre" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="nombre_largo" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ruc" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="direccion_fiscal" Type="varchar" MaxLength="250" />
+          <Property Name="estado_registro" Type="bit" Nullable="false" />
+          <Property Name="fecha_registra" Type="datetime" Nullable="false" />
+          <Property Name="usuario_registra" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fecha_modifica" Type="datetime" />
+          <Property Name="usuario_modifica" Type="varchar" MaxLength="50" />
+          <Property Name="nro_cuenta" Type="nvarchar" MaxLength="30" />
+          <Property Name="codigo_cuenta_moneda" Type="int" />
+          <Property Name="codigo_tipo_cuenta" Type="int" />
+        </EntityType>
+        <EntityType Name="estado_cuota">
+          <Key>
+            <PropertyRef Name="codigo_estado_cuota" />
+          </Key>
+          <Property Name="codigo_estado_cuota" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="estado_registro" Type="bit" Nullable="false" />
+          <Property Name="fecha_registra" Type="datetime" Nullable="false" />
+          <Property Name="usuario_registra" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fecha_modifica" Type="datetime" />
+          <Property Name="usuario_modifica" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="estado_planilla">
+          <Key>
+            <PropertyRef Name="codigo_estado_planilla" />
+          </Key>
+          <Property Name="codigo_estado_planilla" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="estado_registro" Type="bit" Nullable="false" />
+          <Property Name="fecha_registra" Type="datetime" Nullable="false" />
+          <Property Name="usuario_registra" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fecha_modifica" Type="datetime" />
+          <Property Name="usuario_modifica" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="estado_reclamo">
+          <Key>
+            <PropertyRef Name="codigo_estado_reclamo" />
+          </Key>
+          <Property Name="codigo_estado_reclamo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre_estado_reclamo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="estado_registro" Type="bit" Nullable="false" />
+          <Property Name="fecha_registra" Type="datetime" Nullable="false" />
+          <Property Name="fecha_modifica" Type="datetime" />
+          <Property Name="usuario_registra" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="usuario_modifica" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="estado_resultado">
+          <Key>
+            <PropertyRef Name="codigo_estado_resultado" />
+          </Key>
+          <Property Name="codigo_estado_resultado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre_estado_resultado" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="estado_registro" Type="bit" Nullable="false" />
+          <Property Name="fecha_registra" Type="datetime" Nullable="false" />
+          <Property Name="fecha_modifica" Type="datetime" />
+          <Property Name="usuario_registra" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="usuario_modifica" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="moneda">
+          <Key>
+            <PropertyRef Name="codigo_moneda" />
+          </Key>
+          <Property Name="codigo_moneda" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codigo_equivalencia" Type="nvarchar" MaxLength="10" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="simbolo" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="estado_registro" Type="bit" Nullable="false" />
+          <Property Name="fecha_registra" Type="datetime" Nullable="false" />
+          <Property Name="usuario_registra" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fecha_modifica" Type="datetime" />
+          <Property Name="usuario_modifica" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="personal">
+          <Key>
+            <PropertyRef Name="codigo_personal" />
+          </Key>
+          <Property Name="codigo_personal" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codigo_equivalencia" Type="nvarchar" MaxLength="10" />
+          <Property Name="codigo_tipo_documento" Type="int" Nullable="false" />
+          <Property Name="codigo_banco" Type="int" Nullable="false" />
+          <Property Name="es_persona_juridica" Type="bit" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="apellido_paterno" Type="varchar" MaxLength="250" />
+          <Property Name="apellido_materno" Type="varchar" MaxLength="250" />
+          <Property Name="nro_documento" Type="varchar" MaxLength="15" />
+          <Property Name="nro_ruc" Type="varchar" MaxLength="11" />
+          <Property Name="telefono_fijo" Type="varchar" MaxLength="10" />
+          <Property Name="telefono_celular" Type="varchar" MaxLength="10" />
+          <Property Name="correo_electronico" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="nro_cuenta" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="codigo_interbancario" Type="varchar" MaxLength="50" />
+          <Property Name="estado_registro" Type="bit" Nullable="false" />
+          <Property Name="fecha_registra" Type="datetime" Nullable="false" />
+          <Property Name="usuario_registra" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fecha_modifica" Type="datetime" />
+          <Property Name="usuario_modifica" Type="varchar" MaxLength="50" />
+          <Property Name="codigo_cuenta_moneda" Type="int" />
+          <Property Name="codigo_tipo_cuenta" Type="int" />
+        </EntityType>
+        <EntityType Name="personal_canal_grupo">
+          <Key>
+            <PropertyRef Name="codigo_registro" />
+          </Key>
+          <Property Name="codigo_registro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codigo_personal" Type="int" Nullable="false" />
+          <Property Name="codigo_canal_grupo" Type="int" Nullable="false" />
+          <Property Name="codigo_canal" Type="int" Nullable="false" />
+          <Property Name="es_supervisor_canal" Type="bit" Nullable="false" />
+          <Property Name="es_supervisor_grupo" Type="bit" Nullable="false" />
+          <Property Name="percibe_comision" Type="bit" Nullable="false" />
+          <Property Name="percibe_bono" Type="bit" Nullable="false" />
+          <Property Name="estado_registro" Type="bit" Nullable="false" />
+          <Property Name="fecha_registra" Type="datetime" Nullable="false" />
+          <Property Name="usuario_registra" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fecha_modifica" Type="datetime" />
+          <Property Name="usuario_modifica" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="precio_articulo">
+          <Key>
+            <PropertyRef Name="codigo_precio" />
+          </Key>
+          <Property Name="codigo_precio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codigo_campo_santo" Type="int" Nullable="false" />
+          <Property Name="codigo_articulo" Type="int" Nullable="false" />
+          <Property Name="codigo_empresa" Type="int" Nullable="false" />
+          <Property Name="codigo_tipo_venta" Type="int" Nullable="false" />
+          <Property Name="codigo_moneda" Type="int" Nullable="false" />
+          <Property Name="precio" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="igv" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="precio_total" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="vigencia_inicio" Type="datetime" Nullable="false" />
+          <Property Name="vigencia_fin" Type="datetime" Nullable="false" />
+          <Property Name="estado_registro" Type="bit" Nullable="false" />
+          <Property Name="fecha_registra" Type="datetime" Nullable="false" />
+          <Property Name="usuario_registra" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fecha_modifica" Type="datetime" />
+          <Property Name="usuario_modifica" Type="varchar" MaxLength="50" />
+          <Property Name="cuota_inicial" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="regla_calculo_comision">
+          <Key>
+            <PropertyRef Name="codigo_regla" />
+          </Key>
+          <Property Name="codigo_regla" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codigo_precio" Type="int" Nullable="false" />
+          <Property Name="codigo_canal" Type="int" Nullable="false" />
+          <Property Name="codigo_tipo_pago" Type="int" Nullable="false" />
+          <Property Name="codigo_tipo_comision" Type="int" Nullable="false" />
+          <Property Name="valor" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="vigencia_inicio" Type="datetime" Nullable="false" />
+          <Property Name="vigencia_fin" Type="datetime" Nullable="false" />
+          <Property Name="estado_registro" Type="bit" Nullable="false" />
+          <Property Name="fecha_registra" Type="datetime" Nullable="false" />
+          <Property Name="usuario_registra" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fecha_modifica" Type="datetime" />
+          <Property Name="usuario_modifica" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tipo_articulo">
+          <Key>
+            <PropertyRef Name="codigo_tipo_articulo" />
+          </Key>
+          <Property Name="codigo_tipo_articulo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="estado_registro" Type="bit" Nullable="false" />
+          <Property Name="fecha_registra" Type="datetime" Nullable="false" />
+          <Property Name="usuario_registra" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fecha_modifica" Type="datetime" />
+          <Property Name="usuario_modifica" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tipo_comision">
+          <Key>
+            <PropertyRef Name="codigo_tipo_comision" />
+          </Key>
+          <Property Name="codigo_tipo_comision" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="estado_registro" Type="bit" Nullable="false" />
+          <Property Name="fecha_registra" Type="datetime" Nullable="false" />
+          <Property Name="usuario_registra" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fecha_modifica" Type="datetime" />
+          <Property Name="usuario_modifica" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tipo_cuenta">
+          <Key>
+            <PropertyRef Name="codigo_tipo_cuenta" />
+          </Key>
+          <Property Name="codigo_tipo_cuenta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codigo_equivalencia" Type="nvarchar" MaxLength="10" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="simbolo" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="estado_registro" Type="bit" Nullable="false" />
+          <Property Name="fecha_registra" Type="datetime" Nullable="false" />
+          <Property Name="usuario_registra" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fecha_modifica" Type="datetime" />
+          <Property Name="usuario_modifica" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tipo_documento">
+          <Key>
+            <PropertyRef Name="codigo_tipo_documento" />
+          </Key>
+          <Property Name="codigo_tipo_documento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre_tipo_documento" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="estado_registro" Type="bit" Nullable="false" />
+          <Property Name="fecha_registra" Type="datetime" Nullable="false" />
+          <Property Name="fecha_modifica" Type="datetime" />
+          <Property Name="usuario_registra" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="usuario_modifica" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tipo_pago">
+          <Key>
+            <PropertyRef Name="codigo_tipo_pago" />
+          </Key>
+          <Property Name="codigo_tipo_pago" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codigo_equivalencia" Type="nvarchar" MaxLength="10" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="estado_registro" Type="bit" Nullable="false" />
+          <Property Name="fecha_registra" Type="datetime" Nullable="false" />
+          <Property Name="usuario_registra" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fecha_modifica" Type="datetime" />
+          <Property Name="usuario_modifica" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tipo_planilla">
+          <Key>
+            <PropertyRef Name="codigo_tipo_planilla" />
+          </Key>
+          <Property Name="codigo_tipo_planilla" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="estado_registro" Type="bit" Nullable="false" />
+          <Property Name="fecha_registra" Type="datetime" Nullable="false" />
+          <Property Name="usuario_registra" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fecha_modifica" Type="datetime" />
+          <Property Name="usuario_modifica" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tipo_venta">
+          <Key>
+            <PropertyRef Name="codigo_tipo_venta" />
+          </Key>
+          <Property Name="codigo_tipo_venta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codigo_equivalencia" Type="nvarchar" MaxLength="10" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="abreviatura" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="estado_registro" Type="bit" Nullable="false" />
+          <Property Name="fecha_registra" Type="datetime" Nullable="false" />
+          <Property Name="usuario_registra" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fecha_modifica" Type="datetime" />
+          <Property Name="usuario_modifica" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="unidad_negocio">
+          <Key>
+            <PropertyRef Name="codigo_unidad_negocio" />
+          </Key>
+          <Property Name="codigo_unidad_negocio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codigo_equivalencia" Type="nvarchar" MaxLength="10" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="estado_registro" Type="bit" Nullable="false" />
+          <Property Name="fecha_registra" Type="datetime" Nullable="false" />
+          <Property Name="usuario_registra" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fecha_modifica" Type="datetime" />
+          <Property Name="usuario_modifica" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="articulo_codigo_categoria_categoria_codigo_categoria">
+          <End Role="categoria" Type="Self.categoria" Multiplicity="1" />
+          <End Role="articulo" Type="Self.articulo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categoria">
+              <PropertyRef Name="codigo_categoria" />
+            </Principal>
+            <Dependent Role="articulo">
+              <PropertyRef Name="codigo_categoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="articulo_codigo_unidad_negocio_unidad_negocio_codigo_unidad_negocio">
+          <End Role="unidad_negocio" Type="Self.unidad_negocio" Multiplicity="1" />
+          <End Role="articulo" Type="Self.articulo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="unidad_negocio">
+              <PropertyRef Name="codigo_unidad_negocio" />
+            </Principal>
+            <Dependent Role="articulo">
+              <PropertyRef Name="codigo_unidad_negocio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_articulo_codigo_tipo_articulo_tipo_articulo_codigo_tipo_articulo">
+          <End Role="tipo_articulo" Type="Self.tipo_articulo" Multiplicity="1" />
+          <End Role="articulo" Type="Self.articulo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_articulo">
+              <PropertyRef Name="codigo_tipo_articulo" />
+            </Principal>
+            <Dependent Role="articulo">
+              <PropertyRef Name="codigo_tipo_articulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_configuracion_canal_grupo_codigo_canal_grupo_canal_grupo_codigo_canal_grupo">
+          <End Role="canal_grupo" Type="Self.canal_grupo" Multiplicity="1" />
+          <End Role="configuracion_canal_grupo" Type="Self.configuracion_canal_grupo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="canal_grupo">
+              <PropertyRef Name="codigo_canal_grupo" />
+            </Principal>
+            <Dependent Role="configuracion_canal_grupo">
+              <PropertyRef Name="codigo_canal_grupo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cronograma_pago_comision_codigo_empresa_empresa_sigeco_codigo_empresa">
+          <End Role="empresa_sigeco" Type="Self.empresa_sigeco" Multiplicity="1" />
+          <End Role="cronograma_pago_comision" Type="Self.cronograma_pago_comision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="empresa_sigeco">
+              <PropertyRef Name="codigo_empresa" />
+            </Principal>
+            <Dependent Role="cronograma_pago_comision">
+              <PropertyRef Name="codigo_empresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cronograma_pago_comision_codigo_moneda_moneda_codigo_moneda">
+          <End Role="moneda" Type="Self.moneda" Multiplicity="1" />
+          <End Role="cronograma_pago_comision" Type="Self.cronograma_pago_comision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="moneda">
+              <PropertyRef Name="codigo_moneda" />
+            </Principal>
+            <Dependent Role="cronograma_pago_comision">
+              <PropertyRef Name="codigo_moneda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cronograma_pago_comision_codigo_personal_canal_grupo_personal_canal_grupo_codigo_registro">
+          <End Role="personal_canal_grupo" Type="Self.personal_canal_grupo" Multiplicity="1" />
+          <End Role="cronograma_pago_comision" Type="Self.cronograma_pago_comision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personal_canal_grupo">
+              <PropertyRef Name="codigo_registro" />
+            </Principal>
+            <Dependent Role="cronograma_pago_comision">
+              <PropertyRef Name="codigo_personal_canal_grupo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cronograma_pago_comision_codigo_tipo_pago_tipo_pago_codigo_tipo_pago">
+          <End Role="tipo_pago" Type="Self.tipo_pago" Multiplicity="1" />
+          <End Role="cronograma_pago_comision" Type="Self.cronograma_pago_comision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_pago">
+              <PropertyRef Name="codigo_tipo_pago" />
+            </Principal>
+            <Dependent Role="cronograma_pago_comision">
+              <PropertyRef Name="codigo_tipo_pago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cronograma_pago_comision_codigo_tipo_planilla_tipo_planilla_tipo_planilla">
+          <End Role="tipo_planilla" Type="Self.tipo_planilla" Multiplicity="1" />
+          <End Role="cronograma_pago_comision" Type="Self.cronograma_pago_comision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_planilla">
+              <PropertyRef Name="codigo_tipo_planilla" />
+            </Principal>
+            <Dependent Role="cronograma_pago_comision">
+              <PropertyRef Name="codigo_tipo_planilla" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cronograma_pago_comision_codigo_tipo_venta_tipo_venta_codigo_tipo_venta">
+          <End Role="tipo_venta" Type="Self.tipo_venta" Multiplicity="1" />
+          <End Role="cronograma_pago_comision" Type="Self.cronograma_pago_comision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_venta">
+              <PropertyRef Name="codigo_tipo_venta" />
+            </Principal>
+            <Dependent Role="cronograma_pago_comision">
+              <PropertyRef Name="codigo_tipo_venta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_empresa_configuracion_codigo_configuracion_configuracion_canal_grupo_codigo_configuracion">
+          <End Role="configuracion_canal_grupo" Type="Self.configuracion_canal_grupo" Multiplicity="1" />
+          <End Role="empresa_configuracion" Type="Self.empresa_configuracion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="configuracion_canal_grupo">
+              <PropertyRef Name="codigo_configuracion" />
+            </Principal>
+            <Dependent Role="empresa_configuracion">
+              <PropertyRef Name="codigo_configuracion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_empresa_configuracion_codigo_empresa_empresa_sigeco_codigo_empresa">
+          <End Role="empresa_sigeco" Type="Self.empresa_sigeco" Multiplicity="1" />
+          <End Role="empresa_configuracion" Type="Self.empresa_configuracion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="empresa_sigeco">
+              <PropertyRef Name="codigo_empresa" />
+            </Principal>
+            <Dependent Role="empresa_configuracion">
+              <PropertyRef Name="codigo_empresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_empresa_sigeco_codigo_tipo_cuenta_tipo_cuenta_codigo_tipo_cuenta">
+          <End Role="tipo_cuenta" Type="Self.tipo_cuenta" Multiplicity="0..1" />
+          <End Role="empresa_sigeco" Type="Self.empresa_sigeco" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_cuenta">
+              <PropertyRef Name="codigo_tipo_cuenta" />
+            </Principal>
+            <Dependent Role="empresa_sigeco">
+              <PropertyRef Name="codigo_tipo_cuenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_personal_codigo_banco_banco_codigo_banco">
+          <End Role="banco" Type="Self.banco" Multiplicity="1" />
+          <End Role="personal" Type="Self.personal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="banco">
+              <PropertyRef Name="codigo_banco" />
+            </Principal>
+            <Dependent Role="personal">
+              <PropertyRef Name="codigo_banco" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_personal_codigo_tipo_cuenta_tipo_cuenta_codigo_tipo_cuenta">
+          <End Role="tipo_cuenta" Type="Self.tipo_cuenta" Multiplicity="0..1" />
+          <End Role="personal" Type="Self.personal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_cuenta">
+              <PropertyRef Name="codigo_tipo_cuenta" />
+            </Principal>
+            <Dependent Role="personal">
+              <PropertyRef Name="codigo_tipo_cuenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_personal_codigo_tipo_documento_tipo_documento_codigo_tipo_documento">
+          <End Role="tipo_documento" Type="Self.tipo_documento" Multiplicity="1" />
+          <End Role="personal" Type="Self.personal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_documento">
+              <PropertyRef Name="codigo_tipo_documento" />
+            </Principal>
+            <Dependent Role="personal">
+              <PropertyRef Name="codigo_tipo_documento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_precio_articulo_codigo_articulo_articulo_codigo_articulo">
+          <End Role="articulo" Type="Self.articulo" Multiplicity="1" />
+          <End Role="precio_articulo" Type="Self.precio_articulo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="articulo">
+              <PropertyRef Name="codigo_articulo" />
+            </Principal>
+            <Dependent Role="precio_articulo">
+              <PropertyRef Name="codigo_articulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_precio_articulo_codigo_campo_santo_campo_santo_sigeco_codigo_campo_santo">
+          <End Role="campo_santo_sigeco" Type="Self.campo_santo_sigeco" Multiplicity="1" />
+          <End Role="precio_articulo" Type="Self.precio_articulo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="campo_santo_sigeco">
+              <PropertyRef Name="codigo_campo_santo" />
+            </Principal>
+            <Dependent Role="precio_articulo">
+              <PropertyRef Name="codigo_campo_santo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_precio_articulo_codigo_empresa_empresa_sigeco_codigo_empresa">
+          <End Role="empresa_sigeco" Type="Self.empresa_sigeco" Multiplicity="1" />
+          <End Role="precio_articulo" Type="Self.precio_articulo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="empresa_sigeco">
+              <PropertyRef Name="codigo_empresa" />
+            </Principal>
+            <Dependent Role="precio_articulo">
+              <PropertyRef Name="codigo_empresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_precio_articulo_codigo_moneda_moneda_codigo_moneda">
+          <End Role="moneda" Type="Self.moneda" Multiplicity="1" />
+          <End Role="precio_articulo" Type="Self.precio_articulo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="moneda">
+              <PropertyRef Name="codigo_moneda" />
+            </Principal>
+            <Dependent Role="precio_articulo">
+              <PropertyRef Name="codigo_moneda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_precio_articulo_codigo_tipo_venta_tipo_venta_codigo_tipo_venta">
+          <End Role="tipo_venta" Type="Self.tipo_venta" Multiplicity="1" />
+          <End Role="precio_articulo" Type="Self.precio_articulo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_venta">
+              <PropertyRef Name="codigo_tipo_venta" />
+            </Principal>
+            <Dependent Role="precio_articulo">
+              <PropertyRef Name="codigo_tipo_venta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_regla_calculo_comision_codigo_canal_canal_grupo_codigo_canal_grupo">
+          <End Role="canal_grupo" Type="Self.canal_grupo" Multiplicity="1" />
+          <End Role="regla_calculo_comision" Type="Self.regla_calculo_comision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="canal_grupo">
+              <PropertyRef Name="codigo_canal_grupo" />
+            </Principal>
+            <Dependent Role="regla_calculo_comision">
+              <PropertyRef Name="codigo_canal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_regla_calculo_comision_codigo_precio_precio_articulo_codigo_precio">
+          <End Role="precio_articulo" Type="Self.precio_articulo" Multiplicity="1" />
+          <End Role="regla_calculo_comision" Type="Self.regla_calculo_comision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="precio_articulo">
+              <PropertyRef Name="codigo_precio" />
+            </Principal>
+            <Dependent Role="regla_calculo_comision">
+              <PropertyRef Name="codigo_precio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_regla_calculo_comision_codigo_tipo_comision_tipo_comision_codigo_tipo_comision">
+          <End Role="tipo_comision" Type="Self.tipo_comision" Multiplicity="1" />
+          <End Role="regla_calculo_comision" Type="Self.regla_calculo_comision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_comision">
+              <PropertyRef Name="codigo_tipo_comision" />
+            </Principal>
+            <Dependent Role="regla_calculo_comision">
+              <PropertyRef Name="codigo_tipo_comision" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_regla_calculo_comision_codigo_tipo_pago_tipo_pago_codigo_tipo_pago">
+          <End Role="tipo_pago" Type="Self.tipo_pago" Multiplicity="1" />
+          <End Role="regla_calculo_comision" Type="Self.regla_calculo_comision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_pago">
+              <PropertyRef Name="codigo_tipo_pago" />
+            </Principal>
+            <Dependent Role="regla_calculo_comision">
+              <PropertyRef Name="codigo_tipo_pago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="personal_canal_grupo_codigo_canal_grupo_canal_grupo_codigo_canal_grupo">
+          <End Role="canal_grupo" Type="Self.canal_grupo" Multiplicity="1" />
+          <End Role="personal_canal_grupo" Type="Self.personal_canal_grupo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="canal_grupo">
+              <PropertyRef Name="codigo_canal_grupo" />
+            </Principal>
+            <Dependent Role="personal_canal_grupo">
+              <PropertyRef Name="codigo_canal_grupo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="personal_canal_grupo_codigo_personal_personal_codigo_personal">
+          <End Role="personal" Type="Self.personal" Multiplicity="1" />
+          <End Role="personal_canal_grupo" Type="Self.personal_canal_grupo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personal">
+              <PropertyRef Name="codigo_personal" />
+            </Principal>
+            <Dependent Role="personal_canal_grupo">
+              <PropertyRef Name="codigo_personal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SIGECOModelStoreContainer">
+          <EntitySet Name="articulo" EntityType="Self.articulo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="banco" EntityType="Self.banco" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="campo_santo_sigeco" EntityType="Self.campo_santo_sigeco" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="canal_grupo" EntityType="Self.canal_grupo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="categoria" EntityType="Self.categoria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="configuracion_canal_grupo" EntityType="Self.configuracion_canal_grupo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cronograma_pago_comision" EntityType="Self.cronograma_pago_comision" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="empresa_configuracion" EntityType="Self.empresa_configuracion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="empresa_sigeco" EntityType="Self.empresa_sigeco" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="estado_cuota" EntityType="Self.estado_cuota" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="estado_planilla" EntityType="Self.estado_planilla" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="estado_reclamo" EntityType="Self.estado_reclamo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="estado_resultado" EntityType="Self.estado_resultado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="moneda" EntityType="Self.moneda" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="personal" EntityType="Self.personal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="personal_canal_grupo" EntityType="Self.personal_canal_grupo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="precio_articulo" EntityType="Self.precio_articulo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="regla_calculo_comision" EntityType="Self.regla_calculo_comision" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tipo_articulo" EntityType="Self.tipo_articulo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tipo_comision" EntityType="Self.tipo_comision" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tipo_cuenta" EntityType="Self.tipo_cuenta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tipo_documento" EntityType="Self.tipo_documento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tipo_pago" EntityType="Self.tipo_pago" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tipo_planilla" EntityType="Self.tipo_planilla" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tipo_venta" EntityType="Self.tipo_venta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="unidad_negocio" EntityType="Self.unidad_negocio" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="articulo_codigo_categoria_categoria_codigo_categoria" Association="Self.articulo_codigo_categoria_categoria_codigo_categoria">
+            <End Role="categoria" EntitySet="categoria" />
+            <End Role="articulo" EntitySet="articulo" />
+          </AssociationSet>
+          <AssociationSet Name="articulo_codigo_unidad_negocio_unidad_negocio_codigo_unidad_negocio" Association="Self.articulo_codigo_unidad_negocio_unidad_negocio_codigo_unidad_negocio">
+            <End Role="unidad_negocio" EntitySet="unidad_negocio" />
+            <End Role="articulo" EntitySet="articulo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_articulo_codigo_tipo_articulo_tipo_articulo_codigo_tipo_articulo" Association="Self.FK_articulo_codigo_tipo_articulo_tipo_articulo_codigo_tipo_articulo">
+            <End Role="tipo_articulo" EntitySet="tipo_articulo" />
+            <End Role="articulo" EntitySet="articulo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_configuracion_canal_grupo_codigo_canal_grupo_canal_grupo_codigo_canal_grupo" Association="Self.FK_configuracion_canal_grupo_codigo_canal_grupo_canal_grupo_codigo_canal_grupo">
+            <End Role="canal_grupo" EntitySet="canal_grupo" />
+            <End Role="configuracion_canal_grupo" EntitySet="configuracion_canal_grupo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cronograma_pago_comision_codigo_empresa_empresa_sigeco_codigo_empresa" Association="Self.FK_cronograma_pago_comision_codigo_empresa_empresa_sigeco_codigo_empresa">
+            <End Role="empresa_sigeco" EntitySet="empresa_sigeco" />
+            <End Role="cronograma_pago_comision" EntitySet="cronograma_pago_comision" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cronograma_pago_comision_codigo_moneda_moneda_codigo_moneda" Association="Self.FK_cronograma_pago_comision_codigo_moneda_moneda_codigo_moneda">
+            <End Role="moneda" EntitySet="moneda" />
+            <End Role="cronograma_pago_comision" EntitySet="cronograma_pago_comision" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cronograma_pago_comision_codigo_personal_canal_grupo_personal_canal_grupo_codigo_registro" Association="Self.FK_cronograma_pago_comision_codigo_personal_canal_grupo_personal_canal_grupo_codigo_registro">
+            <End Role="personal_canal_grupo" EntitySet="personal_canal_grupo" />
+            <End Role="cronograma_pago_comision" EntitySet="cronograma_pago_comision" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cronograma_pago_comision_codigo_tipo_pago_tipo_pago_codigo_tipo_pago" Association="Self.FK_cronograma_pago_comision_codigo_tipo_pago_tipo_pago_codigo_tipo_pago">
+            <End Role="tipo_pago" EntitySet="tipo_pago" />
+            <End Role="cronograma_pago_comision" EntitySet="cronograma_pago_comision" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cronograma_pago_comision_codigo_tipo_planilla_tipo_planilla_tipo_planilla" Association="Self.FK_cronograma_pago_comision_codigo_tipo_planilla_tipo_planilla_tipo_planilla">
+            <End Role="tipo_planilla" EntitySet="tipo_planilla" />
+            <End Role="cronograma_pago_comision" EntitySet="cronograma_pago_comision" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cronograma_pago_comision_codigo_tipo_venta_tipo_venta_codigo_tipo_venta" Association="Self.FK_cronograma_pago_comision_codigo_tipo_venta_tipo_venta_codigo_tipo_venta">
+            <End Role="tipo_venta" EntitySet="tipo_venta" />
+            <End Role="cronograma_pago_comision" EntitySet="cronograma_pago_comision" />
+          </AssociationSet>
+          <AssociationSet Name="FK_empresa_configuracion_codigo_configuracion_configuracion_canal_grupo_codigo_configuracion" Association="Self.FK_empresa_configuracion_codigo_configuracion_configuracion_canal_grupo_codigo_configuracion">
+            <End Role="configuracion_canal_grupo" EntitySet="configuracion_canal_grupo" />
+            <End Role="empresa_configuracion" EntitySet="empresa_configuracion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_empresa_configuracion_codigo_empresa_empresa_sigeco_codigo_empresa" Association="Self.FK_empresa_configuracion_codigo_empresa_empresa_sigeco_codigo_empresa">
+            <End Role="empresa_sigeco" EntitySet="empresa_sigeco" />
+            <End Role="empresa_configuracion" EntitySet="empresa_configuracion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_empresa_sigeco_codigo_tipo_cuenta_tipo_cuenta_codigo_tipo_cuenta" Association="Self.FK_empresa_sigeco_codigo_tipo_cuenta_tipo_cuenta_codigo_tipo_cuenta">
+            <End Role="tipo_cuenta" EntitySet="tipo_cuenta" />
+            <End Role="empresa_sigeco" EntitySet="empresa_sigeco" />
+          </AssociationSet>
+          <AssociationSet Name="FK_personal_codigo_banco_banco_codigo_banco" Association="Self.FK_personal_codigo_banco_banco_codigo_banco">
+            <End Role="banco" EntitySet="banco" />
+            <End Role="personal" EntitySet="personal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_personal_codigo_tipo_cuenta_tipo_cuenta_codigo_tipo_cuenta" Association="Self.FK_personal_codigo_tipo_cuenta_tipo_cuenta_codigo_tipo_cuenta">
+            <End Role="tipo_cuenta" EntitySet="tipo_cuenta" />
+            <End Role="personal" EntitySet="personal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_personal_codigo_tipo_documento_tipo_documento_codigo_tipo_documento" Association="Self.FK_personal_codigo_tipo_documento_tipo_documento_codigo_tipo_documento">
+            <End Role="tipo_documento" EntitySet="tipo_documento" />
+            <End Role="personal" EntitySet="personal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_precio_articulo_codigo_articulo_articulo_codigo_articulo" Association="Self.FK_precio_articulo_codigo_articulo_articulo_codigo_articulo">
+            <End Role="articulo" EntitySet="articulo" />
+            <End Role="precio_articulo" EntitySet="precio_articulo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_precio_articulo_codigo_campo_santo_campo_santo_sigeco_codigo_campo_santo" Association="Self.FK_precio_articulo_codigo_campo_santo_campo_santo_sigeco_codigo_campo_santo">
+            <End Role="campo_santo_sigeco" EntitySet="campo_santo_sigeco" />
+            <End Role="precio_articulo" EntitySet="precio_articulo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_precio_articulo_codigo_empresa_empresa_sigeco_codigo_empresa" Association="Self.FK_precio_articulo_codigo_empresa_empresa_sigeco_codigo_empresa">
+            <End Role="empresa_sigeco" EntitySet="empresa_sigeco" />
+            <End Role="precio_articulo" EntitySet="precio_articulo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_precio_articulo_codigo_moneda_moneda_codigo_moneda" Association="Self.FK_precio_articulo_codigo_moneda_moneda_codigo_moneda">
+            <End Role="moneda" EntitySet="moneda" />
+            <End Role="precio_articulo" EntitySet="precio_articulo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_precio_articulo_codigo_tipo_venta_tipo_venta_codigo_tipo_venta" Association="Self.FK_precio_articulo_codigo_tipo_venta_tipo_venta_codigo_tipo_venta">
+            <End Role="tipo_venta" EntitySet="tipo_venta" />
+            <End Role="precio_articulo" EntitySet="precio_articulo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_regla_calculo_comision_codigo_canal_canal_grupo_codigo_canal_grupo" Association="Self.FK_regla_calculo_comision_codigo_canal_canal_grupo_codigo_canal_grupo">
+            <End Role="canal_grupo" EntitySet="canal_grupo" />
+            <End Role="regla_calculo_comision" EntitySet="regla_calculo_comision" />
+          </AssociationSet>
+          <AssociationSet Name="FK_regla_calculo_comision_codigo_precio_precio_articulo_codigo_precio" Association="Self.FK_regla_calculo_comision_codigo_precio_precio_articulo_codigo_precio">
+            <End Role="precio_articulo" EntitySet="precio_articulo" />
+            <End Role="regla_calculo_comision" EntitySet="regla_calculo_comision" />
+          </AssociationSet>
+          <AssociationSet Name="FK_regla_calculo_comision_codigo_tipo_comision_tipo_comision_codigo_tipo_comision" Association="Self.FK_regla_calculo_comision_codigo_tipo_comision_tipo_comision_codigo_tipo_comision">
+            <End Role="tipo_comision" EntitySet="tipo_comision" />
+            <End Role="regla_calculo_comision" EntitySet="regla_calculo_comision" />
+          </AssociationSet>
+          <AssociationSet Name="FK_regla_calculo_comision_codigo_tipo_pago_tipo_pago_codigo_tipo_pago" Association="Self.FK_regla_calculo_comision_codigo_tipo_pago_tipo_pago_codigo_tipo_pago">
+            <End Role="tipo_pago" EntitySet="tipo_pago" />
+            <End Role="regla_calculo_comision" EntitySet="regla_calculo_comision" />
+          </AssociationSet>
+          <AssociationSet Name="personal_canal_grupo_codigo_canal_grupo_canal_grupo_codigo_canal_grupo" Association="Self.personal_canal_grupo_codigo_canal_grupo_canal_grupo_codigo_canal_grupo">
+            <End Role="canal_grupo" EntitySet="canal_grupo" />
+            <End Role="personal_canal_grupo" EntitySet="personal_canal_grupo" />
+          </AssociationSet>
+          <AssociationSet Name="personal_canal_grupo_codigo_personal_personal_codigo_personal" Association="Self.personal_canal_grupo_codigo_personal_personal_codigo_personal">
+            <End Role="personal" EntitySet="personal" />
+            <End Role="personal_canal_grupo" EntitySet="personal_canal_grupo" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SIGECOModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tipo_cuenta">
+          <Key>
+            <PropertyRef Name="codigo_tipo_cuenta" />
+          </Key>
+          <Property Name="codigo_tipo_cuenta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codigo_equivalencia" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="simbolo" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="estado_registro" Type="Boolean" Nullable="false" />
+          <Property Name="fecha_registra" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fecha_modifica" Type="DateTime" Precision="3" />
+          <Property Name="usuario_registra" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="usuario_modifica" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="empresa_sigeco" Relationship="SIGECOModel.FK_empresa_sigeco_codigo_tipo_cuenta_tipo_cuenta_codigo_tipo_cuenta" FromRole="tipo_cuenta" ToRole="empresa_sigeco" />
+          <NavigationProperty Name="personal" Relationship="SIGECOModel.FK_personal_codigo_tipo_cuenta_tipo_cuenta_codigo_tipo_cuenta" FromRole="tipo_cuenta" ToRole="personal" />
+        </EntityType>
+        <EntityContainer Name="SIGECOEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tipo_cuenta" EntityType="Self.tipo_cuenta" />
+          <EntitySet Name="articulo" EntityType="SIGECOModel.articulo" />
+          <EntitySet Name="banco" EntityType="SIGECOModel.banco" />
+          <EntitySet Name="campo_santo_sigeco" EntityType="SIGECOModel.campo_santo_sigeco" />
+          <EntitySet Name="categoria" EntityType="SIGECOModel.categoria" />
+          <EntitySet Name="configuracion_canal_grupo" EntityType="SIGECOModel.configuracion_canal_grupo" />
+          <EntitySet Name="empresa_configuracion" EntityType="SIGECOModel.empresa_configuracion" />
+          <EntitySet Name="estado_cuota" EntityType="SIGECOModel.estado_cuota" />
+          <EntitySet Name="estado_planilla" EntityType="SIGECOModel.estado_planilla" />
+          <EntitySet Name="estado_reclamo" EntityType="SIGECOModel.estado_reclamo" />
+          <AssociationSet Name="articulo_codigo_categoria_categoria_codigo_categoria" Association="SIGECOModel.articulo_codigo_categoria_categoria_codigo_categoria">
+            <End Role="categoria" EntitySet="categoria" />
+            <End Role="articulo" EntitySet="articulo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_empresa_configuracion_codigo_configuracion_configuracion_canal_grupo_codigo_configuracion" Association="SIGECOModel.FK_empresa_configuracion_codigo_configuracion_configuracion_canal_grupo_codigo_configuracion">
+            <End Role="configuracion_canal_grupo" EntitySet="configuracion_canal_grupo" />
+            <End Role="empresa_configuracion" EntitySet="empresa_configuracion" />
+          </AssociationSet>
+          <EntitySet Name="estado_resultado" EntityType="SIGECOModel.estado_resultado" />
+          <EntitySet Name="moneda" EntityType="SIGECOModel.moneda" />
+          <EntitySet Name="personal_canal_grupo" EntityType="SIGECOModel.personal_canal_grupo" />
+          <EntitySet Name="regla_calculo_comision" EntityType="SIGECOModel.regla_calculo_comision" />
+          <EntitySet Name="tipo_articulo" EntityType="SIGECOModel.tipo_articulo" />
+          <EntitySet Name="tipo_comision" EntityType="SIGECOModel.tipo_comision" />
+          <EntitySet Name="tipo_documento" EntityType="SIGECOModel.tipo_documento" />
+          <EntitySet Name="tipo_pago" EntityType="SIGECOModel.tipo_pago" />
+          <EntitySet Name="tipo_planilla" EntityType="SIGECOModel.tipo_planilla" />
+          <EntitySet Name="tipo_venta" EntityType="SIGECOModel.tipo_venta" />
+          <EntitySet Name="unidad_negocio" EntityType="SIGECOModel.unidad_negocio" />
+          <AssociationSet Name="articulo_codigo_unidad_negocio_unidad_negocio_codigo_unidad_negocio" Association="SIGECOModel.articulo_codigo_unidad_negocio_unidad_negocio_codigo_unidad_negocio">
+            <End Role="unidad_negocio" EntitySet="unidad_negocio" />
+            <End Role="articulo" EntitySet="articulo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_articulo_codigo_tipo_articulo_tipo_articulo_codigo_tipo_articulo" Association="SIGECOModel.FK_articulo_codigo_tipo_articulo_tipo_articulo_codigo_tipo_articulo">
+            <End Role="tipo_articulo" EntitySet="tipo_articulo" />
+            <End Role="articulo" EntitySet="articulo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_regla_calculo_comision_codigo_tipo_comision_tipo_comision_codigo_tipo_comision" Association="SIGECOModel.FK_regla_calculo_comision_codigo_tipo_comision_tipo_comision_codigo_tipo_comision">
+            <End Role="tipo_comision" EntitySet="tipo_comision" />
+            <End Role="regla_calculo_comision" EntitySet="regla_calculo_comision" />
+          </AssociationSet>
+          <AssociationSet Name="FK_regla_calculo_comision_codigo_tipo_pago_tipo_pago_codigo_tipo_pago" Association="SIGECOModel.FK_regla_calculo_comision_codigo_tipo_pago_tipo_pago_codigo_tipo_pago">
+            <End Role="tipo_pago" EntitySet="tipo_pago" />
+            <End Role="regla_calculo_comision" EntitySet="regla_calculo_comision" />
+          </AssociationSet>
+          <EntitySet Name="canal_grupo" EntityType="SIGECOModel.canal_grupo" />
+          <AssociationSet Name="FK_configuracion_canal_grupo_codigo_canal_grupo_canal_grupo_codigo_canal_grupo" Association="SIGECOModel.FK_configuracion_canal_grupo_codigo_canal_grupo_canal_grupo_codigo_canal_grupo">
+            <End Role="canal_grupo" EntitySet="canal_grupo" />
+            <End Role="configuracion_canal_grupo" EntitySet="configuracion_canal_grupo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_regla_calculo_comision_codigo_canal_canal_grupo_codigo_canal_grupo" Association="SIGECOModel.FK_regla_calculo_comision_codigo_canal_canal_grupo_codigo_canal_grupo">
+            <End Role="canal_grupo" EntitySet="canal_grupo" />
+            <End Role="regla_calculo_comision" EntitySet="regla_calculo_comision" />
+          </AssociationSet>
+          <AssociationSet Name="personal_canal_grupo_codigo_canal_grupo_canal_grupo_codigo_canal_grupo" Association="SIGECOModel.personal_canal_grupo_codigo_canal_grupo_canal_grupo_codigo_canal_grupo">
+            <End Role="canal_grupo" EntitySet="canal_grupo" />
+            <End Role="personal_canal_grupo" EntitySet="personal_canal_grupo" />
+          </AssociationSet>
+          <EntitySet Name="precio_articulo" EntityType="SIGECOModel.precio_articulo" />
+          <AssociationSet Name="FK_precio_articulo_codigo_articulo_articulo_codigo_articulo" Association="SIGECOModel.FK_precio_articulo_codigo_articulo_articulo_codigo_articulo">
+            <End Role="articulo" EntitySet="articulo" />
+            <End Role="precio_articulo" EntitySet="precio_articulo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_precio_articulo_codigo_campo_santo_campo_santo_sigeco_codigo_campo_santo" Association="SIGECOModel.FK_precio_articulo_codigo_campo_santo_campo_santo_sigeco_codigo_campo_santo">
+            <End Role="campo_santo_sigeco" EntitySet="campo_santo_sigeco" />
+            <End Role="precio_articulo" EntitySet="precio_articulo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_precio_articulo_codigo_moneda_moneda_codigo_moneda" Association="SIGECOModel.FK_precio_articulo_codigo_moneda_moneda_codigo_moneda">
+            <End Role="moneda" EntitySet="moneda" />
+            <End Role="precio_articulo" EntitySet="precio_articulo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_precio_articulo_codigo_tipo_venta_tipo_venta_codigo_tipo_venta" Association="SIGECOModel.FK_precio_articulo_codigo_tipo_venta_tipo_venta_codigo_tipo_venta">
+            <End Role="tipo_venta" EntitySet="tipo_venta" />
+            <End Role="precio_articulo" EntitySet="precio_articulo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_regla_calculo_comision_codigo_precio_precio_articulo_codigo_precio" Association="SIGECOModel.FK_regla_calculo_comision_codigo_precio_precio_articulo_codigo_precio">
+            <End Role="precio_articulo" EntitySet="precio_articulo" />
+            <End Role="regla_calculo_comision" EntitySet="regla_calculo_comision" />
+          </AssociationSet>
+          <EntitySet Name="cronograma_pago_comision" EntityType="SIGECOModel.cronograma_pago_comision" />
+          <AssociationSet Name="FK_cronograma_pago_comision_codigo_moneda_moneda_codigo_moneda" Association="SIGECOModel.FK_cronograma_pago_comision_codigo_moneda_moneda_codigo_moneda">
+            <End Role="moneda" EntitySet="moneda" />
+            <End Role="cronograma_pago_comision" EntitySet="cronograma_pago_comision" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cronograma_pago_comision_codigo_personal_canal_grupo_personal_canal_grupo_codigo_registro" Association="SIGECOModel.FK_cronograma_pago_comision_codigo_personal_canal_grupo_personal_canal_grupo_codigo_registro">
+            <End Role="personal_canal_grupo" EntitySet="personal_canal_grupo" />
+            <End Role="cronograma_pago_comision" EntitySet="cronograma_pago_comision" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cronograma_pago_comision_codigo_tipo_pago_tipo_pago_codigo_tipo_pago" Association="SIGECOModel.FK_cronograma_pago_comision_codigo_tipo_pago_tipo_pago_codigo_tipo_pago">
+            <End Role="tipo_pago" EntitySet="tipo_pago" />
+            <End Role="cronograma_pago_comision" EntitySet="cronograma_pago_comision" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cronograma_pago_comision_codigo_tipo_planilla_tipo_planilla_tipo_planilla" Association="SIGECOModel.FK_cronograma_pago_comision_codigo_tipo_planilla_tipo_planilla_tipo_planilla">
+            <End Role="tipo_planilla" EntitySet="tipo_planilla" />
+            <End Role="cronograma_pago_comision" EntitySet="cronograma_pago_comision" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cronograma_pago_comision_codigo_tipo_venta_tipo_venta_codigo_tipo_venta" Association="SIGECOModel.FK_cronograma_pago_comision_codigo_tipo_venta_tipo_venta_codigo_tipo_venta">
+            <End Role="tipo_venta" EntitySet="tipo_venta" />
+            <End Role="cronograma_pago_comision" EntitySet="cronograma_pago_comision" />
+          </AssociationSet>
+          <EntitySet Name="empresa_sigeco" EntityType="SIGECOModel.empresa_sigeco" />
+          <AssociationSet Name="FK_cronograma_pago_comision_codigo_empresa_empresa_sigeco_codigo_empresa" Association="SIGECOModel.FK_cronograma_pago_comision_codigo_empresa_empresa_sigeco_codigo_empresa">
+            <End Role="empresa_sigeco" EntitySet="empresa_sigeco" />
+            <End Role="cronograma_pago_comision" EntitySet="cronograma_pago_comision" />
+          </AssociationSet>
+          <AssociationSet Name="FK_empresa_configuracion_codigo_empresa_empresa_sigeco_codigo_empresa" Association="SIGECOModel.FK_empresa_configuracion_codigo_empresa_empresa_sigeco_codigo_empresa">
+            <End Role="empresa_sigeco" EntitySet="empresa_sigeco" />
+            <End Role="empresa_configuracion" EntitySet="empresa_configuracion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_empresa_sigeco_codigo_tipo_cuenta_tipo_cuenta_codigo_tipo_cuenta" Association="SIGECOModel.FK_empresa_sigeco_codigo_tipo_cuenta_tipo_cuenta_codigo_tipo_cuenta">
+            <End Role="tipo_cuenta" EntitySet="tipo_cuenta" />
+            <End Role="empresa_sigeco" EntitySet="empresa_sigeco" />
+          </AssociationSet>
+          <AssociationSet Name="FK_precio_articulo_codigo_empresa_empresa_sigeco_codigo_empresa" Association="SIGECOModel.FK_precio_articulo_codigo_empresa_empresa_sigeco_codigo_empresa">
+            <End Role="empresa_sigeco" EntitySet="empresa_sigeco" />
+            <End Role="precio_articulo" EntitySet="precio_articulo" />
+          </AssociationSet>
+          <EntitySet Name="personal" EntityType="SIGECOModel.personal" />
+          <AssociationSet Name="FK_personal_codigo_banco_banco_codigo_banco" Association="SIGECOModel.FK_personal_codigo_banco_banco_codigo_banco">
+            <End Role="banco" EntitySet="banco" />
+            <End Role="personal" EntitySet="personal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_personal_codigo_tipo_cuenta_tipo_cuenta_codigo_tipo_cuenta" Association="SIGECOModel.FK_personal_codigo_tipo_cuenta_tipo_cuenta_codigo_tipo_cuenta">
+            <End Role="tipo_cuenta" EntitySet="tipo_cuenta" />
+            <End Role="personal" EntitySet="personal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_personal_codigo_tipo_documento_tipo_documento_codigo_tipo_documento" Association="SIGECOModel.FK_personal_codigo_tipo_documento_tipo_documento_codigo_tipo_documento">
+            <End Role="tipo_documento" EntitySet="tipo_documento" />
+            <End Role="personal" EntitySet="personal" />
+          </AssociationSet>
+          <AssociationSet Name="personal_canal_grupo_codigo_personal_personal_codigo_personal" Association="SIGECOModel.personal_canal_grupo_codigo_personal_personal_codigo_personal">
+            <End Role="personal" EntitySet="personal" />
+            <End Role="personal_canal_grupo" EntitySet="personal_canal_grupo" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="articulo">
+          <Key>
+            <PropertyRef Name="codigo_articulo" />
+          </Key>
+          <Property Name="codigo_articulo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codigo_unidad_negocio" Type="Int32" Nullable="false" />
+          <Property Name="codigo_categoria" Type="Int32" Nullable="false" />
+          <Property Name="codigo_sku" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="abreviatura" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="genera_comision" Type="Boolean" Nullable="false" />
+          <Property Name="genera_bono" Type="Boolean" Nullable="false" />
+          <Property Name="genera_bolsa_bono" Type="Boolean" Nullable="false" />
+          <Property Name="anio_contrato_vinculante" Type="Int32" />
+          <Property Name="tiene_contrato_vinculante" Type="Boolean" />
+          <Property Name="estado_registro" Type="Boolean" Nullable="false" />
+          <Property Name="fecha_registra" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="usuario_registra" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fecha_modifica" Type="DateTime" Precision="3" />
+          <Property Name="usuario_modifica" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="codigo_tipo_articulo" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="categoria" Relationship="SIGECOModel.articulo_codigo_categoria_categoria_codigo_categoria" FromRole="articulo" ToRole="categoria" />
+          <NavigationProperty Name="unidad_negocio" Relationship="SIGECOModel.articulo_codigo_unidad_negocio_unidad_negocio_codigo_unidad_negocio" FromRole="articulo" ToRole="unidad_negocio" />
+          <NavigationProperty Name="tipo_articulo" Relationship="SIGECOModel.FK_articulo_codigo_tipo_articulo_tipo_articulo_codigo_tipo_articulo" FromRole="articulo" ToRole="tipo_articulo" />
+          <NavigationProperty Name="precio_articulo" Relationship="SIGECOModel.FK_precio_articulo_codigo_articulo_articulo_codigo_articulo" FromRole="articulo" ToRole="precio_articulo" />
+        </EntityType>
+        <EntityType Name="banco">
+          <Key>
+            <PropertyRef Name="codigo_banco" />
+          </Key>
+          <Property Name="codigo_banco" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="estado_registro" Type="Boolean" Nullable="false" />
+          <Property Name="fecha_registra" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="usuario_registra" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fecha_modifica" Type="DateTime" Precision="3" />
+          <Property Name="usuario_modifica" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="personal" Relationship="SIGECOModel.FK_personal_codigo_banco_banco_codigo_banco" FromRole="banco" ToRole="personal" />
+        </EntityType>
+        <EntityType Name="campo_santo_sigeco">
+          <Key>
+            <PropertyRef Name="codigo_campo_santo" />
+          </Key>
+          <Property Name="codigo_campo_santo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codigo_equivalencia" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="estado_registro" Type="Boolean" Nullable="false" />
+          <Property Name="fecha_registra" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fecha_modifica" Type="DateTime" Precision="3" />
+          <Property Name="usuario_registra" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="usuario_modifica" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="precio_articulo" Relationship="SIGECOModel.FK_precio_articulo_codigo_campo_santo_campo_santo_sigeco_codigo_campo_santo" FromRole="campo_santo_sigeco" ToRole="precio_articulo" />
+        </EntityType>
+        <EntityType Name="categoria">
+          <Key>
+            <PropertyRef Name="codigo_categoria" />
+          </Key>
+          <Property Name="codigo_categoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codigo_equivalencia" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="estado_registro" Type="Boolean" Nullable="false" />
+          <Property Name="fecha_registra" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="usuario_registra" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fecha_modifica" Type="DateTime" Precision="3" />
+          <Property Name="usuario_modifica" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="articulo" Relationship="SIGECOModel.articulo_codigo_categoria_categoria_codigo_categoria" FromRole="categoria" ToRole="articulo" />
+        </EntityType>
+        <EntityType Name="configuracion_canal_grupo">
+          <Key>
+            <PropertyRef Name="codigo_configuracion" />
+          </Key>
+          <Property Name="codigo_configuracion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codigo_canal_grupo" Type="Int32" Nullable="false" />
+          <Property Name="supervisor_personal" Type="Boolean" Nullable="false" />
+          <Property Name="comision_bono" Type="Boolean" Nullable="false" />
+          <Property Name="percibe" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="empresa_configuracion" Relationship="SIGECOModel.FK_empresa_configuracion_codigo_configuracion_configuracion_canal_grupo_codigo_configuracion" FromRole="configuracion_canal_grupo" ToRole="empresa_configuracion" />
+          <NavigationProperty Name="canal_grupo" Relationship="SIGECOModel.FK_configuracion_canal_grupo_codigo_canal_grupo_canal_grupo_codigo_canal_grupo" FromRole="configuracion_canal_grupo" ToRole="canal_grupo" />
+        </EntityType>
+        <EntityType Name="empresa_configuracion">
+          <Key>
+            <PropertyRef Name="codigo_empresa_configuracion" />
+          </Key>
+          <Property Name="codigo_empresa_configuracion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codigo_configuracion" Type="Int32" Nullable="false" />
+          <Property Name="codigo_empresa" Type="Int32" Nullable="false" />
+          <Property Name="planilla_factura" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="configuracion_canal_grupo" Relationship="SIGECOModel.FK_empresa_configuracion_codigo_configuracion_configuracion_canal_grupo_codigo_configuracion" FromRole="empresa_configuracion" ToRole="configuracion_canal_grupo" />
+          <NavigationProperty Name="empresa_sigeco" Relationship="SIGECOModel.FK_empresa_configuracion_codigo_empresa_empresa_sigeco_codigo_empresa" FromRole="empresa_configuracion" ToRole="empresa_sigeco" />
+        </EntityType>
+        <EntityType Name="estado_cuota">
+          <Key>
+            <PropertyRef Name="codigo_estado_cuota" />
+          </Key>
+          <Property Name="codigo_estado_cuota" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="estado_registro" Type="Boolean" Nullable="false" />
+          <Property Name="fecha_registra" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="usuario_registra" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fecha_modifica" Type="DateTime" Precision="3" />
+          <Property Name="usuario_modifica" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="estado_planilla">
+          <Key>
+            <PropertyRef Name="codigo_estado_planilla" />
+          </Key>
+          <Property Name="codigo_estado_planilla" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="estado_registro" Type="Boolean" Nullable="false" />
+          <Property Name="fecha_registra" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="usuario_registra" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fecha_modifica" Type="DateTime" Precision="3" />
+          <Property Name="usuario_modifica" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="estado_reclamo">
+          <Key>
+            <PropertyRef Name="codigo_estado_reclamo" />
+          </Key>
+          <Property Name="codigo_estado_reclamo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre_estado_reclamo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="estado_registro" Type="Boolean" Nullable="false" />
+          <Property Name="fecha_registra" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fecha_modifica" Type="DateTime" Precision="3" />
+          <Property Name="usuario_registra" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="usuario_modifica" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="articulo_codigo_categoria_categoria_codigo_categoria">
+          <End Type="SIGECOModel.categoria" Role="categoria" Multiplicity="1" />
+          <End Type="SIGECOModel.articulo" Role="articulo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categoria">
+              <PropertyRef Name="codigo_categoria" />
+            </Principal>
+            <Dependent Role="articulo">
+              <PropertyRef Name="codigo_categoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_empresa_configuracion_codigo_configuracion_configuracion_canal_grupo_codigo_configuracion">
+          <End Type="SIGECOModel.configuracion_canal_grupo" Role="configuracion_canal_grupo" Multiplicity="1" />
+          <End Type="SIGECOModel.empresa_configuracion" Role="empresa_configuracion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="configuracion_canal_grupo">
+              <PropertyRef Name="codigo_configuracion" />
+            </Principal>
+            <Dependent Role="empresa_configuracion">
+              <PropertyRef Name="codigo_configuracion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="estado_resultado">
+          <Key>
+            <PropertyRef Name="codigo_estado_resultado" />
+          </Key>
+          <Property Name="codigo_estado_resultado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre_estado_resultado" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="estado_registro" Type="Boolean" Nullable="false" />
+          <Property Name="fecha_registra" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fecha_modifica" Type="DateTime" Precision="3" />
+          <Property Name="usuario_registra" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="usuario_modifica" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="moneda">
+          <Key>
+            <PropertyRef Name="codigo_moneda" />
+          </Key>
+          <Property Name="codigo_moneda" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codigo_equivalencia" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="simbolo" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="estado_registro" Type="Boolean" Nullable="false" />
+          <Property Name="fecha_registra" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="usuario_registra" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fecha_modifica" Type="DateTime" Precision="3" />
+          <Property Name="usuario_modifica" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="precio_articulo" Relationship="SIGECOModel.FK_precio_articulo_codigo_moneda_moneda_codigo_moneda" FromRole="moneda" ToRole="precio_articulo" />
+          <NavigationProperty Name="cronograma_pago_comision" Relationship="SIGECOModel.FK_cronograma_pago_comision_codigo_moneda_moneda_codigo_moneda" FromRole="moneda" ToRole="cronograma_pago_comision" />
+        </EntityType>
+        <EntityType Name="personal_canal_grupo">
+          <Key>
+            <PropertyRef Name="codigo_registro" />
+          </Key>
+          <Property Name="codigo_registro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codigo_personal" Type="Int32" Nullable="false" />
+          <Property Name="codigo_canal_grupo" Type="Int32" Nullable="false" />
+          <Property Name="codigo_canal" Type="Int32" Nullable="false" />
+          <Property Name="es_supervisor_canal" Type="Boolean" Nullable="false" />
+          <Property Name="es_supervisor_grupo" Type="Boolean" Nullable="false" />
+          <Property Name="percibe_comision" Type="Boolean" Nullable="false" />
+          <Property Name="percibe_bono" Type="Boolean" Nullable="false" />
+          <Property Name="estado_registro" Type="Boolean" Nullable="false" />
+          <Property Name="fecha_registra" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="usuario_registra" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fecha_modifica" Type="DateTime" Precision="3" />
+          <Property Name="usuario_modifica" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="canal_grupo" Relationship="SIGECOModel.personal_canal_grupo_codigo_canal_grupo_canal_grupo_codigo_canal_grupo" FromRole="personal_canal_grupo" ToRole="canal_grupo" />
+          <NavigationProperty Name="cronograma_pago_comision" Relationship="SIGECOModel.FK_cronograma_pago_comision_codigo_personal_canal_grupo_personal_canal_grupo_codigo_registro" FromRole="personal_canal_grupo" ToRole="cronograma_pago_comision" />
+          <NavigationProperty Name="personal" Relationship="SIGECOModel.personal_canal_grupo_codigo_personal_personal_codigo_personal" FromRole="personal_canal_grupo" ToRole="personal" />
+        </EntityType>
+        <EntityType Name="regla_calculo_comision">
+          <Key>
+            <PropertyRef Name="codigo_regla" />
+          </Key>
+          <Property Name="codigo_regla" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codigo_precio" Type="Int32" Nullable="false" />
+          <Property Name="codigo_canal" Type="Int32" Nullable="false" />
+          <Property Name="codigo_tipo_pago" Type="Int32" Nullable="false" />
+          <Property Name="codigo_tipo_comision" Type="Int32" Nullable="false" />
+          <Property Name="valor" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="vigencia_inicio" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="vigencia_fin" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="estado_registro" Type="Boolean" Nullable="false" />
+          <Property Name="fecha_registra" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="usuario_registra" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fecha_modifica" Type="DateTime" Precision="3" />
+          <Property Name="usuario_modifica" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tipo_comision" Relationship="SIGECOModel.FK_regla_calculo_comision_codigo_tipo_comision_tipo_comision_codigo_tipo_comision" FromRole="regla_calculo_comision" ToRole="tipo_comision" />
+          <NavigationProperty Name="tipo_pago" Relationship="SIGECOModel.FK_regla_calculo_comision_codigo_tipo_pago_tipo_pago_codigo_tipo_pago" FromRole="regla_calculo_comision" ToRole="tipo_pago" />
+          <NavigationProperty Name="canal_grupo" Relationship="SIGECOModel.FK_regla_calculo_comision_codigo_canal_canal_grupo_codigo_canal_grupo" FromRole="regla_calculo_comision" ToRole="canal_grupo" />
+          <NavigationProperty Name="precio_articulo" Relationship="SIGECOModel.FK_regla_calculo_comision_codigo_precio_precio_articulo_codigo_precio" FromRole="regla_calculo_comision" ToRole="precio_articulo" />
+        </EntityType>
+        <EntityType Name="tipo_articulo">
+          <Key>
+            <PropertyRef Name="codigo_tipo_articulo" />
+          </Key>
+          <Property Name="codigo_tipo_articulo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="estado_registro" Type="Boolean" Nullable="false" />
+          <Property Name="fecha_registra" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="usuario_registra" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fecha_modifica" Type="DateTime" Precision="3" />
+          <Property Name="usuario_modifica" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="articulo" Relationship="SIGECOModel.FK_articulo_codigo_tipo_articulo_tipo_articulo_codigo_tipo_articulo" FromRole="tipo_articulo" ToRole="articulo" />
+        </EntityType>
+        <EntityType Name="tipo_comision">
+          <Key>
+            <PropertyRef Name="codigo_tipo_comision" />
+          </Key>
+          <Property Name="codigo_tipo_comision" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="estado_registro" Type="Boolean" Nullable="false" />
+          <Property Name="fecha_registra" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="usuario_registra" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fecha_modifica" Type="DateTime" Precision="3" />
+          <Property Name="usuario_modifica" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="regla_calculo_comision" Relationship="SIGECOModel.FK_regla_calculo_comision_codigo_tipo_comision_tipo_comision_codigo_tipo_comision" FromRole="tipo_comision" ToRole="regla_calculo_comision" />
+        </EntityType>
+        <EntityType Name="tipo_documento">
+          <Key>
+            <PropertyRef Name="codigo_tipo_documento" />
+          </Key>
+          <Property Name="codigo_tipo_documento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre_tipo_documento" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="estado_registro" Type="Boolean" Nullable="false" />
+          <Property Name="fecha_registra" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fecha_modifica" Type="DateTime" Precision="3" />
+          <Property Name="usuario_registra" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="usuario_modifica" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="personal" Relationship="SIGECOModel.FK_personal_codigo_tipo_documento_tipo_documento_codigo_tipo_documento" FromRole="tipo_documento" ToRole="personal" />
+        </EntityType>
+        <EntityType Name="tipo_pago">
+          <Key>
+            <PropertyRef Name="codigo_tipo_pago" />
+          </Key>
+          <Property Name="codigo_tipo_pago" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codigo_equivalencia" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="estado_registro" Type="Boolean" Nullable="false" />
+          <Property Name="fecha_registra" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="usuario_registra" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fecha_modifica" Type="DateTime" Precision="3" />
+          <Property Name="usuario_modifica" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="regla_calculo_comision" Relationship="SIGECOModel.FK_regla_calculo_comision_codigo_tipo_pago_tipo_pago_codigo_tipo_pago" FromRole="tipo_pago" ToRole="regla_calculo_comision" />
+          <NavigationProperty Name="cronograma_pago_comision" Relationship="SIGECOModel.FK_cronograma_pago_comision_codigo_tipo_pago_tipo_pago_codigo_tipo_pago" FromRole="tipo_pago" ToRole="cronograma_pago_comision" />
+        </EntityType>
+        <EntityType Name="tipo_planilla">
+          <Key>
+            <PropertyRef Name="codigo_tipo_planilla" />
+          </Key>
+          <Property Name="codigo_tipo_planilla" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="estado_registro" Type="Boolean" Nullable="false" />
+          <Property Name="fecha_registra" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="usuario_registra" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fecha_modifica" Type="DateTime" Precision="3" />
+          <Property Name="usuario_modifica" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="cronograma_pago_comision" Relationship="SIGECOModel.FK_cronograma_pago_comision_codigo_tipo_planilla_tipo_planilla_tipo_planilla" FromRole="tipo_planilla" ToRole="cronograma_pago_comision" />
+        </EntityType>
+        <EntityType Name="tipo_venta">
+          <Key>
+            <PropertyRef Name="codigo_tipo_venta" />
+          </Key>
+          <Property Name="codigo_tipo_venta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codigo_equivalencia" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="abreviatura" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="estado_registro" Type="Boolean" Nullable="false" />
+          <Property Name="fecha_registra" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="usuario_registra" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fecha_modifica" Type="DateTime" Precision="3" />
+          <Property Name="usuario_modifica" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="precio_articulo" Relationship="SIGECOModel.FK_precio_articulo_codigo_tipo_venta_tipo_venta_codigo_tipo_venta" FromRole="tipo_venta" ToRole="precio_articulo" />
+          <NavigationProperty Name="cronograma_pago_comision" Relationship="SIGECOModel.FK_cronograma_pago_comision_codigo_tipo_venta_tipo_venta_codigo_tipo_venta" FromRole="tipo_venta" ToRole="cronograma_pago_comision" />
+        </EntityType>
+        <EntityType Name="unidad_negocio">
+          <Key>
+            <PropertyRef Name="codigo_unidad_negocio" />
+          </Key>
+          <Property Name="codigo_unidad_negocio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codigo_equivalencia" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="estado_registro" Type="Boolean" Nullable="false" />
+          <Property Name="fecha_registra" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="usuario_registra" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fecha_modifica" Type="DateTime" Precision="3" />
+          <Property Name="usuario_modifica" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="articulo" Relationship="SIGECOModel.articulo_codigo_unidad_negocio_unidad_negocio_codigo_unidad_negocio" FromRole="unidad_negocio" ToRole="articulo" />
+        </EntityType>
+        <Association Name="articulo_codigo_unidad_negocio_unidad_negocio_codigo_unidad_negocio">
+          <End Type="SIGECOModel.unidad_negocio" Role="unidad_negocio" Multiplicity="1" />
+          <End Type="SIGECOModel.articulo" Role="articulo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="unidad_negocio">
+              <PropertyRef Name="codigo_unidad_negocio" />
+            </Principal>
+            <Dependent Role="articulo">
+              <PropertyRef Name="codigo_unidad_negocio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_articulo_codigo_tipo_articulo_tipo_articulo_codigo_tipo_articulo">
+          <End Type="SIGECOModel.tipo_articulo" Role="tipo_articulo" Multiplicity="1" />
+          <End Type="SIGECOModel.articulo" Role="articulo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_articulo">
+              <PropertyRef Name="codigo_tipo_articulo" />
+            </Principal>
+            <Dependent Role="articulo">
+              <PropertyRef Name="codigo_tipo_articulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_regla_calculo_comision_codigo_tipo_comision_tipo_comision_codigo_tipo_comision">
+          <End Type="SIGECOModel.tipo_comision" Role="tipo_comision" Multiplicity="1" />
+          <End Type="SIGECOModel.regla_calculo_comision" Role="regla_calculo_comision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_comision">
+              <PropertyRef Name="codigo_tipo_comision" />
+            </Principal>
+            <Dependent Role="regla_calculo_comision">
+              <PropertyRef Name="codigo_tipo_comision" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_regla_calculo_comision_codigo_tipo_pago_tipo_pago_codigo_tipo_pago">
+          <End Type="SIGECOModel.tipo_pago" Role="tipo_pago" Multiplicity="1" />
+          <End Type="SIGECOModel.regla_calculo_comision" Role="regla_calculo_comision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_pago">
+              <PropertyRef Name="codigo_tipo_pago" />
+            </Principal>
+            <Dependent Role="regla_calculo_comision">
+              <PropertyRef Name="codigo_tipo_pago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="canal_grupo">
+          <Key>
+            <PropertyRef Name="codigo_canal_grupo" />
+          </Key>
+          <Property Name="codigo_canal_grupo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="es_canal_grupo" Type="Boolean" Nullable="false" />
+          <Property Name="codigo_equivalencia" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="administra_grupos" Type="Boolean" Nullable="false" />
+          <Property Name="codigo_padre" Type="Int32" />
+          <Property Name="estado_registro" Type="Boolean" Nullable="false" />
+          <Property Name="fecha_registra" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="usuario_registra" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fecha_modifica" Type="DateTime" Precision="3" />
+          <Property Name="usuario_modifica" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="configuracion_canal_grupo" Relationship="SIGECOModel.FK_configuracion_canal_grupo_codigo_canal_grupo_canal_grupo_codigo_canal_grupo" FromRole="canal_grupo" ToRole="configuracion_canal_grupo" />
+          <NavigationProperty Name="regla_calculo_comision" Relationship="SIGECOModel.FK_regla_calculo_comision_codigo_canal_canal_grupo_codigo_canal_grupo" FromRole="canal_grupo" ToRole="regla_calculo_comision" />
+          <NavigationProperty Name="personal_canal_grupo" Relationship="SIGECOModel.personal_canal_grupo_codigo_canal_grupo_canal_grupo_codigo_canal_grupo" FromRole="canal_grupo" ToRole="personal_canal_grupo" />
+        </EntityType>
+        <Association Name="FK_configuracion_canal_grupo_codigo_canal_grupo_canal_grupo_codigo_canal_grupo">
+          <End Type="SIGECOModel.canal_grupo" Role="canal_grupo" Multiplicity="1" />
+          <End Type="SIGECOModel.configuracion_canal_grupo" Role="configuracion_canal_grupo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="canal_grupo">
+              <PropertyRef Name="codigo_canal_grupo" />
+            </Principal>
+            <Dependent Role="configuracion_canal_grupo">
+              <PropertyRef Name="codigo_canal_grupo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_regla_calculo_comision_codigo_canal_canal_grupo_codigo_canal_grupo">
+          <End Type="SIGECOModel.canal_grupo" Role="canal_grupo" Multiplicity="1" />
+          <End Type="SIGECOModel.regla_calculo_comision" Role="regla_calculo_comision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="canal_grupo">
+              <PropertyRef Name="codigo_canal_grupo" />
+            </Principal>
+            <Dependent Role="regla_calculo_comision">
+              <PropertyRef Name="codigo_canal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="personal_canal_grupo_codigo_canal_grupo_canal_grupo_codigo_canal_grupo">
+          <End Type="SIGECOModel.canal_grupo" Role="canal_grupo" Multiplicity="1" />
+          <End Type="SIGECOModel.personal_canal_grupo" Role="personal_canal_grupo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="canal_grupo">
+              <PropertyRef Name="codigo_canal_grupo" />
+            </Principal>
+            <Dependent Role="personal_canal_grupo">
+              <PropertyRef Name="codigo_canal_grupo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="precio_articulo">
+          <Key>
+            <PropertyRef Name="codigo_precio" />
+          </Key>
+          <Property Name="codigo_precio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codigo_campo_santo" Type="Int32" Nullable="false" />
+          <Property Name="codigo_articulo" Type="Int32" Nullable="false" />
+          <Property Name="codigo_empresa" Type="Int32" Nullable="false" />
+          <Property Name="codigo_tipo_venta" Type="Int32" Nullable="false" />
+          <Property Name="codigo_moneda" Type="Int32" Nullable="false" />
+          <Property Name="precio" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="igv" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="precio_total" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="vigencia_inicio" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="vigencia_fin" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="estado_registro" Type="Boolean" Nullable="false" />
+          <Property Name="fecha_registra" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="usuario_registra" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fecha_modifica" Type="DateTime" Precision="3" />
+          <Property Name="usuario_modifica" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cuota_inicial" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <NavigationProperty Name="articulo" Relationship="SIGECOModel.FK_precio_articulo_codigo_articulo_articulo_codigo_articulo" FromRole="precio_articulo" ToRole="articulo" />
+          <NavigationProperty Name="campo_santo_sigeco" Relationship="SIGECOModel.FK_precio_articulo_codigo_campo_santo_campo_santo_sigeco_codigo_campo_santo" FromRole="precio_articulo" ToRole="campo_santo_sigeco" />
+          <NavigationProperty Name="moneda" Relationship="SIGECOModel.FK_precio_articulo_codigo_moneda_moneda_codigo_moneda" FromRole="precio_articulo" ToRole="moneda" />
+          <NavigationProperty Name="tipo_venta" Relationship="SIGECOModel.FK_precio_articulo_codigo_tipo_venta_tipo_venta_codigo_tipo_venta" FromRole="precio_articulo" ToRole="tipo_venta" />
+          <NavigationProperty Name="regla_calculo_comision" Relationship="SIGECOModel.FK_regla_calculo_comision_codigo_precio_precio_articulo_codigo_precio" FromRole="precio_articulo" ToRole="regla_calculo_comision" />
+          <NavigationProperty Name="empresa_sigeco" Relationship="SIGECOModel.FK_precio_articulo_codigo_empresa_empresa_sigeco_codigo_empresa" FromRole="precio_articulo" ToRole="empresa_sigeco" />
+        </EntityType>
+        <Association Name="FK_precio_articulo_codigo_articulo_articulo_codigo_articulo">
+          <End Type="SIGECOModel.articulo" Role="articulo" Multiplicity="1" />
+          <End Type="SIGECOModel.precio_articulo" Role="precio_articulo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="articulo">
+              <PropertyRef Name="codigo_articulo" />
+            </Principal>
+            <Dependent Role="precio_articulo">
+              <PropertyRef Name="codigo_articulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_precio_articulo_codigo_campo_santo_campo_santo_sigeco_codigo_campo_santo">
+          <End Type="SIGECOModel.campo_santo_sigeco" Role="campo_santo_sigeco" Multiplicity="1" />
+          <End Type="SIGECOModel.precio_articulo" Role="precio_articulo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="campo_santo_sigeco">
+              <PropertyRef Name="codigo_campo_santo" />
+            </Principal>
+            <Dependent Role="precio_articulo">
+              <PropertyRef Name="codigo_campo_santo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_precio_articulo_codigo_moneda_moneda_codigo_moneda">
+          <End Type="SIGECOModel.moneda" Role="moneda" Multiplicity="1" />
+          <End Type="SIGECOModel.precio_articulo" Role="precio_articulo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="moneda">
+              <PropertyRef Name="codigo_moneda" />
+            </Principal>
+            <Dependent Role="precio_articulo">
+              <PropertyRef Name="codigo_moneda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_precio_articulo_codigo_tipo_venta_tipo_venta_codigo_tipo_venta">
+          <End Type="SIGECOModel.tipo_venta" Role="tipo_venta" Multiplicity="1" />
+          <End Type="SIGECOModel.precio_articulo" Role="precio_articulo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_venta">
+              <PropertyRef Name="codigo_tipo_venta" />
+            </Principal>
+            <Dependent Role="precio_articulo">
+              <PropertyRef Name="codigo_tipo_venta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_regla_calculo_comision_codigo_precio_precio_articulo_codigo_precio">
+          <End Type="SIGECOModel.precio_articulo" Role="precio_articulo" Multiplicity="1" />
+          <End Type="SIGECOModel.regla_calculo_comision" Role="regla_calculo_comision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="precio_articulo">
+              <PropertyRef Name="codigo_precio" />
+            </Principal>
+            <Dependent Role="regla_calculo_comision">
+              <PropertyRef Name="codigo_precio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="cronograma_pago_comision">
+          <Key>
+            <PropertyRef Name="codigo_cronograma" />
+          </Key>
+          <Property Name="codigo_cronograma" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codigo_tipo_planilla" Type="Int32" Nullable="false" />
+          <Property Name="codigo_empresa" Type="Int32" Nullable="false" />
+          <Property Name="codigo_personal_canal_grupo" Type="Int32" Nullable="false" />
+          <Property Name="nro_contrato" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="codigo_tipo_venta" Type="Int32" Nullable="false" />
+          <Property Name="codigo_tipo_pago" Type="Int32" Nullable="false" />
+          <Property Name="codigo_moneda" Type="Int32" Nullable="false" />
+          <Property Name="fecha_registro" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="estado_registro" Type="Boolean" Nullable="false" />
+          <Property Name="nro_contrato_adicional" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="moneda" Relationship="SIGECOModel.FK_cronograma_pago_comision_codigo_moneda_moneda_codigo_moneda" FromRole="cronograma_pago_comision" ToRole="moneda" />
+          <NavigationProperty Name="personal_canal_grupo" Relationship="SIGECOModel.FK_cronograma_pago_comision_codigo_personal_canal_grupo_personal_canal_grupo_codigo_registro" FromRole="cronograma_pago_comision" ToRole="personal_canal_grupo" />
+          <NavigationProperty Name="tipo_pago" Relationship="SIGECOModel.FK_cronograma_pago_comision_codigo_tipo_pago_tipo_pago_codigo_tipo_pago" FromRole="cronograma_pago_comision" ToRole="tipo_pago" />
+          <NavigationProperty Name="tipo_planilla" Relationship="SIGECOModel.FK_cronograma_pago_comision_codigo_tipo_planilla_tipo_planilla_tipo_planilla" FromRole="cronograma_pago_comision" ToRole="tipo_planilla" />
+          <NavigationProperty Name="tipo_venta" Relationship="SIGECOModel.FK_cronograma_pago_comision_codigo_tipo_venta_tipo_venta_codigo_tipo_venta" FromRole="cronograma_pago_comision" ToRole="tipo_venta" />
+          <NavigationProperty Name="empresa_sigeco" Relationship="SIGECOModel.FK_cronograma_pago_comision_codigo_empresa_empresa_sigeco_codigo_empresa" FromRole="cronograma_pago_comision" ToRole="empresa_sigeco" />
+        </EntityType>
+        <Association Name="FK_cronograma_pago_comision_codigo_moneda_moneda_codigo_moneda">
+          <End Type="SIGECOModel.moneda" Role="moneda" Multiplicity="1" />
+          <End Type="SIGECOModel.cronograma_pago_comision" Role="cronograma_pago_comision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="moneda">
+              <PropertyRef Name="codigo_moneda" />
+            </Principal>
+            <Dependent Role="cronograma_pago_comision">
+              <PropertyRef Name="codigo_moneda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cronograma_pago_comision_codigo_personal_canal_grupo_personal_canal_grupo_codigo_registro">
+          <End Type="SIGECOModel.personal_canal_grupo" Role="personal_canal_grupo" Multiplicity="1" />
+          <End Type="SIGECOModel.cronograma_pago_comision" Role="cronograma_pago_comision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personal_canal_grupo">
+              <PropertyRef Name="codigo_registro" />
+            </Principal>
+            <Dependent Role="cronograma_pago_comision">
+              <PropertyRef Name="codigo_personal_canal_grupo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cronograma_pago_comision_codigo_tipo_pago_tipo_pago_codigo_tipo_pago">
+          <End Type="SIGECOModel.tipo_pago" Role="tipo_pago" Multiplicity="1" />
+          <End Type="SIGECOModel.cronograma_pago_comision" Role="cronograma_pago_comision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_pago">
+              <PropertyRef Name="codigo_tipo_pago" />
+            </Principal>
+            <Dependent Role="cronograma_pago_comision">
+              <PropertyRef Name="codigo_tipo_pago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cronograma_pago_comision_codigo_tipo_planilla_tipo_planilla_tipo_planilla">
+          <End Type="SIGECOModel.tipo_planilla" Role="tipo_planilla" Multiplicity="1" />
+          <End Type="SIGECOModel.cronograma_pago_comision" Role="cronograma_pago_comision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_planilla">
+              <PropertyRef Name="codigo_tipo_planilla" />
+            </Principal>
+            <Dependent Role="cronograma_pago_comision">
+              <PropertyRef Name="codigo_tipo_planilla" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cronograma_pago_comision_codigo_tipo_venta_tipo_venta_codigo_tipo_venta">
+          <End Type="SIGECOModel.tipo_venta" Role="tipo_venta" Multiplicity="1" />
+          <End Type="SIGECOModel.cronograma_pago_comision" Role="cronograma_pago_comision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_venta">
+              <PropertyRef Name="codigo_tipo_venta" />
+            </Principal>
+            <Dependent Role="cronograma_pago_comision">
+              <PropertyRef Name="codigo_tipo_venta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="empresa_sigeco">
+          <Key>
+            <PropertyRef Name="codigo_empresa" />
+          </Key>
+          <Property Name="codigo_empresa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codigo_equivalencia" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="nombre_largo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ruc" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="direccion_fiscal" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="estado_registro" Type="Boolean" Nullable="false" />
+          <Property Name="fecha_registra" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="usuario_registra" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fecha_modifica" Type="DateTime" Precision="3" />
+          <Property Name="usuario_modifica" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nro_cuenta" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="codigo_cuenta_moneda" Type="Int32" />
+          <Property Name="codigo_tipo_cuenta" Type="Int32" />
+          <NavigationProperty Name="cronograma_pago_comision" Relationship="SIGECOModel.FK_cronograma_pago_comision_codigo_empresa_empresa_sigeco_codigo_empresa" FromRole="empresa_sigeco" ToRole="cronograma_pago_comision" />
+          <NavigationProperty Name="empresa_configuracion" Relationship="SIGECOModel.FK_empresa_configuracion_codigo_empresa_empresa_sigeco_codigo_empresa" FromRole="empresa_sigeco" ToRole="empresa_configuracion" />
+          <NavigationProperty Name="tipo_cuenta" Relationship="SIGECOModel.FK_empresa_sigeco_codigo_tipo_cuenta_tipo_cuenta_codigo_tipo_cuenta" FromRole="empresa_sigeco" ToRole="tipo_cuenta" />
+          <NavigationProperty Name="precio_articulo" Relationship="SIGECOModel.FK_precio_articulo_codigo_empresa_empresa_sigeco_codigo_empresa" FromRole="empresa_sigeco" ToRole="precio_articulo" />
+        </EntityType>
+        <Association Name="FK_cronograma_pago_comision_codigo_empresa_empresa_sigeco_codigo_empresa">
+          <End Type="SIGECOModel.empresa_sigeco" Role="empresa_sigeco" Multiplicity="1" />
+          <End Type="SIGECOModel.cronograma_pago_comision" Role="cronograma_pago_comision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="empresa_sigeco">
+              <PropertyRef Name="codigo_empresa" />
+            </Principal>
+            <Dependent Role="cronograma_pago_comision">
+              <PropertyRef Name="codigo_empresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_empresa_configuracion_codigo_empresa_empresa_sigeco_codigo_empresa">
+          <End Type="SIGECOModel.empresa_sigeco" Role="empresa_sigeco" Multiplicity="1" />
+          <End Type="SIGECOModel.empresa_configuracion" Role="empresa_configuracion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="empresa_sigeco">
+              <PropertyRef Name="codigo_empresa" />
+            </Principal>
+            <Dependent Role="empresa_configuracion">
+              <PropertyRef Name="codigo_empresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_empresa_sigeco_codigo_tipo_cuenta_tipo_cuenta_codigo_tipo_cuenta">
+          <End Type="SIGECOModel.tipo_cuenta" Role="tipo_cuenta" Multiplicity="0..1" />
+          <End Type="SIGECOModel.empresa_sigeco" Role="empresa_sigeco" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_cuenta">
+              <PropertyRef Name="codigo_tipo_cuenta" />
+            </Principal>
+            <Dependent Role="empresa_sigeco">
+              <PropertyRef Name="codigo_tipo_cuenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_precio_articulo_codigo_empresa_empresa_sigeco_codigo_empresa">
+          <End Type="SIGECOModel.empresa_sigeco" Role="empresa_sigeco" Multiplicity="1" />
+          <End Type="SIGECOModel.precio_articulo" Role="precio_articulo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="empresa_sigeco">
+              <PropertyRef Name="codigo_empresa" />
+            </Principal>
+            <Dependent Role="precio_articulo">
+              <PropertyRef Name="codigo_empresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="personal">
+          <Key>
+            <PropertyRef Name="codigo_personal" />
+          </Key>
+          <Property Name="codigo_personal" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codigo_equivalencia" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="codigo_tipo_documento" Type="Int32" Nullable="false" />
+          <Property Name="codigo_banco" Type="Int32" Nullable="false" />
+          <Property Name="es_persona_juridica" Type="Boolean" Nullable="false" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="apellido_paterno" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="apellido_materno" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="nro_documento" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="nro_ruc" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="telefono_fijo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="telefono_celular" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="correo_electronico" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="nro_cuenta" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="codigo_interbancario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="estado_registro" Type="Boolean" Nullable="false" />
+          <Property Name="fecha_registra" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="usuario_registra" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fecha_modifica" Type="DateTime" Precision="3" />
+          <Property Name="usuario_modifica" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="codigo_cuenta_moneda" Type="Int32" />
+          <Property Name="codigo_tipo_cuenta" Type="Int32" />
+          <NavigationProperty Name="banco" Relationship="SIGECOModel.FK_personal_codigo_banco_banco_codigo_banco" FromRole="personal" ToRole="banco" />
+          <NavigationProperty Name="tipo_cuenta" Relationship="SIGECOModel.FK_personal_codigo_tipo_cuenta_tipo_cuenta_codigo_tipo_cuenta" FromRole="personal" ToRole="tipo_cuenta" />
+          <NavigationProperty Name="tipo_documento" Relationship="SIGECOModel.FK_personal_codigo_tipo_documento_tipo_documento_codigo_tipo_documento" FromRole="personal" ToRole="tipo_documento" />
+          <NavigationProperty Name="personal_canal_grupo" Relationship="SIGECOModel.personal_canal_grupo_codigo_personal_personal_codigo_personal" FromRole="personal" ToRole="personal_canal_grupo" />
+        </EntityType>
+        <Association Name="FK_personal_codigo_banco_banco_codigo_banco">
+          <End Type="SIGECOModel.banco" Role="banco" Multiplicity="1" />
+          <End Type="SIGECOModel.personal" Role="personal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="banco">
+              <PropertyRef Name="codigo_banco" />
+            </Principal>
+            <Dependent Role="personal">
+              <PropertyRef Name="codigo_banco" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_personal_codigo_tipo_cuenta_tipo_cuenta_codigo_tipo_cuenta">
+          <End Type="SIGECOModel.tipo_cuenta" Role="tipo_cuenta" Multiplicity="0..1" />
+          <End Type="SIGECOModel.personal" Role="personal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_cuenta">
+              <PropertyRef Name="codigo_tipo_cuenta" />
+            </Principal>
+            <Dependent Role="personal">
+              <PropertyRef Name="codigo_tipo_cuenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_personal_codigo_tipo_documento_tipo_documento_codigo_tipo_documento">
+          <End Type="SIGECOModel.tipo_documento" Role="tipo_documento" Multiplicity="1" />
+          <End Type="SIGECOModel.personal" Role="personal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_documento">
+              <PropertyRef Name="codigo_tipo_documento" />
+            </Principal>
+            <Dependent Role="personal">
+              <PropertyRef Name="codigo_tipo_documento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="personal_canal_grupo_codigo_personal_personal_codigo_personal">
+          <End Type="SIGECOModel.personal" Role="personal" Multiplicity="1" />
+          <End Type="SIGECOModel.personal_canal_grupo" Role="personal_canal_grupo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personal">
+              <PropertyRef Name="codigo_personal" />
+            </Principal>
+            <Dependent Role="personal_canal_grupo">
+              <PropertyRef Name="codigo_personal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SIGECOModelStoreContainer" CdmEntityContainer="SIGECOEntities">
+          <EntitySetMapping Name="tipo_cuenta">
+            <EntityTypeMapping TypeName="SIGECOModel.tipo_cuenta">
+              <MappingFragment StoreEntitySet="tipo_cuenta">
+                <ScalarProperty Name="codigo_tipo_cuenta" ColumnName="codigo_tipo_cuenta" />
+                <ScalarProperty Name="codigo_equivalencia" ColumnName="codigo_equivalencia" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="simbolo" ColumnName="simbolo" />
+                <ScalarProperty Name="estado_registro" ColumnName="estado_registro" />
+                <ScalarProperty Name="fecha_registra" ColumnName="fecha_registra" />
+                <ScalarProperty Name="fecha_modifica" ColumnName="fecha_modifica" />
+                <ScalarProperty Name="usuario_registra" ColumnName="usuario_registra" />
+                <ScalarProperty Name="usuario_modifica" ColumnName="usuario_modifica" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="articulo">
+            <EntityTypeMapping TypeName="SIGECOModel.articulo">
+              <MappingFragment StoreEntitySet="articulo">
+                <ScalarProperty Name="codigo_tipo_articulo" ColumnName="codigo_tipo_articulo" />
+                <ScalarProperty Name="usuario_modifica" ColumnName="usuario_modifica" />
+                <ScalarProperty Name="fecha_modifica" ColumnName="fecha_modifica" />
+                <ScalarProperty Name="usuario_registra" ColumnName="usuario_registra" />
+                <ScalarProperty Name="fecha_registra" ColumnName="fecha_registra" />
+                <ScalarProperty Name="estado_registro" ColumnName="estado_registro" />
+                <ScalarProperty Name="tiene_contrato_vinculante" ColumnName="tiene_contrato_vinculante" />
+                <ScalarProperty Name="anio_contrato_vinculante" ColumnName="anio_contrato_vinculante" />
+                <ScalarProperty Name="genera_bolsa_bono" ColumnName="genera_bolsa_bono" />
+                <ScalarProperty Name="genera_bono" ColumnName="genera_bono" />
+                <ScalarProperty Name="genera_comision" ColumnName="genera_comision" />
+                <ScalarProperty Name="abreviatura" ColumnName="abreviatura" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="codigo_sku" ColumnName="codigo_sku" />
+                <ScalarProperty Name="codigo_categoria" ColumnName="codigo_categoria" />
+                <ScalarProperty Name="codigo_unidad_negocio" ColumnName="codigo_unidad_negocio" />
+                <ScalarProperty Name="codigo_articulo" ColumnName="codigo_articulo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="banco">
+            <EntityTypeMapping TypeName="SIGECOModel.banco">
+              <MappingFragment StoreEntitySet="banco">
+                <ScalarProperty Name="usuario_modifica" ColumnName="usuario_modifica" />
+                <ScalarProperty Name="fecha_modifica" ColumnName="fecha_modifica" />
+                <ScalarProperty Name="usuario_registra" ColumnName="usuario_registra" />
+                <ScalarProperty Name="fecha_registra" ColumnName="fecha_registra" />
+                <ScalarProperty Name="estado_registro" ColumnName="estado_registro" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="codigo_banco" ColumnName="codigo_banco" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="campo_santo_sigeco">
+            <EntityTypeMapping TypeName="SIGECOModel.campo_santo_sigeco">
+              <MappingFragment StoreEntitySet="campo_santo_sigeco">
+                <ScalarProperty Name="usuario_modifica" ColumnName="usuario_modifica" />
+                <ScalarProperty Name="usuario_registra" ColumnName="usuario_registra" />
+                <ScalarProperty Name="fecha_modifica" ColumnName="fecha_modifica" />
+                <ScalarProperty Name="fecha_registra" ColumnName="fecha_registra" />
+                <ScalarProperty Name="estado_registro" ColumnName="estado_registro" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="codigo_equivalencia" ColumnName="codigo_equivalencia" />
+                <ScalarProperty Name="codigo_campo_santo" ColumnName="codigo_campo_santo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="categoria">
+            <EntityTypeMapping TypeName="SIGECOModel.categoria">
+              <MappingFragment StoreEntitySet="categoria">
+                <ScalarProperty Name="usuario_modifica" ColumnName="usuario_modifica" />
+                <ScalarProperty Name="fecha_modifica" ColumnName="fecha_modifica" />
+                <ScalarProperty Name="usuario_registra" ColumnName="usuario_registra" />
+                <ScalarProperty Name="fecha_registra" ColumnName="fecha_registra" />
+                <ScalarProperty Name="estado_registro" ColumnName="estado_registro" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="codigo_equivalencia" ColumnName="codigo_equivalencia" />
+                <ScalarProperty Name="codigo_categoria" ColumnName="codigo_categoria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="configuracion_canal_grupo">
+            <EntityTypeMapping TypeName="SIGECOModel.configuracion_canal_grupo">
+              <MappingFragment StoreEntitySet="configuracion_canal_grupo">
+                <ScalarProperty Name="percibe" ColumnName="percibe" />
+                <ScalarProperty Name="comision_bono" ColumnName="comision_bono" />
+                <ScalarProperty Name="supervisor_personal" ColumnName="supervisor_personal" />
+                <ScalarProperty Name="codigo_canal_grupo" ColumnName="codigo_canal_grupo" />
+                <ScalarProperty Name="codigo_configuracion" ColumnName="codigo_configuracion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="empresa_configuracion">
+            <EntityTypeMapping TypeName="SIGECOModel.empresa_configuracion">
+              <MappingFragment StoreEntitySet="empresa_configuracion">
+                <ScalarProperty Name="planilla_factura" ColumnName="planilla_factura" />
+                <ScalarProperty Name="codigo_empresa" ColumnName="codigo_empresa" />
+                <ScalarProperty Name="codigo_configuracion" ColumnName="codigo_configuracion" />
+                <ScalarProperty Name="codigo_empresa_configuracion" ColumnName="codigo_empresa_configuracion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="estado_cuota">
+            <EntityTypeMapping TypeName="SIGECOModel.estado_cuota">
+              <MappingFragment StoreEntitySet="estado_cuota">
+                <ScalarProperty Name="usuario_modifica" ColumnName="usuario_modifica" />
+                <ScalarProperty Name="fecha_modifica" ColumnName="fecha_modifica" />
+                <ScalarProperty Name="usuario_registra" ColumnName="usuario_registra" />
+                <ScalarProperty Name="fecha_registra" ColumnName="fecha_registra" />
+                <ScalarProperty Name="estado_registro" ColumnName="estado_registro" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="codigo_estado_cuota" ColumnName="codigo_estado_cuota" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="estado_planilla">
+            <EntityTypeMapping TypeName="SIGECOModel.estado_planilla">
+              <MappingFragment StoreEntitySet="estado_planilla">
+                <ScalarProperty Name="usuario_modifica" ColumnName="usuario_modifica" />
+                <ScalarProperty Name="fecha_modifica" ColumnName="fecha_modifica" />
+                <ScalarProperty Name="usuario_registra" ColumnName="usuario_registra" />
+                <ScalarProperty Name="fecha_registra" ColumnName="fecha_registra" />
+                <ScalarProperty Name="estado_registro" ColumnName="estado_registro" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="codigo_estado_planilla" ColumnName="codigo_estado_planilla" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="estado_reclamo">
+            <EntityTypeMapping TypeName="SIGECOModel.estado_reclamo">
+              <MappingFragment StoreEntitySet="estado_reclamo">
+                <ScalarProperty Name="usuario_modifica" ColumnName="usuario_modifica" />
+                <ScalarProperty Name="usuario_registra" ColumnName="usuario_registra" />
+                <ScalarProperty Name="fecha_modifica" ColumnName="fecha_modifica" />
+                <ScalarProperty Name="fecha_registra" ColumnName="fecha_registra" />
+                <ScalarProperty Name="estado_registro" ColumnName="estado_registro" />
+                <ScalarProperty Name="nombre_estado_reclamo" ColumnName="nombre_estado_reclamo" />
+                <ScalarProperty Name="codigo_estado_reclamo" ColumnName="codigo_estado_reclamo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="estado_resultado">
+            <EntityTypeMapping TypeName="SIGECOModel.estado_resultado">
+              <MappingFragment StoreEntitySet="estado_resultado">
+                <ScalarProperty Name="usuario_modifica" ColumnName="usuario_modifica" />
+                <ScalarProperty Name="usuario_registra" ColumnName="usuario_registra" />
+                <ScalarProperty Name="fecha_modifica" ColumnName="fecha_modifica" />
+                <ScalarProperty Name="fecha_registra" ColumnName="fecha_registra" />
+                <ScalarProperty Name="estado_registro" ColumnName="estado_registro" />
+                <ScalarProperty Name="nombre_estado_resultado" ColumnName="nombre_estado_resultado" />
+                <ScalarProperty Name="codigo_estado_resultado" ColumnName="codigo_estado_resultado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="moneda">
+            <EntityTypeMapping TypeName="SIGECOModel.moneda">
+              <MappingFragment StoreEntitySet="moneda">
+                <ScalarProperty Name="usuario_modifica" ColumnName="usuario_modifica" />
+                <ScalarProperty Name="fecha_modifica" ColumnName="fecha_modifica" />
+                <ScalarProperty Name="usuario_registra" ColumnName="usuario_registra" />
+                <ScalarProperty Name="fecha_registra" ColumnName="fecha_registra" />
+                <ScalarProperty Name="estado_registro" ColumnName="estado_registro" />
+                <ScalarProperty Name="simbolo" ColumnName="simbolo" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="codigo_equivalencia" ColumnName="codigo_equivalencia" />
+                <ScalarProperty Name="codigo_moneda" ColumnName="codigo_moneda" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="personal_canal_grupo">
+            <EntityTypeMapping TypeName="SIGECOModel.personal_canal_grupo">
+              <MappingFragment StoreEntitySet="personal_canal_grupo">
+                <ScalarProperty Name="usuario_modifica" ColumnName="usuario_modifica" />
+                <ScalarProperty Name="fecha_modifica" ColumnName="fecha_modifica" />
+                <ScalarProperty Name="usuario_registra" ColumnName="usuario_registra" />
+                <ScalarProperty Name="fecha_registra" ColumnName="fecha_registra" />
+                <ScalarProperty Name="estado_registro" ColumnName="estado_registro" />
+                <ScalarProperty Name="percibe_bono" ColumnName="percibe_bono" />
+                <ScalarProperty Name="percibe_comision" ColumnName="percibe_comision" />
+                <ScalarProperty Name="es_supervisor_grupo" ColumnName="es_supervisor_grupo" />
+                <ScalarProperty Name="es_supervisor_canal" ColumnName="es_supervisor_canal" />
+                <ScalarProperty Name="codigo_canal" ColumnName="codigo_canal" />
+                <ScalarProperty Name="codigo_canal_grupo" ColumnName="codigo_canal_grupo" />
+                <ScalarProperty Name="codigo_personal" ColumnName="codigo_personal" />
+                <ScalarProperty Name="codigo_registro" ColumnName="codigo_registro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="regla_calculo_comision">
+            <EntityTypeMapping TypeName="SIGECOModel.regla_calculo_comision">
+              <MappingFragment StoreEntitySet="regla_calculo_comision">
+                <ScalarProperty Name="usuario_modifica" ColumnName="usuario_modifica" />
+                <ScalarProperty Name="fecha_modifica" ColumnName="fecha_modifica" />
+                <ScalarProperty Name="usuario_registra" ColumnName="usuario_registra" />
+                <ScalarProperty Name="fecha_registra" ColumnName="fecha_registra" />
+                <ScalarProperty Name="estado_registro" ColumnName="estado_registro" />
+                <ScalarProperty Name="vigencia_fin" ColumnName="vigencia_fin" />
+                <ScalarProperty Name="vigencia_inicio" ColumnName="vigencia_inicio" />
+                <ScalarProperty Name="valor" ColumnName="valor" />
+                <ScalarProperty Name="codigo_tipo_comision" ColumnName="codigo_tipo_comision" />
+                <ScalarProperty Name="codigo_tipo_pago" ColumnName="codigo_tipo_pago" />
+                <ScalarProperty Name="codigo_canal" ColumnName="codigo_canal" />
+                <ScalarProperty Name="codigo_precio" ColumnName="codigo_precio" />
+                <ScalarProperty Name="codigo_regla" ColumnName="codigo_regla" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tipo_articulo">
+            <EntityTypeMapping TypeName="SIGECOModel.tipo_articulo">
+              <MappingFragment StoreEntitySet="tipo_articulo">
+                <ScalarProperty Name="usuario_modifica" ColumnName="usuario_modifica" />
+                <ScalarProperty Name="fecha_modifica" ColumnName="fecha_modifica" />
+                <ScalarProperty Name="usuario_registra" ColumnName="usuario_registra" />
+                <ScalarProperty Name="fecha_registra" ColumnName="fecha_registra" />
+                <ScalarProperty Name="estado_registro" ColumnName="estado_registro" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="codigo_tipo_articulo" ColumnName="codigo_tipo_articulo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tipo_comision">
+            <EntityTypeMapping TypeName="SIGECOModel.tipo_comision">
+              <MappingFragment StoreEntitySet="tipo_comision">
+                <ScalarProperty Name="usuario_modifica" ColumnName="usuario_modifica" />
+                <ScalarProperty Name="fecha_modifica" ColumnName="fecha_modifica" />
+                <ScalarProperty Name="usuario_registra" ColumnName="usuario_registra" />
+                <ScalarProperty Name="fecha_registra" ColumnName="fecha_registra" />
+                <ScalarProperty Name="estado_registro" ColumnName="estado_registro" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="codigo_tipo_comision" ColumnName="codigo_tipo_comision" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tipo_documento">
+            <EntityTypeMapping TypeName="SIGECOModel.tipo_documento">
+              <MappingFragment StoreEntitySet="tipo_documento">
+                <ScalarProperty Name="usuario_modifica" ColumnName="usuario_modifica" />
+                <ScalarProperty Name="usuario_registra" ColumnName="usuario_registra" />
+                <ScalarProperty Name="fecha_modifica" ColumnName="fecha_modifica" />
+                <ScalarProperty Name="fecha_registra" ColumnName="fecha_registra" />
+                <ScalarProperty Name="estado_registro" ColumnName="estado_registro" />
+                <ScalarProperty Name="nombre_tipo_documento" ColumnName="nombre_tipo_documento" />
+                <ScalarProperty Name="codigo_tipo_documento" ColumnName="codigo_tipo_documento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tipo_pago">
+            <EntityTypeMapping TypeName="SIGECOModel.tipo_pago">
+              <MappingFragment StoreEntitySet="tipo_pago">
+                <ScalarProperty Name="usuario_modifica" ColumnName="usuario_modifica" />
+                <ScalarProperty Name="fecha_modifica" ColumnName="fecha_modifica" />
+                <ScalarProperty Name="usuario_registra" ColumnName="usuario_registra" />
+                <ScalarProperty Name="fecha_registra" ColumnName="fecha_registra" />
+                <ScalarProperty Name="estado_registro" ColumnName="estado_registro" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="codigo_equivalencia" ColumnName="codigo_equivalencia" />
+                <ScalarProperty Name="codigo_tipo_pago" ColumnName="codigo_tipo_pago" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tipo_planilla">
+            <EntityTypeMapping TypeName="SIGECOModel.tipo_planilla">
+              <MappingFragment StoreEntitySet="tipo_planilla">
+                <ScalarProperty Name="usuario_modifica" ColumnName="usuario_modifica" />
+                <ScalarProperty Name="fecha_modifica" ColumnName="fecha_modifica" />
+                <ScalarProperty Name="usuario_registra" ColumnName="usuario_registra" />
+                <ScalarProperty Name="fecha_registra" ColumnName="fecha_registra" />
+                <ScalarProperty Name="estado_registro" ColumnName="estado_registro" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="codigo_tipo_planilla" ColumnName="codigo_tipo_planilla" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tipo_venta">
+            <EntityTypeMapping TypeName="SIGECOModel.tipo_venta">
+              <MappingFragment StoreEntitySet="tipo_venta">
+                <ScalarProperty Name="usuario_modifica" ColumnName="usuario_modifica" />
+                <ScalarProperty Name="fecha_modifica" ColumnName="fecha_modifica" />
+                <ScalarProperty Name="usuario_registra" ColumnName="usuario_registra" />
+                <ScalarProperty Name="fecha_registra" ColumnName="fecha_registra" />
+                <ScalarProperty Name="estado_registro" ColumnName="estado_registro" />
+                <ScalarProperty Name="abreviatura" ColumnName="abreviatura" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="codigo_equivalencia" ColumnName="codigo_equivalencia" />
+                <ScalarProperty Name="codigo_tipo_venta" ColumnName="codigo_tipo_venta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="unidad_negocio">
+            <EntityTypeMapping TypeName="SIGECOModel.unidad_negocio">
+              <MappingFragment StoreEntitySet="unidad_negocio">
+                <ScalarProperty Name="usuario_modifica" ColumnName="usuario_modifica" />
+                <ScalarProperty Name="fecha_modifica" ColumnName="fecha_modifica" />
+                <ScalarProperty Name="usuario_registra" ColumnName="usuario_registra" />
+                <ScalarProperty Name="fecha_registra" ColumnName="fecha_registra" />
+                <ScalarProperty Name="estado_registro" ColumnName="estado_registro" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="codigo_equivalencia" ColumnName="codigo_equivalencia" />
+                <ScalarProperty Name="codigo_unidad_negocio" ColumnName="codigo_unidad_negocio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="canal_grupo">
+            <EntityTypeMapping TypeName="SIGECOModel.canal_grupo">
+              <MappingFragment StoreEntitySet="canal_grupo">
+                <ScalarProperty Name="usuario_modifica" ColumnName="usuario_modifica" />
+                <ScalarProperty Name="fecha_modifica" ColumnName="fecha_modifica" />
+                <ScalarProperty Name="usuario_registra" ColumnName="usuario_registra" />
+                <ScalarProperty Name="fecha_registra" ColumnName="fecha_registra" />
+                <ScalarProperty Name="estado_registro" ColumnName="estado_registro" />
+                <ScalarProperty Name="codigo_padre" ColumnName="codigo_padre" />
+                <ScalarProperty Name="administra_grupos" ColumnName="administra_grupos" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="codigo_equivalencia" ColumnName="codigo_equivalencia" />
+                <ScalarProperty Name="es_canal_grupo" ColumnName="es_canal_grupo" />
+                <ScalarProperty Name="codigo_canal_grupo" ColumnName="codigo_canal_grupo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="precio_articulo">
+            <EntityTypeMapping TypeName="SIGECOModel.precio_articulo">
+              <MappingFragment StoreEntitySet="precio_articulo">
+                <ScalarProperty Name="cuota_inicial" ColumnName="cuota_inicial" />
+                <ScalarProperty Name="usuario_modifica" ColumnName="usuario_modifica" />
+                <ScalarProperty Name="fecha_modifica" ColumnName="fecha_modifica" />
+                <ScalarProperty Name="usuario_registra" ColumnName="usuario_registra" />
+                <ScalarProperty Name="fecha_registra" ColumnName="fecha_registra" />
+                <ScalarProperty Name="estado_registro" ColumnName="estado_registro" />
+                <ScalarProperty Name="vigencia_fin" ColumnName="vigencia_fin" />
+                <ScalarProperty Name="vigencia_inicio" ColumnName="vigencia_inicio" />
+                <ScalarProperty Name="precio_total" ColumnName="precio_total" />
+                <ScalarProperty Name="igv" ColumnName="igv" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="codigo_moneda" ColumnName="codigo_moneda" />
+                <ScalarProperty Name="codigo_tipo_venta" ColumnName="codigo_tipo_venta" />
+                <ScalarProperty Name="codigo_empresa" ColumnName="codigo_empresa" />
+                <ScalarProperty Name="codigo_articulo" ColumnName="codigo_articulo" />
+                <ScalarProperty Name="codigo_campo_santo" ColumnName="codigo_campo_santo" />
+                <ScalarProperty Name="codigo_precio" ColumnName="codigo_precio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cronograma_pago_comision">
+            <EntityTypeMapping TypeName="SIGECOModel.cronograma_pago_comision">
+              <MappingFragment StoreEntitySet="cronograma_pago_comision">
+                <ScalarProperty Name="nro_contrato_adicional" ColumnName="nro_contrato_adicional" />
+                <ScalarProperty Name="estado_registro" ColumnName="estado_registro" />
+                <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
+                <ScalarProperty Name="codigo_moneda" ColumnName="codigo_moneda" />
+                <ScalarProperty Name="codigo_tipo_pago" ColumnName="codigo_tipo_pago" />
+                <ScalarProperty Name="codigo_tipo_venta" ColumnName="codigo_tipo_venta" />
+                <ScalarProperty Name="nro_contrato" ColumnName="nro_contrato" />
+                <ScalarProperty Name="codigo_personal_canal_grupo" ColumnName="codigo_personal_canal_grupo" />
+                <ScalarProperty Name="codigo_empresa" ColumnName="codigo_empresa" />
+                <ScalarProperty Name="codigo_tipo_planilla" ColumnName="codigo_tipo_planilla" />
+                <ScalarProperty Name="codigo_cronograma" ColumnName="codigo_cronograma" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="empresa_sigeco">
+            <EntityTypeMapping TypeName="SIGECOModel.empresa_sigeco">
+              <MappingFragment StoreEntitySet="empresa_sigeco">
+                <ScalarProperty Name="codigo_tipo_cuenta" ColumnName="codigo_tipo_cuenta" />
+                <ScalarProperty Name="codigo_cuenta_moneda" ColumnName="codigo_cuenta_moneda" />
+                <ScalarProperty Name="nro_cuenta" ColumnName="nro_cuenta" />
+                <ScalarProperty Name="usuario_modifica" ColumnName="usuario_modifica" />
+                <ScalarProperty Name="fecha_modifica" ColumnName="fecha_modifica" />
+                <ScalarProperty Name="usuario_registra" ColumnName="usuario_registra" />
+                <ScalarProperty Name="fecha_registra" ColumnName="fecha_registra" />
+                <ScalarProperty Name="estado_registro" ColumnName="estado_registro" />
+                <ScalarProperty Name="direccion_fiscal" ColumnName="direccion_fiscal" />
+                <ScalarProperty Name="ruc" ColumnName="ruc" />
+                <ScalarProperty Name="nombre_largo" ColumnName="nombre_largo" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="codigo_equivalencia" ColumnName="codigo_equivalencia" />
+                <ScalarProperty Name="codigo_empresa" ColumnName="codigo_empresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="personal">
+            <EntityTypeMapping TypeName="SIGECOModel.personal">
+              <MappingFragment StoreEntitySet="personal">
+                <ScalarProperty Name="codigo_tipo_cuenta" ColumnName="codigo_tipo_cuenta" />
+                <ScalarProperty Name="codigo_cuenta_moneda" ColumnName="codigo_cuenta_moneda" />
+                <ScalarProperty Name="usuario_modifica" ColumnName="usuario_modifica" />
+                <ScalarProperty Name="fecha_modifica" ColumnName="fecha_modifica" />
+                <ScalarProperty Name="usuario_registra" ColumnName="usuario_registra" />
+                <ScalarProperty Name="fecha_registra" ColumnName="fecha_registra" />
+                <ScalarProperty Name="estado_registro" ColumnName="estado_registro" />
+                <ScalarProperty Name="codigo_interbancario" ColumnName="codigo_interbancario" />
+                <ScalarProperty Name="nro_cuenta" ColumnName="nro_cuenta" />
+                <ScalarProperty Name="correo_electronico" ColumnName="correo_electronico" />
+                <ScalarProperty Name="telefono_celular" ColumnName="telefono_celular" />
+                <ScalarProperty Name="telefono_fijo" ColumnName="telefono_fijo" />
+                <ScalarProperty Name="nro_ruc" ColumnName="nro_ruc" />
+                <ScalarProperty Name="nro_documento" ColumnName="nro_documento" />
+                <ScalarProperty Name="apellido_materno" ColumnName="apellido_materno" />
+                <ScalarProperty Name="apellido_paterno" ColumnName="apellido_paterno" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="es_persona_juridica" ColumnName="es_persona_juridica" />
+                <ScalarProperty Name="codigo_banco" ColumnName="codigo_banco" />
+                <ScalarProperty Name="codigo_tipo_documento" ColumnName="codigo_tipo_documento" />
+                <ScalarProperty Name="codigo_equivalencia" ColumnName="codigo_equivalencia" />
+                <ScalarProperty Name="codigo_personal" ColumnName="codigo_personal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

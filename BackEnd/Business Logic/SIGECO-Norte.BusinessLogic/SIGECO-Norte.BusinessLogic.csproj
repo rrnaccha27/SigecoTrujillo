@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{971807EC-0F26-4C25-9BF2-D5CEF68001A8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SIGEES.BusinessLogic</RootNamespace>
+    <AssemblyName>SIGECO-Norte.BusinessLogic</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseBL.cs" />
+    <Compile Include="Comision\ChecklistBonoBL.cs" />
+    <Compile Include="Comision\ChecklistComisionBL.cs" />
+    <Compile Include="Comision\ComisionManualBL.cs" />
+    <Compile Include="Comision\ComisionPrecioSupervisorBL.cs" />
+    <Compile Include="Comision\DescuentoComisionBL.cs" />
+    <Compile Include="Comision\DetalleCronogramaPagoBL.cs" />
+    <Compile Include="Comision\ContratoBL.cs" />
+    <Compile Include="Comision\MetaReglaComisionBL.cs" />
+    <Compile Include="Comision\LogContratoSAPBL.cs" />
+    <Compile Include="Comision\LogProcesoBonoBL.cs" />
+    <Compile Include="Comision\PeriodoTrimestralBL.cs" />
+    <Compile Include="Comision\PlanIntegralBL.cs" />
+    <Compile Include="Comision\ReglaBonoTrimestralBL.cs" />
+    <Compile Include="Comision\ReglaCalculoBonoBL.cs" />
+    <Compile Include="Comision\DetalleReglaComisionBL.cs" />
+    <Compile Include="Comision\ReglaComisionBL.cs" />
+    <Compile Include="Comision\ReglaPagoComisionExcepcionBL.cs" />
+    <Compile Include="Comision\ReglaCalculoComisionSupervisorBL.cs" />
+    <Compile Include="Comision\ReglaPagoComisionBL.cs" />
+    <Compile Include="Comision\ArticuloBL.cs" />
+    <Compile Include="Comision\CanalGrupoBL.cs" />
+    <Compile Include="Comision\DetallePlanillaBL.cs" />
+    <Compile Include="Comision\PersonalBL.cs" />
+    <Compile Include="Comision\PersonalCanalGrupoBL.cs" />
+    <Compile Include="Comision\PlanillaBL.cs" />
+    <Compile Include="Comision\Precio_ArticuloBL.cs" />
+    <Compile Include="Comision\reclamoBL.cs" />
+    <Compile Include="Comision\ReglaCalculoComisionBL.cs" />
+    <Compile Include="Comision\ReglaRecuperoBL.cs" />
+    <Compile Include="Comision\ReglaTipoPlanillaBL.cs" />
+    <Compile Include="Comision\ReporteGeneralBL.cs" />
+    <Compile Include="Comision\TemplateCorreoBL.cs" />
+    <Compile Include="Comision\TipoBonoTrimestralBL.cs" />
+    <Compile Include="Comision\TipoComisionSupervisorBL.cs" />
+    <Compile Include="Comision\TipoReporteBL.cs" />
+    <Compile Include="GenericBL.cs" />
+    <Compile Include="PersonaBL.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="UsuarioBL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util\Constantes.cs" />
+    <Compile Include="Web References\SAPSigecoWcf\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Transversal\SIGECO-Norte.Entidades\SIGECO-Norte.Entidades.csproj">
+      <Project>{9a3faeb1-4556-4319-8032-f4f38f3c9bd2}</Project>
+      <Name>SIGECO-Norte.Entidades</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data Access\SIGECO-Norte.DataAcces\SIGECO-Norte.DataAcces.csproj">
+      <Project>{fd75f8ef-0014-45aa-87d9-b81b18e6e582}</Project>
+      <Name>SIGECO-Norte.DataAcces</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\SAPSigecoWcf\ECanal.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SAPSigecoWcf\EGrupo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SAPSigecoWcf\ESupervisor.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SAPSigecoWcf\EVendedor.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SAPSigecoWcf\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\SAPSigecoWcf\SAPSIGECO_MANT.wsdl" />
+    <None Include="Web References\SAPSigecoWcf\SAPSIGECO_MANT.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\SAPSigecoWcf\SAPSIGECO_MANT0.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\SAPSigecoWcf\SAPSIGECO_MANT1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\SAPSigecoWcf\SAPSIGECO_MANT2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\SAPSigecoWcf\SAPSIGECO_MANT3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\SAPSigecoWcf\SAPSIGECO_RES.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://afrodita/WCFSIGECOSAP/SAPSIGECO_MANT.svc%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\SAPSigecoWcf\</RelPath>
+      <UpdateFromURL>http://afrodita/WCFSIGECOSAP/SAPSIGECO_MANT.svc%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>SIGECO_BusinessLogic_SAPSigecoWcf_SAPSIGECO_MANT</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,20 @@
+﻿CREATE TABLE [dbo].[exhumacion_fallecido] (
+    [codigo_exhumacion]             INT           IDENTITY (1, 1) NOT NULL,
+    [exhumacion_fecha_inicio]       DATETIME      NULL,
+    [exhumacion_informe_inicio]     VARCHAR (100) NULL,
+    [exhumacion_observacion_inicio] VARCHAR (100) NULL,
+    [exhumacion_fecha_final]        DATETIME      NULL,
+    [exhumacion_informe_final]      VARCHAR (100) NULL,
+    [exhumacion_observacion_final]  VARCHAR (100) NULL,
+    [codigo_fallecido]              INT           NOT NULL,
+    [codigo_espacio]                VARCHAR (20)  NOT NULL,
+    [estado_registro]               BIT           DEFAULT ((1)) NOT NULL,
+    [fecha_registra]                DATETIME      DEFAULT (getdate()) NOT NULL,
+    [usuario_registra]              VARCHAR (30)  NOT NULL,
+    [fecha_modifica]                DATETIME      NULL,
+    [usuario_modifica]              VARCHAR (30)  NULL,
+    [codigo_estado_exhumacion]      INT           NOT NULL,
+    PRIMARY KEY CLUSTERED ([codigo_exhumacion] ASC),
+    CONSTRAINT [exhumacion_fallecido_espacio_fk] FOREIGN KEY ([codigo_espacio]) REFERENCES [dbo].[espacio] ([codigo_espacio]),
+    CONSTRAINT [exhumacion_fallecido_fallecido_fk] FOREIGN KEY ([codigo_fallecido]) REFERENCES [dbo].[fallecido] ([codigo_fallecido])
+);

@@ -1,0 +1,66 @@
+﻿<div id="dlgModificar" class="easyui-dialog" data-options="modal:true,closed:true"
+     style="width: 50%; height: 90%; padding: 10px 20px; line-height: 20px;">
+
+    <div class="easyui-layout" data-options="fit:true">
+        <form id="frmModificar" method="post">
+            <div data-options="region:'center'" style="padding:10px;">
+                <br />
+                <hr style="color: #B5B5B5; width:96%" />
+                <div class="panelGridModal">
+                    <div class="rowGridModal">
+                        <label class="colGridModal">Corporación</label>
+                        <input class="easyui-textbox" id="corporacion" name="corporacion" style="width:100%" readonly />
+                    </div>
+                    <div class="rowGridModal">
+                        <label class="colGridModal">Codigo</label>
+                        <input class="easyui-textbox" id="codigo" name="codigo" style="width:100%" readonly />
+                    </div>
+                    <div class="rowGridModal">
+                        <label class="colGridModal">Nombre</label>
+                        <input class="easyui-textbox" id="nombre" name="nombre" style="width:100%" data-options="required:true" />
+                    </div>
+                    <div class="rowGridModal">
+                        <label class="colGridModal">Apellido Paterno</label>
+                        <input class="easyui-textbox" id="apellidoPaterno" name="apellidoPaterno" style="width:100%" data-options="required:true" />
+                    </div>
+                    <div class="rowGridModal">
+                        <label class="colGridModal">Apellido Materno</label>
+                        <input class="easyui-textbox" id="apellidoMaterno" name="apellidoMaterno" style="width:100%" data-options="required:true" />
+                    </div>
+                    <div class="rowGridModal">
+                        <label class="colGridModal">Fecha Nacimiento</label>
+                        <input class="easyui-datebox" id="fechaNacimiento" name="fechaNacimiento" style="width:100%" data-options="required:true" />
+                    </div>
+                    <div class="rowGridModal">
+                        <label class="colGridModal">Tipo Documento</label>
+                        <input class="easyui-combobox" id="cboTipoDocumento" name="cboTipoDocumento" style="width: 100%" data-options="required:true" />
+                    </div>
+                    <div class="rowGridModal">
+                        <label class="colGridModal">Número Documento</label>
+                        <input class="easyui-textbox" id="numeroDocumento" name="numeroDocumento" style="width:100%" data-options="required:true" />
+                    </div>
+                    <div class="rowGridModal">
+                        <label class="colGridModal">Estado Civil</label>
+                        <input class="easyui-combobox" id="cboEstadoCivil" name="cboEstadoCivil" style="width: 100%" data-options="required:true" />
+                    </div>
+                    <div class="rowGridModal">
+                        <label class="colGridModal">Genero Persona</label>
+                        <input class="easyui-combobox" id="cboSexo" name="cboSexo" style="width: 100%" data-options="required:true" />
+                    </div>
+                    <div class="rowGridModal">
+                        <label class="colGridModal">Es Vendedor</label><br/>
+                        <input class="easyui-switchbutton" id="esVendedor" name="esVendedor" data-options="onText:'Si',offText:'No'">
+                    </div>
+                    <div class="rowBoth" />
+                </div>
+                <br />
+                <hr style="color: #B5B5B5; width:96%" />
+
+            </div>
+            <div data-options="region:'south',border:false" style="text-align:right;padding:5px 0 0;">
+                <a href="#" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " iconcls="icon-ok" id="btnGuardar">Guardar</a>
+                <a href="#" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " iconcls="icon-cancel" id="btnCancelar">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>

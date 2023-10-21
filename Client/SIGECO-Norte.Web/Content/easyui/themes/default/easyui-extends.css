@@ -1,0 +1,46 @@
+.tree li {
+        background: -webkit-linear-gradient(top,#242E3C 0,#242E3C 100%);
+        background: -moz-linear-gradient(top,#242E3C 0,#242E3C 100%);
+        background: -o-linear-gradient(top,#242E3C 0,#242E3C 100%);
+        background: linear-gradient(to bottom,#242E3C 0,#242E3C 100%);
+    }
+    /**03/07/2017*/
+    .tree-expanded {
+        background: url('images/menu_arrow_up.png') no-repeat !important;
+    }
+
+    .tree-collapsed {
+        background: url('images/menu_arrow_down.png') no-repeat !important;
+    }
+    /********************/
+
+
+    .tree-node {
+        color: #ffffff;
+    }
+
+    .tree-node-hover {
+        background: none;
+        /*background: url(/Content/easyui/themes/default/images/bg_menu_on.gif);*/
+        color: #6dc46b;
+    }
+
+    .tree-node-selected {
+        background: none;
+        color: #6dc46b;
+    }
+
+    .tree-file {
+        background: url('images/bg_menu_off.gif') no-repeat;
+    }
+
+    .tree-folder {
+        /*background: url(/Content/easyui/themes/default/images/menu_arrow_down.png) no-repeat;*/
+        background: none;
+    }
+
+    .tree-folder-open {
+        /*background: url(/Content/easyui/themes/default/images/menu_arrow_up.png) no-repeat;*/
+        background: none;
+    }
+  

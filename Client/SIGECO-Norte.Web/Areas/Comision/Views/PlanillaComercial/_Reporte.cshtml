@@ -1,0 +1,19 @@
+﻿@model SIGEES.Web.Areas.Comision.Models.ReporteViewModel
+<script type="text/javascript">    
+    $(document).ready(function () {
+
+        $('.content').ResizeModal({
+            widthMax: '100%',
+            widthMin: '100%',
+            div: 'div_reporte_general'
+        });
+
+        var iframe = "<iframe id='ifReporte' width='100%' style='position: absolute; height: 95vh; border: none' frameborder='0'src='" + '@Model.url' + "'></iframe>";
+        $("#frame_reporte_general").html(iframe);
+
+    });
+
+</script>
+<div id="frame_reporte_general" style="width:100%;">
+</div>
+

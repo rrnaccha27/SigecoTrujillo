@@ -1,0 +1,22 @@
+﻿CREATE TABLE [dbo].[cronograma_pago_comision] (
+    [codigo_cronograma]           INT            IDENTITY (1, 1) NOT NULL,
+    [codigo_tipo_planilla]        INT            NOT NULL,
+    [codigo_empresa]              INT            NOT NULL,
+    [codigo_personal_canal_grupo] INT            NOT NULL,
+    [nro_contrato]                NVARCHAR (200) NOT NULL,
+    [codigo_tipo_venta]           INT            NOT NULL,
+    [codigo_tipo_pago]            INT            NOT NULL,
+    [codigo_moneda]               INT            NOT NULL,
+    [fecha_registro]              DATETIME       NOT NULL,
+    [estado_registro]             BIT            DEFAULT ((1)) NOT NULL,
+    [nro_contrato_adicional]      VARCHAR (100)  NULL,
+    [codigo_regla_pago]           INT            NULL,
+    [tiene_transferencia]         BIT            DEFAULT ((0)) NULL,
+    CONSTRAINT [PK_cronograma_pago_comision] PRIMARY KEY CLUSTERED ([codigo_cronograma] ASC),
+    CONSTRAINT [FK_cronograma_pago_comision_codigo_empresa_empresa_sigeco_codigo_empresa] FOREIGN KEY ([codigo_empresa]) REFERENCES [dbo].[empresa_sigeco] ([codigo_empresa]),
+    CONSTRAINT [FK_cronograma_pago_comision_codigo_moneda_moneda_codigo_moneda] FOREIGN KEY ([codigo_moneda]) REFERENCES [dbo].[moneda] ([codigo_moneda]),
+    CONSTRAINT [FK_cronograma_pago_comision_codigo_personal_canal_grupo_personal_canal_grupo_codigo_registro] FOREIGN KEY ([codigo_personal_canal_grupo]) REFERENCES [dbo].[personal_canal_grupo] ([codigo_registro]),
+    CONSTRAINT [FK_cronograma_pago_comision_codigo_tipo_pago_tipo_pago_codigo_tipo_pago] FOREIGN KEY ([codigo_tipo_pago]) REFERENCES [dbo].[tipo_pago] ([codigo_tipo_pago]),
+    CONSTRAINT [FK_cronograma_pago_comision_codigo_tipo_planilla_tipo_planilla_tipo_planilla] FOREIGN KEY ([codigo_tipo_planilla]) REFERENCES [dbo].[tipo_planilla] ([codigo_tipo_planilla]),
+    CONSTRAINT [FK_cronograma_pago_comision_codigo_tipo_venta_tipo_venta_codigo_tipo_venta] FOREIGN KEY ([codigo_tipo_venta]) REFERENCES [dbo].[tipo_venta] ([codigo_tipo_venta])
+);

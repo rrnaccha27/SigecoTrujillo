@@ -1,0 +1,289 @@
+﻿@model SIGEES.Web.Models.Bean.BeanItemTipoAcceso
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="easyui-layout" data-options="fit:true">
+    <form id="frm_buscar_contrato" method="post">
+        <div data-options="region:'center'" style="padding:5px;">
+
+            <div class="easyui-panel" title="Datos Generales" style="width:99%;" id="pnlDatosGenerales" data-options="collapsible:true">
+                <div class="rowDivEtiqueta">
+                    <label class="colGridModal">Empresa</label>
+                </div>
+                <div class="rowDivValor">
+                    <input class="easyui-combobox" id="cmb_empresa_sigeco" style="width:100%;" data-options="required:true,novalidate:true,editable:false" />
+                </div>
+                <div class="rowDivEtiqueta">
+                    <label class="colGridModal">Nro. Contrato</label>
+                </div>
+                <div class="rowDivValor">
+                    <input class="easyui-validatebox textbox" id="txt_nro_contrato" maxlength="20" style="width:50%;" data-options="required:true,novalidate:true,editable:true" />
+                    <a href="javascript:fnBuscarContrato();" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " data-options="iconCls:'icon-search'">Buscar</a>
+                </div>
+                <!-- FILA 2-->
+                <div class="rowBoth"></div>
+                <div class="rowDivEtiqueta">
+                    <label class="colGridModal">Titular</label>
+                </div>
+                <div class="rowDivValor">
+                    <input class="easyui-textbox" id="txt_apellidos_nombres_cliente" style="width:100%;" data-options="disabled:true" />
+                </div>
+                <div class="rowDivEtiqueta">
+                    <label class="colGridModal">Doc. Completa</label>
+                </div>
+                <div class="rowDivValor">
+                    <input class="easyui-textbox" id="txt_doc_completa" style="width:50%;" data-options="disabled:true" />
+                </div>
+                <div class="rowBoth"></div>
+                <div class="rowDivEtiqueta">
+                    <label class="colGridModal">Estado</label>
+                </div>
+                <div class="rowDivValor">
+                    <input class="easyui-textbox" id="txt_nombre_estado_contrato_migrado" style="width:50%;" data-options="disabled:true" />
+                </div>
+                <div class="rowDivEtiqueta">
+                    <label class="colGridModal">Observacion</label>
+                </div>
+                <div class="rowDivValor">
+                    <input class="easyui-textbox" id="txt_observacion_contrato_migrado" style="width:100%;" data-options="disabled:true" />
+                </div>
+            </div>
+            <div class="easyui-panel" title="Datos Venta" style="width:99%;" id="pnlDatosVenta" data-options="collapsible:true">
+                <div class="rowDivEtiqueta">
+                    <label class="colGridModal">Canal de Venta</label>
+                </div>
+                <div class="rowDivValorDoble">
+                    <input class="easyui-textbox" id="txt_nombre_canal_venta" style="width:100%;" data-options="disabled:true" />
+                </div>
+                <div class="rowBoth"></div>
+                <div class="rowDivEtiqueta">
+                    <label class="colGridModal">Vendedor</label>
+                </div>
+                <div class="rowDivValor">
+                    <input class="easyui-textbox" id="txt_apellidos_nombres_vendedor" style="width:100%;" data-options="disabled:true" />
+                </div>
+                @*<div class="rowBoth"></div>*@
+                <div class="rowDivEtiqueta">
+                    <label class="colGridModal">Supervisor</label>
+                </div>
+                <div class="rowDivValor">
+                    <input class="easyui-textbox" id="txt_apellidos_nombres_supervisor" style="width:100%;" data-options="disabled:true" />
+                </div>
+                <div class="rowBoth"></div>
+                <div class="rowDivEtiqueta">
+                    <label class="colGridModal">Tipo Venta</label>
+                </div>
+                <div class="rowDivValor">
+                    <input class="easyui-textbox" id="txt_nombre_tipo_venta" style="width:100%;" data-options="disabled:true" />
+                </div>
+                <div class="rowDivEtiqueta">
+                    <label class="colGridModal">Tipo Pago</label>
+                </div>
+                <div class="rowDivValor">
+                    <input class="easyui-textbox" id="txt_nombre_tipo_pago" style="width:100%;" data-options="disabled:true" />
+                </div>
+            </div>
+
+            <div class="easyui-tabs" style="height:500px;width:99%">
+                <div title="Comisiones" style="padding:2px;overflow-x: hidden;">
+                    <div class="easyui-panel" style="width: 98.5%; ">
+                        <div id="div_contrato_articulo" style="width: 100%;height:100%;">
+                            <table id="dgv_analisis_contrato_articulo" style="width: 100%"></table>
+                        </div>
+
+                    </div>
+                    <br />
+                    <div class="easyui-panel" style="width:98.5%; ">
+                        <div id="div_contrato_detalle_pago" style="width: 100%;height:100%;">
+                            <table id="dgv_contrato_detalle_pago" style="width: 100%"></table>
+                        </div>
+
+                    </div>
+                </div>
+                <div title="Cronograma de Cuotas" style="padding:2px">
+                    <table id="dgv_analisis_cronograma" style="width: 100%; height:100%"></table>
+                </div>
+                <div title="Datos Adicionales" style="padding:2px">
+                    <div class="easyui-panel" title="Datos Referencia" style="width:100%;">
+                        <div class="rowDivEtiqueta">
+                            <label class="colGridModal">Empresa</label>
+                        </div>
+                        <div class="rowDivValor">
+                            <input class="easyui-textbox" id="nombre_empresa_ref" name="nombre_empresa_ref" style="width:100%;" disabled />
+                        </div>
+
+                        <div class="rowDivEtiqueta">
+                            <label class="colGridModal">Nro. Contrato</label>
+                        </div>
+                        <div class="rowDivValor">
+                            <input class="easyui-textbox" id="nro_contrato_ref" name="nro_contrato_ref" style="width:50%;" disabled />
+                        </div>
+                    </div>
+                    <div class="easyui-panel" title="Datos Transferencia" style="width:100%; padding:5px">
+                        <div class="rowDivEtiqueta">
+                            <label class="colGridModal">Empresa</label>
+                        </div>
+                        <div class="rowDivValor">
+                            <input class="easyui-textbox" id="nombre_empresa_transferencia" name="nombre_empresa_transferencia" style="width:100%;" disabled />
+                        </div>
+                        <div class="rowDivEtiqueta">
+                            <label class="colGridModal">Nro Contrato</label>
+                        </div>
+                        <div class="rowDivValor">
+                            <input class="easyui-textbox" id="nro_contrato_transferencia" name="nro_contrato_transferencia" style="width:50%;" disabled />
+                        </div>
+                        <div class="rowBoth"></div>
+                        <div class="rowDivEtiqueta">
+                            <label class="colGridModal">Tiene</label>
+                        </div>
+                        <div class="rowDivValor">
+                            <input class="easyui-textbox" id="tiene_transferencia" name="tiene_transferencia" style="width:50%;" disabled />
+                        </div>
+                        <div class="rowDivEtiqueta">
+                            <label class="colGridModal">Monto</label>
+                        </div>
+                        <div class="rowDivValor">
+                            <input class="easyui-numberbox" id="monto_transferencia" name="monto_transferencia" style="width:50%;text-align:right;" data-options="min:0,max:999999, precision:2" disabled />
+                        </div>
+                    </div>
+                    <div class="easyui-panel" title="Datos Proceso" style="width:100%; padding:5px">
+                        <div class="rowDivEtiqueta">
+                            <label class="colGridModal">Fecha Contrato</label>
+                        </div>
+                        <div class="rowDivValor">
+                            <input class="easyui-textbox" id="fecha_contrato" name="fecha_contrato" style="width:50%;" disabled />
+                        </div>
+                        <div class="rowDivEtiqueta">
+                            <label class="colGridModal">Fecha Migración</label>
+                        </div>
+                        <div class="rowDivValor">
+                            <input class="easyui-textbox" id="fecha_migracion" name="fecha_migracion" style="width:50%;" disabled />
+                        </div>
+                        <div class="rowBoth"></div>
+                        <div class="rowDivEtiqueta">
+                            <label class="colGridModal">Fecha Proceso</label>
+                        </div>
+                        <div class="rowDivValor">
+                            <input class="easyui-textbox" id="fecha_proceso" name="fecha_proceso" style="width:50%;" disabled />
+                        </div>
+                        <div class="rowDivEtiqueta">
+                            <label class="colGridModal">Usuario Proceso</label>
+                        </div>
+                        <div class="rowDivValor">
+                            <input class="easyui-textbox" id="usuario_proceso" name="usuario_proceso" style="width:100%;" disabled />
+                        </div>
+                    </div>
+                    <div class="easyui-panel" title="Datos Bloqueo de Reproceso" style="width:100%; padding:5px">
+                        <div class="rowDivEtiqueta">
+                            <label class="colGridModal">Bloqueado</label>
+                        </div>
+                        <div class="rowDivValor">
+                            <input class="easyui-switchbutton" id="bloqueo" data-options="onText:'Si', offText:'No', disabled:true" />&nbsp;&nbsp;
+                            @if (Model.estadoEscrituraAnalisisComision != null && Model.estadoEscrituraAnalisisComision.CompareTo("A") == 0)
+                            {
+                                <a href="javascript:fnBloquearReproceso();" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " data-options="iconCls:'icon-gear'" id="btnBloqueo" name="btnBloqueo">Bloquear</a>
+                            }
+                        </div>
+                        <div class="rowDivEtiqueta">
+                            <label class="colGridModal">Fecha</label>
+                        </div>
+                        <div class="rowDivValor">
+                            <input class="easyui-textbox" id="fecha_bloqueo" name="fecha_bloqueo" style="width:50%;" disabled />
+                        </div>
+                        <div class="rowBoth"></div>
+                        <div class="rowDivEtiqueta">
+                            <label class="colGridModal">Usuario</label>
+                        </div>
+                        <div class="rowDivValor">
+                            <input class="easyui-textbox" id="usuario_bloqueo" name="usuario_bloqueo" style="width:100%;" disabled />
+                        </div>                        
+                        <div class="rowDivEtiqueta">
+                            <label class="colGridModal">Motivo</label>
+                        </div>
+                        <div class="rowDivValor">
+                            <input class="easyui-textbox" id="motivo_bloqueo" name="motivo_bloqueo" style="width:100%;" disabled />
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div id="mm" class="easyui-menu">
+    <div onclick="fnCopiar('codigo_sku');">Copiar SKU</div>
+    <div onclick="fnCopiar('nombre_articulo');">Copiar Nombre</div>
+    @{
+        if (Model.estadoEscrituraAnalisisComision != null && Model.estadoEscrituraAnalisisComision.CompareTo("A") == 0)
+        {
+            <div onclick="VerDetalleArticulo();">Ver Detalle</div>
+        }
+    }
+</div>
+
+<div id="mnuObservacionOperacion" class="easyui-menu">
+    <div onclick="fnCopiarComision('observacion');">Copiar Observación</div>
+</div>
+
+<div id="div_visualizar_articulo" class="easyui-dialog" data-options="resizable:true,modal:true,closed:true,maximizable:true"
+     style="width: 90%; height: 90%;line-height: 20px;"></div>
+
+@{
+    if (Model.estadoEscrituraAnalisisComision != null && Model.estadoEscrituraAnalisisComision.CompareTo("A") == 0)
+    {
+        <div id="div_modificar_cuota" class="easyui-dialog" data-options="resizable:false,modal:true,closed:true"
+                style="width: 650px; height: 260px;line-height: 15px;"></div>
+        <div id="div_exclusion_planilla" class="easyui-dialog" data-options="resizable:true,modal:true,closed:true"
+                style="width: 400px; height: 224px;line-height: 15px;"></div>
+        <div id="div_adicionar_cuota" class="easyui-dialog" data-options="resizable:false,modal:true,closed:true"
+                style="width: 650px; height: 230px;line-height: 15px;"></div>
+    }
+    if ((Model.estadoEscrituraAnalisisComision != null && Model.estadoEscrituraAnalisisComision.CompareTo("A") == 0) || (Model.estadoLecturaAnalisisComision != null && Model.estadoLecturaAnalisisComision.CompareTo("A") == 0))
+    {
+        <div id="div_detalle_operacion" class="easyui-dialog" data-options="resizable:true,modal:true,closed:true,maximizable:true"
+                style="width: 80%; height: 60%;line-height: 15px;"></div>
+    }
+
+    <div id="toolbar_analisis">
+    @if ((Model.estadoEscrituraAnalisisComision != null && Model.estadoEscrituraAnalisisComision.CompareTo("A") == 0) || (Model.estadoLecturaAnalisisComision != null && Model.estadoLecturaAnalisisComision.CompareTo("A") == 0))
+    {
+        @*<a href="javascript:DetalleCuota();" iconcls="icon-detail" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " >Detalle</a>*@
+    }
+    @if (Model.estadoEscrituraAnalisisComision != null && Model.estadoEscrituraAnalisisComision.CompareTo("A") == 0)
+    {
+        @*<a href="javascript:AdicionarCuota();" iconcls="icon-add" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " >Adicionar</a>*@
+        <a href="javascript:ModificarCuota();" iconcls="icon-edit" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " >Modificar</a>
+        <a href="javascript:ExcluirCuota();" iconcls="icon-remove" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " >Excluir</a>
+        <a href="javascript:AnularCuota();" iconcls="icon-remove" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " >Anular</a>
+        <a href="javascript:DeshabilitarCuota();" iconcls="icon-remove" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; ">Deshabilitar</a>
+    }
+    </div>
+}
+
+<script type="text/javascript" src="~/Areas/Comision/Scripts/Views/AnalisisComision/analisis.index.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var actionUrls =
+        {
+            _GetEmpresaJson: '@Url.Action("GetEmpresaJson", "AnalisisComision", new { area = "Comision" })',
+            _GetContratoJson: '@Url.Action("GetContratoJson", "AnalisisComision", new { area = "Comision" })',
+            _GetArticulosByContratoEmpresaJson: '@Url.Action("GetArticulosByContratoEmpresaJson", "Planilla", new { area = "Comision" })',
+            _GetDetalleCronogramaPagoByArticuloJson: '@Url.Action("GetDetalleCronogramaPagoByArticuloJson", "Planilla", new { area = "Comision" })',
+            _GetCronogramaCuotasByContratoEmpresaJson: '@Url.Action("GetCronogramaCuotasByContratoEmpresaJson", "Planilla", new { area = "Comision" })',
+            _Anular_Cuota: '@Url.Action("_Anular_Cuota", "Planilla", new { area = "Comision" })',
+            _ModificarCuota: '@Url.Action("_ModificarCuota", "AnalisisComision", new { area = "Comision" })',
+            _DetalleCuota: '@Url.Action("_DetalleCuota", "AnalisisComision", new { area = "Comision" })',
+            _ExclusionCuota: '@Url.Action("_ExclusionCuota", "AnalisisComision", new { area = "Comision" })',
+            _AdicionarCuota: '@Url.Action("_AdicionarCuota", "AnalisisComision", new { area = "Comision" })',
+            _VisualizarArticulo: '@Url.Action("_Visualizar", "Articulo", new { area ="Comision" })',
+            _Bloquear_Reproceso: '@Url.Action("BloquearReproceso", "AnalisisComision", new { area ="Comision" })',
+            Deshabilitar_Cuota: '@Url.Action("DeshabilitarCuota", "AnalisisComision", new { area = "Comision" })',
+        };
+        project.index.Initialize(actionUrls);
+    });
+</script>

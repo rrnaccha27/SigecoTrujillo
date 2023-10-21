@@ -1,0 +1,72 @@
+﻿@model SIGEES.Web.Models.Bean.BeanItemTipoAcceso
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<center>
+    <h2>Mantenimiento Menu</h2>
+</center>
+
+<input type="hidden" id="hdCodigo" />
+<input type="hidden" id="hdCantidadRegistros" />
+
+<div>
+    <div class="easyui-panel" style="padding:5px;width: 100%">
+        @if (Model.estadoEscritura.CompareTo("A") == 0)
+        {
+            <a href="javascript:void(0)" id="btnNuevo" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-add'" >Nuevo</a>
+        }
+        @if (Model.estadoModificacion.CompareTo("A") == 0)
+        {
+            <a href="javascript:void(0)" id="btnModificar" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-edit'" >Modificar</a>    
+        }
+        @if (Model.estadoEliminacion.CompareTo("A") == 0)
+        {
+            <a href="javascript:void(0)" id="btnEliminar" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-cancel'" >Eliminar</a>    
+        }
+        @if (Model.estadoLectura.CompareTo("A") == 0)
+        {
+            <a href="javascript:void(0)" id="btnVisualizar" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-search'" >Detalle</a>
+            <a href="javascript:void(0)" id="btnRefrescar" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-reload'">Refrescar</a>
+        }
+        
+    </div>
+</div>
+<br/>
+
+@if (Model.estadoLectura.CompareTo("A") == 0)
+{
+    <table id="TreeGrid"></table>    
+}
+
+
+@Html.Partial("_Edit")
+@Html.Partial("_Visualizar")
+
+@section scripts
+{
+    
+    <script type="text/javascript" src="~/Scripts/Views/Menu/project.extends.js"></script>
+    <script type="text/javascript" src="~/Scripts/Views/Menu/project.TreeNode.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var actionUrls =
+            {
+                HasRootNode: '@Url.Action("HasRootNode", "TreeGird")',
+                LoadTreeNodeDDL: '@Url.Action("LoadTreeNodeDDL", "TreeGird")',
+                GetTreeNodeJSON: '@Url.Action("GetTreeNodeJSON", "TreeGird")',
+                Create: '@Url.Action("Create", "TreeGird")',
+                GetTreeNode: '@Url.Action("GetTreeNode", "TreeGird")',
+                Update: '@Url.Action("Update", "TreeGird")',
+                Delete: '@Url.Action("Delete", "TreeGird")',
+                MoveUp: '@Url.Action("MoveUp", "TreeGird")',
+                MoveDown: '@Url.Action("MoveDown", "TreeGird")'
+            };
+
+            project.TreeNode.Initialize(actionUrls);
+        });
+
+    </script>
+}

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DSStockGeneral" targetNamespace="http://tempuri.org/DSStockGeneral.xsd" xmlns:mstns="http://tempuri.org/DSStockGeneral.xsd" xmlns="http://tempuri.org/DSStockGeneral.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DSStockGeneral" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DSStockGeneral" msprop:Generator_UserDSName="DSStockGeneral">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="StockGeneral" msprop:Generator_TableClassName="StockGeneralDataTable" msprop:Generator_TableVarName="tableStockGeneral" msprop:Generator_RowChangedName="StockGeneralRowChanged" msprop:Generator_TablePropName="StockGeneral" msprop:Generator_RowDeletingName="StockGeneralRowDeleting" msprop:Generator_RowChangingName="StockGeneralRowChanging" msprop:Generator_RowEvHandlerName="StockGeneralRowChangeEventHandler" msprop:Generator_RowDeletedName="StockGeneralRowDeleted" msprop:Generator_RowClassName="StockGeneralRow" msprop:Generator_UserTableName="StockGeneral" msprop:Generator_RowEvArgName="StockGeneralRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="nombre_tipo_bien" msdata:Caption="bien_espacio" msprop:Generator_ColumnVarNameInTable="columnnombre_tipo_bien" msprop:Generator_ColumnPropNameInRow="nombre_tipo_bien" msprop:Generator_ColumnPropNameInTable="nombre_tipo_bienColumn" msprop:Generator_UserColumnName="nombre_tipo_bien" type="xs:string" minOccurs="0" />
+              <xs:element name="lotes_habilitados" msprop:Generator_ColumnVarNameInTable="columnlotes_habilitados" msprop:Generator_ColumnPropNameInRow="lotes_habilitados" msprop:Generator_ColumnPropNameInTable="lotes_habilitadosColumn" msprop:Generator_UserColumnName="lotes_habilitados" type="xs:int" minOccurs="0" />
+              <xs:element name="espacios_habilitados" msprop:Generator_ColumnVarNameInTable="columnespacios_habilitados" msprop:Generator_ColumnPropNameInRow="espacios_habilitados" msprop:Generator_ColumnPropNameInTable="espacios_habilitadosColumn" msprop:Generator_UserColumnName="espacios_habilitados" type="xs:int" minOccurs="0" />
+              <xs:element name="enterrados_ocupado_completo" msprop:Generator_ColumnVarNameInTable="columnenterrados_ocupado_completo" msprop:Generator_ColumnPropNameInRow="enterrados_ocupado_completo" msprop:Generator_ColumnPropNameInTable="enterrados_ocupado_completoColumn" msprop:Generator_UserColumnName="enterrados_ocupado_completo" type="xs:int" minOccurs="0" />
+              <xs:element name="enterrados_ocupado_parcial" msprop:Generator_ColumnVarNameInTable="columnenterrados_ocupado_parcial" msprop:Generator_ColumnPropNameInRow="enterrados_ocupado_parcial" msprop:Generator_ColumnPropNameInTable="enterrados_ocupado_parcialColumn" msprop:Generator_UserColumnName="enterrados_ocupado_parcial" type="xs:int" minOccurs="0" />
+              <xs:element name="pendientes_enterrar_escogido" msprop:Generator_ColumnVarNameInTable="columnpendientes_enterrar_escogido" msprop:Generator_ColumnPropNameInRow="pendientes_enterrar_escogido" msprop:Generator_ColumnPropNameInTable="pendientes_enterrar_escogidoColumn" msprop:Generator_UserColumnName="pendientes_enterrar_escogido" type="xs:int" minOccurs="0" />
+              <xs:element name="espacios_libres" msprop:Generator_ColumnVarNameInTable="columnespacios_libres" msprop:Generator_ColumnPropNameInRow="espacios_libres" msprop:Generator_ColumnPropNameInTable="espacios_libresColumn" msprop:Generator_UserColumnName="espacios_libres" type="xs:int" minOccurs="0" />
+              <xs:element name="lotes_libres" msprop:Generator_ColumnVarNameInTable="columnlotes_libres" msprop:Generator_ColumnPropNameInRow="lotes_libres" msprop:Generator_ColumnPropNameInTable="lotes_libresColumn" msprop:Generator_UserColumnName="lotes_libres" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsReporteCuotasIniciales" targetNamespace="http://tempuri.org/dsReporteCuotasIniciales.xsd" xmlns:mstns="http://tempuri.org/dsReporteCuotasIniciales.xsd" xmlns="http://tempuri.org/dsReporteCuotasIniciales.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsReporteCuotasIniciales" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsReporteCuotasIniciales" msprop:Generator_UserDSName="dsReporteCuotasIniciales">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dtReporteCuotasIniciales" msprop:Generator_TableClassName="dtReporteCuotasInicialesDataTable" msprop:Generator_TableVarName="tabledtReporteCuotasIniciales" msprop:Generator_TablePropName="dtReporteCuotasIniciales" msprop:Generator_RowDeletingName="dtReporteCuotasInicialesRowDeleting" msprop:Generator_RowChangingName="dtReporteCuotasInicialesRowChanging" msprop:Generator_RowEvHandlerName="dtReporteCuotasInicialesRowChangeEventHandler" msprop:Generator_RowDeletedName="dtReporteCuotasInicialesRowDeleted" msprop:Generator_UserTableName="dtReporteCuotasIniciales" msprop:Generator_RowChangedName="dtReporteCuotasInicialesRowChanged" msprop:Generator_RowEvArgName="dtReporteCuotasInicialesRowChangeEvent" msprop:Generator_RowClassName="dtReporteCuotasInicialesRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="docentry" msprop:Generator_ColumnVarNameInTable="columndocentry" msprop:Generator_ColumnPropNameInRow="docentry" msprop:Generator_ColumnPropNameInTable="docentryColumn" msprop:Generator_UserColumnName="docentry" type="xs:string" minOccurs="0" />
+              <xs:element name="nombre_empresa" msprop:Generator_ColumnVarNameInTable="columnnombre_empresa" msprop:Generator_ColumnPropNameInRow="nombre_empresa" msprop:Generator_ColumnPropNameInTable="nombre_empresaColumn" msprop:Generator_UserColumnName="nombre_empresa" type="xs:string" minOccurs="0" />
+              <xs:element name="nombre_tipo_venta" msprop:Generator_ColumnVarNameInTable="columnnombre_tipo_venta" msprop:Generator_ColumnPropNameInRow="nombre_tipo_venta" msprop:Generator_ColumnPropNameInTable="nombre_tipo_ventaColumn" msprop:Generator_UserColumnName="nombre_tipo_venta" type="xs:string" minOccurs="0" />
+              <xs:element name="nombre_tipo_pago" msprop:Generator_ColumnVarNameInTable="columnnombre_tipo_pago" msprop:Generator_ColumnPropNameInRow="nombre_tipo_pago" msprop:Generator_ColumnPropNameInTable="nombre_tipo_pagoColumn" msprop:Generator_UserColumnName="nombre_tipo_pago" type="xs:string" minOccurs="0" />
+              <xs:element name="fecha_contrato" msprop:Generator_ColumnVarNameInTable="columnfecha_contrato" msprop:Generator_ColumnPropNameInRow="fecha_contrato" msprop:Generator_ColumnPropNameInTable="fecha_contratoColumn" msprop:Generator_UserColumnName="fecha_contrato" type="xs:string" minOccurs="0" />
+              <xs:element name="monto_contratado" msprop:Generator_ColumnVarNameInTable="columnmonto_contratado" msprop:Generator_ColumnPropNameInRow="monto_contratado" msprop:Generator_ColumnPropNameInTable="monto_contratadoColumn" msprop:Generator_UserColumnName="monto_contratado" type="xs:decimal" minOccurs="0" />
+              <xs:element name="dinero_ingresado" msprop:Generator_ColumnVarNameInTable="columndinero_ingresado" msprop:Generator_ColumnPropNameInRow="dinero_ingresado" msprop:Generator_ColumnPropNameInTable="dinero_ingresadoColumn" msprop:Generator_UserColumnName="dinero_ingresado" type="xs:decimal" minOccurs="0" />
+              <xs:element name="comision_habilitada" msprop:Generator_ColumnVarNameInTable="columncomision_habilitada" msprop:Generator_ColumnPropNameInRow="comision_habilitada" msprop:Generator_ColumnPropNameInTable="comision_habilitadaColumn" msprop:Generator_UserColumnName="comision_habilitada" type="xs:string" minOccurs="0" />
+              <xs:element name="estado_proceso" msprop:Generator_ColumnVarNameInTable="columnestado_proceso" msprop:Generator_ColumnPropNameInRow="estado_proceso" msprop:Generator_ColumnPropNameInTable="estado_procesoColumn" msprop:Generator_UserColumnName="estado_proceso" type="xs:string" minOccurs="0" />
+              <xs:element name="observacion_proceso" msprop:Generator_ColumnVarNameInTable="columnobservacion_proceso" msprop:Generator_ColumnPropNameInRow="observacion_proceso" msprop:Generator_ColumnPropNameInTable="observacion_procesoColumn" msprop:Generator_UserColumnName="observacion_proceso" type="xs:string" minOccurs="0" />
+              <xs:element name="nro_contrato" msprop:Generator_ColumnVarNameInTable="columnnro_contrato" msprop:Generator_ColumnPropNameInRow="nro_contrato" msprop:Generator_ColumnPropNameInTable="nro_contratoColumn" msprop:Generator_UserColumnName="nro_contrato" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

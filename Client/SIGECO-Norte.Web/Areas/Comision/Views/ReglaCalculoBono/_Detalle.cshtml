@@ -1,0 +1,133 @@
+﻿@model SIGEES.Entidades.regla_calculo_bono_detalle_dto
+@{ 
+    string calcular_igv_checked = Model.calcular_igv ? "checked=checked" : "";
+}
+<div class="easyui-layout" data-options="fit:true">
+    <form id="frmRegistro" method="post">
+
+        <div data-options="region:'north', border:false" style="padding:10px 10px 0px 10px;height:200px;">
+            <div class="easyui-layout" data-options="fit:true">
+                <div class="easyui-panel" title="Datos Generales" style="width: 100%;">
+                    <table style="width:100%">
+                        <tr>
+                            <td class="tdEtiqueta">
+                                <label class="colGridModal">Tipo</label>
+                            </td>
+                            <td class="tdValor">
+                                <input class="easyui-textbox" id="nombre_tipo_planilla" name="nombre_tipo_planilla" value="@Model.nombre_tipo_planilla" style="width: 85%" disabled />
+                            </td>
+                            <td class="tdEtiqueta"><label class="colGridModal">Calcular IGV</label></td>
+                            <td class="tdValor"><input class="easyui-switchbutton" id="ckb_igv" @calcular_igv_checked data-options="onText:'Si', offText:'No', disabled:true" /></td>
+                        </tr>
+                        <tr>
+                            <td class="tdEtiqueta">
+                                <label class="colGridModal">Canal</label>
+                            </td>
+                            <td class="tdValor">
+                                <input class="easyui-textbox" id="nombre_canal" name="nombre_canal" value="@Model.nombre_canal" style="width: 85%" disabled />
+                            </td>
+                            <td class="tdEtiqueta">
+                                <label class="colGridModal">Grupo</label>
+                            </td>
+                            <td class="tdValor">
+                                <input class="easyui-textbox" id="nombre_grupo" name="nombre_grupo" value="@Model.nombre_grupo" style="width: 85%" disabled />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tdEtiqueta">
+                                <label class="colGridModal">Vigencia</label>
+                            </td>
+                            <td class="tdValor">
+                                <input class="easyui-datebox" id="fechaInicio" name="fechaInicio" value="@Model.vigencia_inicio" style="width:85%;" disabled />
+                            </td>
+                            <td class="tdEtiqueta">
+                                <label class="colGridModal">Hasta</label>
+                            </td>
+                            <td class="tdValor">
+                                <input class="easyui-datebox" id="fechaFin" name="fechaFin" value="@Model.vigencia_fin" style="width:85%;" disabled />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="easyui-panel" title="Configuración Global" style="width: 100%">
+                    <table style="width:99%">
+                        <tr>
+                            <td class="tdEtiqueta">
+                                <label class="colGridModal">Al 100%</label>
+                            </td>
+                            <td class="tdValor">
+                                Meta&nbsp;<input class="easyui-numberbox" id="monto_meta_100" name="monto_meta_100" value="@Model.monto_meta" style="width: 30%" data-options="required:true, min:0,max:9999999, precision:2" disabled />
+                            </td>
+                            <td class="tdValor">
+                                Porcentaje a pagar&nbsp;<input class="easyui-numberbox" id="porcentaje_pago_100" name="porcentaje_pago_100" value="@Model.porcentaje_pago" style="width: 30%" data-options="required:true, min:0,max:100, precision:2" disabled />
+                            </td>
+                            <td class="tdValor">
+                                Tope Global&nbsp;<input class="easyui-numberbox" id="monto_tope_100" name="monto_tope_100" value="@Model.monto_tope" style="width: 40%" data-options="required:true, min:0,max:9999999, precision:2" disabled />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div data-options="region:'center', border:false" style="padding:0px 10px 10px 10px;height:100%">
+            <div class="easyui-tabs" style="width:100%;height: 100%">
+                <div title="Montos" style="padding:5px;">
+                    <table id="dgMontosDetalle" style="height: 100%"></table>
+                </div>
+                <div title="Artículos" style="padding:5px;">
+                    <table id="dgArticulosDetalle" style="height: 100%"></table>
+                </div>
+                <div title="Ventas" style="padding:5px;">
+                    <div class="panelGridModal">
+                        <table style="width:99%">
+                            <tr>
+                                <td class="tdEtiqueta">
+                                    <label class="colGridModal">Cantidad Ventas</label>
+                                </td>
+                                <td class="tdValor">
+                                    <input class="easyui-numberbox" id="cantidad_ventas" name="cantidad_ventas" value="@Model.cantidad_ventas" style="width: 85%" disabled />
+                                </td>
+                                <td class="tdEtiqueta"></td>
+                                <td class="tdValor"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div data-options="region:'south', border:false" style="padding:0px;">
+            <div id="divDetalleBotones" style="width: 100%; height: 100%; display: inline-block; text-align:right;">
+                <a href="javascript:Cancelar()" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " iconcls="icon-cancel" id="btnCancelar">Cancelar</a>
+            </div>
+        </div>
+    </form>
+</div>
+<style>
+    .tdEtiqueta {
+        width: 20%;
+        padding: 5px;
+    }
+
+    .tdValor {
+        width: 30%;
+    }
+
+    .tdArticulo {
+        width: 45%;
+    }
+</style>
+
+<script type="text/javascript" src="~/Areas/Comision/Scripts/Views/ReglaCalculoBono/project.ReglaCalculoBono.Detalle.js"></script>
+<script>
+    $(document).ready(function () {
+        var detalleUrls =
+        {
+            GetArticulosJson: '@Url.Action("GetArticulosJson", "ReglaCalculoBono", new { area = "Comision" })',
+            GetMatrizJson: '@Url.Action("GetMatrizJson", "ReglaCalculoBono", new { area = "Comision" })',
+            codigo_regla_calculo_bono: '@Model.codigo_regla_calculo_bono',
+        };
+
+        project.ReglaCalculoBonoDetalle.Initialize(detalleUrls);
+    });
+</script>

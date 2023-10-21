@@ -1,0 +1,243 @@
+﻿<script src="@Url.Content("~/Scripts/Views/Espacio/espacio.consulta.js")"></script>
+<link href="~/Content/sigees/styleEspacio.css" rel="stylesheet" />
+@Html.Hidden("UrlCampoSanto", Url.Action("GetCampoSantoJSON", "Espacio"))
+@Html.Hidden("UrlPlataforma", Url.Action("GetPlataformaJSON", "Espacio"))
+@Html.Hidden("UrlBuscar", Url.Action("Buscar", "Espacio"))
+<input type="hidden" id="hd_espacio_seleccioando" />
+<form id="frmBusqueda" action="@Url.Action("Buscar", "Espacio")" method="post">
+    <div class="rowGridModal" style="width:30%;float:left;">
+        <div style="width: 100%; float:left; text-align: left;">
+            <label class="colGridModal">Campo Santo</label>
+        </div>
+        <div style="width: 100%; text-align: right; font-weight: bold;">
+            <input id="cmbCampoSanto" class="easyui-combobox" name="cmbCampoSanto" style="width:100%;" data-options="
+                        valueField: 'id',
+                        textField: 'text',
+                        required:true,
+                        editable:false
+                        ">
+        </div>
+    </div>
+    <div class="rowGridModal" id="div_center" style="width: 30%; float: left;">
+        <div style="width: 100%; float:left; text-align: left;">
+            <label class="colGridModal">Plataforma/Sector</label>
+        </div>
+        <div style="width: 100%; text-align: right; font-weight: bold;">
+            <input id="cmbPlataforma" class="easyui-combobox" name="plataforma" style="width:100%;" data-options="
+                        valueField: 'id',
+                        textField: 'text',
+                        required:true,
+                        editable:false">
+        </div>
+    </div>
+    <div class="rowGridModal" style="width: 15%; float: left;">
+        <div style="width: 100%; float:left; text-align: left;">
+            <label class="colGridModal">Còdigo</label>
+        </div>
+        <div style="width: 100%; text-align: right; font-weight: bold;">
+            <input name="codigo_espacio" id="txt_codigo_espacio" class="easyui-textbox" data-options="novalidate:true" style=" width:100%;">
+        </div>
+    </div>
+    <div class="rowGridModal" style="width: 10%; float: left; padding-top:1%;">
+        <a href="javascript:void(0);" class="easyui-linkbutton btn-verde"  onclick="javascript:fnBuscarEspacio();">Buscar</a>
+    </div>
+    
+</form>
+
+
+<style type="text/css" media="screen">
+    #div_espacio td.localizacion {
+        width: 40px;
+        min-width: 40px;
+        height: 40px;
+        min-height: 40px;
+        text-align: center;
+        vertical-align: middle;
+        background-color: #fff;
+    }
+
+    #div_espacio td.localizacionEspacioY {
+        width: 25px;
+        min-width: 25px;
+        height: 80px;
+        min-height: 40px;
+        text-align: center;
+        vertical-align: bottom;
+        background: repeating-linear-gradient( 45deg, rgba(0, 0, 0, 0) 20px, rgba(0, 0, 0, 0) 40px, #A6F874 20px, #A6F874 50px );
+        font-size: 10px;
+        font-weight: bold;
+    }
+
+    #div_espacio td.localizacionNichoY {
+        width: 25px;
+        min-width: 25px;
+        height: 80px;
+        min-height: 40px;
+        text-align: center;
+        vertical-align: middle;
+        background: repeating-linear-gradient( 45deg, rgba(0, 0, 0, 0) 20px, rgba(0, 0, 0, 0) 40px, #A6F874 20px, #A6F874 50px );
+        font-size: 10px;
+        font-weight: bold;
+    }
+
+    #div_espacio td.localizacionNichoX {
+        width: 80px;
+        min-width: 80px;
+        height: 20px;
+        min-height: 20px;
+        text-align: center;
+        vertical-align: middle;
+        background: repeating-linear-gradient( 45deg, rgba(0, 0, 0, 0) 20px, rgba(0, 0, 0, 0) 40px, #A6F874 20px, #A6F874 50px );
+        font-size: 10px;
+        font-weight: bold;
+    }
+
+    #div_espacio td.localizacionEspacioCabeceraY {
+        width: 25px;
+        min-width: 25px;
+        height: 12px;
+        text-align: center;
+        vertical-align: bottom;
+        background: repeating-linear-gradient( 45deg, rgba(0, 0, 0, 0) 20px, rgba(0, 0, 0, 0) 40px, #A6F874 20px, #A6F874 50px );
+        font-size: 10px;
+        font-weight: bold;
+    }
+
+    #div_espacio td.localizacionEspacioX {
+        width: 80px;
+        min-width: 80px;
+        height: 20px;
+        min-height: 20px;
+        text-align: right;
+        vertical-align: middle;
+        background: repeating-linear-gradient( 45deg, rgba(0, 0, 0, 0) 20px, rgba(0, 0, 0, 0) 40px, #A6F874 20px, #A6F874 50px );
+        font-size: 10px;
+        font-weight: bold;
+    }
+
+    #div_espacio td.localizacionNichoCara {
+        height: 15px;
+        min-height: 15px;
+        text-align: center;
+        vertical-align: middle;
+        background: repeating-linear-gradient( 45deg, rgba(0, 0, 0, 0) 20px, rgba(0, 0, 0, 0) 40px, #B7FBF8 20px, #B7FBF8 50px );
+        font-size: 10px;
+        font-weight: bold;
+    }
+
+    #div_espacio td.localizacionNichoEsquinaCara {
+        width: 25px;
+        min-width: 25px;
+        height: 15px;
+        min-height: 15px;
+        text-align: center;
+        vertical-align: middle;
+        background: repeating-linear-gradient( 45deg, rgba(0, 0, 0, 0) 20px, rgba(0, 0, 0, 0) 40px, #A6F874 20px, #A6F874 50px );
+        font-size: 10px;
+        font-weight: bold;
+    }
+
+    #div_espacio td.localizacionEspacioEsquinaX {
+        width: 20px;
+        min-width: 20px;
+        height: 20px;
+        min-height: 20px;
+        text-align: right;
+        vertical-align: middle;
+        background: repeating-linear-gradient( 45deg, rgba(0, 0, 0, 0) 20px, rgba(0, 0, 0, 0) 40px, #A6F874 20px, #A6F874 50px );
+        font-size: 10px;
+        font-weight: bold;
+    }
+
+    #div_espacio td.localizacionNichoEsquinaX {
+        width: 20px;
+        min-width: 20px;
+        height: 20px;
+        min-height: 20px;
+        text-align: right;
+        vertical-align: middle;
+        background: repeating-linear-gradient( 45deg, rgba(0, 0, 0, 0) 20px, rgba(0, 0, 0, 0) 40px, #A6F874 20px, #A6F874 50px );
+        font-size: 10px;
+        font-weight: bold;
+    }
+
+    #div_espacio td {
+        width: 80px;
+        min-width: 80px;
+        height: 80px;
+        min-height: 40px;
+        text-align: center;
+        vertical-align: middle;
+        background-color: #ccc;
+    }
+
+
+
+        /*#div_espacio td.registrado {
+            width: 40px;
+            min-width: 40px;
+            height: 40px;
+            min-height: 40px;
+            text-align: center;
+            vertical-align: middle;
+            background-color: green;
+        }*/
+
+        #div_espacio td.disponible {
+            width: 80px;
+            min-width: 80px;
+            height: 80px;
+            min-height: 40px;
+            text-align: center;
+            vertical-align: middle;
+            background-color: #F8F8FF;
+            color: #2F4F4F;
+        }
+
+        #div_espacio td.libre {
+            width: 80px;
+            min-width: 80px;
+            height: 80px;
+            min-height: 40px;
+            text-align: center;
+            vertical-align: middle;
+            background-color: #F8F8FF;
+            color: #2F4F4F;
+        }
+
+        #div_espacio td.reservado {
+            width: 80px;
+            min-width: 80px;
+            height: 80px;
+            min-height: 40px;
+            text-align: center;
+            vertical-align: middle;
+            background-color: #6dc46b;
+            color: #FFFFF0;
+        }
+
+        #div_espacio td.vendido {
+            width: 80px;
+            min-width: 80px;
+            height: 80px;
+            min-height: 40px;
+            text-align: center;
+            vertical-align: middle;
+            background-color: #c4473d;
+            color: #FFFFF0;
+        }
+
+
+        #div_espacio td.ocupado {
+            font-size: 10px;
+            font-weight: bold;
+            width: 80px;
+            min-width: 80px;
+            height: 80px;
+            min-height: 40px;
+            text-align: center;
+            color: #FFFFF0;
+            vertical-align: middle;
+            background-color: #60738d;
+        }
+</style>

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsPesonal" targetNamespace="http://tempuri.org/dsPesonal.xsd" xmlns:mstns="http://tempuri.org/dsPesonal.xsd" xmlns="http://tempuri.org/dsPesonal.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsPesonal" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsPesonal" msprop:Generator_UserDSName="dsPesonal">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Personal" msprop:Generator_TableClassName="PersonalDataTable" msprop:Generator_TableVarName="tablePersonal" msprop:Generator_TablePropName="Personal" msprop:Generator_RowDeletingName="PersonalRowDeleting" msprop:Generator_RowChangingName="PersonalRowChanging" msprop:Generator_RowEvHandlerName="PersonalRowChangeEventHandler" msprop:Generator_RowDeletedName="PersonalRowDeleted" msprop:Generator_UserTableName="Personal" msprop:Generator_RowChangedName="PersonalRowChanged" msprop:Generator_RowEvArgName="PersonalRowChangeEvent" msprop:Generator_RowClassName="PersonalRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="codigo_personal" msprop:Generator_ColumnVarNameInTable="columncodigo_personal" msprop:Generator_ColumnPropNameInRow="codigo_personal" msprop:Generator_ColumnPropNameInTable="codigo_personalColumn" msprop:Generator_UserColumnName="codigo_personal" type="xs:int" minOccurs="0" />
+              <xs:element name="codigo_equivalencia" msprop:Generator_ColumnVarNameInTable="columncodigo_equivalencia" msprop:Generator_ColumnPropNameInRow="codigo_equivalencia" msprop:Generator_ColumnPropNameInTable="codigo_equivalenciaColumn" msprop:Generator_UserColumnName="codigo_equivalencia" type="xs:string" minOccurs="0" />
+              <xs:element name="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_UserColumnName="nombre" type="xs:string" minOccurs="0" />
+              <xs:element name="apellido_paterno" msprop:Generator_ColumnVarNameInTable="columnapellido_paterno" msprop:Generator_ColumnPropNameInRow="apellido_paterno" msprop:Generator_ColumnPropNameInTable="apellido_paternoColumn" msprop:Generator_UserColumnName="apellido_paterno" type="xs:string" minOccurs="0" />
+              <xs:element name="apellido_materno" msprop:Generator_ColumnVarNameInTable="columnapellido_materno" msprop:Generator_ColumnPropNameInRow="apellido_materno" msprop:Generator_ColumnPropNameInTable="apellido_maternoColumn" msprop:Generator_UserColumnName="apellido_materno" type="xs:string" minOccurs="0" />
+              <xs:element name="telefono_fijo" msprop:Generator_ColumnVarNameInTable="columntelefono_fijo" msprop:Generator_ColumnPropNameInRow="telefono_fijo" msprop:Generator_ColumnPropNameInTable="telefono_fijoColumn" msprop:Generator_UserColumnName="telefono_fijo" type="xs:string" minOccurs="0" />
+              <xs:element name="telefono_celular" msprop:Generator_ColumnVarNameInTable="columntelefono_celular" msprop:Generator_ColumnPropNameInRow="telefono_celular" msprop:Generator_ColumnPropNameInTable="telefono_celularColumn" msprop:Generator_UserColumnName="telefono_celular" type="xs:string" minOccurs="0" />
+              <xs:element name="correo_electronico" msprop:Generator_ColumnVarNameInTable="columncorreo_electronico" msprop:Generator_ColumnPropNameInRow="correo_electronico" msprop:Generator_ColumnPropNameInTable="correo_electronicoColumn" msprop:Generator_UserColumnName="correo_electronico" type="xs:string" minOccurs="0" />
+              <xs:element name="nro_cuenta" msprop:Generator_ColumnVarNameInTable="columnnro_cuenta" msprop:Generator_ColumnPropNameInRow="nro_cuenta" msprop:Generator_ColumnPropNameInTable="nro_cuentaColumn" msprop:Generator_UserColumnName="nro_cuenta" type="xs:string" minOccurs="0" />
+              <xs:element name="codigo_interbancario" msprop:Generator_ColumnVarNameInTable="columncodigo_interbancario" msprop:Generator_ColumnPropNameInRow="codigo_interbancario" msprop:Generator_ColumnPropNameInTable="codigo_interbancarioColumn" msprop:Generator_UserColumnName="codigo_interbancario" type="xs:string" minOccurs="0" />
+              <xs:element name="nombre_tipo_documento" msprop:Generator_ColumnVarNameInTable="columnnombre_tipo_documento" msprop:Generator_ColumnPropNameInRow="nombre_tipo_documento" msprop:Generator_ColumnPropNameInTable="nombre_tipo_documentoColumn" msprop:Generator_UserColumnName="nombre_tipo_documento" type="xs:string" minOccurs="0" />
+              <xs:element name="nombre_banco" msprop:Generator_ColumnVarNameInTable="columnnombre_banco" msprop:Generator_ColumnPropNameInRow="nombre_banco" msprop:Generator_ColumnPropNameInTable="nombre_bancoColumn" msprop:Generator_UserColumnName="nombre_banco" type="xs:string" minOccurs="0" />
+              <xs:element name="nro_documento" msprop:Generator_ColumnVarNameInTable="columnnro_documento" msprop:Generator_ColumnPropNameInRow="nro_documento" msprop:Generator_ColumnPropNameInTable="nro_documentoColumn" msprop:Generator_UserColumnName="nro_documento" type="xs:string" minOccurs="0" />
+              <xs:element name="estado_registro" msprop:Generator_ColumnVarNameInTable="columnestado_registro" msprop:Generator_ColumnPropNameInRow="estado_registro" msprop:Generator_ColumnPropNameInTable="estado_registroColumn" msprop:Generator_UserColumnName="estado_registro" type="xs:boolean" minOccurs="0" />
+              <xs:element name="es_supervisor_canal" msprop:Generator_ColumnVarNameInTable="columnes_supervisor_canal" msprop:Generator_ColumnPropNameInRow="es_supervisor_canal" msprop:Generator_ColumnPropNameInTable="es_supervisor_canalColumn" msprop:Generator_UserColumnName="es_supervisor_canal" type="xs:boolean" minOccurs="0" />
+              <xs:element name="es_supervisor_grupo" msprop:Generator_ColumnVarNameInTable="columnes_supervisor_grupo" msprop:Generator_ColumnPropNameInRow="es_supervisor_grupo" msprop:Generator_ColumnPropNameInTable="es_supervisor_grupoColumn" msprop:Generator_UserColumnName="es_supervisor_grupo" type="xs:boolean" minOccurs="0" />
+              <xs:element name="nombre_canal" msprop:Generator_ColumnVarNameInTable="columnnombre_canal" msprop:Generator_ColumnPropNameInRow="nombre_canal" msprop:Generator_ColumnPropNameInTable="nombre_canalColumn" msprop:Generator_UserColumnName="nombre_canal" type="xs:string" minOccurs="0" />
+              <xs:element name="nombre_grupo" msprop:Generator_ColumnVarNameInTable="columnnombre_grupo" msprop:Generator_ColumnPropNameInRow="nombre_grupo" msprop:Generator_ColumnPropNameInTable="nombre_grupoColumn" msprop:Generator_UserColumnName="nombre_grupo" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

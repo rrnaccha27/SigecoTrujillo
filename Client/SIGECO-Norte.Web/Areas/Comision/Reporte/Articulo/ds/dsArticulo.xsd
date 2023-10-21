@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsArticulo" targetNamespace="http://tempuri.org/dsArticulo.xsd" xmlns:mstns="http://tempuri.org/dsArticulo.xsd" xmlns="http://tempuri.org/dsArticulo.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsArticulo" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsArticulo" msprop:Generator_UserDSName="dsArticulo">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dtArticulo" msprop:Generator_TableClassName="dtArticuloDataTable" msprop:Generator_TableVarName="tabledtArticulo" msprop:Generator_RowChangedName="dtArticuloRowChanged" msprop:Generator_TablePropName="dtArticulo" msprop:Generator_RowDeletingName="dtArticuloRowDeleting" msprop:Generator_RowChangingName="dtArticuloRowChanging" msprop:Generator_RowEvHandlerName="dtArticuloRowChangeEventHandler" msprop:Generator_RowDeletedName="dtArticuloRowDeleted" msprop:Generator_RowClassName="dtArticuloRow" msprop:Generator_UserTableName="dtArticulo" msprop:Generator_RowEvArgName="dtArticuloRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="codigo_articulo" msprop:Generator_ColumnVarNameInTable="columncodigo_articulo" msprop:Generator_ColumnPropNameInRow="codigo_articulo" msprop:Generator_ColumnPropNameInTable="codigo_articuloColumn" msprop:Generator_UserColumnName="codigo_articulo" type="xs:int" minOccurs="0" />
+              <xs:element name="nombre_articulo" msprop:Generator_ColumnVarNameInTable="columnnombre_articulo" msprop:Generator_ColumnPropNameInRow="nombre_articulo" msprop:Generator_ColumnPropNameInTable="nombre_articuloColumn" msprop:Generator_UserColumnName="nombre_articulo" type="xs:string" minOccurs="0" />
+              <xs:element name="abreviatura" msprop:Generator_ColumnVarNameInTable="columnabreviatura" msprop:Generator_ColumnPropNameInRow="abreviatura" msprop:Generator_ColumnPropNameInTable="abreviaturaColumn" msprop:Generator_UserColumnName="abreviatura" type="xs:string" minOccurs="0" />
+              <xs:element name="codigo_sku" msprop:Generator_ColumnVarNameInTable="columncodigo_sku" msprop:Generator_ColumnPropNameInRow="codigo_sku" msprop:Generator_ColumnPropNameInTable="codigo_skuColumn" msprop:Generator_UserColumnName="codigo_sku" type="xs:string" minOccurs="0" />
+              <xs:element name="nombre_unidad_negocio" msprop:Generator_ColumnVarNameInTable="columnnombre_unidad_negocio" msprop:Generator_ColumnPropNameInRow="nombre_unidad_negocio" msprop:Generator_ColumnPropNameInTable="nombre_unidad_negocioColumn" msprop:Generator_UserColumnName="nombre_unidad_negocio" type="xs:string" minOccurs="0" />
+              <xs:element name="genera_bolsa_bono" msprop:Generator_ColumnVarNameInTable="columngenera_bolsa_bono" msprop:Generator_ColumnPropNameInRow="genera_bolsa_bono" msprop:Generator_ColumnPropNameInTable="genera_bolsa_bonoColumn" msprop:Generator_UserColumnName="genera_bolsa_bono" type="xs:boolean" minOccurs="0" />
+              <xs:element name="genera_bono" msprop:Generator_ColumnVarNameInTable="columngenera_bono" msprop:Generator_ColumnPropNameInRow="genera_bono" msprop:Generator_ColumnPropNameInTable="genera_bonoColumn" msprop:Generator_UserColumnName="genera_bono" type="xs:boolean" minOccurs="0" />
+              <xs:element name="genera_comision" msprop:Generator_ColumnVarNameInTable="columngenera_comision" msprop:Generator_ColumnPropNameInRow="genera_comision" msprop:Generator_ColumnPropNameInTable="genera_comisionColumn" msprop:Generator_UserColumnName="genera_comision" type="xs:boolean" minOccurs="0" />
+              <xs:element name="codigo_precio" msprop:Generator_ColumnVarNameInTable="columncodigo_precio" msprop:Generator_ColumnPropNameInRow="codigo_precio" msprop:Generator_ColumnPropNameInTable="codigo_precioColumn" msprop:Generator_UserColumnName="codigo_precio" type="xs:int" minOccurs="0" />
+              <xs:element name="nombre_campo_santo" msprop:Generator_ColumnVarNameInTable="columnnombre_campo_santo" msprop:Generator_ColumnPropNameInRow="nombre_campo_santo" msprop:Generator_ColumnPropNameInTable="nombre_campo_santoColumn" msprop:Generator_UserColumnName="nombre_campo_santo" type="xs:string" minOccurs="0" />
+              <xs:element name="nombre_empresa" msprop:Generator_ColumnVarNameInTable="columnnombre_empresa" msprop:Generator_ColumnPropNameInRow="nombre_empresa" msprop:Generator_ColumnPropNameInTable="nombre_empresaColumn" msprop:Generator_UserColumnName="nombre_empresa" type="xs:string" minOccurs="0" />
+              <xs:element name="nombre_tipo_venta" msprop:Generator_ColumnVarNameInTable="columnnombre_tipo_venta" msprop:Generator_ColumnPropNameInRow="nombre_tipo_venta" msprop:Generator_ColumnPropNameInTable="nombre_tipo_ventaColumn" msprop:Generator_UserColumnName="nombre_tipo_venta" type="xs:string" minOccurs="0" />
+              <xs:element name="nombre_moneda" msprop:Generator_ColumnVarNameInTable="columnnombre_moneda" msprop:Generator_ColumnPropNameInRow="nombre_moneda" msprop:Generator_ColumnPropNameInTable="nombre_monedaColumn" msprop:Generator_UserColumnName="nombre_moneda" type="xs:string" minOccurs="0" />
+              <xs:element name="precio" msprop:Generator_ColumnVarNameInTable="columnprecio" msprop:Generator_ColumnPropNameInRow="precio" msprop:Generator_ColumnPropNameInTable="precioColumn" msprop:Generator_UserColumnName="precio" type="xs:decimal" minOccurs="0" />
+              <xs:element name="igv" msprop:Generator_ColumnVarNameInTable="columnigv" msprop:Generator_ColumnPropNameInRow="igv" msprop:Generator_ColumnPropNameInTable="igvColumn" msprop:Generator_UserColumnName="igv" type="xs:decimal" minOccurs="0" />
+              <xs:element name="precio_total" msprop:Generator_ColumnVarNameInTable="columnprecio_total" msprop:Generator_ColumnPropNameInRow="precio_total" msprop:Generator_ColumnPropNameInTable="precio_totalColumn" msprop:Generator_UserColumnName="precio_total" type="xs:decimal" minOccurs="0" />
+              <xs:element name="vigencia_inicio_precio_articulo" msprop:Generator_ColumnVarNameInTable="columnvigencia_inicio_precio_articulo" msprop:Generator_ColumnPropNameInRow="vigencia_inicio_precio_articulo" msprop:Generator_ColumnPropNameInTable="vigencia_inicio_precio_articuloColumn" msprop:Generator_UserColumnName="vigencia_inicio_precio_articulo" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="vigencia_fin_precio_articulo" msprop:Generator_ColumnVarNameInTable="columnvigencia_fin_precio_articulo" msprop:Generator_ColumnPropNameInRow="vigencia_fin_precio_articulo" msprop:Generator_ColumnPropNameInTable="vigencia_fin_precio_articuloColumn" msprop:Generator_UserColumnName="vigencia_fin_precio_articulo" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="nombre_canal" msprop:Generator_ColumnVarNameInTable="columnnombre_canal" msprop:Generator_ColumnPropNameInRow="nombre_canal" msprop:Generator_ColumnPropNameInTable="nombre_canalColumn" msprop:Generator_UserColumnName="nombre_canal" type="xs:string" minOccurs="0" />
+              <xs:element name="nombre_tipo_pago" msprop:Generator_ColumnVarNameInTable="columnnombre_tipo_pago" msprop:Generator_ColumnPropNameInRow="nombre_tipo_pago" msprop:Generator_ColumnPropNameInTable="nombre_tipo_pagoColumn" msprop:Generator_UserColumnName="nombre_tipo_pago" type="xs:string" minOccurs="0" />
+              <xs:element name="vigencia_inicio" msprop:Generator_ColumnVarNameInTable="columnvigencia_inicio" msprop:Generator_ColumnPropNameInRow="vigencia_inicio" msprop:Generator_ColumnPropNameInTable="vigencia_inicioColumn" msprop:Generator_UserColumnName="vigencia_inicio" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="vigencia_fin" msprop:Generator_ColumnVarNameInTable="columnvigencia_fin" msprop:Generator_ColumnPropNameInRow="vigencia_fin" msprop:Generator_ColumnPropNameInTable="vigencia_finColumn" msprop:Generator_UserColumnName="vigencia_fin" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="valor" msprop:Generator_ColumnVarNameInTable="columnvalor" msprop:Generator_ColumnPropNameInRow="valor" msprop:Generator_ColumnPropNameInTable="valorColumn" msprop:Generator_UserColumnName="valor" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nombre_categoria" msprop:Generator_ColumnVarNameInTable="columnnombre_categoria" msprop:Generator_ColumnPropNameInRow="nombre_categoria" msprop:Generator_ColumnPropNameInTable="nombre_categoriaColumn" msprop:Generator_UserColumnName="nombre_categoria" type="xs:string" minOccurs="0" />
+              <xs:element name="codigo_tipo_comision" msprop:Generator_ColumnVarNameInTable="columncodigo_tipo_comision" msprop:Generator_ColumnPropNameInRow="codigo_tipo_comision" msprop:Generator_ColumnPropNameInTable="codigo_tipo_comisionColumn" msprop:Generator_UserColumnName="codigo_tipo_comision" type="xs:int" minOccurs="0" />
+              <xs:element name="nombre_tipo_comision" msprop:Generator_ColumnVarNameInTable="columnnombre_tipo_comision" msprop:Generator_ColumnPropNameInRow="nombre_tipo_comision" msprop:Generator_ColumnPropNameInTable="nombre_tipo_comisionColumn" msprop:Generator_UserColumnName="nombre_tipo_comision" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

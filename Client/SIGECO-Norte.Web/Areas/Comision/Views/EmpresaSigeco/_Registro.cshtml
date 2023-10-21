@@ -1,0 +1,108 @@
+﻿@model SIGEES.Entidades.empresa_sigeco_dto
+<form id="frm_registrar" method="post">
+
+
+    <div title="Datos Principales" style="padding:10px;">
+        <div class="easyui-panel" title="Datos Generales" style="width: 99%; height: 250px; ">
+            <div class="panelGridModal">
+                <table style="width:100%">
+                    <tr>
+                        <td class="tdEtiqueta">
+                            <label class="colGridModal">Código Equivalencia</label>
+                        </td>
+                        <td style="width:20%">
+                            <input class="easyui-textbox" id="txt_nombre_personal" name="nombre" value="@Model.codigo_equivalencia" style="width:95%" data-options="required:true" />
+                        </td>
+                        <td class="tdEtiqueta">
+                            <label class="colGridModal">Nombre</label>
+                        </td>
+                        <td style="width:30%">
+                            <input class="easyui-textbox" id="txt_nombre_personal" name="nombre" value="@Model.nombre" style="width:95%" data-options="required:true" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tdEtiqueta">
+                            <label class="colGridModal">Nombre Largo</label>
+                        </td>
+                        <td class="tdValor" style="width:80%" colspan="3">
+                            <input class="easyui-textbox" id="apellido_paterno" value="@Model.nombre_largo" name="apellido_paterno" style="width:85%" />
+                        </td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+        <div class="easyui-panel" title="Datos Bancarios" style="width: 99%; height: 123px;">
+            <div class="panelGridModal">
+                <table style="width:100%">
+                    <tr>
+                        <td class="tdEtiqueta">
+                            <label class="colGridModal">Nro Cuenta</label>
+                        </td>
+                        <td class="tdValor">
+                            <input class="easyui-validatebox textbox" id="nro_cuenta" name="nro_cuenta" value="@Model.nro_cuenta" maxlength="50" style="width:85%" data-options="required:true,novalidate:true,editable:true,validType:'ValidarCuentaBancaria'" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tdEtiqueta">
+                            <label class="colGridModal">Tipo Cuenta</label>
+                        </td>
+                        <td class="tdValor">
+                            <input class="easyui-combobox" id="cmb_tipo_cuenta" value="@Model.codigo_tipo_cuenta" style="width:85%" data-options="required:true,novalidate:true,editable:false" />
+                        </td>
+                        <td class="tdEtiqueta">
+                            <label class="colGridModal">Moneda</label>
+                        </td>
+                        <td class="tdValor">
+                            <input class="easyui-combobox" id="cmb_moneda" value="@Model.codigo_cuenta_moneda" style="width:85%" data-options="required:true,novalidate:true,editable:false" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div data-options="region:'south', border:false" style="padding:10px;">
+        <div id="divRegistroBotones" style="width: 100%; height: 100%; display: inline-block; text-align:right;">
+            <a href="javascript:GuardarPersonal()" class="easyui-linkbutton" iconcls="icon-ok" id="btnGuardar">Guardar</a>
+            <a href="javascript:Cancelar()" class="easyui-linkbutton" iconcls="icon-cancel" id="btnCancelar">Cancelar</a>
+        </div>
+    </div>
+</form>
+
+<style>
+    .tdEtiqueta {
+        width: 20%;
+        padding: 5px;
+    }
+
+    .tdValor {
+        width: 30%;
+    }
+</style>
+
+@*<script type="text/javascript" src="~/Areas/Comision/Scripts/Views/Personal/project.Personal.CanalGrupo.js"></script>
+    <script>
+
+        $(document).ready(function () {
+
+            var actionUrls =
+            {
+                GetTipoCuentaJson: '@Url.Action("GetTipoCuentaJson", "Personal", new { area = "comision" })',
+                GetTipoDocumentoJson: '@Url.Action("GetTipoDocumentoJson", "Personal", new { area = "comision" })',
+                GetBancoJson: '@Url.Action("GetBancoJson", "Personal", new { area = "comision" })',
+                GetPersonalCanalesJson: '@Url.Action("GetPersonalCanalesJson", "Personal", new { area = "comision" })',
+                GetCanalGrupoJson: '@Url.Action("GetCanalGrupoJson", "Personal", new { area = "comision" })',
+                Guardar: '@Url.Action("Guardar", "Personal", new { area = "comision" })',
+                codigo_personal: '@Model.codigo_personal',
+                estado_registro: '@Model.estado_registro',
+                GetTipoMonedaJson: '@Url.Action("GetTipoMonedaJson", "Personal", new { area = "comision" })'
+            };
+
+            project.Personal.Initialize(actionUrls);
+        });
+
+
+    </script>*@

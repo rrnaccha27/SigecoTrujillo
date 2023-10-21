@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://afrodita/WCFSIGECOSAP/SAPSIGECO_MANT.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WCFSAPSIGECO_MANT" />
+  <xs:import schemaLocation="http://afrodita/WCFSIGECOSAP/SAPSIGECO_MANT.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/WCFSAPSIGECO_MANT.Datos" />
+  <xs:element name="ProbarConexion">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProbarConexionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/WCFSAPSIGECO_MANT" minOccurs="0" name="ProbarConexionResult" nillable="true" type="q1:SAPSIGECO_RES" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistroArticulo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/WCFSAPSIGECO_MANT.Datos" minOccurs="0" name="art" nillable="true" type="q2:EArticulo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistroArticuloResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WCFSAPSIGECO_MANT" minOccurs="0" name="RegistroArticuloResult" nillable="true" type="q3:SAPSIGECO_RES" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistroPrecio">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="emp" nillable="true" type="xs:string" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/WCFSAPSIGECO_MANT.Datos" minOccurs="0" name="art" nillable="true" type="q4:EPrecioArt" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistroPrecioResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/WCFSAPSIGECO_MANT" minOccurs="0" name="RegistroPrecioResult" nillable="true" type="q5:SAPSIGECO_RES" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistroPrecioMasivo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="emp" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistroPrecioMasivoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/WCFSAPSIGECO_MANT" minOccurs="0" name="RegistroPrecioMasivoResult" nillable="true" type="q6:SAPSIGECO_RES" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtieneCanal">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="cod" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtieneCanalResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/WCFSAPSIGECO_MANT.Datos" minOccurs="0" name="ObtieneCanalResult" nillable="true" type="q7:ECanal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtieneGrupo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="cod" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtieneGrupoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/WCFSAPSIGECO_MANT.Datos" minOccurs="0" name="ObtieneGrupoResult" nillable="true" type="q8:EGrupo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistroCanal">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/WCFSAPSIGECO_MANT.Datos" minOccurs="0" name="cnl" nillable="true" type="q9:ECanal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistroCanalResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/WCFSAPSIGECO_MANT" minOccurs="0" name="RegistroCanalResult" nillable="true" type="q10:SAPSIGECO_RES" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistroGrupo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/WCFSAPSIGECO_MANT.Datos" minOccurs="0" name="grp" nillable="true" type="q11:EGrupo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistroGrupoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/WCFSAPSIGECO_MANT" minOccurs="0" name="RegistroGrupoResult" nillable="true" type="q12:SAPSIGECO_RES" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtieneVendedor">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="cod" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtieneVendedorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/WCFSAPSIGECO_MANT.Datos" minOccurs="0" name="ObtieneVendedorResult" nillable="true" type="q13:EVendedor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistroVendedor">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/WCFSAPSIGECO_MANT.Datos" minOccurs="0" name="ven" nillable="true" type="q14:EVendedor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistroVendedorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/WCFSAPSIGECO_MANT" minOccurs="0" name="RegistroVendedorResult" nillable="true" type="q15:SAPSIGECO_RES" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtieneSupervisor">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="cod" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtieneSupervisorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/WCFSAPSIGECO_MANT.Datos" minOccurs="0" name="ObtieneSupervisorResult" nillable="true" type="q16:ESupervisor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistroSupervisor">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/WCFSAPSIGECO_MANT.Datos" minOccurs="0" name="sup" nillable="true" type="q17:ESupervisor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistroSupervisorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/WCFSAPSIGECO_MANT" minOccurs="0" name="RegistroSupervisorResult" nillable="true" type="q18:SAPSIGECO_RES" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistroVendSup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/WCFSAPSIGECO_MANT.Datos" minOccurs="0" name="ven" nillable="true" type="q19:EVendedor" />
+        <xs:element minOccurs="0" name="EsSuperv" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistroVendSupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/WCFSAPSIGECO_MANT" minOccurs="0" name="RegistroVendSupResult" nillable="true" type="q20:SAPSIGECO_RES" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

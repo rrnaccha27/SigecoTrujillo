@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsDetallePlanillaComercial" targetNamespace="http://tempuri.org/dsDetallePlanillaComercial.xsd" xmlns:mstns="http://tempuri.org/dsDetallePlanillaComercial.xsd" xmlns="http://tempuri.org/dsDetallePlanillaComercial.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsDetallePlanillaComercial" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsDetallePlanillaComercial" msprop:Generator_UserDSName="dsDetallePlanillaComercial">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dt_detalle_planilla_comercial" msprop:Generator_TableClassName="dt_detalle_planilla_comercialDataTable" msprop:Generator_TableVarName="tabledt_detalle_planilla_comercial" msprop:Generator_TablePropName="dt_detalle_planilla_comercial" msprop:Generator_RowDeletingName="dt_detalle_planilla_comercialRowDeleting" msprop:Generator_RowChangingName="dt_detalle_planilla_comercialRowChanging" msprop:Generator_RowEvHandlerName="dt_detalle_planilla_comercialRowChangeEventHandler" msprop:Generator_RowDeletedName="dt_detalle_planilla_comercialRowDeleted" msprop:Generator_UserTableName="dt_detalle_planilla_comercial" msprop:Generator_RowChangedName="dt_detalle_planilla_comercialRowChanged" msprop:Generator_RowEvArgName="dt_detalle_planilla_comercialRowChangeEvent" msprop:Generator_RowClassName="dt_detalle_planilla_comercialRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="codigo_empresa" msprop:Generator_ColumnVarNameInTable="columncodigo_empresa" msprop:Generator_ColumnPropNameInRow="codigo_empresa" msprop:Generator_ColumnPropNameInTable="codigo_empresaColumn" msprop:Generator_UserColumnName="codigo_empresa" type="xs:int" minOccurs="0" />
+              <xs:element name="nombre_empresa" msprop:Generator_ColumnVarNameInTable="columnnombre_empresa" msprop:Generator_ColumnPropNameInRow="nombre_empresa" msprop:Generator_ColumnPropNameInTable="nombre_empresaColumn" msprop:Generator_UserColumnName="nombre_empresa" type="xs:string" minOccurs="0" />
+              <xs:element name="codigo_canal" msprop:Generator_ColumnVarNameInTable="columncodigo_canal" msprop:Generator_ColumnPropNameInRow="codigo_canal" msprop:Generator_ColumnPropNameInTable="codigo_canalColumn" msprop:Generator_UserColumnName="codigo_canal" type="xs:int" minOccurs="0" />
+              <xs:element name="nombre_canal" msprop:Generator_ColumnVarNameInTable="columnnombre_canal" msprop:Generator_ColumnPropNameInRow="nombre_canal" msprop:Generator_ColumnPropNameInTable="nombre_canalColumn" msprop:Generator_UserColumnName="nombre_canal" type="xs:string" minOccurs="0" />
+              <xs:element name="codigo_grupo" msprop:Generator_ColumnVarNameInTable="columncodigo_grupo" msprop:Generator_ColumnPropNameInRow="codigo_grupo" msprop:Generator_ColumnPropNameInTable="codigo_grupoColumn" msprop:Generator_UserColumnName="codigo_grupo" type="xs:int" minOccurs="0" />
+              <xs:element name="nombre_grupo" msprop:Generator_ColumnVarNameInTable="columnnombre_grupo" msprop:Generator_ColumnPropNameInRow="nombre_grupo" msprop:Generator_ColumnPropNameInTable="nombre_grupoColumn" msprop:Generator_UserColumnName="nombre_grupo" type="xs:string" minOccurs="0" />
+              <xs:element name="codigo_personal" msprop:Generator_ColumnVarNameInTable="columncodigo_personal" msprop:Generator_ColumnPropNameInRow="codigo_personal" msprop:Generator_ColumnPropNameInTable="codigo_personalColumn" msprop:Generator_UserColumnName="codigo_personal" type="xs:int" minOccurs="0" />
+              <xs:element name="personal" msprop:Generator_ColumnVarNameInTable="columnpersonal" msprop:Generator_ColumnPropNameInRow="personal" msprop:Generator_ColumnPropNameInTable="personalColumn" msprop:Generator_UserColumnName="personal" type="xs:string" minOccurs="0" />
+              <xs:element name="monto_bruto" msprop:Generator_ColumnVarNameInTable="columnmonto_bruto" msprop:Generator_ColumnPropNameInRow="monto_bruto" msprop:Generator_ColumnPropNameInTable="monto_brutoColumn" msprop:Generator_UserColumnName="monto_bruto" type="xs:decimal" minOccurs="0" />
+              <xs:element name="igv" msprop:Generator_ColumnVarNameInTable="columnigv" msprop:Generator_ColumnPropNameInRow="igv" msprop:Generator_ColumnPropNameInTable="igvColumn" msprop:Generator_UserColumnName="igv" type="xs:string" minOccurs="0" />
+              <xs:element name="monto_neto" msprop:Generator_ColumnVarNameInTable="columnmonto_neto" msprop:Generator_ColumnPropNameInRow="monto_neto" msprop:Generator_ColumnPropNameInTable="monto_netoColumn" msprop:Generator_UserColumnName="monto_neto" type="xs:decimal" minOccurs="0" />
+              <xs:element name="descuento" msprop:Generator_ColumnVarNameInTable="columndescuento" msprop:Generator_ColumnPropNameInRow="descuento" msprop:Generator_ColumnPropNameInTable="descuentoColumn" msprop:Generator_UserColumnName="descuento" type="xs:decimal" minOccurs="0" />
+              <xs:element name="codigo_estado_planilla" msprop:Generator_ColumnVarNameInTable="columncodigo_estado_planilla" msprop:Generator_ColumnPropNameInRow="codigo_estado_planilla" msprop:Generator_ColumnPropNameInTable="codigo_estado_planillaColumn" msprop:Generator_UserColumnName="codigo_estado_planilla" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,99 @@
+﻿@model SIGEES.Web.Models.Bean.BeanItemTipoAcceso
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<input type="hidden" id="hdCodigo" />
+<input type="hidden" id="hdCodigoPadre" value="@ViewBag.codigoPadre" />
+<input type="hidden" id="hdNombrePadre" value="@ViewBag.nombrePadre" />
+
+<div style="width: 99%; background-color: #D3EBDE; vertical-align: middle; padding-top: 2%; padding-bottom: 2%; padding-left: 1%">
+
+    <center>
+        <h2>Mantenimiento Grupos</h2>
+    </center>
+
+    <br />
+    <div style="width: 100%">
+        <div>
+            <label class="colGridModal">Canal</label>&nbsp;
+            <input class="easyui-textbox" id="nombreCanal" name="nombreCanal" style="width:25%;" value="@ViewBag.nombrePadre" disabled>
+        </div>
+    </div>
+    <br />
+
+    <div style="width: 100%">
+        @if (Model.estadoEscritura.CompareTo("A") == 0)
+        {
+            if (ViewBag.estado == "1")
+            {
+                <a href="javascript:void(0)" id="btnNuevo" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " data-options="iconCls:'icon-add'">Crear</a>
+            }
+        }
+        @if (Model.estadoModificacion.CompareTo("A") == 0)
+        {
+            <a href="javascript:void(0)" id="btnModificar" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " data-options="iconCls:'icon-edit'">Modificar</a>
+        }
+        @if (Model.estadoEliminacion.CompareTo("A") == 0)
+        {
+            <a href="javascript:void(0)" id="btnEliminar" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " data-options="iconCls:'icon-cancel'">Desactivar</a>
+        }
+            <a href="javascript:Regresar()" id="btnRegresar" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " data-options="iconCls:'icon-undo'">Regresar</a>
+        
+        @*@if (Model.estadoLectura.CompareTo("A") == 0)
+            {
+                <a href="javascript:void(0)" id="btnVisualizar" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " data-options="iconCls:'icon-search'">Detalle</a>
+                <a href="javascript:void(0)" id="btnRefrescar" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " data-options="iconCls:'icon-reload'">Refrescar</a>
+            }*@
+    </div>
+</div>
+<br />
+<div style="width: 99%; padding-left: 1%">
+    @if (Model.estadoLectura.CompareTo("A") == 0)
+    {
+        <table id="DataGrid" style="width: 100%"></table>
+    }
+</div>
+
+@Html.Partial("_Registrar")
+@Html.Partial("_BusquedaPersona")
+@Html.Partial("_Transferencia")
+@Html.Partial("_TransferenciaSupervisor")
+
+@section scripts
+{
+    <script type="text/javascript" src="~/Areas/Comision/Scripts/Views/Grupo/project.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+
+        var actionUrls =
+        {
+            GetAllJson: '@Url.Action("GetAllJson", "Grupo", new { area = string.Empty })',
+            GetSingleJson: '@Url.Action("GetSingleJson", "Grupo", new { area = string.Empty })',
+            Registrar: '@Url.Action("Registrar", "Grupo", new { area = string.Empty })',
+            Modificar: '@Url.Action("Modificar", "Grupo", new { area = string.Empty })',
+            Eliminar: '@Url.Action("Eliminar", "Grupo", new { area = string.Empty })',
+            GetEmpresaJson: '@Url.Action("GetEmpresaJson", "Grupo", new { area = string.Empty })',
+            GetPersonalByNombreJson: '@Url.Action("GetPersonalByNombreJson", "Grupo", new { area = string.Empty })',
+            GetPersonalDisponibleJson: '@Url.Action("GetPersonalDisponibleJson", "Grupo", new { area = string.Empty })',
+            GetPersonalYaAsignadoJson: '@Url.Action("GetPersonalYaAsignadoJson", "Grupo", new { area = string.Empty })',
+            AsignarSupervisor: '@Url.Action("AsignarSupervisor", "Grupo", new { area = string.Empty })',
+            DesasignarSupervisor: '@Url.Action("DesasignarSupervisor", "Grupo", new { area = string.Empty })',
+            GetCanalGrupoJson: '@Url.Action("GetCanalGrupoJson", "Grupo", new { area = string.Empty })',
+            Transferir: '@Url.Action("Transferir", "Grupo", new { area = string.Empty })',
+			GetOtrasSupervisioneJson: '@Url.Action("GetOtrasSupervisioneJson", "Grupo", new { area = string.Empty })',
+        };
+
+        project.Grupo.Initialize(actionUrls);
+    });
+
+    function Regresar() {
+        var url = '@Url.Action("Index", "CanalGrupo", new { area = "Comision" })';
+        window.location.href = url;
+    }
+
+</script>    
+}

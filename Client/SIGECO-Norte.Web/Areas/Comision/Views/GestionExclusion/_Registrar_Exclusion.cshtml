@@ -1,0 +1,56 @@
+﻿<div class="easyui-layout" data-options="fit:true">
+    <div data-options="region:'west'" style="padding: 5px;width:100%">
+        <div class="easyui-layout" data-options="fit:true">
+            <div data-options="region:'north', border:false" style="height:25px">
+                <div class="rowGridModalDouble">
+                    <label class="colGridModal" style="color:red;">(*) Doble click para editar, para guardar presione Enter, para cancelar presione ESC.</label>
+                </div>
+            </div>
+            <div data-options="region:'center', border:false">
+                <div class="easyui-layout" data-options="fit:true">
+                    <div data-options="region:'center', border:false" >
+                        <table id="dgv_exclusion_habilitar" style="width: 100%;height:100%;"></table>
+                    </div>
+                </div>
+            </div>
+            <div data-options="region:'south', border:false">
+                <form id="frm_habilitar_exclusion" method="post">
+                    <div class="rowGridModalDouble" style="vertical-align:text-top;">
+                        <label class="colGridModal">Motivo</label>&nbsp;
+                        <input class="easyui-textbox" id="txt_motivo_registro" style="width: 90%; height: 40px;" data-options="required: true,novalidate:true,multiline:true" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div data-options="region:'south',border:false" style="text-align:right;padding:5px;">
+        <a href="javascript:fnRegistrarPagoComision();" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " iconcls="icon-save" id="btnCancelar">Guardar</a>
+        <a href="javascript:cerrar_exclusion();" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " iconcls="icon-cancel" id="btnCancelar">Cerrar</a>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="~/Areas/Comision/Scripts/Views/GestionExclusion/exclusion.habilitar.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var actionUrls =
+        {
+            GetPlanillaAbierta: '@Url.Action("GetPlanillaAbierta", "GestionExclusion", new { area = "Comision" })',
+            HabilitarCuotaPagoComision: '@Url.Action("HabilitarCuotaPagoComision", "GestionExclusion", new { area = "Comision" })',
+            GetDetallePagoComisionVsPlanillaAbierta: '@Url.Action("GetDetallePagoComisionVsPlanillaAbierta", "GestionExclusion", new { area = "Comision" })',
+            GetTipoVentaJson: '@Url.Action("GetTipoVentaJson", "Articulo", new { area = "Comision" })',
+            GetTipoPagoJson: '@Url.Action("GetTipoPagoJson", "Articulo", new { area = "Comision" })',
+            GetTipoPlanillaJson: '@Url.Action("GetTipoPlanillaJson", "Planilla", new { area = "Comision" })'
+        };
+        project.habilitar.Initialize(actionUrls);
+    });
+
+</script>
+
+
+
+
+
+
+
+

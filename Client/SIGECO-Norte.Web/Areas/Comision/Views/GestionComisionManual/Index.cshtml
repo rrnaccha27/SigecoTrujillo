@@ -1,0 +1,118 @@
+﻿@model SIGEES.Web.Models.Bean.BeanItemTipoAcceso
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<input type="hidden" id="hdCodigo" value="" />
+<input type="hidden" id="hdCodigoPersonal" value="" />
+<input type="hidden" id="hdCodigoCanal" value="" />
+<input type="hidden" id="hdNroContrato" value="" />
+<input type="hidden" id="hdCodigoEmpresa" value="" />
+<input type="hidden" id="hdCodigoTipoVenta" value="" />
+<input type="hidden" id="hdCodigoTipoPago" value="" />
+<input type="hidden" id="hdCodigoCamposanto" value="" />
+<input type="hidden" id="hdCodigoArticulo" value="" />
+<input type="hidden" id="hdIGV" value="" />
+
+<div style="width: 99%; background-color: #D3EBDE; vertical-align: middle; padding-top: 2%; padding-bottom: 2%; padding-left: 1%">
+
+    <center>
+        <h2>Mantenimiento de Comisión Manual</h2>
+    </center>
+    <div class="panelGridModal">
+        <div class="easyui-panel" title="" style="width: 99%; background-color: #D3EBDE; border-color: #D3EBDE;">
+            <form id="frm_consultar" method="post">
+                <div class="rowGridModal" style="width: 10%;">
+                    <label class="colGridModal">Empresa</label>
+                </div>
+                <div class="rowGridModal" style="width: 15%;">
+                    <input class="easyui-combobox" id="cmb_empresa_f" value="0" style="width: 100%" data-options="editable:false,required:false,novalidate:true,validType:'restricted[\'#cmb_empresa_f\']'" />
+                </div>
+                <div class="rowGridModal" style="width: 10%;">
+                    <label class="colGridModal">Canal</label>
+                </div>
+                <div class="rowGridModal" style="width:15%;">
+                    <input class="easyui-combobox" id="cmb_canal" value="0" style="width: 100%" data-options="editable:false,required:false,novalidate:true,panelWidth:300,validType:'restricted[\'#cmb_canal\']'" />
+                </div>
+                <div class="rowBoth"></div>
+                <div class="rowGridModalDouble" style="width: 10%; ">
+                    <label class="colGridModal">Registrado</label>
+                </div>
+                <div class="rowGridModalDouble" style="width:15%;">
+                    <input class="easyui-datebox" id="fecha_inicio" value="" style="width: 100%" data-options="required:false,novalidate:true, validType:'fechaMenorIgualA[\'#fecha_fin\',\'Fecha Fin\',\'dd/MM/yyyy\',\'Por favor, ingrese una fecha v&aacute;lida\']'" />
+                </div>
+                <div class="rowGridModalDouble" style="width: 10%; ">
+                    <label class="colGridModal">Hasta</label>
+                </div>
+                <div class="rowGridModalDouble" style="width:15%;">
+                    <input class="easyui-datebox" id="fecha_fin" value="" style="width: 100%" data-options="required:false,novalidate:true" />
+                </div>
+                <div class="rowGridModal" style="width: 10%;">
+                    <label class="colGridModal">Estado</label>
+                </div>
+                <div class="rowGridModal" style="width: 15%;">
+                    <input class="easyui-combobox" id="cmb_estado" style="width: 100%" data-options="editable:false,required:false,novalidate:true,validType:'restricted[\'#cmb_estado\']'" />
+                </div>
+
+            </form>
+        </div>
+        <div class="easyui-panel" title="" style="width: 99%; background-color: #D3EBDE; border-color: #D3EBDE;">
+            @if (Model.estadoLectura != null && Model.estadoLectura.CompareTo("A") == 0)
+            {
+                <a href="javascript:fnBuscar()" id="btnBuscar" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " data-options="iconCls:'icon-search'">Buscar</a>
+                <a href="javascript:fnDetalle()" id="btnBuscar" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " data-options="iconCls:'icon-detail'">Detalle</a>
+            }
+            @if (Model.estadoComisionManualEscritura != null && Model.estadoComisionManualEscritura.CompareTo("A") == 0)
+            {
+                <a href="javascript:fnNuevoRegistro();" id="btnNuevo" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " data-options="iconCls:'icon-add'">Crear</a>
+                <a href="javascript:fnModificar()" id="btnModificar" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " data-options="iconCls:'icon-edit'">Modificar</a>
+                <a href="javascript:fnDesactivar()" id="btnDesactivar" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " data-options="iconCls:'icon-cancel'">Desactivar</a>
+            }
+            @if (Model.estadoLectura != null && Model.estadoLectura.CompareTo("A") == 0)
+            {
+                <a href="javascript:fnVerReporte();" class="easyui-linkbutton" style="padding: 2px 15px 2px 15px; " data-options="iconCls:'icon-print'">Exportar</a>
+            }
+        </div>
+    </div>
+</div>
+<br />
+<div style="width: 99%; padding-left: 1%">
+    @if (Model.estadoLectura != null && Model.estadoLectura.CompareTo("A") == 0)
+    {
+        <table id="dgv_comision" style="width: 100%"></table>
+    }
+</div>
+
+<div id="div_registrar_comision" class="easyui-dialog" data-options="resizable:true,modal:true,closed:true"
+     style="width: 950px; height: 560px;line-height: 10px;"></div>
+
+<div id="div_detalle_comision" class="easyui-dialog" data-options="resizable:true,modal:true,closed:true"
+     style="width: 950px; height: 583px;line-height: 10px;"></div>
+
+<div id="div_modificar_comision" class="easyui-dialog" data-options="resizable:true,modal:true,closed:true"
+     style="width: 950px; height: 520px;line-height: 10px;"></div>
+
+<script type="text/javascript" src="~/Areas/Comision/Scripts/Views/Comision/comision.index.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        var actionUrls =
+        {
+            _Registrar: '@Url.Action("_Registrar", "GestionComisionManual", new { area = "Comision" })',
+            _Detalle: '@Url.Action("_Detalle", "GestionComisionManual", new { area = "Comision" })',
+            _Modificar: '@Url.Action("_Modificar", "GestionComisionManual", new { area = "Comision" })',
+            ListarAllJson: '@Url.Action("ListarAllJson", "GestionComisionManual", new { area = "Comision" })',
+            Desactivar: '@Url.Action("Desactivar", "GestionComisionManual", new { area = "Comision" })',
+            SetFiltroGrilla: '@Url.Action("SetFiltroGrilla", "GestionComisionManual", new { area = "Comision" })',
+            GetCampoSantoJson: '@Url.Action("GetCampoSantoJson", "GestionComisionManual", new { area = "Comision" })',
+            GetEmpresaJson: '@Url.Action("GetEmpresaJson", "GestionComisionManual", new { area = "Comision" })',
+            GetCanalJson: '@Url.Action("GetCanalJson", "GestionComisionManual", new { area = "Comision" })',
+            ValidarReferencia: '@Url.Action("ValidarReferencia", "GestionComisionManual", new { area = "Comision" })',
+        };
+
+        project.index.Initialize(actionUrls);
+    });
+</script>
+
+

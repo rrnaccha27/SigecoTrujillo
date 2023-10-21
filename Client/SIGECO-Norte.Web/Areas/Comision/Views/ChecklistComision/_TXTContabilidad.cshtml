@@ -1,0 +1,29 @@
+﻿@model SIGEES.Web.Areas.Comision.Models.TxtContabilidadViewModel
+
+<div class="easyui-layout" data-options="fit:true">
+
+    <div data-options="region:'center',border:false" style="padding:5px 5px 0px 5px;">
+        <table id="dgv_resumen_planilla_txt" style="width:100%;height:100%"></table>
+    </div>
+    <div data-options="region:'south',border:false" style="padding:5px;">
+        <div id="divRegistroBotones" style="width: 100%; height: 100%; display: inline-block; text-align:center;">
+            <a href="javascript:fnGenerarTxt()" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " iconcls="icon-ok" id="btnAceptar">Aceptar</a>
+			<a href="javascript:fnCancelar()" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " iconcls="icon-cancel" id="btnCancelar">Cancelar</a>
+        </div>
+    </div>
+    
+</div>
+
+
+<script type="text/javascript" src="~/Areas/Comision/Scripts/Views/ChecklistComision/checklistcomision.contabilidad.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var actionUrls =
+        {
+            GetResumenPlanillaTxtJson: '@Url.Action("GetResumenPlanillaTxtJson", "ChecklistComision", new { area = "Comision" })',
+            GenerarTxtContabilidad: '@Url.Action("GenerarTxtContabilidad", "ChecklistComision", new { area = "Comision" })',
+            codigo_checklist: '@Model.codigo_planilla',
+        };
+        project.contabilidad.Initialize(actionUrls);
+    });
+</script>

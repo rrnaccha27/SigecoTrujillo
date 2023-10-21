@@ -1,0 +1,246 @@
+﻿
+@model SIGEES.Entidades.detalle_regla_comision_dto
+@{
+
+    //int v_tiene_contrato_vinculante = Model.tiene_contrato_vinculante ? 1 : 0;
+    //string v_anho = DateTime.Now.Year.ToString();
+    int v_habilitar = 0;
+    if (Model.codigo_detalle_regla_comision == 0)
+    {
+        v_habilitar = 1;
+    }
+    else if (Model.codigo_detalle_regla_comision > 0 && Model.estado_registro)
+    {
+        v_habilitar = 1;
+    }
+        ;
+
+}
+
+<div class="easyui-layout" data-options="fit:true">
+    <form id="frmMeta" method="post">
+        <div data-options="region:'center'" style="padding:10px;">
+            <div class="easyui-panel" title="Datos regla" style="width: 99%; ">
+                <div data-options="region:'center'" style="padding:10px;">
+                    <div class="panelGridModal">
+                        <table style="width:100%">
+                            <tr>
+                                <td class="tdEtiqueta">
+                                    <label class="colGridModal">Rango Inicio</label>
+                                </td>
+                                <td class="tdValor">
+                                    <input class="easyui-numberbox" id="txt_rango_inicio" name="txt_rango_inicio" value="@Model.rango_inicio" maxlength="250" style="width:85%;" data-options="required:true,novalidate:true,editable:true" />
+                                </td>
+                                <td class="tdEtiqueta">
+                                    <label class="colGridModal">Rango Fin</label>
+                                </td>
+                                <td class="tdValor">
+                                    <input class="easyui-numberbox" id="txt_rango_fin" name="txt_rango_fin" value="@Model.rango_fin" style="width: 85%" data-options="required:true, min:0,max:100, precision:0,novalidate:true" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="tdEtiqueta">
+                                    <label class="colGridModal">Comisión</label>
+                                </td>
+                                <td class="tdValor">
+                                    <input class="easyui-numberbox" id="txt_comision" name="txt_comision" value="@Model.comision" style="width: 85%" data-options="required:true, min:0,max:100, precision:0,novalidate:true" />
+                                </td>
+                                <td class="tdEtiqueta">
+                                    <label class="colGridModal">Tipo Comisión</label>
+                                </td>
+                                <td class="tdValor">
+                                    <input id="cmbTipoComision" class="easyui-combobox" name="cmbTipoComision" style="width:85%;" data-options="valueField: 'id' ,textField: 'text' ,required:false, editable: false ">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="tdEtiqueta">
+                                    <label class="colGridModal">% Pago Comisión</label>
+                                </td>
+                                <td class="tdValor">
+                                    <input class="easyui-numberbox" id="txt_porcentaje_pago_comision" name="txt_porcentaje_pago_comision"  value="@Model.porcentaje_pago_comision" style="width: 85%" data-options="required:true, min:0,max:100, precision:0,novalidate:true" />
+                                </td>
+                                <td class="tdEtiqueta">
+                                    <label class="colGridModal">Orden Regla</label>
+                                </td>
+                                <td class="tdValor">
+                                    <input class="easyui-numberbox" id="txt_orden_regla" name="txt_orden_regla"  value="@Model.orden_regla" style="width: 85%" data-options="required:true, min:0,max:100, precision:0,novalidate:true" />
+                                </td>
+                            </tr>
+
+                        </table>
+                    </div>
+
+                </div>
+
+
+            </div>
+            <div class="easyui-panel" title="Datos de la condición" style="width: 99%; ">
+                <div class="rowGridModal" style="width:90%;">
+                    <table style="width:100%">
+                        <tr>
+                            <td class="tdEtiqueta">
+                                <label class="colGridModal">Existe</label>
+                            </td>
+                            <td class="tdValor">
+                                <input class="easyui-switchbutton" id="ckb_existe_condicional" name="ckb_existe_condicional"  data-options="onText:'Si', offText:'No', required:true" />
+                            </td>
+
+                            <td class="tdEtiqueta">
+                                <label class="colGridModal">Valor</label>
+                            </td>
+                            <td class="tdValor">
+                                <input class="easyui-numberbox" id="txt_valor_condicion" name="txt_valor_condicion" value="@Model.valor_condicion" maxlength="250" style="width:100%;" data-options="required:true,novalidate:true,editable:true,validType:'ValidarSoloTexto'" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tdEtiqueta">
+                                <label class="colGridModal">Descripción</label>
+                            </td>
+                            <td class="tdValor" colspan="4">
+                                <input class="easyui-textbox" id="txt_descripcion_condicion" name="txt_descripcion_condicion"  value="@Model.descripcion_condicion" maxlength="2500" style="width:100%;" data-options="required:true,novalidate:true,editable:true,validType:'ValidarSoloTexto'" />
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td class="tdEtiqueta">
+                                <label class="colGridModal">Fórmula</label>
+                            </td>
+                            <td class="tdValor" colspan="4">
+                                <input class="easyui-textbox" id="txt_formula_calculo" name="txt_formula_calculo" value="@Model.formula_calculo"  maxlength="2500" style="width:100%;" data-options="required:true,novalidate:true,editable:true,validType:'ValidarSoloTexto'" />
+                            </td>
+
+                        </tr>
+
+                    </table>
+                </div>
+
+            </div>
+        </div>
+        <div data-options="region:'south',border:false" style="text-align:right;padding:5px 0 0;">
+            <a href="#" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " data-options="iconCls:'icon-ok'" id="btnGuardar">Guardar</a>
+            <a href="#" class="easyui-linkbutton" style="padding: 0px 10px 0px 10px; " data-options="iconCls:'icon-cancel'" id="btnCancelar">Cancelar</a>
+        </div>
+    </form>
+</div>
+
+<script type="text/javascript">
+
+    function Registrar() {
+
+   
+
+        var rango_inicio = $.trim($('#div_registrar_detalle #txt_rango_inicio').numberbox('getValue'));
+
+        var rango_fin = $.trim($('#div_registrar_detalle #txt_rango_fin').numberbox('getValue'));
+        var comision = $.trim($('#div_registrar_detalle #txt_comision').numberbox('getValue'));
+
+        var TipoComision = $.trim($("#div_registrar_detalle #cmbTipoComision").combobox('getValue'));
+
+        var porcentaje_pago_comision = $.trim($('#div_registrar_detalle #txt_porcentaje_pago_comision').numberbox('getValue'));
+        var orden_regla = $.trim($('#div_registrar_detalle #txt_orden_regla').numberbox('getValue'));
+
+
+
+        var valor_condicion = $.trim($('#div_registrar_detalle #txt_valor_condicion').numberbox('getValue'));
+        var descripcion_condicion = $.trim($('#div_registrar_detalle #txt_descripcion_condicion').textbox('getText'));
+        var formula_calculo = $.trim($('#div_registrar_detalle #txt_formula_calculo').textbox('getText'));
+
+        var existe_condicional = $('#div_registrar_detalle #ckb_existe_condicional').switchbutton('options').checked;
+
+        var v_entidad = {
+            codigo_regla_comision: project.ActionUrls.CodigoReglaComision,
+            codigo_detalle_regla_comision:@Model.codigo_detalle_regla_comision,
+            rango_inicio: rango_inicio,      
+            rango_fin: rango_fin,
+            comision: comision,
+            codigo_tipo_comision: TipoComision,
+            porcentaje_pago_comision: porcentaje_pago_comision,
+            orden_regla: orden_regla,
+            valor_condicion: valor_condicion,
+            descripcion_condicion: descripcion_condicion,
+            formula_calculo: formula_calculo,
+            existe_condicional: existe_condicional
+        };
+        console.log(v_entidad);
+
+  
+
+
+        $.messager.confirm('Confirm', '&iquest;Seguro que desea registrar?', function (result) {
+            if (result) {
+
+                var things = JSON.stringify(v_entidad);
+                console.log(project);
+
+                $.ajax({
+                    type: 'post',
+                    url: project.ActionUrls._RegistrarDetalleReglaComision,
+                    data: things,
+                    async: false,
+                    cache: false,
+                    dataType: 'json',
+                    contentType: 'application/json; charset=utf-8',
+                    success: function (data) {
+                        if (data.v_resultado == 1) {
+                            //OK
+                            project.ShowMessage('Alerta', data.v_mensaje);
+                            project.ReglaPagoComision.Registro.Reload_dgv_detalle();
+                            $('#div_registrar_detalle').dialog('close');                           
+
+                        } else {
+                            //ERROR
+                            project.AlertErrorMessage('Alerta', data.v_mensaje, 'info');
+
+                        }
+                    },
+                    error: function () {
+                        project.AlertErrorMessage('Error', 'Error');
+                    }
+                });
+            }
+        });
+
+    };
+
+
+    $(document).ready(function () {
+
+        $('#div_registrar_detalle #btnGuardar').click(function () {
+            Registrar();
+        });
+
+        $('#div_registrar_detalle #btnCancelar').click(function () {
+            $('#div_registrar_detalle').dialog('close');
+        });
+
+       
+        var existe_condicion=@(Model.existe_condicional?1:0);        
+        $('#div_registrar_detalle #ckb_existe_condicional').switchbutton({ checked: existe_condicion==1 });            
+
+        $.ajax({
+            type: 'post',
+            url: project.ActionUrls.GetTipoComisionJson,
+            async: false,
+            cache: false,
+            dataType: 'json',
+            success: function (data)
+            {
+
+                $('#div_registrar_detalle #cmbTipoComision').combobox({
+                    valueField: 'id',
+                    textField: 'text',
+                    data: data
+                });
+            },
+            error: function () {
+                alert("Ocurrío un error en el proceso de carga de tipo de comisión.");
+            }
+
+        });
+
+        console.log(project);
+
+
+    });
+
+</script>

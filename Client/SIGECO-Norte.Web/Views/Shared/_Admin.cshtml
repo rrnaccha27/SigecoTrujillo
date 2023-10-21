@@ -1,0 +1,33 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" href="~/Content/css/Panel.css" />
+    <link rel="stylesheet" href="~/Content/themes/base/jquery.ui.all.css" />
+    <link rel="stylesheet" href="~/Content/themes/ui-lightness/jquery-ui-1.10.4.css" />
+    @Styles.Render("~/Content/easyui")
+    @*@Styles.Render("~/Content/layout")
+        @Styles.Render("~/Content/jstree")*@
+    @Styles.Render("~/Content/css")
+    @RenderSection("styles", false)
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/controls")
+    @Scripts.Render("~/bundles/sigees")
+    @*@Scripts.Render("~/bundles/layout")*@
+    @*@Scripts.Render("~/bundles/jstree")*@
+    @Scripts.Render("~/bundles/easyui")    
+    @RenderSection("scripts", required: false)
+</head>
+<body class="easyui-layout">    
+        <div id="Message" title="Mensaje" style="display:none;"></div>
+        @Html.Hidden("urlBase", @Url.Content("~/"))
+        @this.RenderBody()    
+</body>
+</html>

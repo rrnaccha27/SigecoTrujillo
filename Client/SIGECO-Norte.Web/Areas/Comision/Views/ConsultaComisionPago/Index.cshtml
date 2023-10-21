@@ -1,0 +1,129 @@
+﻿@model SIGEES.Web.Models.Bean.BeanItemTipoAcceso
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div style="width: 99%; background-color: #D3EBDE; vertical-align: middle; padding-top: 1%; padding-bottom: 1%; padding-left: 1%">
+    <center>
+        <h2>Consulta de  Comisiones</h2>
+    </center>
+    <div class="panelGridModal">
+        <form id="frm_consultar" method="post">
+            <div class="rowGridModalDouble" style="width: 5%;">
+                <label class="colGridModal">Estado</label>
+            </div>
+            <div class="rowGridModalDouble" style="width: 14%;">
+                <input class="easyui-combobox" id="cmb_estado_cuota" value="" style="width: 100%" data-options="required:true,novalidate:true,editable:false,validType:'restricted[\'#cmb_estado_cuota\']'" />
+            </div>
+            <div class="rowGridModalDouble" style="width: 5%;">
+                <label class="colGridModal">Canal</label>
+            </div>
+            <div class="rowGridModalDouble" style="width:14%;">
+                <input class="easyui-combobox" id="cmb_canal" value="" style="width: 100%" data-options="required:false,novalidate:true,panelWidth:300,validType:'restricted[\'#cmb_canal\']'" />
+            </div>
+            <div class="rowGridModalDouble" style="width: 5%; ">
+                <label class="colGridModal">Grupo</label>
+            </div>
+            <div class="rowGridModalDouble" style="width:14%;">
+                <input class="easyui-combobox" id="cmb_grupo" value="" style="width: 100%" data-options="required:false,novalidate:true,validType:'restricted[\'#cmb_grupo\']'" />
+            </div>
+            <div class="rowGridModalDouble" style="width: 5%; ">
+                <label class="colGridModal">Tipo Planilla</label>
+            </div>
+            <div class="rowGridModalDouble" style="width:14%;">
+                <input class="easyui-combobox" id="cmb_tipo_planilla" value="1" style="width: 100%" data-options="required:true,editable:false, novalidate:true,validType:'restricted[\'#cmb_tipo_planilla\']'" />
+            </div>
+
+            <div class="rowBoth"></div>
+            <div class="rowGridModalDouble" style="width: 5%; ">
+                <label class="colGridModal">Fecha desde </label>
+            </div>
+            <div class="rowGridModalDouble" style="width:14%;">
+                <input class="easyui-datebox" id="dtp_fecha_habilitado_inicio" value="" style="width: 100%" data-options="required:false,novalidate:true, validType:'fechaMenorIgualA[\'#dtp_fecha_habilitado_fin\',\'Fecha Fin\',\'dd/MM/yyyy\',\'Por favor, ingrese una fecha v&aacute;lida\']'" />
+            </div>
+            <div class="rowGridModalDouble" style="width: 5%; ">
+                <label class="colGridModal">Hasta</label>
+            </div>
+            <div class="rowGridModalDouble" style="width:14%;">
+                <input class="easyui-datebox" id="dtp_fecha_habilitado_fin" value="" style="width: 100%" data-options="required:false,novalidate:true" />
+            </div>
+
+            <div class="rowGridModalDouble" style="width: 5%; ">
+                <label class="colGridModal">Creación Contrato  </label>
+            </div>
+            <div class="rowGridModalDouble" style="width:14%;">
+                <input class="easyui-datebox" id="dtp_fecha_contrato_inicio" value="" style="width: 100%" data-options="required:false,novalidate:true, validType:'fechaMenorIgualA[\'#dtp_fecha_contrato_fin\',\'Fecha Fin\',\'dd/MM/yyyy\',\'Por favor, ingrese una fecha v&aacute;lida\']'" />
+            </div>
+            <div class="rowGridModalDouble" style="width: 5%; ">
+                <label class="colGridModal">Hasta</label>
+            </div>
+            <div class="rowGridModalDouble" style="width:14%;">
+                <input class="easyui-datebox" id="dtp_fecha_contrato_fin" value="" style="width: 100%" data-options="required:false,novalidate:true" />
+            </div>
+
+            <div class="rowBoth"></div>
+            <div class="rowGridModalDouble" style="width: 5%; ">
+                <label class="colGridModal">Persona</label>
+            </div>
+            <div class="rowGridModalDouble" style="width:40%;">
+                <input class="easyui-textbox" type="text" style="width: 90%;" data-options="required:true,novalidate:true,disabled:true" id="txt_nombre_personal" />
+                <a href="javascript:fnVentanaPersona();" class="easyui-linkbutton" iconcls="icon-search"></a>
+                @*<input class="easyui-textbox" type="text" style="width: 100%;" data-options="required:false,novalidate:true,prompt: 'Seleccione personal de venta',
+                    iconWidth: 32,icons:[{iconCls:'icon-remove',
+                        handler: function(e){
+                            fnLimpiarVendedor();
+                        }},{iconCls:'icon-search',
+                        handler: function(e){
+                            fnVentanaPersona();
+                        }}]" id="txt_nombre_personal" />*@
+            </div>
+        </form>
+    </div>
+    <div class="rowBoth"></div>
+    <div>
+        <a href="javascript:fnBuscar();" class="easyui-linkbutton" style=" padding: 2px 15px 2px 15px; " data-options="iconCls:'icon-search'">Buscar</a>
+        <a href="javascript:fnVerReporte();" class="easyui-linkbutton" style=" padding: 2px 15px 2px 15px; " data-options="iconCls:'icon-print'">Exportar</a>
+        <a href="javascript:fnLimpiarBuscar();" class="easyui-linkbutton" style=" padding: 2px 15px 2px 15px;" data-options="iconCls:'icon-eraser'">Limpiar</a>
+    </div>
+
+</div>
+<br />
+<div style="width: 99%; padding-left: 1%">
+    <table id="dgv_comision_pago" style="width: 100%;height:500px;"></table>
+</div>
+<div id="div_listado_personal" class="easyui-dialog" data-options="resizable:true,modal:true,closed:true"
+     style="width: 50%; height: 65%;line-height: 10px;"></div>
+
+@section scripts
+{
+    <script type="text/javascript" src="~/Scripts/Aditional/datagrid-bufferview.js"></script>
+    <script type="text/javascript" src="~/Areas/Comision/Scripts/Views/ConsultaComisionPago/comision.pago.index.js"></script>
+    <script type="text/javascript" src="~/Areas/Comision/Scripts/Views/ConsultaComisionPago/comision.pago.export.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            var actionUrls =
+            {
+                GetRegistrosAllJson: '@Url.Action("GetRegistrosAllJson", "ConsultaComisionPago", new { area = "Comision" })',
+                ExportarComisionPdf: '@Url.Action("ExportarComisionPdf", "ConsultaComisionPago", new { area = "Comision" })',
+                ExportarComisionExcel: '@Url.Action("ExportarComisionExcel", "ConsultaComisionPago", new { area = "Comision" })',
+                GetTipoPlanillaJson: '@Url.Action("GetTipoPlanillaJson", "ConsultaComisionPago", new { area = "Comision" })',
+                GetCanalJson: '@Url.Action("GetCanalJson", "ConsultaComisionPago", new { area = "Comision" })',
+                GetGrupoJson: '@Url.Action("GetGrupoJson", "ConsultaComisionPago", new { area = "Comision" })',
+                GetEstadoCuotaJson: '@Url.Action("GetEstadoCuotaJson", "ConsultaComisionPago", new { area = "Comision" })',
+                _Persona_Busqueda: '@Url.Action("_Persona_Busqueda", "ConsultaComisionPago", new { area = "Comision" })',
+                SetFiltroGrilla: '@Url.Action("SetFiltroGrilla", "ConsultaComisionPago", new { area = "Comision" })',
+                SetDataGrilla: '@Url.Action("SetDataGrilla", "ConsultaComisionPago", new { area = "Comision" })',
+
+                codigo_personal: null
+
+            };
+
+            project.comision_index.Initialize(actionUrls);
+        });
+    </script>
+}
+
+
